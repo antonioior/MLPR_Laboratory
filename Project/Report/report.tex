@@ -3,11 +3,44 @@
 
 % Title Page
 \title{Machine Learning and Pattern Recognition Report}
-\author{}
+\author{Antonio Iorio}
 
 
 \begin{document}
-\maketitle
+\maketitle{Lab 01}
 
+The project task consists of a binary classification problem. The goal is to perform fingerprint spoofing
+detection, i.e. to identify genuine vs counterfeit fingerprint images. The dataset consists of labeled
+samples corresponding to the genuine (True, label 1) class and the fake (False, label 0) class. The
+samples are computed by a feature extractor that summarizes high-level characteristics of a fingerprint
+image. The data is 6-dimensional.
+
+\begin{enumerate}
+      \item Yes the class overlap, 
+            Features 1: for x axis in [-2.665, 2.237], for y axes in [0, 0.315]
+            Features 2: for x axis in [-2.670, 3.000],for y axes in [0, 0.325].
+            The features has a similar mean infact, for the first features the mean is 0.00170711,
+            instead for features 2 is 0.00503903.
+            The variance has a similar value, for feature 1 = 1.00134304, for feature 2 = 0.9983527
+            The main peaks in features 1 is 0.541 for false data with x in [-0.213, 0.276].
+            For features 2 is 0.516 for true data wtih x in [-0.402, 0.165]
+
+      \item Yes the class overlap,
+            Features 3: for x axis in [-2.009, 1.910], that corresponds to y axis in [0, 0.309]
+            Features 4: for x axis in [-1.684, 1.816], that corresonds to y axis in [0, 0.371]
+            The features have a similar mean, for the features 3 is -0.00560753 instead feature 4
+            is 0.00109537
+            Variance has a similar value, for feature 3 = 1.0024818 and for feature 4 = 0.99029389 
+            The main peaks for feature 3 is 0.517 for false data with x in [-1.063, -0.568]
+            For features 4 is 0.525 for false data with x in [0.290, 0.783]
+          
+      \item Yes the class overlap,
+            Feature 5: for x axis in [-2.066, 2.004], that corresponds to y axis in[0, 0.282]
+            Feature 6: for x axis in [-2.000, 2.180], that corresponds to y axis in [0, 0.301]
+            The features have a similar mean, for the features 5 is -0.00700025 instead feature 6
+            is 0.00910515
+            The main peaks for feature 5 is 0.572 for true data with x in [-1.211, -0.783]
+            for features 6 is 0.553 for true data with x in [-1.273, -0.817]
+\end{enumerate}
 
 \end{document}

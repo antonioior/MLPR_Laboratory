@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1710608468 "/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/Project/Report/report.tex" "report.pdf" "report" 1710608468 0
-  "/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/Project/Report/report.tex" 1710608467 152 cf6c49de8cca9f94751c7ae08cd88abf ""
+["pdflatex"] 1710692206 "/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/Project/Report/report.tex" "report.pdf" "report" 1710692206 0
+  "/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/Project/Report/report.tex" 1710692206 2414 b0f9868f5f424021320b5e6d689dcabe ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1704400182 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1704400182 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1704400182 1520 eccf95517727cb11801f4f1aee3a21b4 ""
@@ -11,6 +11,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1704400182 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1704400182 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1704400182 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1704400182 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1704400182 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1704400182 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/share/texmf-dist/tex/latex/base/report.cls" 1704400182 23203 3d69f4661dd74a5edb1507ff18e40fb9 ""
@@ -19,8 +20,8 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1704400182 40684 9b9ec0b4288972636ff6a3b9c4238efc ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1706180295 29871 18e04762487e39c9af1b8df78fcf191a ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1706180292 6768051 8f547b04dfe4161ea3e76c94cdf4b4de ""
-  "report.aux" 1710608468 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "report.tex" 1710608467 152 cf6c49de8cca9f94751c7ae08cd88abf ""
+  "report.aux" 1710692206 32 044b7f8fc9779af7531264e0c5c84b6d "pdflatex"
+  "report.tex" 1710692206 2414 b0f9868f5f424021320b5e6d689dcabe ""
   (generated)
   "report.aux"
   "report.log"
