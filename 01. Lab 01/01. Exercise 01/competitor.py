@@ -13,4 +13,4 @@ class Competitor:
         self.final_score = self.final_score - min_score - max_score
 
     def __str__(self):
-        return f"{self.name} {self.surname} {self.nationality} {self.final_score:.2f}"
+        return f"{self.name} {self.surname} - Score: {self.final_score:.2f}"
