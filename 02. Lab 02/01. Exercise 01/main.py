@@ -83,7 +83,7 @@ if __name__ == '__main__':
     #COVARIANCE
     C = (DC @ DC.T) / float(D.shape[1])
     print(np.cov(DC))
-    var = D.var(1)
-    std = D.std(1)  #square of variance
+    var = D.var(1)  #square of std
+    std = D.std(1)  
     print(mcol(var, D.shape[0]))
     print(mcol(std, D.shape[0]))
