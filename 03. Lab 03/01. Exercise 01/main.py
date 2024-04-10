@@ -3,12 +3,13 @@ import graph
 import PCA
 import LDA
 import projectionFunction
+import printValue
 
 if __name__ == '__main__':
     #LAB 02
     #VARIABLES TO PRINT
     createGraph = False
-    printValue = False
+    printValueMain = True
 
     D, L = load('iris.csv')
     properties = ['Sepal Length', 'Sepal Width', 'Petal Lenght', 'Petal Width']
@@ -38,18 +39,21 @@ if __name__ == '__main__':
     std = D.std(1)  
     
     
-    if printValue:
+    if printValueMain:
         print("MAIN - RESULT")
-        print(f"    Covariance matrix with dot product (DC.dot(DC.T)) / (D.shape[1])\n\t{C}")
-        print(f"    Variance is:\n\t{projectionFunction.mcol(var, D.shape[0])}")
-        print(f"    Std is:\n\t{projectionFunction.mcol(std, D.shape[0])}")
+        print(f"    Covariance matrix with dot product (DC.dot(DC.T)) / (D.shape[1])")
+        printValue.printMatrix(C)
+        print(f"    Variance is:")
+        printValue.printMatrix(projectionFunction.mcol(var, D.shape[0]))
+        print(f"    Std is:")
+        printValue.printMatrix(projectionFunction.mcol(std, D.shape[0]))
 
     #LAB 03
     #Calculate PCA
     dataProjectedPCA = PCA.PCA(D, L, C, printResults = False)
 
     #Calculate LDA
-    dataProjectedLDA = LDA.LDA(D, L, printResults = True)
+    dataProjectedLDA = LDA.LDA(D, L, printResults = False)
 
     #Print data
     graph.createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA)
