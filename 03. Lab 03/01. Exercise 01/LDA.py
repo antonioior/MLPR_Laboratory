@@ -36,29 +36,34 @@ def computeSb_Sw(D, L):
     
     Sb = computeSb(D, numClass, nSamplesClass, mu_class)
     Sw = computeSw(D, D_class, numClass, nSamplesClass, mu_class)
-    print("Sb:\n", Sb)
-    print("Sw:\n", Sw)
     return Sb, Sw
 
 def calculateEigenvalues(Sb, Sw):
     s, U = sp.linalg.eigh(Sb, Sw)
-    print("Eigenvalues s:\n", s)
-    print("Eigenvectors U:\n", U)
+
     W = projectionFunction.projection(U, 2)
-    print("W:\n", W)
     #UW, _, _ = np.linalg.svd(W)
     #U = UW[:,0:2]
     #print("U:\n", U)
-    resultEigenvector = np.load("./../Solutions/IRIS_LDA_matrix_m2.npy")
-    print("Eigenvector prof:\n", resultEigenvector)
-    return W
+    
+    return s, U, W
 
-def LDA(D, L):
+def LDA(D, L, printResults = False):
+    resultEigenvector = np.load("./../Solutions/IRIS_LDA_matrix_m2.npy")
+
     Sb, Sw = computeSb_Sw(D, L)
-    W = calculateEigenvalues(Sb, Sw)
+    s, U, W = calculateEigenvalues(Sb, Sw)
     
     #PROJECTION
     DP = np.dot(W.T, D)
-    print("DP shape is:\n", DP.shape)
-    graph.plot(DP[:, L == 0], DP[:, L == 1], DP[:, L == 2], 0, 1, "", "")
-    graph.plt.show()
+
+    if printResults:
+        print("LDA - RESULT")
+        print(f"    Sb:\n\t{Sb}")
+        print(f"    Sw:\n\t{Sw}")
+        print(f"    Eigenvalues s:\n\t{s}")
+        print(f"    Eigenvectors U:\n\t{U}")
+        print(f"    W:\n\t{W}")
+        print(f"    Eigenvector prof:\n\t{resultEigenvector}")
+
+    return DP

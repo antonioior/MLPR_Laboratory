@@ -5,25 +5,25 @@ import graph
 
 def percentageVariance(Eigenvalues):
     eigenvalues = Eigenvalues[::-1]
-    print("Eigenvalues sorted:\n", eigenvalues)
+    #print("Eigenvalues sorted:\n", eigenvalues)
     sumEigenvalues = np.sum(eigenvalues)
     for i in range(0, len(eigenvalues)):
         sumMEingvalues = np.sum(eigenvalues[:i+1])
         ratio = sumMEingvalues / sumEigenvalues * 100
-        print(f"Percentage of variance with m = {i+1}:\n{ratio:.3f}%")
+        #print(f"Percentage of variance with m = {i+1}:\n{ratio:.3f}%")
     
 
-def PCA(D, L, C):
+def PCA(D, L, C, printResults = False):
+    resultEigenvector = np.load("./../Solutions/IRIS_PCA_matrix_m4.npy")
+
     #EIGENVERCTORS AND EIGENVALUES
     s, U = np.linalg.eigh(C)
-    print("Eigenvalues s:\n", s)
-    print("Eigenvectors U:\n", U)
+    
 
     #PERCENTAGE
-    percentageVariance(s)
+    resultPercentageVariange = percentageVariance(s)
 
     P = projectionFunction.projection(U, 2)
-    print("P:\n", P)
     
     #Another way to obtain the same thing, across SVD
     # U, s, Vh = np.linalg.svd(C)
@@ -33,11 +33,15 @@ def PCA(D, L, C):
     # P = U[:,0:1]
     # print("P:\n", P)
 
-    resultEigenvector = np.load("./../Solutions/IRIS_PCA_matrix_m4.npy")
-    print("Eigenvector PCA prof:\n", resultEigenvector)
-
     #PROJECTION
     DP = np.dot(P.T, D)
-    print("DP shape is:\n", DP.shape)
-    graph.plot(DP[:, L == 0], DP[:, L == 1], DP[:, L == 2], 0, 1, "", "")
-    graph.plt.show()
+
+    #PRINT RESULTS
+    if printResults:
+        print("PCA - RESULTS")
+        print(f"\tEigenvalues s:\n\t\t{s}")
+        print(f"\tEigenvectors U:\n\t\t{U}")
+        print(f"\tProjection P:\n\t\t{P}")
+        print(f"Eigenvector PCA prof:\n\t\t{resultEigenvector}")
+
+    return DP

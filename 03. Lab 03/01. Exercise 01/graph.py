@@ -16,17 +16,36 @@ def createGraphic(data, labels, properties, comment):
     plt.show()
 
 
-def hist(D0, D1, D2, property, features):
-    plt.hist(D0[property,:], density=True, label='Setosa')
-    plt.hist(D1[property,:], density=True, label='Versicolor')
-    plt.hist(D2[property,:], density=True, label='Virginica')
+def hist(D0, D1, D2, property, features, title="", alpha = 0.5):
+    plt.hist(D0[property,:], density=True, label='Setosa', alpha=alpha)
+    plt.hist(D1[property,:], density=True, label='Versicolor', alpha=alpha)
+    plt.hist(D2[property,:], density=True, label='Virginica', alpha=alpha)
     plt.xlabel(features)
+    plt.title(title)
     plt.legend()
 
-def plot(D0, D1, D2, propertyX, propertyY, featureX, featureY):
-    plt.plot(D0[propertyX,:], D0[propertyY,:], 'o', label='Setosa')
+def plot(D0, D1, D2, propertyX, propertyY, featureX, featureY, title=""):
+    plt.plot(D0[propertyX,:], D0[propertyY,:], 'o', label='Setosa', )
     plt.plot(D1[propertyX,:], D1[propertyY,:], 'o', label='Versicolor')
     plt.plot(D2[propertyX,:], D2[propertyY,:], 'o', label='Virginica')
     plt.xlabel(featureX)
     plt.ylabel(featureY)
+    plt.title(title)
     plt.legend()
+
+
+#LAB 03
+def createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA,):
+    plt.figure("PCA vs LDA")
+    plt.subplot(2, 2, 1)
+    plot(dataProjectedPCA[:, L == 0], dataProjectedPCA[:, L == 1], dataProjectedPCA[:, L == 2], 0, 1, "", "", title="PCA, 1st and 2nd direction")
+    
+    plt.subplot(2, 2, 2)
+    plot(dataProjectedLDA[:, L == 0], dataProjectedLDA[:, L == 1], dataProjectedLDA[:, L == 2], 0, 1, "", "", title="LDA, 1st and 2nd direction")
+
+    plt.subplot(2, 2, 3)
+    hist(dataProjectedPCA[:, L == 0], dataProjectedPCA[:, L == 1], dataProjectedPCA[:, L == 2], 0, "", title="PCA, 1st direction")
+
+    plt.subplot(2, 2, 4)
+    hist(dataProjectedLDA[:, L == 0], dataProjectedLDA[:, L == 1], dataProjectedLDA[:, L == 2], 0, "", title="LDA, 1st direction")
+    plt.show()
