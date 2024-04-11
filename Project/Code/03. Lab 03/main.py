@@ -11,8 +11,7 @@ if __name__ == "__main__":
 
     #VARIABLES TO PRINT
     createGraph = False
-    printValueMain = False
-
+    
     #LAB 02
     D, L = load('trainData.txt')
     properties =["Features 1", "Features 2", "Features 3", "Features 4", "Features 5" ,"Features 6"]
@@ -49,37 +48,13 @@ if __name__ == "__main__":
     var = D.var(1)  #variance is the square of std
     std = D.std(1)  
     
-
-    if printValueMain:
-        print("MAIN - RESULT")
-        print("    Mean of the properties:")
-        printValue.printMatrix(muColumn)
-        print("    Variance of the properties:")
-        printValue.printMatrix(varColumn)
-        print("    Mean of the first two properties:")
-        printValue.printMatrix(muColumn[0:2, :])
-        print("    Variance of the first two properties:")
-        printValue.printMatrix(varColumn[0:2, :])
-        print("    Mean of the properties 3 and 4:")
-        printValue.printMatrix(muColumn[2:4, :])
-        print("    Variance of the properties 3 and 4:")
-        printValue.printMatrix(varColumn[2:4, :])
-        print("    Mean of the properties 5 and 6:")
-        printValue.printMatrix(muColumn[4:6, :])
-        print("    Variance of the properties 5 and 6:")
-        printValue.printMatrix(varColumn[4:6, :])
-        print("    Covariance matrix with dot product (DC.dot(DC.T)) / (D.shape[1])")
-        printValue.printMatrix(C)
-        print("    Variance is:")
-        printValue.printMatrix(projectionFunction.mcol(var, D.shape[0]))
-        print("    Std is:")
-        printValue.printMatrix(projectionFunction.mcol(std, D.shape[0]))
+    printValue.printDataMain(muColumn, varColumn, C, var, std, D, printData = False)
 
     #Calculate PCA
     dataProjectedPCA = PCA(D, L, C, printResults=False)
 
     #Calculate LDA
-    dataProjectedLDA = LDA(D, L, printResults=True)
+    dataProjectedLDA = LDA(D, L, printResults=False)
 
     #Print data
     graph.createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA)
