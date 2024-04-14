@@ -1,6 +1,6 @@
 #LAB 3
 import numpy as np
-import projectionFunction
+import utils as ut
 import graph
 
 def percentageVariance(Eigenvalues):
@@ -23,7 +23,7 @@ def PCA(D, L, C, printResults = False):
     #PERCENTAGE
     resultPercentageVariange = percentageVariance(s)
 
-    P = projectionFunction.projection(U, 2)
+    P = ut.projection(U, 2)
     
     #Another way to obtain the same thing, across SVD
     # U, s, Vh = np.linalg.svd(C)

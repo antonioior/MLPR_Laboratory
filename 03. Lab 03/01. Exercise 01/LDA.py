@@ -1,11 +1,11 @@
 #LAB 3
 import numpy as np
 import scipy as sp
-import projectionFunction
+import utils as ut
 import printValue
 
 def computeSb(D, numClass, nSamplesClass, muClass):
-    mu = projectionFunction.mcol(D.mean(axis=1), D.shape[0])
+    mu = ut.mcol(D.mean(axis=1), D.shape[0])
     Sb = 0
     for i in range(numClass):
         Sb += nSamplesClass[i] * np.dot((muClass[i] - mu), (muClass[i] - mu).T)
@@ -36,7 +36,7 @@ def computeSb_Sw(D, L):
     nSamplesClass = [D_class[i].shape[1] for i in range(numClass)]
     
     #mean of each class
-    mu_class = [projectionFunction.mcol(D_class[i].mean(axis=1), D_class[i].shape[0]) for i in range(numClass)]
+    mu_class = [ut.mcol(D_class[i].mean(axis=1), D_class[i].shape[0]) for i in range(numClass)]
     
     Sb = computeSb(D, numClass, nSamplesClass, mu_class)
     Sw = computeSw(D, D_class, numClass, nSamplesClass, mu_class)
@@ -45,7 +45,7 @@ def computeSb_Sw(D, L):
 def calculateEigenvalues(Sb, Sw):
     s, U = sp.linalg.eigh(Sb, Sw)
 
-    W = projectionFunction.projection(U, 2)
+    W = ut.projection(U, 2)
     #UW, _, _ = np.linalg.svd(W)
     #U = UW[:,0:2]
     #print("U:\n", U)
