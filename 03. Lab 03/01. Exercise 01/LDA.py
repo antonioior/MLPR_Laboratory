@@ -2,7 +2,7 @@
 import numpy as np
 import scipy as sp
 import projectionFunction
-import graph
+import printValue
 
 def computeSb(D, numClass, nSamplesClass, muClass):
     mu = projectionFunction.mcol(D.mean(axis=1), D.shape[0])
@@ -22,12 +22,16 @@ def computeSw(D,D_class, numClass, nSamplesClass, muClass):
     return Sw
 
 def computeSb_Sw(D, L):
+    #determina il valore delle etichette, in caso di PCA e LDA per training
+    #ha valore 1 e 2
+    valueClass = set(L)
+
     #num of classes
-    numClass = L.max() + 1
+    numClass = len(set(L))
     
     #separate data by class
-    D_class = [D[:, L == i] for i in range(numClass)]
-    
+    D_class = [D[:, L == i] for i in valueClass]
+
     #number of samples per class
     nSamplesClass = [D_class[i].shape[1] for i in range(numClass)]
     
@@ -48,7 +52,7 @@ def calculateEigenvalues(Sb, Sw):
     
     return s, U, W
 
-def LDA(D, L, printResults = False):
+def LDA(D, L, printResults = False, comment =""):
     resultEigenvector = np.load("./../Solutions/IRIS_LDA_matrix_m2.npy")
 
     Sb, Sw = computeSb_Sw(D, L)
@@ -58,12 +62,17 @@ def LDA(D, L, printResults = False):
     DP = np.dot(W.T, D)
 
     if printResults:
-        print("LDA - RESULT")
-        print(f"    Sb:\n\t{Sb}")
-        print(f"    Sw:\n\t{Sw}")
+        print("LDA - RESULT" + " " + comment)
+        print(f"    Sb:")
+        printValue.printMatrix(Sb)
+        print(f"    Sw:")
+        printValue.printMatrix(Sw)
         print(f"    Eigenvalues s:\n\t{s}")
-        print(f"    Eigenvectors U:\n\t{U}")
-        print(f"    W:\n\t{W}")
-        print(f"    Eigenvector prof:\n\t{resultEigenvector}")
+        print(f"    Eigenvectors U:")
+        printValue.printMatrix(U)
+        print(f"    W:")
+        printValue.printMatrix(W)
+        print(f"    Eigenvector prof:")
+        printValue.printMatrix(resultEigenvector)
 
-    return DP
+    return DP, W

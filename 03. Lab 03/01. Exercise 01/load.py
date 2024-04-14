@@ -1,6 +1,9 @@
 #LAB 02
 import numpy as np
+import sklearn
+import sklearn.datasets
 
+#Load all data
 def load(fileName):
     data = open(fileName, 'r',)
     D = None
@@ -25,3 +28,10 @@ def load(fileName):
         L = np.append(L, flowerType)
 
     return D, L 
+
+#LAB 03
+def loadClassifications():
+    DIris, LIris = sklearn.datasets.load_iris()['data'].T, sklearn.datasets.load_iris()['target']
+    D = DIris[:, LIris != 0]
+    L = LIris[LIris != 0]
+    return D, L

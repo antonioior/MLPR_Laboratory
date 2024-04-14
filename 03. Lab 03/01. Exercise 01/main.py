@@ -1,4 +1,5 @@
 from load import load
+from classification import classification
 import graph 
 import PCA
 import LDA
@@ -9,7 +10,7 @@ if __name__ == '__main__':
     #LAB 02
     #VARIABLES TO PRINT
     createGraph = False
-    printValueMain = True
+    printValueMain = False
 
     D, L = load('iris.csv')
     properties = ['Sepal Length', 'Sepal Width', 'Petal Lenght', 'Petal Width']
@@ -49,12 +50,18 @@ if __name__ == '__main__':
         printValue.printMatrix(projectionFunction.mcol(std, D.shape[0]))
 
     #LAB 03
+    #PCA
     #Calculate PCA
     dataProjectedPCA = PCA.PCA(D, L, C, printResults = False)
 
+    #LDA
     #Calculate LDA
-    dataProjectedLDA = LDA.LDA(D, L, printResults = False)
+    dataProjectedLDA, _ = LDA.LDA(D, L, printResults = False)
 
     #Print data
     graph.createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA)
 
+    #PCA LDA FOR CLASSIFICATION
+    #Upload data only of versicolor and virginica
+    projectedDataTraining, LTR, projectedDataValidation, LVAL = classification(printResults = True)
+    graph.createGraphicTrainingLDA(projectedDataTraining, LTR, projectedDataValidation, LVAL)

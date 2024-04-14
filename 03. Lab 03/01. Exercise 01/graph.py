@@ -16,10 +16,10 @@ def createGraphic(data, labels, properties, comment):
     plt.show()
 
 
-def hist(D0, D1, D2, property, features, title="", alpha = 0.5):
-    plt.hist(D0[property,:], density=True, label='Setosa', alpha=alpha)
-    plt.hist(D1[property,:], density=True, label='Versicolor', alpha=alpha)
-    plt.hist(D2[property,:], density=True, label='Virginica', alpha=alpha)
+def hist(D0, D1, D2, property, features, title="", alpha = 0.5, bins = 10):
+    plt.hist(D0[property,:], density=True, label='Setosa', alpha=alpha, bins = bins)
+    plt.hist(D1[property,:], density=True, label='Versicolor', alpha=alpha, bins = bins)
+    plt.hist(D2[property,:], density=True, label='Virginica', alpha=alpha, bins = bins)
     plt.xlabel(features)
     plt.title(title)
     plt.legend()
@@ -48,4 +48,15 @@ def createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA,):
 
     plt.subplot(2, 2, 4)
     hist(dataProjectedLDA[:, L == 0], dataProjectedLDA[:, L == 1], dataProjectedLDA[:, L == 2], 0, "", title="LDA, 1st direction")
+    plt.show()
+
+def createGraphicTrainingLDA(projectedDataTraining, LTR, projectedDataValidation, LVAL):
+    plt.figure("Training vs Validation")
+    
+    plt.subplot(1, 2, 1)
+    hist(projectedDataTraining[:, LTR == 0], projectedDataTraining[:, LTR == 1], projectedDataTraining[:, LTR == 2], 0, "", title = "Training", bins = 5)
+
+    plt.subplot(1, 2, 2)
+    hist(projectedDataValidation[:, LVAL == 0], projectedDataValidation[:, LVAL == 1], projectedDataValidation[:, LVAL == 2], 0, "", title = "Validation", bins = 5)
+    
     plt.show()
