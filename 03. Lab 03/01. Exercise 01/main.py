@@ -52,7 +52,7 @@ if __name__ == '__main__':
     #LAB 03
     #PCA
     #Calculate PCA
-    dataProjectedPCA = PCA(D, L, C, printResults = False)
+    dataProjectedPCA, _ = PCA(D, L, printResults = False)
 
     #LDA
     #Calculate LDA
@@ -70,12 +70,17 @@ if __name__ == '__main__':
     DVAL_lda = np.dot(W.T, DVAL)
     graph.createGraphicTrainingLDA(DTR_lda, LTR, DVAL_lda, LVAL)
 
-    threshold = (DTR_lda[0, LTR == 1].mean() + DTR_lda[0, LTR == 2].mean()) / 2
-    PVAL = np.zeros(shape=LVAL.shape, dtype=np.int32)
-    PVAL[DVAL_lda[0] >= threshold] = 2
-    PVAL[DVAL_lda[0] < threshold] = 1
-    print("LVAL\n", LVAL)
-    print("PVAL\n", PVAL)
-    difference = np.abs(LVAL - PVAL)
-    numOfErr = sum( x != 0 for x in difference)
-    print("Num of error\n", numOfErr)
+    #Note part
+    ut.calculateError(DTR_lda, LTR, DVAL_lda, LVAL)
+
+    #Startiting apply PCA
+    #Convolution on training data
+    DTR_pca, P = PCA(DTR, LTR, printResults = False)
+    DVAL_pca = np.dot(P.T, DVAL)
+    
+    #Calculate LDA on DTR of PCA
+    dataProjectedLDA, W = LDA(DTR_pca, LTR, printResults = False, comment="Classification after PCA")
+    DTR_lda = np.dot(W.T, DTR_pca)
+    DVAL_lda = np.dot(W.T, DVAL_pca)
+    ut.calculateError(DTR_lda, LTR, DVAL_lda, LVAL)
+    graph.createGraphicTrainingLDA(DTR_lda, LTR, DVAL_lda, LVAL)
