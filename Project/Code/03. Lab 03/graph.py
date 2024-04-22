@@ -1,24 +1,27 @@
-#LAB 02
-#Functoin to create the graphics
+# LAB 02
+# Functoin to create the graphics
 import matplotlib.pyplot as plt
+
 
 def createGraphic(data, labels, properties, initialProperty, finalProperty, comment):
     data0 = data[:, labels == 0]
     data1 = data[:, labels == 1]
-    plt.figure("Graphics of the properties " + properties[initialProperty] + " and " + properties[finalProperty-1] + " " + comment, figsize=(10, 10))
+    plt.figure("Graphics of the properties " + properties[initialProperty] + " and " + properties[finalProperty-1] +
+               " " + comment, figsize=(10, 10))
     count = 0
     for i in range(initialProperty, finalProperty):
         for j in range(initialProperty, finalProperty):
-            count+=1
+            count += 1
             if i == j:
                 plt.subplot(finalProperty-initialProperty, finalProperty-initialProperty, count)
                 hist(data0, data1, i, properties[i])
             else:
-               plt.subplot(finalProperty-initialProperty, finalProperty-initialProperty, count)
-               scatter(data0, data1, i, j, properties[i], properties[j])
+                plt.subplot(finalProperty-initialProperty, finalProperty-initialProperty, count)
+                scatter(data0, data1, i, j, properties[i], properties[j])
     plt.tight_layout()
 
-#Function called by createGraphic to create the histogram
+
+# Function called by createGraphic to create the histogram
 def hist(D0, D1, property, features, title=""):
     plt.hist(D0[property,:], density=True, label='False', alpha=0.5)
     plt.hist(D1[property,:], density=True, label='True', alpha=0.5)
@@ -60,13 +63,14 @@ def createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA,):
     hist(dataProjectedLDA[:, L == 0], dataProjectedLDA[:, L == 1], 0, "", title="LDA, 1st direction")
     plt.show()
 
+
 def createGraphicTrainingLDA(projectedDataTraining, LTR, projectedDataValidation, LVAL, comment=""):
     plt.figure("Training vs Validation" + " " + comment)
     
     plt.subplot(1, 2, 1)
-    hist(projectedDataTraining[:, LTR == 0], projectedDataTraining[:, LTR == 1], 0, "", title = "Training")
+    hist(projectedDataTraining[:, LTR == 0], projectedDataTraining[:, LTR == 1], 0, "", title="Training")
 
     plt.subplot(1, 2, 2)
-    hist(projectedDataValidation[:, LVAL == 0], projectedDataValidation[:, LVAL == 1], 0, "", title = "Validation")
+    hist(projectedDataValidation[:, LVAL == 0], projectedDataValidation[:, LVAL == 1], 0, "", title="Validation")
     
     plt.show()

@@ -1,7 +1,8 @@
 import utils as ut
 
-#Function to print the value of a matrix,
-#formatted of one indentation
+# Function to print the value of a matrix,
+# formatted of one indentation
+
 
 def printMatrix(matrix):
     print("\t[", end="")
@@ -15,7 +16,7 @@ def printMatrix(matrix):
     print("]", end="\n")
 
 
-def printDataMain(muColumn, varColumn, C, var, std, D, printData = False):
+def printDataMain(muColumn, varColumn, C, var, std, D, printData=False):
     if printData:
         print("MAIN - RESULT")
         print("    Mean of the properties:")

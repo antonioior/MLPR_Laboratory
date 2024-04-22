@@ -1,7 +1,8 @@
-#LAB 2
-#Function to load the data from the file
+# LAB 2
+# Function to load the data from the file
 import numpy as np
 import utils as ut
+
 
 def load(fileName):
     data = open(fileName, 'r',)
@@ -19,4 +20,4 @@ def load(fileName):
 
         L = np.append(L, int(values[6]))
 
-    return D, L 
+    return D, L
