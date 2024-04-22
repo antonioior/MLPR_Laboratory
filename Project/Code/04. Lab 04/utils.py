@@ -109,3 +109,8 @@ def logpdf_GAU_ND(X, mu, C):
 
 def loglikelihood(XND, m_ML, C_ML):
     return logpdf_GAU_ND(XND, m_ML, C_ML).sum()
+
+def compute_mu_C(D):
+    mu = mcol(D.mean(1), D.mean(1).size)
+    C = ((D - mu) @ (D - mu).T) / float(D.shape[1])
+    return mu, C

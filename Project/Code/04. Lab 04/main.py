@@ -91,4 +91,15 @@ if __name__ == "__main__":
         graph.createGraphicTrainingLDA(DTR_lda, LTR, DVAL_lda, LVAL, comment="With PCA")
 
     # LAB 04
+    #Selezioniamo la prima feature
+    plt.figure()
+    plt.hist(D[0, L == 0].ravel(), density=True, label='False', alpha=0.5, bins=50)
+    plt.hist(D[0, L == 1].ravel(), density=True, label='True', alpha=0.5, bins=50)
 
+    XPlot = np.linspace(-5, 5, 1000)
+    mu, C = ut.compute_mu_C(np.array(D[0:1, L == 0]))
+    plt.plot(XPlot.ravel(), np.exp(ut.logpdf_GAU_ND(ut.vrow(XPlot), mu, C)), label = 'False')
+    mu, C = ut.compute_mu_C(np.array(D[0:1, L == 1]))
+    plt.plot(XPlot.ravel(), np.exp(ut.logpdf_GAU_ND(ut.vrow(XPlot), mu, C)), label='True')
+    plt.legend()
+    plt.show()

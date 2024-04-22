@@ -10,14 +10,14 @@ if __name__ == "__main__":
     C = np.ones((1, 1)) * 2.
     plt.plot(XPlot.ravel(), np.exp(ut.logpdf_GAU_ND(ut.vrow(XPlot), m, C)))
     plt.show()
-    pdfSol = np.load("./Solutions/llGAU.npy")
+    pdfSol = np.load("../Solutions/llGAU.npy")
     pdfGau = ut.logpdf_GAU_ND(ut.vrow(XPlot), m, C)
     print(np.abs(pdfSol - pdfGau).max())
 
-    XND = np.load("./Solutions/XND.npy")
-    mu = np.load("./Solutions/muND.npy")
-    C = np.load("./Solutions/CND.npy")
-    pdfSol = np.load("./Solutions/llND.npy")
+    XND = np.load("../Solutions/XND.npy")
+    mu = np.load("../Solutions/muND.npy")
+    C = np.load("../Solutions/CND.npy")
+    pdfSol = np.load("../Solutions/llND.npy")
     pdfGau = ut.logpdf_GAU_ND(XND, mu, C)
     print(np.abs(pdfSol - pdfGau).max())
 
