@@ -1,4 +1,4 @@
-import projectionFunction
+import utils as ut
 
 #Function to print the value of a matrix,
 #formatted of one indentation
@@ -37,6 +37,6 @@ def printDataMain(muColumn, varColumn, C, var, std, D, printData = False):
         print("    Covariance matrix with dot product (DC.dot(DC.T)) / (D.shape[1])")
         printMatrix(C)
         print("    Variance is:")
-        printMatrix(projectionFunction.mcol(var, D.shape[0]))
+        printMatrix(ut.mcol(var, D.shape[0]))
         print("    Std is:")
-        printMatrix(projectionFunction.mcol(std, D.shape[0]))
+        printMatrix(ut.mcol(std, D.shape[0]))

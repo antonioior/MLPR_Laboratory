@@ -54,9 +54,9 @@ def createGraphicTrainingLDA(projectedDataTraining, LTR, projectedDataValidation
     plt.figure("Training vs Validation")
     
     plt.subplot(1, 2, 1)
-    hist(projectedDataTraining[:, LTR == 0], projectedDataTraining[:, LTR == 1], projectedDataTraining[:, LTR == 2], 0, "", title = "Training", bins = 5)
+    hist(projectedDataTraining[:, LTR == 0], projectedDataTraining[:, LTR == 1], projectedDataTraining[:, LTR == 2], 0, "", title = "Training")
 
     plt.subplot(1, 2, 2)
-    hist(projectedDataValidation[:, LVAL == 0], projectedDataValidation[:, LVAL == 1], projectedDataValidation[:, LVAL == 2], 0, "", title = "Validation", bins = 5)
+    hist(projectedDataValidation[:, LVAL == 0], projectedDataValidation[:, LVAL == 1], projectedDataValidation[:, LVAL == 2], 0, "", title = "Validation")
     
     plt.show()

@@ -1,11 +1,13 @@
 import numpy as np
 
 #LAB 02
-def mcol(mu, shape):
-    return mu.reshape(shape, 1)
+#Function to create a column vector 1
+def mcol(data, shape):
+    return data.reshape(shape, 1)
 
-def mrow(mu, shape):
-    return mu.reshape(1, shape)
+#Function to create a row vector
+def mrow(data, shape):
+    return data.reshape(1, shape)
 
 #LAB 03
 def projection(U, m):
@@ -32,11 +34,14 @@ def calculateError(DTR_lda, LTR, DVAL_lda, LVAL, printResults = False):
     PVAL[DVAL_lda[0] < threshold] = 1
     difference = np.abs(LVAL - PVAL)
     numOfErr = sum( x != 0 for x in difference)
+    errorRate = float(numOfErr) / float(LVAL.shape[0]) * 100 
 
     if printResults:
         print("Error - RESULTS")
         print(f"    Threshold: {threshold}")
+        print(f"    Number of samples:\n\t{PVAL.shape[0]}")
         print(f"    Real values:\n\t{LVAL}")
         print(f"    Predicted values:\n\t{PVAL}")
         print(f"    Difference:\n\t{difference}")
-        print(f"    Number of errors:\n\t{numOfErr}")
+        print(f"    Number of errors: {numOfErr}")
+        print(f"    Error rate: {errorRate:.5f}%")

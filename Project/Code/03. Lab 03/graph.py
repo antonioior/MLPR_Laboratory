@@ -37,6 +37,14 @@ def scatter(D0, D1, propertyX, propertyY, featureX, featureY, alpha=0.5, title="
 
 
 #LAB 03
+def representRatio(ratio):
+    plt.figure("Percentage of variance")
+    plt.plot(range(1, len(ratio)+1), ratio, marker='o', linestyle='--')
+    plt.xlabel("Number of components")
+    plt.ylabel("Percentage of variance")
+    plt.title("Percentage of variance vs number of components")
+    plt.show()
+
 def createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA,):
     plt.figure("PCA vs LDA")
     plt.subplot(2, 2, 1)
@@ -50,4 +58,15 @@ def createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA,):
 
     plt.subplot(2, 2, 4)
     hist(dataProjectedLDA[:, L == 0], dataProjectedLDA[:, L == 1], 0, "", title="LDA, 1st direction")
+    plt.show()
+
+def createGraphicTrainingLDA(projectedDataTraining, LTR, projectedDataValidation, LVAL, comment=""):
+    plt.figure("Training vs Validation" + " " + comment)
+    
+    plt.subplot(1, 2, 1)
+    hist(projectedDataTraining[:, LTR == 0], projectedDataTraining[:, LTR == 1], 0, "", title = "Training")
+
+    plt.subplot(1, 2, 2)
+    hist(projectedDataValidation[:, LVAL == 0], projectedDataValidation[:, LVAL == 1], 0, "", title = "Validation")
+    
     plt.show()

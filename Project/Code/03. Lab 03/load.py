@@ -1,7 +1,7 @@
 #LAB 2
 #Function to load the data from the file
 import numpy as np
-import projectionFunction
+import utils as ut
 
 def load(fileName):
     data = open(fileName, 'r',)
@@ -10,7 +10,7 @@ def load(fileName):
     for row in data:
         values = row.strip().split(',')
 
-        columnProperty = projectionFunction.mcol(np.array(values[0:6], dtype=float), 6)
+        columnProperty = ut.mcol(np.array(values[0:6], dtype=float), 6)
 
         if D is None:
             D = columnProperty

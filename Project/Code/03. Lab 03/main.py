@@ -2,7 +2,7 @@ from load import load
 from PCA import PCA
 from LDA import LDA
 import numpy as np
-import projectionFunction
+import utils as ut
 import graph
 import printValue
 
@@ -17,13 +17,13 @@ if __name__ == "__main__":
     properties =["Features 1", "Features 2", "Features 3", "Features 4", "Features 5" ,"Features 6"]
     
     mu = D.mean(axis=1)
-    muColumn = projectionFunction.mcol(mu, D.shape[0])
+    muColumn = ut.mcol(mu, D.shape[0])
     DC = D - muColumn
 
     var = D.var(1)
     std = D.std(1)  #square of variance
-    varColumn = projectionFunction.mcol(var, D.shape[0])
-    stdColumn = projectionFunction.mcol(std, D.shape[0])
+    varColumn = ut.mcol(var, D.shape[0])
+    stdColumn = ut.mcol(std, D.shape[0])
     
     
     if createGraph:
@@ -51,10 +51,33 @@ if __name__ == "__main__":
     printValue.printDataMain(muColumn, varColumn, C, var, std, D, printData = False)
 
     #Calculate PCA
-    dataProjectedPCA = PCA(D, L, C, printResults=False)
+    dataProjectedPCA, _, ratio = PCA(D, L, 6, printResults=False)
+    graph.representRatio(ratio)
 
     #Calculate LDA
-    dataProjectedLDA = LDA(D, L, printResults=False)
+    dataProjectedLDA, _ = LDA(D, L, printResults=False)
 
     #Print data
     graph.createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA)
+
+    #PCA and LDA for classification
+    (DTR, LTR), (DVAL, LVAL) = ut.split_db_2to1(D, L)
+    dataProjected, W = LDA(DTR, LTR, printResults = False, comment="Classification")
+    DTR_lda = np.dot(W.T, DTR)
+    DVAL_lda = np.dot(W.T, DVAL)
+    graph.createGraphicTrainingLDA(DTR_lda, LTR, DVAL_lda, LVAL, comment="")
+
+    #Note part
+    ut.calculateError(DTR_lda, LTR, DVAL_lda, LVAL, printResults=True)
+
+    #Startiting apply PCA
+    #Convolution on training data
+    DTR_pca, P, _ = PCA(DTR, LTR, printResults = False, m=1)
+    DVAL_pca = np.dot(P.T, DVAL)
+    
+    #Calculate LDA on DTR of PCA
+    dataProjectedLDA, W = LDA(DTR_pca, LTR, printResults = False, comment="Classification after PCA")
+    DTR_lda = np.dot(W.T, DTR_pca)
+    DVAL_lda = np.dot(W.T, DVAL_pca)
+    ut.calculateError(DTR_lda, LTR, DVAL_lda, LVAL, printResults=False)
+    graph.createGraphicTrainingLDA(DTR_lda, LTR, DVAL_lda, LVAL, comment="With PCA")

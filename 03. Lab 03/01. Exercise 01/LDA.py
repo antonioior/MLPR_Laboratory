@@ -22,7 +22,7 @@ def computeSw(D,D_class, numClass, nSamplesClass, muClass):
     return Sw
 
 def computeSb_Sw(D, L):
-    #determina il valore delle etichette, in caso di PCA e LDA per training
+    #compute value of the labels, in caso di PCA e LDA per training
     #ha valore 1 e 2
     valueClass = set(L)
 
