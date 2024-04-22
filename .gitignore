@@ -1,3 +1,5 @@
 Solutions
-.gitignore
 __pycache__
+
+.gitignore
+.ideea
