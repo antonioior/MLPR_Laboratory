@@ -35,20 +35,53 @@ def split_db_2to1(D, L, seed=0):
 
 
 def calculateError(DTR_lda, LTR, DVAL_lda, LVAL, printResults=False):
-    threshold = (DTR_lda[0, LTR == 1].mean() + DTR_lda[0, LTR == 2].mean()) / 2
-    PVAL = np.zeros(shape=LVAL.shape, dtype=np.int32)
-    PVAL[DVAL_lda[0] >= threshold] = 2
-    PVAL[DVAL_lda[0] < threshold] = 1
-    difference = np.abs(LVAL - PVAL)
-    numOfErr = sum(x != 0 for x in difference)
-    errorRate = float(numOfErr) / float(LVAL.shape[0]) * 100 
+    # Original threshold
+    # threshold = (DTR_lda[0, LTR == 0].mean() + DTR_lda[0, LTR == 1].mean()) / 2.
+    # PVAL = np.zeros(shape=LVAL.shape, dtype=np.int32)
+    # PVAL[DVAL_lda[0] >= threshold] = 1
+    # PVAL[DVAL_lda[0] < threshold] = 0
+    # difference = np.abs(LVAL - PVAL)
+    # numOfErr = sum(x != 0 for x in difference)
+    # errorRate = float(numOfErr) / float(LVAL.shape[0]) * 100
+
+    #if printResults:
+    #    print("Error - RESULTS")
+    #    print(f"    Threshold: {threshold}")
+    #    print(f"    Number of samples:\n\t{PVAL.shape[0]}")
+    #    print(f"    Real values:\n\t{LVAL}")
+    #    print(f"    Predicted values:\n\t{PVAL}")
+    #    print(f"    Difference:\n\t{difference}")
+    #    print(f"    Number of errors: {numOfErr}")
+    #    print(f"    Error rate: {errorRate:.5f}%")
+
+
+    # Compute of the best threshold
+    best_threshold = None
+    best_error_rate = float('inf')
+
+    for threshold in np.linspace(DTR_lda.min(), DTR_lda.max(), 100):
+        PVAL = np.zeros(shape=LVAL.shape, dtype=np.int32)
+        PVAL[DVAL_lda[0] >= threshold] = 1
+        PVAL[DVAL_lda[0] < threshold] = 0
+        diff = np.abs(PVAL - LVAL).sum()
+        error_rate = diff / len(LVAL)
+        if error_rate < best_error_rate:
+            best_error_rate = error_rate
+            best_threshold = threshold
+
+    PVAL=np.zeros(shape=LVAL.shape, dtype=np.int32)
+    PVAL[DVAL_lda[0] >= best_threshold] = 1
+    PVAL[DVAL_lda[0] < best_threshold] = 0
+    diff = np.abs(PVAL-LVAL).sum()
+    error_rate = (diff / len(LVAL))
 
     if printResults:
         print("Error - RESULTS")
-        print(f"    Threshold: {threshold}")
+        print(f"    Threshold: {best_threshold}")
         print(f"    Number of samples:\n\t{PVAL.shape[0]}")
         print(f"    Real values:\n\t{LVAL}")
         print(f"    Predicted values:\n\t{PVAL}")
-        print(f"    Difference:\n\t{difference}")
-        print(f"    Number of errors: {numOfErr}")
-        print(f"    Error rate: {errorRate:.5f}%")
+        print(f"    Number of errors: {diff}")
+        print(f"    Error rate: {error_rate:.5f}%")
+
+

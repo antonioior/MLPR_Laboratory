@@ -16,7 +16,7 @@ def percentageVariance(Eigenvalues):
     return ratio    
 
 
-def PCA(D, L, m, printResults=False):
+def PCA(D, m, printResults=False):
     mu = D.mean(axis=1)
     DC = D - ut.mcol(mu, D.shape[0])
     C = (DC.dot(DC.T)) / (D.shape[1])
