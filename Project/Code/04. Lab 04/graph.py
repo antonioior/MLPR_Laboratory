@@ -22,9 +22,9 @@ def createGraphic(data, labels, properties, initialProperty, finalProperty, comm
 
 
 # Function called by createGraphic to create the histogram
-def hist(D0, D1, property, features, title=""):
-    plt.hist(D0[property,:], density=True, label='False', alpha=0.5)
-    plt.hist(D1[property,:], density=True, label='True', alpha=0.5)
+def hist(D0, D1, property, features, title="", bins=10):
+    plt.hist(D0[property, :], density=True, label='False', alpha=0.5, bins=bins)
+    plt.hist(D1[property, :], density=True, label='True', alpha=0.5, bins=bins)
     plt.xlabel(features)
     plt.title(title)
     plt.legend()
@@ -74,3 +74,10 @@ def createGraphicTrainingLDA(projectedDataTraining, LTR, projectedDataValidation
     hist(projectedDataValidation[:, LVAL == 0], projectedDataValidation[:, LVAL == 1], 0, "", title="Validation")
     
     plt.show()
+
+
+def createGraphicDensityEstimation(D0, D1, property, feature, x, yFalse, yTrue):
+    hist(D0, D1, property, feature, title="", bins=50)
+    plt.plot(x, yFalse, label='False')
+    plt.plot(x, yTrue, label='True')
+    plt.legend()
