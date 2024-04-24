@@ -75,7 +75,7 @@ def createGraphicTrainingLDA(projectedDataTraining, LTR, projectedDataValidation
     
     plt.show()
 
-
+# LAB 04
 def createGraphicDensityEstimation(D0, D1, property, feature, x, yFalse, yTrue):
     hist(D0, D1, property, feature, title="", bins=50)
     plt.plot(x, yFalse, label='False')

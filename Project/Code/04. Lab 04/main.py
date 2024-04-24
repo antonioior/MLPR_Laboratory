@@ -1,12 +1,9 @@
 from load import load
-from PCA import PCA
-from LDA import LDA
-import numpy as np
 import utils as ut
 import graph
 import printValue
-import densityEstimation as de
-import matplotlib.pyplot as plt
+from PCA_LDA import PCA_LDA
+from densityEstimation import densityEstimation
 
 if __name__ == "__main__":
 
@@ -44,53 +41,16 @@ if __name__ == "__main__":
         graph.plt.show()
 
 
-    # LAB 03
     # Covariance
     C = (DC.dot(DC.T)) / (D.shape[1])
     var = D.var(1)  # variance is the square of std
-    std = D.std(1)  
-    
+    std = D.std(1)
     printValue.printDataMain(muColumn, varColumn, C, var, std, D, printData=False)
 
-    # Calculate PCA
-    dataProjectedPCA, _, ratio = PCA(D, 6, printResults=False)
-    if createGraph:
-        graph.representRatio(ratio)
-
-    # Calculate LDA
-    dataProjectedLDA, _ = LDA(D, L, printResults=False)
-
-    # Print data
-    if createGraph:
-        graph.createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA)
-
-
-    # PCA and LDA for classification
-    (DTR, LTR), (DVAL, LVAL) = ut.split_db_2to1(D, L)
-    dataProjected, W = LDA(DTR, LTR, printResults=False, comment="Classification")
-    DTR_lda = np.dot(W.T, DTR)
-    DVAL_lda = np.dot(W.T, DVAL)
-    if createGraph:
-        graph.createGraphicTrainingLDA(DTR_lda, LTR, DVAL_lda, LVAL, comment="Classification")
-
-
-    # Note part
-    ut.calculateError(DTR_lda, LTR, DVAL_lda, LVAL, printResults=False)
-
-    # Startiting apply PCA
-    # Convolution on training data
-    DTR_pca, P, _ = PCA(DTR, 1, printResults=False)
-    DVAL_pca = np.dot(P.T, DVAL)
-    
-    # Calculate LDA on DTR of PCA
-    dataProjectedLDA, W = LDA(DTR_pca, LTR, printResults=False, comment="Classification after PCA")
-    DTR_lda = np.dot(W.T, DTR_pca)
-    DVAL_lda = np.dot(W.T, DVAL_pca)
-    ut.calculateError(DTR_lda, LTR, DVAL_lda, LVAL, printResults=False)
-    if createGraph:
-        graph.createGraphicTrainingLDA(DTR_lda, LTR, DVAL_lda, LVAL, comment="With PCA")
+    # LAB 03
+    # PCA_LDA
+    PCA_LDA(D, L, createGraph=False, printResults=False)
 
     # LAB 04
     # DENSITY ESTIMATION
-    de.densityEstimation(D, L, createGraph=False, printResults=False, comment="")
-
+    densityEstimation(D, L, createGraph=False, printResults=False, comment="")

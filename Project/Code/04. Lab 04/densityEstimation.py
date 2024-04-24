@@ -3,7 +3,7 @@ import numpy as np
 from utils import compute_mu_C, vrow, loglikelihood, logpdf_GAU_ND
 from graph import createGraphicDensityEstimation
 
-
+# CONTAIN ALL LAB 4
 def densityEstimation(D, L, createGraph=False, printResults=False, comment=""):
     x = np.linspace(-5, 5, 1000)
     plt.figure("Density Estimation", figsize=(20, 10))
