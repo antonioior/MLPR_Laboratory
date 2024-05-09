@@ -10,7 +10,7 @@ if __name__ == "__main__":
     # VARIABLES TO PRINT
     createGraph = False
     
-    # LAB 02
+    # LAB 02 - COMPLETED
     D, L = load('trainData.txt')
     properties = ["Features 1", "Features 2", "Features 3", "Features 4", "Features 5", "Features 6"]
     
@@ -47,10 +47,10 @@ if __name__ == "__main__":
     std = D.std(1)
     printValue.printDataMain(muColumn, varColumn, C, var, std, D, printData=False)
 
-    # LAB 03
+    # LAB 03 - COMPLETED
     # PCA_LDA
     PCA_LDA(D, L, createGraph=False, printResults=False)
 
-    # LAB 04
+    # LAB 04 - COMPLETED
     # DENSITY ESTIMATION
     densityEstimation(D, L, createGraph=False, printResults=False, comment="")
