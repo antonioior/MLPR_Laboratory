@@ -1,4 +1,5 @@
 from MVG import MVG
+from NB import NB
 from load import load
 from utils import split_db_2to1
 
@@ -9,3 +10,4 @@ if __name__ == "__main__":
 
     # First model Multivariate Gaussian Classifier
     MVG(DTR, LTR, DTE, LTE, printData=False)
+    NB(DTR, LTR, DTE, LTE, printData=True)
