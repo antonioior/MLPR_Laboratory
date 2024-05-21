@@ -36,3 +36,29 @@ def compute_logPosterior(S_logLikelihood, v_prior):
     SMarginal = vrow(sp.special.logsumexp(SJoint, axis=0))
     SPost = SJoint - SMarginal
     return SPost
+
+
+def calculateError(DTR_lda, LTR, DVAL_lda, LVAL, printResults=False):
+    threshold = (DTR_lda[0, LTR == 1].mean() + DTR_lda[0, LTR == 2].mean()) / 2
+    PVAL = np.zeros(shape=LVAL.shape, dtype=np.int32)
+    PVAL[DVAL_lda[0] >= threshold] = 2
+    PVAL[DVAL_lda[0] < threshold] = 1
+    difference = np.abs(LVAL - PVAL)
+    numOfErr = sum(x != 0 for x in difference)
+
+    if printResults:
+        print("Error - RESULTS")
+        print(f"    Threshold: {threshold}")
+        print(f"    Real values:\n\t{LVAL}")
+        print(f"    Predicted values:\n\t{PVAL}")
+        print(f"    Difference:\n\t{difference}")
+        print(f"    Number of errors:\n\t{numOfErr}")
+        print(f"    Error rate: {(numOfErr / LVAL.shape[0]) * 100:.1f}%")
+
+
+def mcol(mu, shape):
+    return mu.reshape(shape, 1)
+
+
+def projection(U, m):
+    return U[:, ::-1][:, 0:m]

@@ -14,7 +14,6 @@ def computeMeanAndCovariance(data):
     mu = vcol(mu)
     dataCenter = data - mu
     covariance = (dataCenter @ dataCenter.T) / float(dataCenter.shape[1])
-    covariance = covariance * np.eye(data.shape[0])
     return mu, covariance
 
 
