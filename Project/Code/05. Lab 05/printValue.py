@@ -1,18 +1,20 @@
 import utils as ut
 
+
 # Function to print the value of a matrix,
 # formatted of one indentation
 
 
-def printMatrix(matrix):
+def printMatrix(matrix, decimals=8):
     print("\t[", end="")
     for i in range(0, matrix.shape[0]):
+        formatted_row = ", ".join(f"{num:.{decimals}f}" for num in matrix[i, :])
         if i == 0:
-            print(f"{matrix[i,:]}")
+            print(f"[{formatted_row}]")
         elif i == matrix.shape[0] - 1:
-            print(f"\t {matrix[i,:]}", end="")
+            print(f"\t [{formatted_row}]", end="")
         else:
-            print(f"\t {matrix[i,:]}")
+            print(f"\t [{formatted_row}]")
     print("]", end="\n")
 
 
