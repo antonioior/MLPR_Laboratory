@@ -55,6 +55,6 @@ if __name__ == "__main__":
     # DENSITY ESTIMATION
     densityEstimation(D, L, createGraph=False, printResults=False, comment="")
 
-    # LAB 05 -
+    # LAB 05 - COMPLETED
     # GENERATIVE MODELS
     generativeModels(D, L, printResults=True)
