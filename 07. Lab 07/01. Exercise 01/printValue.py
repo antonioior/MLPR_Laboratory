@@ -16,7 +16,7 @@ def printConfusionMatrix(matrix):
     for i in range(matrix.shape[0]):
         print("\t\t", end="")
         if i == 0:
-            print(f"{spaces * " " + 2 * " "}|  0 1 2")
+            print(f"{spaces * " " + 2 * " "}|  {' '.join(str(k) for k in range(matrix.shape[1]))}")
             print(f"\t\t{spaces * " "}-----------")
         elif i == 1:
             print(f"Prediction", end="")

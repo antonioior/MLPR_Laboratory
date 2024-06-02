@@ -44,3 +44,8 @@ def computeConfusionMatrix(PVAL, LTE):
     for i in range(len(PVAL)):
         confusionMatrix[PVAL[i]][LTE[i]] += 1
     return confusionMatrix
+
+
+def optimalBayesDecision(pi, Cfn, Cfp):
+    threshold = - np.log(pi * Cfn / ((1 - pi) * Cfp))
+    return threshold
