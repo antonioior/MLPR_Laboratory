@@ -1,11 +1,14 @@
 from Commedia import computeConfusionMatrixCommedia, LoadllrLTEInfPar, computePVAL_Inf_Par
 from Iris import computeConfusionMatrixIris
+from graph import createRocCurve
 from load import load
 from printValue import printConfusionMatrix
-from utils import split_db_2to1, computeConfusionMatrix, computeDCF, computeDCFNormalized, compute_minDCF_binary_fast
+from utils import split_db_2to1, computeConfusionMatrix, computeDCF, computeDCFNormalized, compute_minDCF_binary_fast, \
+    compute_Pfn_Pfp_allThresholds_fast
 
 if __name__ == "__main__":
     printData = True
+    graphRocCurve = True
     D, L = load()
     (DTR, LTR), (DTE, LTE) = split_db_2to1(D, L)
 
@@ -55,6 +58,12 @@ if __name__ == "__main__":
         minDCF[key] = compute_minDCF_binary_fast(llrInf_Par, LTE_Inf_Par, valueConfiguration[key][0],
                                                  valueConfiguration[key][1],
                                                  valueConfiguration[key][2])
+
+    # ROC CURVES
+    Pfn, Pfp, _ = compute_Pfn_Pfp_allThresholds_fast(llrInf_Par, LTE_Inf_Par)
+    Ptp = 1 - Pfn
+    if graphRocCurve:
+        createRocCurve(Pfp, Ptp, [0.0, 1.0], [0.0, 1.0], "FPR", "TPR")
 
     if printData:
         print("MAIN - RESULT")
