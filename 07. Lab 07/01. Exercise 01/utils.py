@@ -117,3 +117,7 @@ def compute_minDCF_binary_fast(llr, classLabels, prior, Cfn, Cfp, returnThreshol
         return minDCF[idx], th[idx]
     else:
         return minDCF[idx]
+
+
+def computeEffectivePrior(prior):
+    return 1 / (1 + np.exp(-prior))
