@@ -15,7 +15,8 @@ def computeConfusionMatrixCommedia():
 def LoadllrLTEInfPar():
     llrInf_Par = np.load("../Data/commedia_llr_infpar.npy")
     LTE_Inf_Par = np.load("../Data/commedia_labels_infpar.npy")
-    return llrInf_Par, LTE_Inf_Par
+    llrInf_Par_Eps1 = np.load("../Data/commedia_llr_infpar_eps1.npy")
+    return llrInf_Par, LTE_Inf_Par, llrInf_Par_Eps1
 
 
 def computePVAL_Inf_Par(llrInf_Par, pi, Cfn, Cfp):
@@ -70,7 +71,6 @@ def comuputeMinDCF(llrInf_Par, LTE_Inf_Par, configuration):
 def bayesError(llrInf_Par, LTE_Inf_Par):
     effPriorLogOdds = np.linspace(-3, 3, 21)
     piT = []
-    matrix = []
     dcf = []
     minDCF = []
     for prior in effPriorLogOdds:
