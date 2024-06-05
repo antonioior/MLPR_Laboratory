@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 import Commedia as cm
 from Iris import computeConfusionMatrixIris
@@ -9,7 +10,7 @@ from utils import split_db_2to1, compute_Pfn_Pfp_allThresholds_fast
 
 if __name__ == "__main__":
     printData = True
-    graphRocCurve = True
+    printGraph = True
     D, L = load()
     (DTR, LTR), (DTE, LTE) = split_db_2to1(D, L)
 
@@ -47,6 +48,38 @@ if __name__ == "__main__":
 
     effPriorLogOddsEps1, dcfBayesErrorEps1, minDCFBayesErrorEps1 = cm.bayesError(llrInf_Par_Eps1, LTE_Inf_Par)
 
+    # MULTICLASS EVALUATION
+    C = np.array([[0, 1, 2], [1, 0, 1], [2, 1, 0]])
+    prior = np.array([0.3, 0.4, 0.3])
+
+    # epsilon = 0.001
+    S_logPost, LTE_Commedia = cm.loadMulticlass()
+    confusionMatrixMulticlass = cm.computeConfusionMatrixMulticlass(S_logPost, prior, C, LTE_Commedia)
+    DCFMulticlass, DCFMulticlassNormalized = cm.computeDCFMuilticlassCommedia(confusionMatrixMulticlass, prior, C)
+
+    # epsilon = 1
+    S_logPostEps1, LTE_CommediaEps1 = cm.loadMulticlassEps1()
+    confusionMatrixMulticlassEps1 = cm.computeConfusionMatrixMulticlass(S_logPostEps1, prior, C, LTE_CommediaEps1)
+    DCFMulticlassEps1, DCFMulticlassNormalizedEps1 = cm.computeDCFMuilticlassCommedia(confusionMatrixMulticlassEps1,
+                                                                                      prior,
+                                                                                      C)
+
+    # uniformClass
+    CUniform = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
+    priorUniform = np.array([1 / 3, 1 / 3, 1 / 3])
+
+    confusionMatrixMulticlassUniform = cm.computeConfusionMatrixMulticlass(S_logPost, priorUniform, CUniform,
+                                                                           LTE_Commedia)
+    DCFMulticlassUniform, DCFMulticlassNormalizedUniform = cm.computeDCFMuilticlassCommedia(
+        confusionMatrixMulticlassUniform, priorUniform, CUniform)
+
+    confusionMatrixMulticlassEps1Uniform = cm.computeConfusionMatrixMulticlass(S_logPostEps1, priorUniform, CUniform,
+                                                                               LTE_CommediaEps1)
+    DCFMulticlassEps1Uniform, DCFMulticlassNormalizedEps1Uniform = cm.computeDCFMuilticlassCommedia(
+        confusionMatrixMulticlassEps1Uniform,
+        priorUniform,
+        CUniform)
+
     if printData:
         print("MAIN - RESULT")
         # CONFUSION MATRIX
@@ -82,19 +115,20 @@ if __name__ == "__main__":
             print(
                 f"\t\t{configuration[key][0], configuration[key][1], configuration[key][2]} -> {minDCF[key]: 3.3f}")
 
-        # ROC CURVES
-        createRocCurve(Pfp, Ptp, [0.0, 1.0], [0.0, 1.0], "FPR", "TPR")
+        if printGraph:
+            # ROC CURVES
+            createRocCurve(Pfp, Ptp, [0.0, 1.0], [0.0, 1.0], "FPR", "TPR")
 
-        # BAYES ERROR PLOTS EPSILON = 0.001
-        createBayesErrorPlots(effPriorLogOdds, dcfBayesError, minDCFBayesError, [-3, 3], [0, 1.1], 0.001, "r", "b")
-        plt.show()
+            # BAYES ERROR PLOTS EPSILON = 0.001
+            createBayesErrorPlots(effPriorLogOdds, dcfBayesError, minDCFBayesError, [-3, 3], [0, 1.1], 0.001, "r", "b")
+            plt.show()
 
-        # BAYES ERROR PLOTS EPSILON = 1
-        createBayesErrorPlots(effPriorLogOdds, dcfBayesError, minDCFBayesError, [-3, 3], [0, 1.1], 0.001, "r", "b")
-        createBayesErrorPlots(effPriorLogOddsEps1, dcfBayesErrorEps1, minDCFBayesErrorEps1, [-3, 3], [0, 1.1], 1,
-                              "orange",
-                              "cyan")
-        plt.show()
+            # BAYES ERROR PLOTS EPSILON = 1
+            createBayesErrorPlots(effPriorLogOdds, dcfBayesError, minDCFBayesError, [-3, 3], [0, 1.1], 0.001, "r", "b")
+            createBayesErrorPlots(effPriorLogOddsEps1, dcfBayesErrorEps1, minDCFBayesErrorEps1, [-3, 3], [0, 1.1], 1,
+                                  "orange",
+                                  "cyan")
+            plt.show()
 
         print("\n\t\t(pi, Cfn, Cfp) -> DCFn \u03B5 = 1")
         for key in dcfNormalizedEps1:
@@ -105,3 +139,17 @@ if __name__ == "__main__":
         for key in minDCFEps1:
             print(
                 f"\t\t{configuration[key][0], configuration[key][1], configuration[key][2]} -> {minDCFEps1[key]: 3.3f}")
+
+        print("\n\tMULTICLASS EVALUATION for \u03B5 = 0.001")
+        printConfusionMatrix(confusionMatrixMulticlass)
+        print(f"\t\tDCF = {DCFMulticlass:.3f}")
+        print(f"\t\tDCF Normalized = {DCFMulticlassNormalized:.3f}")
+        print("\n\tMULTICLASS EVALUATION for \u03B5 = 1")
+        printConfusionMatrix(confusionMatrixMulticlassEps1)
+        print(f"\t\tDCF = {DCFMulticlassEps1:.3f}")
+        print(f"\t\tDCF Normalized = {DCFMulticlassNormalizedEps1:.3f}")
+
+        print("\n\tMULTICLASS EVALUATION for Uniform")
+        print("\t\t\t\t\t DCF\tDCFNormalized")
+        print(f"\t \u03B5 = 0.001\t\t{DCFMulticlassUniform:.3f}\t  {DCFMulticlassNormalizedUniform:.3f}")
+        print(f"\t \u03B5 = 1\t\t\t{DCFMulticlassEps1Uniform:.3f}\t  {DCFMulticlassNormalizedEps1Uniform:.3f}")

@@ -1,14 +1,13 @@
 import numpy as np
 
-from utils import computeConfusionMatrix, optimalBayesDecision, computeDCF, computeDCFNormalized, \
-    compute_minDCF_binary_fast, computeEffectivePrior
+import utils as ut
 
 
 def computeConfusionMatrixCommedia():
     S_logPost = np.load("../Data/commedia_ll.npy")
     PVAL_Commedia = S_logPost.argmax(0)
     LTE_Commedia = np.load("../Data/commedia_labels.npy")
-    confusionMatrix = computeConfusionMatrix(PVAL_Commedia, LTE_Commedia)
+    confusionMatrix = ut.computeConfusionMatrix(PVAL_Commedia, LTE_Commedia)
     return confusionMatrix
 
 
@@ -20,7 +19,7 @@ def LoadllrLTEInfPar():
 
 
 def computePVAL_Inf_Par(llrInf_Par, pi, Cfn, Cfp):
-    t = optimalBayesDecision(pi, Cfn, Cfp)
+    t = ut.optimalBayesDecision(pi, Cfn, Cfp)
     PVAL_Inf_Par = np.zeros(len(llrInf_Par), dtype=int)
     for i in range(len(llrInf_Par)):
         PVAL_Inf_Par[i] = 1 if llrInf_Par[i] > t else 0
@@ -38,19 +37,19 @@ def computeConfusionMatrixForConfiguration(llrInf_Par, LTE_Inf_Par, configuratio
     for key in configuration:
         PVAL_Inf_Par = computePVAL_Inf_Par(llrInf_Par, configuration[key][0], configuration[key][1],
                                            configuration[key][2])
-        confusionMatrix[key] = computeConfusionMatrix(PVAL_Inf_Par, LTE_Inf_Par)
+        confusionMatrix[key] = ut.computeConfusionMatrix(PVAL_Inf_Par, LTE_Inf_Par)
     return confusionMatrix
 
 
 def computeDCFAndDCFNormalized(confusionMatrix, configuration):
     dcf, dcfNormalized = {}, {}
     for key in configuration:
-        dcf[key] = computeDCF(
+        dcf[key] = ut.computeDCF(
             confusionMatrix[key],
             configuration[key][0],
             configuration[key][1],
             configuration[key][2])
-        dcfNormalized[key] = computeDCFNormalized(
+        dcfNormalized[key] = ut.computeDCFNormalized(
             confusionMatrix[key],
             configuration[key][0],
             configuration[key][1],
@@ -61,7 +60,7 @@ def computeDCFAndDCFNormalized(confusionMatrix, configuration):
 def comuputeMinDCF(llrInf_Par, LTE_Inf_Par, configuration):
     minDCF = {}
     for key in configuration:
-        minDCF[key] = compute_minDCF_binary_fast(
+        minDCF[key] = ut.compute_minDCF_binary_fast(
             llrInf_Par, LTE_Inf_Par, configuration[key][0],
             configuration[key][1],
             configuration[key][2])
@@ -74,11 +73,35 @@ def bayesError(llrInf_Par, LTE_Inf_Par):
     dcf = []
     minDCF = []
     for prior in effPriorLogOdds:
-        piT.append(computeEffectivePrior(prior))
+        piT.append(ut.computeEffectivePrior(prior))
 
     for effectivePrior in piT:
         PVAL_Inf_Par = computePVAL_Inf_Par(llrInf_Par, effectivePrior, 1, 1)
-        matrix = computeConfusionMatrix(PVAL_Inf_Par, LTE_Inf_Par)
-        dcf.append(computeDCFNormalized(matrix, effectivePrior, 1, 1))
-        minDCF.append(compute_minDCF_binary_fast(llrInf_Par, LTE_Inf_Par, effectivePrior, 1, 1))
+        matrix = ut.computeConfusionMatrix(PVAL_Inf_Par, LTE_Inf_Par)
+        dcf.append(ut.computeDCFNormalized(matrix, effectivePrior, 1, 1))
+        minDCF.append(ut.compute_minDCF_binary_fast(llrInf_Par, LTE_Inf_Par, effectivePrior, 1, 1))
     return effPriorLogOdds, dcf, minDCF
+
+
+def loadMulticlass():
+    S_logPost = np.load("../Data/commedia_ll.npy")
+    LTE_Commedia = np.load("../Data/commedia_labels.npy")
+    return S_logPost, LTE_Commedia
+
+
+def computeConfusionMatrixMulticlass(S_logPost, prior, C, LTE_Commedia):
+    commedia_posteriors = ut.compute_posteriors(S_logPost, prior)
+    PVAL_Commedia = ut.compute_optimal_Bayes(commedia_posteriors, C)
+    return ut.computeConfusionMatrix(PVAL_Commedia, LTE_Commedia)
+
+
+def computeDCFMuilticlassCommedia(confusionMatrix, prior, C):
+    DCFMulticlass = ut.compute_empirical_Bayes_risk(confusionMatrix, prior, C, normalize=False)
+    DCFMutliclassN = ut.compute_empirical_Bayes_risk(confusionMatrix, prior, C, normalize=True)
+    return DCFMulticlass, DCFMutliclassN
+
+
+def loadMulticlassEps1():
+    S_logPost = np.load("../Data/commedia_ll_eps1.npy")
+    LTE_Commedia = np.load("../Data/commedia_labels.npy")
+    return S_logPost, LTE_Commedia

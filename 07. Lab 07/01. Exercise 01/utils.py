@@ -38,6 +38,12 @@ def compute_logPosterior(S_logLikelihood, v_prior):
     return SPost
 
 
+def compute_posteriors(log_clas_conditional_ll, prior_array):
+    logJoint = log_clas_conditional_ll + vcol(np.log(prior_array))
+    logPost = logJoint - sp.special.logsumexp(logJoint, 0)
+    return np.exp(logPost)
+
+
 def computeConfusionMatrix(PVAL, LTE):
     num_classes = len(set(LTE))
     confusionMatrix = np.zeros((num_classes, num_classes), dtype=int)
@@ -121,3 +127,24 @@ def compute_minDCF_binary_fast(llr, classLabels, prior, Cfn, Cfp, returnThreshol
 
 def computeEffectivePrior(prior):
     return 1 / (1 + np.exp(-prior))
+
+
+def compute_empirical_Bayes_risk(confusionMatrix, prior, C, normalize=True):
+    errorRates = confusionMatrix / vrow(confusionMatrix.sum(0))
+    bayesError = ((errorRates * C).sum(0) * prior.ravel()).sum()
+    if normalize:
+        return bayesError / np.min(C @ vcol(prior))
+    return bayesError
+
+
+def compute_optimal_Bayes(posterior, costMatrix):
+    expectedCosts = costMatrix @ posterior
+    return np.argmin(expectedCosts, 0)
+
+
+def computeDCFMulticlass(confusionMatrix, prior_array, costMatrix, normalize=True):
+    errorRates = confusionMatrix / vrow(confusionMatrix.sum(0))
+    bayesError = ((errorRates * costMatrix).sum(0) * prior_array.ravel()).sum()
+    if normalize:
+        return bayesError / np.min(costMatrix @ vcol(prior_array))
+    return bayesError
