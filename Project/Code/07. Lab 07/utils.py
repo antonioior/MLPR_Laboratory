@@ -235,3 +235,23 @@ def compute_minDCF_binary_fast(llr, classLabels, prior, Cfn, Cfp, returnThreshol
         return minDCF[idx], th[idx]
     else:
         return minDCF[idx]
+
+
+def computeEffectivePrior(prior):
+    return 1 / (1 + np.exp(-prior))
+
+
+def bayesError(llr, LTE, lineLeft, lineRight):
+    effPriorLogOdds = np.linspace(lineLeft, lineRight, 21)
+    piT = []
+    dcf = []
+    minDCF = []
+    for prior in effPriorLogOdds:
+        piT.append(computeEffectivePrior(prior))
+
+    for effectivePrior in piT:
+        PVAL = computePVAL(llr, effectivePrior, 1, 1)
+        matrix = computeConfusionMatrix(PVAL, LTE)
+        dcf.append(computeDCF(matrix, effectivePrior, 1, 1, True))
+        minDCF.append(compute_minDCF_binary_fast(llr, LTE, effectivePrior, 1, 1))
+    return effPriorLogOdds, dcf, minDCF

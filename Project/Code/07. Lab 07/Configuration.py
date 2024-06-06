@@ -1,5 +1,39 @@
+from graph import createBayesErrorPlots
 from printValue import printConfusionMatrix
-from utils import computePVAL, computeConfusionMatrix, computeDCF, compute_minDCF_binary_fast
+from utils import computePVAL, computeConfusionMatrix, computeDCF, compute_minDCF_binary_fast, bayesError
+
+
+def MainConfiguration(LTE, mapLlr, mapLlrPCA, printResults=False):
+    configurations = {
+        "config1": Configuration(0.5, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"], False, []),
+        "config2": Configuration(0.9, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"], False, []),
+        "config3": Configuration(0.1, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"], False, []),
+        "config4": Configuration(0.5, 1, 9, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"], False, []),
+        "config5": Configuration(0.5, 9, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"], False, []),
+    }
+    for key in configurations:
+        configurations[key].computeConfusionMatrix()
+        configurations[key].computeDCFDCFNormalizedAndMin()
+
+    configurationEffectivePrior = {
+        "config1": Configuration(0.1, 1, 1, LTE, mapLlrPCA["MVG"], mapLlrPCA["TIED"], mapLlrPCA["NB"], True,
+                                 6),
+        "config2": Configuration(0.5, 1, 1, LTE, mapLlrPCA["MVG"], mapLlrPCA["TIED"], mapLlrPCA["NB"], True,
+                                 6),
+        "config3": Configuration(0.9, 1, 1, LTE, mapLlrPCA["MVG"], mapLlrPCA["TIED"], mapLlrPCA["NB"], True,
+                                 6),
+    }
+
+    for key in configurationEffectivePrior:
+        configurationEffectivePrior[key].computeConfusionMatrix()
+        configurationEffectivePrior[key].computeDCFDCFNormalizedAndMin()
+
+    if printResults:
+        for key in configurations:
+            print(configurations[key])
+        for key in configurationEffectivePrior:
+            print(configurationEffectivePrior[key])
+        configurationEffectivePrior["config1"].computeBayesErrorPlot()
 
 
 class Configuration:
@@ -78,6 +112,17 @@ class Configuration:
                         Cfp=self.Cfp,
                         returnThreshold=False)
 
+    def computeBayesErrorPlot(self):
+        for key in self.classifier:
+            best_m = mAssociatedToBestminDCF(self.classifier[key]["llrs"])
+            effPriorLogOdds, dcfBayesError, minDCFBayesError = bayesError(
+                llr=self.classifier[key]["llrs"][best_m - 1]["llr"],
+                LTE=self.LTE,
+                lineLeft=-4,
+                lineRight=4
+            )
+            createBayesErrorPlots(effPriorLogOdds, dcfBayesError, minDCFBayesError, [-4, 4], [0, 1], "r", "b", key)
+
     def printConfusionMatrixSpecificClassifier(self, classifier):
         printConfusionMatrix(self.classifier[classifier]["confusionMatrix"])
 
@@ -107,3 +152,13 @@ class Configuration:
         self.printClassifier("TIED", numTab)
         self.printClassifier("NB", numTab)
         return ""
+
+
+def mAssociatedToBestminDCF(dataClassifier):
+    minDCFS = None
+    mMinDCFS = None
+    for i in range(len(dataClassifier)):
+        if minDCFS is None or dataClassifier[i]["DCFMin"] < minDCFS:
+            minDCFS = dataClassifier[i]["DCFMin"]
+            mMinDCFS = dataClassifier[i]["m"]
+    return mMinDCFS
