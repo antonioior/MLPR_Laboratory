@@ -55,7 +55,7 @@ def Binary_MVG(DTR, LTR, DTE, LTE, printData=False):
 
         print(f"\tLLR:\n\t{llr}")
         print(f"\tError rate: {errorRate * 100:.1f}")
-    return errorRate
+    return errorRate, llr
 
 
 def Binary_Tied(DTR, LTR, DTE, LTE, printData=False):
@@ -91,4 +91,4 @@ def Binary_Tied(DTR, LTR, DTE, LTE, printData=False):
         print(f"\tLLR:\n\t{llr}")
         print(f"\tError rate: {errorRate * 100:.1f}")
 
-    return errorRate
+    return errorRate, llr

@@ -8,10 +8,15 @@ from utils import split_db_2to1, compute_covariance_I_Class, correlationMatrix
 
 
 def point1(DTR, LTR, DTE, LTE):
-    errorRate_MVG = Binary_MVG(DTR, LTR, DTE, LTE)
-    errorRate_Tied = Binary_Tied(DTR, LTR, DTE, LTE)
-    errorRate_NB = NB(DTR, LTR, DTE, LTE)
-    return errorRate_MVG, errorRate_Tied, errorRate_NB
+    errorRate_MVG, llr_MVG = Binary_MVG(DTR, LTR, DTE, LTE)
+    errorRate_Tied, llr_Tied = Binary_Tied(DTR, LTR, DTE, LTE)
+    errorRate_NB, llr_NB = NB(DTR, LTR, DTE, LTE)
+    mapLlr = {
+        "MVG": llr_MVG,
+        "TIED": llr_Tied,
+        "NB": llr_NB
+    }
+    return errorRate_MVG, errorRate_Tied, errorRate_NB, mapLlr
 
 
 def point2(DTR, LTR):
@@ -24,20 +29,20 @@ def point2(DTR, LTR):
 
 
 def point4(DTR, LTR, DTE, LTE):
-    errorRate_MVG_first_four = Binary_MVG(DTR[0:4, :], LTR, DTE[0:4, :], LTE)
-    errorRate_Tied_first_four = Binary_Tied(DTR[0:4, :], LTR, DTE[0:4, :], LTE)
-    errorRate_NB_first_four = NB(DTR[0:4, :], LTR, DTE[0:4, :], LTE)
+    errorRate_MVG_first_four, _ = Binary_MVG(DTR[0:4, :], LTR, DTE[0:4, :], LTE)
+    errorRate_Tied_first_four, _ = Binary_Tied(DTR[0:4, :], LTR, DTE[0:4, :], LTE)
+    errorRate_NB_first_four, _ = NB(DTR[0:4, :], LTR, DTE[0:4, :], LTE)
     return errorRate_MVG_first_four, errorRate_Tied_first_four, errorRate_NB_first_four
 
 
 def point5(DTR, LTR, DTE, LTE):
-    errorRate_MVG_first_second = Binary_MVG(DTR[0:2, :], LTR, DTE[0:2, :], LTE)
-    errorRate_Tied_first_second = Binary_Tied(DTR[0:2, :], LTR, DTE[0:2, :], LTE)
-    errorRate_NB_first_second = NB(DTR[0:2, :], LTR, DTE[0:2, :], LTE)
+    errorRate_MVG_first_second, _ = Binary_MVG(DTR[0:2, :], LTR, DTE[0:2, :], LTE)
+    errorRate_Tied_first_second, _ = Binary_Tied(DTR[0:2, :], LTR, DTE[0:2, :], LTE)
+    errorRate_NB_first_second, _ = NB(DTR[0:2, :], LTR, DTE[0:2, :], LTE)
 
-    errorRate_MVG_third_fourth = Binary_MVG(DTR[2:4, :], LTR, DTE[2:4, :], LTE)
-    errorRate_Tied_third_fourth = Binary_Tied(DTR[2:4, :], LTR, DTE[2:4, :], LTE)
-    errorRate_NB_third_fourth = NB(DTR[2:4, :], LTR, DTE[2:4, :], LTE)
+    errorRate_MVG_third_fourth, _ = Binary_MVG(DTR[2:4, :], LTR, DTE[2:4, :], LTE)
+    errorRate_Tied_third_fourth, _ = Binary_Tied(DTR[2:4, :], LTR, DTE[2:4, :], LTE)
+    errorRate_NB_third_fourth, _ = NB(DTR[2:4, :], LTR, DTE[2:4, :], LTE)
 
     return (errorRate_MVG_first_second, errorRate_Tied_first_second, errorRate_NB_first_second,
             errorRate_MVG_third_fourth, errorRate_Tied_third_fourth, errorRate_NB_third_fourth)
@@ -49,7 +54,7 @@ def point6(DTR, LTR, DTE, LTE):
     for i in range(1, 7):
         DTR_pca, P, _ = PCA(DTR, i, printResults=False)
         DTEL_pca = np.dot(P.T, DTE)
-        errorMVG, errorTied, errorNB = point1(DTR_pca, LTR, DTEL_pca, LTE)
+        errorMVG, errorTied, errorNB, _ = point1(DTR_pca, LTR, DTEL_pca, LTE)
         Presult.append(P)
         dict = {
             "MVG": errorMVG,
@@ -62,7 +67,7 @@ def point6(DTR, LTR, DTE, LTE):
 
 def generativeModels(D, L, printResults=False):
     (DTR, LTR), (DTE, LTE) = split_db_2to1(D, L)
-    errorRate_MVG, errorRate_Tied, errorRate_NB = point1(DTR, LTR, DTE, LTE)
+    errorRate_MVG, errorRate_Tied, errorRate_NB, mapLlr = point1(DTR, LTR, DTE, LTE)
     covarianceIClass, correlationIClass = point2(DTR, LTR)
     errorRate_MVG_first_four, errorRate_Tied_first_four, errorRate_NB_first_four = point4(DTR, LTR, DTE, LTE)
     (errorRate_MVG_first_second, errorRate_Tied_first_second, errorRate_NB_first_second,
@@ -105,3 +110,5 @@ def generativeModels(D, L, printResults=False):
             print(f"\t\tError rate of Binary MVG: {errors[i]["MVG"] * 100:.2f}%")
             print(f"\t\tError rate of Binary Tied: {errors[i]["Tied"] * 100:.2f}%")
             print(f"\t\tError rate of Naive Bayes: {errors[i]["NB"] * 100:.2f}%")
+
+    return LTE, mapLlr

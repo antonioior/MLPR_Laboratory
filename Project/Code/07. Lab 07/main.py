@@ -1,6 +1,7 @@
 import graph
 import printValue
 import utils as ut
+from Configuration import *
 from PCA_LDA import PCA_LDA
 from densityEstimation import densityEstimation
 from generativeModels import generativeModels
@@ -57,8 +58,19 @@ if __name__ == "__main__":
 
     # LAB 05 - COMPLETED
     # GENERATIVE MODELS
-    generativeModels(D, L, printResults=True)
+    LTE, mapLlr = generativeModels(D, L, printResults=False)
 
     # LAB 06 - NO PROJECT PART
 
     # LAB 07 -
+    configurations = {
+        "config1": Configuration(0.5, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"]),
+        "config2": Configuration(0.9, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"]),
+        "config3": Configuration(0.1, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"]),
+        "config4": Configuration(0.5, 1, 9, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"]),
+        "config5": Configuration(0.5, 9, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"]),
+    }
+    for key in configurations:
+        configurations[key].computeConfusionMatrix()
+        configurations[key].computeDCFDCFNormalizedAndMin()
+        print(configurations[key])

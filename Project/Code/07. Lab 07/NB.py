@@ -30,6 +30,7 @@ def NB(DTR, LTR, DTE, LTE, printData=False):
         S[i, :] = logpdf_GAU_ND(DTE, mu, covariance)
 
     S_logPost = compute_logPosterior(S, np.ones(2) / 2.)
+    llr = S_logPost[1, :] - S_logPost[0, :]
     PVAL = S_logPost.argmax(0)
     errorRate = (PVAL != LTE).sum() / float(LTE.size)
     if printData:
@@ -44,4 +45,4 @@ def NB(DTR, LTR, DTE, LTE, printData=False):
         print(f"\tS_logPost_NB:")
         printMatrix(S_logPost)
         print(f"\tNB - Error rate: {errorRate * 100:.1f}")
-    return errorRate
+    return errorRate, llr
