@@ -58,19 +58,33 @@ if __name__ == "__main__":
 
     # LAB 05 - COMPLETED
     # GENERATIVE MODELS
-    LTE, mapLlr = generativeModels(D, L, printResults=False)
+    LTE, mapLlr, mapLlrPCA = generativeModels(D, L, printResults=False)
 
     # LAB 06 - NO PROJECT PART
 
     # LAB 07 -
     configurations = {
-        "config1": Configuration(0.5, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"]),
-        "config2": Configuration(0.9, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"]),
-        "config3": Configuration(0.1, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"]),
-        "config4": Configuration(0.5, 1, 9, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"]),
-        "config5": Configuration(0.5, 9, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"]),
+        "config1": Configuration(0.5, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"], False, []),
+        "config2": Configuration(0.9, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"], False, []),
+        "config3": Configuration(0.1, 1, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"], False, []),
+        "config4": Configuration(0.5, 1, 9, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"], False, []),
+        "config5": Configuration(0.5, 9, 1, LTE, mapLlr["MVG"], mapLlr["TIED"], mapLlr["NB"], False, []),
     }
     for key in configurations:
         configurations[key].computeConfusionMatrix()
         configurations[key].computeDCFDCFNormalizedAndMin()
-        print(configurations[key])
+        # print(configurations[key])
+
+    configurationEffectivePrior = {
+        "config1": Configuration(0.1, 1, 1, LTE, mapLlrPCA["MVG"], mapLlrPCA["TIED"], mapLlrPCA["NB"], True,
+                                 6),
+        "config2": Configuration(0.5, 1, 1, LTE, mapLlrPCA["MVG"], mapLlrPCA["TIED"], mapLlrPCA["NB"], True,
+                                 6),
+        "config3": Configuration(0.9, 1, 1, LTE, mapLlrPCA["MVG"], mapLlrPCA["TIED"], mapLlrPCA["NB"], True,
+                                 6),
+    }
+
+    for key in configurationEffectivePrior:
+        configurationEffectivePrior[key].computeConfusionMatrix()
+        configurationEffectivePrior[key].computeDCFDCFNormalizedAndMin()
+        print(configurationEffectivePrior[key])

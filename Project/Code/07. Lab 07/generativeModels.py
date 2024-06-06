@@ -51,18 +51,35 @@ def point5(DTR, LTR, DTE, LTE):
 def point6(DTR, LTR, DTE, LTE):
     Presult = []
     listError = []
+    llrPCA = {
+        "MVG": [],
+        "TIED": [],
+        "NB": []
+    }
     for i in range(1, 7):
         DTR_pca, P, _ = PCA(DTR, i, printResults=False)
         DTEL_pca = np.dot(P.T, DTE)
-        errorMVG, errorTied, errorNB, _ = point1(DTR_pca, LTR, DTEL_pca, LTE)
+        errorMVG, errorTied, errorNB, llr = point1(DTR_pca, LTR, DTEL_pca, LTE)
         Presult.append(P)
         dict = {
             "MVG": errorMVG,
             "Tied": errorTied,
             "NB": errorNB
         }
+        llrPCA["MVG"].append({
+            "m": i,
+            "llr": llr["MVG"]
+        })
+        llrPCA["TIED"].append({
+            "m": i,
+            "llr": llr["TIED"]
+        })
+        llrPCA["NB"].append({
+            "m": i,
+            "llr": llr["NB"]
+        })
         listError.append(dict)
-    return Presult, listError
+    return Presult, listError, llrPCA
 
 
 def generativeModels(D, L, printResults=False):
@@ -72,7 +89,7 @@ def generativeModels(D, L, printResults=False):
     errorRate_MVG_first_four, errorRate_Tied_first_four, errorRate_NB_first_four = point4(DTR, LTR, DTE, LTE)
     (errorRate_MVG_first_second, errorRate_Tied_first_second, errorRate_NB_first_second,
      errorRate_MVG_third_fourth, errorRate_Tied_third_fourth, errorRate_NB_third_fourth) = point5(DTR, LTR, DTE, LTE)
-    P, errors = point6(DTR, LTR, DTE, LTE)
+    P, errors, mapLlrPCA = point6(DTR, LTR, DTE, LTE)
 
     if printResults:
         print("MAIN - RESULT OF GENERATIVE MODELS")
@@ -111,4 +128,4 @@ def generativeModels(D, L, printResults=False):
             print(f"\t\tError rate of Binary Tied: {errors[i]["Tied"] * 100:.2f}%")
             print(f"\t\tError rate of Naive Bayes: {errors[i]["NB"] * 100:.2f}%")
 
-    return LTE, mapLlr
+    return LTE, mapLlr, mapLlrPCA
