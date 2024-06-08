@@ -2,6 +2,11 @@ import numpy as np
 import scipy.optimize as sp
 
 
+def numericalOptimization(printResult=False):
+    computeMinFWithApproxGrad(inputFun=f, x0=np.array([0, 0]), iprint=-1, printResult=printResult)
+    computeMinFWithoutApproxGrad(inputFun=fWithGradient, x0=np.array([0, 0]), iprint=-1, printResult=printResult)
+
+
 def f(x):
     y, z = x
     return (y + 3) ** 2 + np.sin(y) + (z + 1) ** 2
