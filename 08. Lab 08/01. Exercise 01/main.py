@@ -17,3 +17,6 @@ if __name__ == "__main__":
 
     # PRIOR WEIGHTED LOGISTIC REGRESSION
     priorWeightedLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=printResult)
+
+    # Multiclass logistic regression
+    # TODO() Implement multiclass logistic regression (Optional)
