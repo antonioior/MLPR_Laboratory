@@ -28,6 +28,7 @@ def computeMinFWithApproxGrad(inputFun, x0, iprint, printResult=False):
         print(f"\tMimimum is in {x}")
         print(f"\tValue to minimum point is {f: .9f}")
         print(f"\tNumer of time that f was called {d["funcalls"]}")
+        print()
 
 
 def computeMinFWithoutApproxGrad(inputFun, x0, iprint, printResult=False):
@@ -38,3 +39,4 @@ def computeMinFWithoutApproxGrad(inputFun, x0, iprint, printResult=False):
         print(f"\tMimimum is in {x}")
         print(f"\tValue to minimum point is {f: .9f}")
         print(f"\tNumer of time that f was called {d["funcalls"]}")
+        print()
