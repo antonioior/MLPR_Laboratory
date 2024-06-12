@@ -1,6 +1,9 @@
 import numpy as np
+
 from utils import computePVAL, computeConfusionMatrix
-#Lab 07
+
+
+# Lab 07
 def computeDCF(confusionMatrix, pi, Cfn, Cfp, normalized=True):
     Pfn = confusionMatrix[0][1] / (confusionMatrix[1][1] + confusionMatrix[0][1])
     Pfp = confusionMatrix[1][0] / (confusionMatrix[0][0] + confusionMatrix[1][0])
@@ -13,6 +16,7 @@ def computeDCF(confusionMatrix, pi, Cfn, Cfp, normalized=True):
 
 def computeEffectivePrior(prior):
     return 1 / (1 + np.exp(-prior))
+
 
 def compute_Pfn_Pfp_allThresholds_fast(llr, classLabels):
     llrSorter = np.argsort(llr)
@@ -86,7 +90,7 @@ def bayesError(llr, LTE, lineLeft, lineRight):
     return effPriorLogOdds, dcf, minDCF
 
 
-#LAB 08
+# LAB 08
 def minDCF(llr, classLabels, prior, Cfn, Cfp, returnThreshold=False):
     return compute_minDCF_binary_fast(llr, classLabels, prior, Cfn, Cfp, returnThreshold=False)
 
@@ -96,9 +100,11 @@ def actDCF(llr, classLabels, prior, Cfn, Cfp, returnThreshold=False):
     confusionMatrix = computeConfusionMatrix(predictedLabel, classLabels)
     return computeDCFNormalized(confusionMatrix, prior, Cfn, Cfp)
 
+
 def computeDCFNormalized(confusionMatrix, pi, Cfn, Cfp):
     Bdummy = min(pi * Cfn, (1 - pi) * Cfp)
-    return computeDCF(confusionMatrix, pi, Cfn, Cfp) / Bdummy
+    return computeDCF(confusionMatrix, pi, Cfn, Cfp, normalized=False) / Bdummy
+
 
 def computeOptimalBayesLlr(llr, prior, Cfn, Cfp):
     threshold = -np.log((prior * Cfn) / ((1 - prior) * Cfp))

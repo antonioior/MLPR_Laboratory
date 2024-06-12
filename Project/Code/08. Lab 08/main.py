@@ -5,6 +5,7 @@ from BinaryLogisticRegression import BinaryLogisticRegression
 from Configuration import MainConfiguration
 from PCA_LDA import PCA_LDA
 from PriorWeightedBinLogReg import PriorWeightedBinLogReg
+from QuadraticLogisticRegression import QuadraticLogisticRegression
 from densityEstimation import densityEstimation
 from generativeModels import generativeModels
 from load import load
@@ -72,4 +73,5 @@ if __name__ == "__main__":
     (DTR, LTR), (DVAL, LVAL) = split_db_2to1(D, L)
     BinaryLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=False)
     BinaryLogisticRegression(DTR[:, ::50], LTR[::50], DVAL, LVAL, printResult=False)
-    PriorWeightedBinLogReg(DTR, LTR, DVAL, LVAL, printResult=True)
+    PriorWeightedBinLogReg(DTR, LTR, DVAL, LVAL, printResult=False)
+    QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=True)
