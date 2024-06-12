@@ -1,6 +1,7 @@
 from graph import createBayesErrorPlots
 from printValue import printConfusionMatrix
-from utils import computePVAL, computeConfusionMatrix, computeDCF, compute_minDCF_binary_fast, bayesError
+from utils import computePVAL, computeConfusionMatrix
+from DCF import compute_minDCF_binary_fast, computeDCF, bayesError
 import copy
 
 def MainConfiguration(LTE, mapLlr, mapLlrPCA, printResults=False):
