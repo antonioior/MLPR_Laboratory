@@ -71,5 +71,5 @@ if __name__ == "__main__":
     # LAB 08
     (DTR, LTR), (DVAL, LVAL) = split_db_2to1(D, L)
     BinaryLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=False)
-    BinaryLogisticRegression(DTR[:, ::50], LTR[::50], DVAL, LVAL, printResult=False)
-    PriorWeightedBinLogReg(DTR, LTR, DVAL, LVAL, printResult=True)
+    BinaryLogisticRegression(DTR[:, ::50], LTR[::50], DVAL, LVAL, printResult=True)
+    PriorWeightedBinLogReg(DTR, LTR, DVAL, LVAL, printResult=False)
