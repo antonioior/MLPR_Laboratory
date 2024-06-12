@@ -84,3 +84,22 @@ def bayesError(llr, LTE, lineLeft, lineRight):
         dcf.append(computeDCF(matrix, effectivePrior, 1, 1, True))
         minDCF.append(compute_minDCF_binary_fast(llr, LTE, effectivePrior, 1, 1))
     return effPriorLogOdds, dcf, minDCF
+
+
+#LAB 08
+def minDCF(llr, classLabels, prior, Cfn, Cfp, returnThreshold=False):
+    return compute_minDCF_binary_fast(llr, classLabels, prior, Cfn, Cfp, returnThreshold=False)
+
+
+def actDCF(llr, classLabels, prior, Cfn, Cfp, returnThreshold=False):
+    predictedLabel = computeOptimalBayesLlr(llr, prior, Cfn, Cfp)
+    confusionMatrix = computeConfusionMatrix(predictedLabel, classLabels)
+    return computeDCFNormalized(confusionMatrix, prior, Cfn, Cfp)
+
+def computeDCFNormalized(confusionMatrix, pi, Cfn, Cfp):
+    Bdummy = min(pi * Cfn, (1 - pi) * Cfp)
+    return computeDCF(confusionMatrix, pi, Cfn, Cfp) / Bdummy
+
+def computeOptimalBayesLlr(llr, prior, Cfn, Cfp):
+    threshold = -np.log((prior * Cfn) / ((1 - prior) * Cfp))
+    return np.int32(llr > threshold)

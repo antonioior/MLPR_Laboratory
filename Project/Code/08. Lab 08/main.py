@@ -6,6 +6,8 @@ from PCA_LDA import PCA_LDA
 from densityEstimation import densityEstimation
 from generativeModels import generativeModels
 from load import load
+from BinaryLogisticRegression import BinaryLogisticRegression
+from utils import split_db_2to1
 
 if __name__ == "__main__":
 
@@ -63,6 +65,8 @@ if __name__ == "__main__":
     # LAB 06 - NO PROJECT PART
 
     # LAB 07 - COMPLETED
-    MainConfiguration(LTE, mapLlr, mapLlrPCA, printResults=True)
+    MainConfiguration(LTE, mapLlr, mapLlrPCA, printResults=False)
 
     # LAB 08
+    (DTR, LTR), (DVAL, LVAL) = split_db_2to1(D, L)
+    BinaryLogisticRegression(DTR, LTR, DVAL, LVAL, printResult = True)

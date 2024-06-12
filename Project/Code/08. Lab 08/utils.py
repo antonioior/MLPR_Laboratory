@@ -170,8 +170,13 @@ def computeConfusionMatrix(PVAL, LTE):
         confusionMatrix[PVAL[i]][LTE[i]] += 1
     return confusionMatrix
 
-
-
+#LAB 08
+def errorRate(DVAL, LVAL, vf):
+    w, b = vf[:-1], vf[-1]
+    sVal = np.dot(w.T, DVAL).ravel() + b
+    Pval = (sVal > 0) * 1
+    error = (Pval != LVAL).mean()
+    return error, sVal
 
 
 

@@ -95,3 +95,28 @@ def createBayesErrorPlots(x, yDCF, yMinDCF, xlim, ylim, colorDCF, colorMinDCF, t
     plt.legend()
     plt.title(title)
     plt.show()
+
+
+# LAB 08
+def createMinDCFActDCFPlot(x, yMinDCF, yActDCF, colorMinDCF, colorActDCF, title="",
+                           togheter=False, logScale=False):
+    if togheter:
+        plotDCF(x, yMinDCF, "lambda", "", "min DCF", colorMinDCF, title, logScale, False)
+        plotDCF(x, yActDCF, "lambda", "", "act DCF", colorActDCF, title, logScale, False)
+        plt.show()
+    else:
+        plotDCF(x, yMinDCF, "lambda", "minDCF value", "min DCF", colorMinDCF, title, logScale, True)
+        plotDCF(x, yActDCF, "lambda", "acfDCF value", "act DCF", colorActDCF, title, logScale, True)
+
+
+def plotDCF(x, y, xLabel, yLabel, label, color, title, logScale, show=False):
+    plt.plot(x, y, label=label, color=color)
+    plt.scatter(x, y, color=color)
+    plt.legend()
+    plt.xlabel(xLabel)
+    plt.ylabel(yLabel)
+    plt.title(title)
+    if logScale:
+        plt.xscale('log', base=10)
+    if show:
+        plt.show()
