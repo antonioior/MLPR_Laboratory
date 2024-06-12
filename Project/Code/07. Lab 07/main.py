@@ -63,4 +63,4 @@ if __name__ == "__main__":
     # LAB 06 - NO PROJECT PART
 
     # LAB 07 - COMPLETED
-    MainConfiguration(LTE, mapLlr, mapLlrPCA, printResults=False)
+    MainConfiguration(LTE, mapLlr, mapLlrPCA, printResults=True)

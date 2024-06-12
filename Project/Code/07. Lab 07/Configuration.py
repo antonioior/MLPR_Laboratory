@@ -1,7 +1,7 @@
 from graph import createBayesErrorPlots
 from printValue import printConfusionMatrix
 from utils import computePVAL, computeConfusionMatrix, computeDCF, compute_minDCF_binary_fast, bayesError
-
+import copy
 
 def MainConfiguration(LTE, mapLlr, mapLlrPCA, printResults=False):
     configurations = {
@@ -46,13 +46,13 @@ class Configuration:
         self.m = m
         self.classifier = {
             "MVG": {
-                "llrs": llrMVG
+                "llrs": copy.deepcopy(llrMVG)
             },
             "TIED": {
-                "llrs": llrTied
+                "llrs": copy.deepcopy(llrTied)
             },
             "NB": {
-                "llrs": llrNB
+                "llrs": copy.deepcopy(llrNB)
             }
         }
 
