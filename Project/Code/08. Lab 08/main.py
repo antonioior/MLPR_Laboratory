@@ -67,7 +67,6 @@ if __name__ == "__main__":
     # LAB 07 - COMPLETED
     MainConfiguration(LTE, mapLlr, mapLlrPCA, printResults=False)
 
-    # LAB 08
-    # Without PCA
+    # LAB 08  - COMPLETED
     (DTR, LTR), (DVAL, LVAL) = split_db_2to1(D, L)
     logisticRegression(DTR, LTR, DVAL, LVAL)
