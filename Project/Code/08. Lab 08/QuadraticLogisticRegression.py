@@ -6,7 +6,7 @@ from graph import createMinDCFActDCFPlot
 from utils import vcol, vrow, errorRate
 
 
-def QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=False):
+def QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, titleGraph, printResult=False):
     lamb = np.logspace(-4, 2, 13)
     result = {}
 
@@ -48,7 +48,7 @@ def QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=False):
             yActDCF=yActDCF,
             colorMinDCF="blue",
             colorActDCF="red",
-            title="Quadratic Logistic Regression",
+            title=titleGraph,
             togheter=True,
             logScale=True
         )
@@ -59,7 +59,7 @@ def QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=False):
             yActDCF=yActDCF,
             colorMinDCF="blue",
             colorActDCF="red",
-            title="Quadratic Logistic Regression",
+            title=titleGraph,
             togheter=False,
             logScale=True
         )

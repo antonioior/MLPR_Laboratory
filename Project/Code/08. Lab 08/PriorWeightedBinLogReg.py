@@ -6,7 +6,7 @@ from graph import createMinDCFActDCFPlot
 from utils import vcol, vrow
 
 
-def PriorWeightedBinLogReg(DTR, LTR, DVAL, LVAL, printResult=False):
+def PriorWeightedBinLogReg(DTR, LTR, DVAL, LVAL, titleGraph, printResult=False):
     lamb = np.logspace(-4, 2, 13)
     result = {}
     pT = 0.1
@@ -45,7 +45,7 @@ def PriorWeightedBinLogReg(DTR, LTR, DVAL, LVAL, printResult=False):
             yActDCF=yActDCF,
             colorMinDCF="blue",
             colorActDCF="red",
-            title="Binary Logistic Regression with prior weighted",
+            title=titleGraph,
             togheter=True,
             logScale=True
         )
@@ -56,7 +56,7 @@ def PriorWeightedBinLogReg(DTR, LTR, DVAL, LVAL, printResult=False):
             yActDCF=yActDCF,
             colorMinDCF="blue",
             colorActDCF="red",
-            title="Binary Logistic Regression with prior weighted",
+            title=titleGraph,
             togheter=False,
             logScale=True
         )

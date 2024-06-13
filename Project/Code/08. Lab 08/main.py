@@ -1,8 +1,11 @@
+import numpy as np
+
 import graph
 import printValue
 import utils as ut
 from BinaryLogisticRegression import BinaryLogisticRegression
 from Configuration import MainConfiguration
+from PCA import PCA
 from PCA_LDA import PCA_LDA
 from PriorWeightedBinLogReg import PriorWeightedBinLogReg
 from QuadraticLogisticRegression import QuadraticLogisticRegression
@@ -70,8 +73,66 @@ if __name__ == "__main__":
     MainConfiguration(LTE, mapLlr, mapLlrPCA, printResults=False)
 
     # LAB 08
+    # Without PCA
     (DTR, LTR), (DVAL, LVAL) = split_db_2to1(D, L)
-    BinaryLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=False)
-    BinaryLogisticRegression(DTR[:, ::50], LTR[::50], DVAL, LVAL, printResult=False)
-    PriorWeightedBinLogReg(DTR, LTR, DVAL, LVAL, printResult=False)
-    QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=True)
+    BinaryLogisticRegression(
+        DTR=DTR,
+        LTR=LTR,
+        DVAL=DVAL,
+        LVAL=LVAL,
+        titleGraph="Binary Logistic Regression",
+        printResult=False)
+    BinaryLogisticRegression(
+        DTR=DTR[:, ::50],
+        LTR=LTR[::50],
+        DVAL=DVAL,
+        LVAL=LVAL,
+        titleGraph="Binary Logistic Regression with 50 sample",
+        printResult=False)
+    PriorWeightedBinLogReg(
+        DTR=DTR,
+        LTR=LTR,
+        DVAL=DVAL,
+        LVAL=LVAL,
+        titleGraph="Binary Logistic Regression with prior weighted",
+        printResult=False)
+    QuadraticLogisticRegression(
+        DTR=DTR,
+        LTR=LTR,
+        DVAL=DVAL,
+        LVAL=LVAL,
+        titleGraph="Quadratic Logistic Regression",
+        printResult=False)
+
+    # WithPCA without z
+    for i in range(1, 7):
+        DTR_pca, P, _ = PCA(DTR, i, printResults=False)
+        DVAL_pca = np.dot(P.T, DVAL)
+        BinaryLogisticRegression(
+            DTR=DTR_pca,
+            LTR=LTR,
+            DVAL=DVAL_pca,
+            LVAL=LVAL,
+            titleGraph=f"Binary Logistic Regression with PCA m = {i}",
+            printResult=False)
+        BinaryLogisticRegression(
+            DTR=DTR_pca[:, ::50],
+            LTR=LTR[::50],
+            DVAL=DVAL_pca,
+            LVAL=LVAL,
+            titleGraph=f"Binary Logistic Regression with PCA m = {i} with 50 sample",
+            printResult=False)
+        PriorWeightedBinLogReg(
+            DTR=DTR_pca,
+            LTR=LTR,
+            DVAL=DVAL_pca,
+            LVAL=LVAL,
+            titleGraph=f"Binary Logistic Regression with PCA m = {i} with prior weighted",
+            printResult=False)
+        QuadraticLogisticRegression(
+            DTR=DTR_pca,
+            LTR=LTR,
+            DVAL=DVAL_pca,
+            LVAL=LVAL,
+            titleGraph=f"Quadratic Logistic Regression with PCA m = {i}",
+            printResult=False)

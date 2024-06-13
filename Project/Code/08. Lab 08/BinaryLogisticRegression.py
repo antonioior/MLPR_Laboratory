@@ -6,7 +6,7 @@ from graph import createMinDCFActDCFPlot
 from utils import vcol, vrow, errorRate
 
 
-def BinaryLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=False):
+def BinaryLogisticRegression(DTR, LTR, DVAL, LVAL, titleGraph, printResult=False):
     lamb = np.logspace(-4, 2, 13)
     result = {}
 
@@ -47,7 +47,7 @@ def BinaryLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=False):
             yActDCF=yActDCF,
             colorMinDCF="blue",
             colorActDCF="red",
-            title="Binary Logistic Regression",
+            title=titleGraph,
             togheter=True,
             logScale=True
         )
@@ -58,7 +58,7 @@ def BinaryLogisticRegression(DTR, LTR, DVAL, LVAL, printResult=False):
             yActDCF=yActDCF,
             colorMinDCF="blue",
             colorActDCF="red",
-            title="Binary Logistic Regression",
+            title=titleGraph,
             togheter=False,
             logScale=True
         )
