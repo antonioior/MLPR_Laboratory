@@ -3,7 +3,6 @@ import scipy.optimize as sp
 
 from DCF import minDCF, actDCF
 from SVMClass import SVM
-from utils import errorRate
 
 
 def polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True):
@@ -26,15 +25,15 @@ def polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True):
                                                bounds=[(0, C) for i in LTR],
                                                )
 
-            WHat = polinomial.computeWHat(alphaStar)
             resultPolynomial["config" + str(count)]["dualLoss"] = -polinomial.fOpt(alphaStar)[0][0]
-            resultPolynomial["config" + str(count)]["errorRate"], sVal = errorRate(DVAL, LVAL, WHat, K)
 
             sllr = polinomial.computeScore(
                 sVal=None,
                 pEmp=None,
                 alphaStar=alphaStar,
                 D2=DVAL)
+            Pval = (sllr > 0) * 1
+            resultPolynomial["config" + str(count)]["errorRate"] = (Pval != LVAL).sum() / float(LVAL.size)
             resultPolynomial["config" + str(count)]["minDCF"] = minDCF(sllr, LVAL, 0.5, 1, 1)
             resultPolynomial["config" + str(count)]["actDCF"] = actDCF(sllr, LVAL, 0.5, 1, 1)
 
@@ -46,7 +45,7 @@ def polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True):
             print(
                 f"\t{key} where K={resultPolynomial[key]["K"]} and C = {resultPolynomial[key]["C"]}, Poly(d = {2}, c = {resultPolynomial[key]["c"]})")
             print(f"\t\tDual Loss: {resultPolynomial[key]["dualLoss"]:.6e}")
-            print(f"\t\tError Rate: {resultPolynomial[key]["errorRate"] * 100 :.1f}%")
+            print(f"\t\tError Rate: {resultPolynomial[key]["errorRate"] * 100:.1f}%")
             print(f"\t\tminDCF: {resultPolynomial[key]["minDCF"]:.4f}")
             print(f"\t\tactDCF: {resultPolynomial[key]["actDCF"]:.4f}")
             print()
