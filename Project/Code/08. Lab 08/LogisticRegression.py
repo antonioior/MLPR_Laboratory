@@ -35,7 +35,7 @@ def logisticRegression(DTR, LTR, DVAL, LVAL):
         DVAL=DVAL,
         LVAL=LVAL,
         titleGraph="Quadratic Logistic Regression",
-        printResult=True)
+        printResult=False)
 
     # WithPCA and z
     normalize = True
