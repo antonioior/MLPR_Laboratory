@@ -15,10 +15,10 @@ def QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, titleGraph, printResult=Fa
 
     for i in range(len(lamb)):
         logRegObj = quadraticLogClass(DTR, LTR, result["lamb" + str(i)]["lambda"])
-        vf = sp.fmin_l_bfgs_b(func=logRegObj.logreg_obj, x0=np.zeros(DTR.shape[0] * 2 + 1),
+        vf = sp.fmin_l_bfgs_b(func=logRegObj.logreg_obj, x0=np.zeros(logRegObj.DTR.shape[0] + 1),
                               approx_grad=False, maxfun=15000)[0]
         result["lamb" + str(i)]["J"] = logRegObj.logreg_obj(vf)[0]
-        DVAL_expanded = np.concatenate([DVAL, DVAL ** 2], axis=0)
+        DVAL_expanded = expandeFeature(DVAL)
         result["lamb" + str(i)]["ErrorRate"], sVal = errorRate(DVAL_expanded, LVAL, vf)
 
         pEmp = (LTR == 1).sum() / LTR.size
@@ -68,7 +68,7 @@ def QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, titleGraph, printResult=Fa
 class quadraticLogClass:
 
     def __init__(self, DTR, LTR, l):
-        self.DTR = np.concatenate([DTR, DTR ** 2], axis=0)
+        self.DTR = expandeFeature(DTR)
         self.LTR = LTR
         self.l = l
 
@@ -88,3 +88,16 @@ class quadraticLogClass:
         gradW = self.l * w.ravel() + (vrow(G) * self.DTR).mean(1)
         grad = np.hstack([gradW, np.array(gradB)])
         return J, grad
+
+
+def expandeFeature(D):
+    D_exp = np.zeros(shape=(D.shape[0] * D.shape[0] + D.shape[0], D.shape[1]))
+    for i in range(D.shape[1]):
+        xi = D[:, i:i + 1]
+        D_exp[:, i:i + 1] = np.vstack((vectorize(np.dot(xi, xi.T)), xi))
+    return D_exp
+
+
+def vectorize(M):
+    M_vec = np.hstack(M).reshape(-1, 1)
+    return M_vec
