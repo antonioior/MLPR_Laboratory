@@ -29,14 +29,8 @@ def linearSVM(DTR, LTR, DVAL, LVAL, printResult=False):
             resultLinear["config" + str(count)]["dualityGap"] = resultLinear["config" + str(count)]["primalLoss"] - \
                                                                 resultLinear["config" + str(count)]["dualLoss"]
             resultLinear["config" + str(count)]["errorRate"], sVal = errorRate(DVAL, LVAL, WHat, K)
-
-            pEmp = (LTR == 1).sum() / LTR.size
-            sllr = linear.computeScore(
-                sVal=sVal,
-                pEmp=pEmp,
-                alphaStar=None)
-            resultLinear["config" + str(count)]["minDCF"] = minDCF(sllr, LVAL, 0.5, 1, 1)
-            resultLinear["config" + str(count)]["actDCF"] = actDCF(sllr, LVAL, 0.5, 1, 1)
+            resultLinear["config" + str(count)]["minDCF"] = minDCF(sVal, LVAL, 0.5, 1, 1)
+            resultLinear["config" + str(count)]["actDCF"] = actDCF(sVal, LVAL, 0.5, 1, 1)
             count += 1
 
     if printResult:
