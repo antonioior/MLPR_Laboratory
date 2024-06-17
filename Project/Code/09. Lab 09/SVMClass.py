@@ -6,7 +6,7 @@ from utils import vrow, vcol
 # SVM class
 class SVM:
 
-    def __init__(self, DTR, LTR, C, K, SVMType="linear", c=None, gamma=None):
+    def __init__(self, DTR, LTR, C, K, SVMType="linear", c=None, gamma=None, d=None):
         self.SVMType = SVMType
         self.DTR = DTR
         self.K = K
@@ -18,7 +18,7 @@ class SVM:
         self.GHat = self.computeGhat()
 
         if self.SVMType == "polinomial":
-            self.kernel = polinomialKernel(c, 2, K ** 2)
+            self.kernel = polinomialKernel(c, d, K ** 2)
         elif self.SVMType == "radial":
             self.kernel = radialKernel(gamma, K ** 2)
         self.H = self.computeHhat()
@@ -52,11 +52,8 @@ class SVM:
     def computeWHat(self, alpha):
         return (vrow(alpha) * vrow(self.ZTR) * self.DTRHat).sum(axis=1)
 
-    def computeScore(self, sVal, pEmp, alphaStar, D2=None):
-        if self.SVMType == "linear":
-            return sVal - np.log(pEmp / (1 - pEmp))
-        else:
-            return (vcol(alphaStar) * vcol(self.ZTR) * self.kernel.k(self.DTR, D2)).sum(0)
+    def computeScore(self, alphaStar, D2):
+        return (vcol(alphaStar) * vcol(self.ZTR) * self.kernel.k(self.DTR, D2)).sum(0)
 
 
 # Kernel classes

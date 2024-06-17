@@ -5,13 +5,14 @@ from Configuration import MainConfiguration
 from LinearSVM import linearSVM
 from LogisticRegression import logisticRegression
 from PCA_LDA import PCA_LDA
+from PolinomialSVM import polinomialSVM
 from densityEstimation import densityEstimation
 from generativeModels import generativeModels
 from load import load
 from utils import split_db_2to1
 
 if __name__ == "__main__":
-
+    train = False
     # VARIABLES TO PRINT
     createGraph = False
 
@@ -73,4 +74,6 @@ if __name__ == "__main__":
     logisticRegression(DTR, LTR, DVAL, LVAL)
 
     # LAB 09
-    linearSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Linear SVM")
+    if train:
+        linearSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Linear SVM")
+    polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Polinomial SVM")
