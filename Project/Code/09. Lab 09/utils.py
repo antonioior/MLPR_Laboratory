@@ -172,8 +172,8 @@ def computeConfusionMatrix(PVAL, LTE):
 
 
 # LAB 08
-def errorRate(DVAL, LVAL, vf):
-    w, b = vf[:-1], vf[-1]
+def errorRate(DVAL, LVAL, vf, K=1):
+    w, b = vf[:-1], vf[-1] * K
     sVal = np.dot(w.T, DVAL).ravel() + b
     Pval = (sVal > 0) * 1
     error = (Pval != LVAL).mean()

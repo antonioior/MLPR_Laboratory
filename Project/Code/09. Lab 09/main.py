@@ -2,6 +2,7 @@ import graph
 import printValue
 import utils as ut
 from Configuration import MainConfiguration
+from LinearSVM import linearSVM
 from LogisticRegression import logisticRegression
 from PCA_LDA import PCA_LDA
 from densityEstimation import densityEstimation
@@ -72,3 +73,4 @@ if __name__ == "__main__":
     logisticRegression(DTR, LTR, DVAL, LVAL)
 
     # LAB 09
+    linearSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Linear SVM")
