@@ -6,6 +6,7 @@ from LinearSVM import linearSVM
 from LogisticRegression import logisticRegression
 from PCA_LDA import PCA_LDA
 from PolinomialSVM import polinomialSVM
+from RadialSVM import radialSVM
 from densityEstimation import densityEstimation
 from generativeModels import generativeModels
 from load import load
@@ -74,6 +75,9 @@ if __name__ == "__main__":
     logisticRegression(DTR, LTR, DVAL, LVAL)
 
     # LAB 09
+    polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Polinomial SVM")
+
     if train:
         linearSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Linear SVM")
-    polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Polinomial SVM")
+
+        radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Radial SVM")

@@ -99,14 +99,14 @@ def createBayesErrorPlots(x, yDCF, yMinDCF, xlim, ylim, colorDCF, colorMinDCF, t
 
 # LAB 08
 def createMinDCFActDCFPlot(x, yMinDCF, yActDCF, colorMinDCF, colorActDCF, title="",
-                           togheter=False, logScale=False):
+                           togheter=False, logScale=False, xLabel="lambda"):
     if togheter:
-        plotDCF(x, yMinDCF, "lambda", "", "min DCF", colorMinDCF, title, logScale, False)
-        plotDCF(x, yActDCF, "lambda", "", "act DCF", colorActDCF, title, logScale, False)
+        plotDCF(x, yMinDCF, xLabel, "", "min DCF", colorMinDCF, title, logScale, False)
+        plotDCF(x, yActDCF, xLabel, "", "act DCF", colorActDCF, title, logScale, False)
         plt.show()
     else:
-        plotDCF(x, yMinDCF, "lambda", "minDCF value", "min DCF", colorMinDCF, title, logScale, True)
-        plotDCF(x, yActDCF, "lambda", "acfDCF value", "act DCF", colorActDCF, title, logScale, True)
+        plotDCF(x, yMinDCF, xLabel, "minDCF value", "min DCF", colorMinDCF, title, logScale, True)
+        plotDCF(x, yActDCF, xLabel, "acfDCF value", "act DCF", colorActDCF, title, logScale, True)
 
 
 def plotDCF(x, y, xLabel, yLabel, label, color, title, logScale, show=False):
