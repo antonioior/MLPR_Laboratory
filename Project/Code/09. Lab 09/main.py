@@ -74,8 +74,7 @@ if __name__ == "__main__":
     (DTR, LTR), (DVAL, LVAL) = split_db_2to1(D, L)
     logisticRegression(DTR, LTR, DVAL, LVAL)
 
-    # LAB 09
-
+    # LAB 09 - COMPLETED
     if train:
         linearSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Linear SVM")
         polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Polinomial SVM")
