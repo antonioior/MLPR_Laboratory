@@ -14,6 +14,7 @@ def radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph=""):
     K = np.sqrt(1)
     gammaValues = [1e-4, 1e-3, 1e-2, 1e-1]
     colorValue = ["blue", "green", "red", "cyan"]
+    priorT = 0.1
     for gamma in range(len(gammaValues)):
         resultRadial.append((gamma, {}))
         count = 0
@@ -23,7 +24,7 @@ def radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph=""):
                 "C": C,
                 "gamma": gammaValues[gamma]
             }
-            radial = SVM(DTR, LTR, C, K, "radial", gamma=gamma)
+            radial = SVM(DTR, LTR, C, K, "radial", gamma=gammaValues[gamma])
             alphaStar, _, _ = sp.fmin_l_bfgs_b(func=radial.fOpt,
                                                x0=np.zeros(radial.getDTRExtend().shape[1]),
                                                approx_grad=False,
@@ -31,7 +32,7 @@ def radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph=""):
                                                factr=1.0,
                                                bounds=[(0, C) for i in LTR],
                                                )
-
+            resultRadial[gamma][1]["config" + str(count)]["alphaStar"] = alphaStar
             resultRadial[gamma][1]["config" + str(count)]["dualLoss"] = -radial.fOpt(alphaStar)[0][0]
 
             sllr = radial.computeScore(
@@ -39,8 +40,8 @@ def radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph=""):
                 D2=DVAL)
             Pval = (sllr > 0) * 1
             resultRadial[gamma][1]["config" + str(count)]["errorRate"] = (Pval != LVAL).sum() / float(LVAL.size)
-            resultRadial[gamma][1]["config" + str(count)]["minDCF"] = minDCF(sllr, LVAL, 0.5, 1, 1)
-            resultRadial[gamma][1]["config" + str(count)]["actDCF"] = actDCF(sllr, LVAL, 0.5, 1, 1)
+            resultRadial[gamma][1]["config" + str(count)]["minDCF"] = minDCF(sllr, LVAL, priorT, 1, 1)
+            resultRadial[gamma][1]["config" + str(count)]["actDCF"] = actDCF(sllr, LVAL, priorT, 1, 1)
 
             count += 1
 
@@ -51,7 +52,7 @@ def radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph=""):
         yActDCF = []
         print("RESULT RADIAL SVM")
         for i in range(len(resultRadial)):
-            print(f"\tFor \u03B3 index in vector {resultRadial[i][1]}")
+            print(f"\tFor \u03B3 index in vector {gammaValues[i]}")
             yMinDCF.append([])
             yActDCF.append([])
             for key in resultRadial[i][1]:
@@ -73,7 +74,7 @@ def radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph=""):
                 yLabel="minDCF value",
                 label=f"gamma = {gammaValues[i]}",
                 color=colorValue[i],
-                title="Radial SVM",
+                title=titleGraph,
                 logScale=True,
                 show=False
             )
@@ -87,7 +88,7 @@ def radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph=""):
                 yLabel="actDCF value",
                 label=f"gamma = {gammaValues[i]}",
                 color=colorValue[i],
-                title="Radial SVM",
+                title=titleGraph,
                 logScale=True,
                 show=False
             )

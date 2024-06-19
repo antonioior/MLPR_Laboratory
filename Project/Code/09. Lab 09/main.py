@@ -75,9 +75,8 @@ if __name__ == "__main__":
     logisticRegression(DTR, LTR, DVAL, LVAL)
 
     # LAB 09
-    polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Polinomial SVM")
 
     if train:
         linearSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Linear SVM")
-
+        polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Polinomial SVM")
         radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Radial SVM")
