@@ -2,6 +2,14 @@ import numpy as np
 import scipy as sp
 
 
+def vcol(data):
+    return data.reshape(data.shape[0], 1)
+
+
+def vrow(data):
+    return data.reshape(1, data.shape[0])
+
+
 # LAB 5
 def logpdf_GAU_ND(x, mu, C):
     P = np.linalg.inv(C)
@@ -18,4 +26,4 @@ def logpdf_GMM(X, gmm):
         w, mu, C = gmm[g]
         S[g, :] = logpdf_GAU_ND(X, mu, C) + np.log(w)
     logdens = sp.special.logsumexp(S, axis=0)
-    return logdens
+    return S, logdens
