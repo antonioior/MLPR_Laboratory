@@ -1,6 +1,7 @@
 import numpy as np
 
 from EMGMM import EMGmm
+from LBG import LBGAlgorithm
 from graph import plotEstimetedDensity
 from load import load_gmm
 from utils import logpdf_GMM
@@ -25,6 +26,10 @@ if __name__ == "__main__":
     logLikelihood4D, _ = EMGmm(data4D, gmm4D)
     logLikelihood1D, newGMM1D = EMGmm(data1D, gmm1D)
 
+    # LBG ALGORITHM
+    gmm4DLBG = LBGAlgorithm(data4D, 0.1, 4)
+    gmm1DLBG = LBGAlgorithm(data1D, 0.1, 4)
+
     if printResult:
         print("RESULT GMM")
         print("\t Logdens result prof 4D")
@@ -39,6 +44,13 @@ if __name__ == "__main__":
         print("RESULT EM")
         print(f"\tAverage loglikelihood {sum(logLikelihood4D) / len(logLikelihood4D)}")
         XPlot = np.linspace(-10, 5, 1000)
+
         _, logDensXPlot = logpdf_GMM(vrow(XPlot), newGMM1D)
         likelihood = np.exp(logDensXPlot)
-        plotEstimetedDensity(data1D, XPlot, likelihood)
+        plotEstimetedDensity(data1D, XPlot, likelihood, "EM algorithm")
+
+        print("RESULT LBG")
+        print(f"\tAverage loglikelihood {logpdf_GMM(data4D, gmm4DLBG)[1].mean()}")
+        _, logDensXPlot = logpdf_GMM(vrow(XPlot), gmm1DLBG)
+        likelihood = np.exp(logDensXPlot)
+        plotEstimetedDensity(data1D, XPlot, likelihood, "LBG algorithm")

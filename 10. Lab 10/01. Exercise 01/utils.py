@@ -27,3 +27,9 @@ def logpdf_GMM(X, gmm):
         S[g, :] = logpdf_GAU_ND(X, mu, C) + np.log(w)
     logdens = sp.special.logsumexp(S, axis=0)
     return S, logdens
+
+
+def compute_mu_C(D):
+    mu = vcol(D.mean(1))
+    C = ((D - mu) @ (D - mu).T) / float(D.shape[1])
+    return mu, C
