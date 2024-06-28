@@ -1,5 +1,8 @@
-from DCF import minDCF, actDCF
+import matplotlib.pyplot as plt
+
+from DCF import minDCF, actDCF, bayesError
 from LBG import LBGAlgorithm
+from graph import createBayesErrorPlots
 from utils import logpdf_GMM
 
 
@@ -26,14 +29,37 @@ def GMM(DTR, LTR, DVAL, LVAL, printResults=False):
             resultGMM[count]["values"].append({
                 "component": component,
                 "minDCF": minDCFValue,
-                "actDCF": actDCFValue
+                "actDCF": actDCFValue,
+                "llr": SLLR
             })
         count += 1
 
     if printResults:
+        lineLeft = -4
+        lineRight = 4
+
         print("GMM RESULTS")
         for result in resultGMM:
             print(f"\t{result['covType'].upper()}")
+            plt.figure(f"{result['covType'].upper()}", figsize=(15, 8), dpi=300)
+            plt.suptitle(f"covType {result['covType'].upper()}")
+            index = 1
             for value in result["values"]:
                 print(
                     f"\t\tcomponent = {value['component']}, minDCF = {value['minDCF']:.4f}, actDCF = {value['actDCF']:.4f}")
+                effPriorLogOdds, dcfBayesError, minDCFBayesError = bayesError(
+                    llr=value["llr"],
+                    LTE=LVAL,
+                    lineLeft=lineLeft,
+                    lineRight=lineRight
+                )
+
+                plt.subplot(2, 3, index)
+                createBayesErrorPlots(effPriorLogOdds, dcfBayesError, minDCFBayesError, [-4, 4], [0, 0.9], "r", "b",
+                                      f"numComponent = {value["component"]}",
+                                      show=False)
+                index += 1
+                plt.gca().set_xlim([lineLeft, lineRight])
+            plt.subplots_adjust(hspace=0.5, wspace=0.5)
+            plt.tight_layout()
+            plt.show()
