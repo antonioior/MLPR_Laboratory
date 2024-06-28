@@ -15,7 +15,7 @@ from utils import split_db_2to1
 
 if __name__ == "__main__":
     trainSVM = False
-    trainGMM = True
+    trainGMM = False
     # VARIABLES TO PRINT
     createGraph = False
 
@@ -82,6 +82,6 @@ if __name__ == "__main__":
         polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Polinomial SVM")
         radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Radial SVM")
 
-    # LAB 10
+    # LAB 10 - COMPLETED
     if trainGMM:
         GMM(DTR, LTR, DVAL, LVAL, printResults=True)
