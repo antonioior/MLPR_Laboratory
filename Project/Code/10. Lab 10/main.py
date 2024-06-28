@@ -2,6 +2,7 @@ import graph
 import printValue
 import utils as ut
 from Configuration import MainConfiguration
+from GMM import GMM
 from LinearSVM import linearSVM
 from LogisticRegression import logisticRegression
 from PCA_LDA import PCA_LDA
@@ -13,7 +14,8 @@ from load import load
 from utils import split_db_2to1
 
 if __name__ == "__main__":
-    train = False
+    trainSVM = False
+    trainGMM = True
     # VARIABLES TO PRINT
     createGraph = False
 
@@ -75,9 +77,11 @@ if __name__ == "__main__":
     logisticRegression(DTR, LTR, DVAL, LVAL)
 
     # LAB 09 - COMPLETED
-    if train:
+    if trainSVM:
         linearSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Linear SVM")
         polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Polinomial SVM")
         radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Radial SVM")
 
     # LAB 10
+    if trainGMM:
+        GMM(DTR, LTR, DVAL, LVAL, printResults=True)

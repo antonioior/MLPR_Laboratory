@@ -186,3 +186,15 @@ def z_normalizeTraining(D):
 
 def z_normalizeOther(DT, D):
     return (D - DT.mean(axis=1).reshape(-1, 1)) / DT.std(axis=1).reshape(-1, 1)
+
+
+# LAB 10
+def logpdf_GMM(X, gmm):
+    M = len(gmm)
+    N = X.shape[1]
+    S = np.zeros((M, N))
+    for g in range(M):
+        w, mu, C = gmm[g]
+        S[g, :] = logpdf_GAU_ND(X, mu, C) + np.log(w)
+    logdens = sp.special.logsumexp(S, axis=0)
+    return S, logdens
