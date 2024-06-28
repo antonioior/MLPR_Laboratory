@@ -3,9 +3,9 @@ import numpy as np
 from EMGMM import EMGmm
 from LBG import LBGAlgorithm
 from graph import plotEstimetedDensity
-from load import load_gmm
+from load import load_gmm, load_iris
 from utils import logpdf_GMM
-from utils import vrow
+from utils import vrow, split_db_2to1, vcol
 
 if __name__ == "__main__":
     printResult = True
@@ -30,6 +30,32 @@ if __name__ == "__main__":
     gmm4DLBG = LBGAlgorithm(data4D, 0.1, 4)
     gmm1DLBG = LBGAlgorithm(data1D, 0.1, 4)
 
+    # GMM Classification
+    D, L = load_iris()
+    (DTR, LTR), (DVAL, LVAL) = split_db_2to1(D, L)
+    covTypes = ["full", "diagonal", "tied"]
+    components = [1, 2, 4, 8, 16]
+    psi = 0.01
+    resultGMMIris = []
+    for covType in covTypes:
+        for component in components:
+            gmm0 = LBGAlgorithm(DTR[:, LTR == 0], 0.1, component, psi=psi, covType=covType)
+            gmm1 = LBGAlgorithm(DTR[:, LTR == 1], 0.1, component, psi=psi, covType=covType)
+            gmm2 = LBGAlgorithm(DTR[:, LTR == 2], 0.1, component, psi=psi, covType=covType)
+
+            SVAL = []
+            SVAL.append(logpdf_GMM(DVAL, gmm0)[1])
+            SVAL.append(logpdf_GMM(DVAL, gmm1)[1])
+            SVAL.append(logpdf_GMM(DVAL, gmm2)[1])
+            SVAL = np.vstack(SVAL)
+            SVAL += vcol(np.log(np.ones(3) / 3))
+            PVAL = SVAL.argmax(0)
+            errorRatePercentual = (LVAL != PVAL).sum() / LVAL.size * 100
+            resultGMMIris.append({
+                "covType": covType,
+                "component": component,
+                "errorRate": errorRatePercentual
+            })
     if printResult:
         print("RESULT GMM")
         print("\t Logdens result prof 4D")
@@ -54,3 +80,7 @@ if __name__ == "__main__":
         _, logDensXPlot = logpdf_GMM(vrow(XPlot), gmm1DLBG)
         likelihood = np.exp(logDensXPlot)
         plotEstimetedDensity(data1D, XPlot, likelihood, "LBG algorithm")
+
+        print("GMM CLASSIFICATION IRIS")
+        for result in resultGMMIris:
+            print(f"\t{result["covType"]}, component = {result["component"]} error rate = {result["errorRate"]:.1f}%")

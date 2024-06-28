@@ -10,6 +10,21 @@ def vrow(data):
     return data.reshape(1, data.shape[0])
 
 
+def split_db_2to1(D, L, seed=0):
+    nTrain = int(D.shape[1] * 2.0 / 3.0)
+    np.random.seed(seed)
+    idx = np.random.permutation(D.shape[1])
+    idxTrain = idx[0:nTrain]
+    idxTest = idx[nTrain:]
+
+    DTR = D[:, idxTrain]
+    DVAL = D[:, idxTest]
+    LTR = L[idxTrain]
+    LVAL = L[idxTest]
+
+    return (DTR, LTR), (DVAL, LVAL)
+
+
 # LAB 5
 def logpdf_GAU_ND(x, mu, C):
     P = np.linalg.inv(C)

@@ -1,15 +1,23 @@
 import numpy as np
 
-from EMGMM import EMGmm
+from EMGMM import EMGmm, smoothCovariance
 from utils import compute_mu_C
 
 
-def LBGAlgorithm(X, alpha, numComponent):
+def LBGAlgorithm(X, alpha, numComponent, psi=None, covType="full"):
     mu, C = compute_mu_C(X)
-    gmm = [(1.0, mu, C)]
+
+    if covType == "diagonal":
+        C = C * np.eye(X.shape[0])
+
+    if psi is not None:
+        gmm = [(1.0, mu, smoothCovariance(C, psi))]
+    else:
+        gmm = [(1.0, mu, C)]
+
     while len(gmm) < numComponent:
         gmm = split_GMM(gmm, alpha)
-        _, gmm = EMGmm(X, gmm)
+        _, gmm = EMGmm(X, gmm, psi=psi, covType=covType)
     return gmm
 
 

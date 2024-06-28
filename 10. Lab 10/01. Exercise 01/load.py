@@ -1,6 +1,11 @@
 import json
 
 import numpy as np
+import sklearn.datasets
+
+
+def load_iris():
+    return sklearn.datasets.load_iris()['data'].T, sklearn.datasets.load_iris()['target']
 
 
 def save_gmm(gmm, filename):
