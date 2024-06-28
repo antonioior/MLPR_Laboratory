@@ -78,6 +78,7 @@ if __name__ == "__main__":
                 "actDCF": actDCFValue
             })
 
+    # PRINT RESULTS
     if printResult:
         print("RESULT GMM")
         print("\t Logdens result prof 4D")
