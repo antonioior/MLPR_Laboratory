@@ -1,6 +1,22 @@
 import numpy as np
 
 
+def vcol(data):
+    return data.reshape(data.shape[0], 1)
+
+
+def vrow(data):
+    return data.reshape(1, data.shape[0])
+
+
+def errorRate(DVAL, LVAL, vf):
+    w, b = vf[:-1], vf[-1]
+    sVal = np.dot(w.T, DVAL).ravel() + b
+    Pval = (sVal > 0) * 1
+    error = (Pval != LVAL).mean()
+    return error, sVal
+
+
 # LAB 07
 def optimalBayesDecision(pi, Cfn, Cfp):
     threshold = - np.log(pi * Cfn / ((1 - pi) * Cfp))
