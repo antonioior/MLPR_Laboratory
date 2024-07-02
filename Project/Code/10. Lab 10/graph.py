@@ -51,7 +51,8 @@ def representRatio(ratio):
 
 
 def createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA, ):
-    plt.figure("PCA vs LDA")
+    plt.figure("PCA vs LDA", figsize=(10, 10), dpi=200)
+    plt.suptitle("PCA vs LDA")
     plt.subplot(2, 2, 1)
     scatter(dataProjectedPCA[:, L == 0], dataProjectedPCA[:, L == 1], 0, 1, "", "", title="PCA, 1st and 2nd direction")
 
@@ -63,18 +64,21 @@ def createGraphicPCA_LDA(L, dataProjectedPCA, dataProjectedLDA, ):
 
     plt.subplot(2, 2, 4)
     hist(dataProjectedLDA[:, L == 0], dataProjectedLDA[:, L == 1], 0, "", title="LDA, 1st direction")
+    plt.gca().set_ylim([0, 0.6])
+    plt.subplots_adjust(hspace=0.5, wspace=0.5)
+    plt.tight_layout()
     plt.show()
 
 
 def createGraphicTrainingLDA(projectedDataTraining, LTR, projectedDataValidation, LVAL, comment=""):
     plt.figure("Training vs Validation" + " " + comment)
-
+    plt.suptitle("Training vs Validation" + " " + comment)
     plt.subplot(1, 2, 1)
     hist(projectedDataTraining[:, LTR == 0], projectedDataTraining[:, LTR == 1], 0, "", title="Training")
-
+    plt.gca().set_ylim([0, 0.5])
     plt.subplot(1, 2, 2)
     hist(projectedDataValidation[:, LVAL == 0], projectedDataValidation[:, LVAL == 1], 0, "", title="Validation")
-
+    plt.gca().set_ylim([0, 0.5])
     plt.show()
 
 
