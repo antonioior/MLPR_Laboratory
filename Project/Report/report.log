@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.5.28)  2 JUL 2024 15:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.5.28)  2 JUL 2024 15:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -302,6 +302,7 @@ File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
+Package hyperref Info: Option `colorlinks' set `true' on input line 4062.
 Package hyperref Info: Hyper figures OFF on input line 4179.
 Package hyperref Info: Link nesting OFF on input line 4184.
 Package hyperref Info: Hyper index ON on input line 4187.
@@ -332,7 +333,7 @@ Package hyperref Info: Hyper figures OFF on input line 6063.
 Package hyperref Info: Link nesting OFF on input line 6068.
 Package hyperref Info: Hyper index ON on input line 6071.
 Package hyperref Info: backreferencing OFF on input line 6078.
-Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring ON on input line 6081.
 Package hyperref Info: Link coloring with OCG OFF on input line 6088.
 Package hyperref Info: PDF/A mode OFF on input line 6093.
 
@@ -873,7 +874,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 57.
+Package hyperref Info: Link coloring ON on input line 57.
 
 (/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/
 Project/Report/report.out)
@@ -910,7 +911,7 @@ Project/Report/report.toc)
  [2])
 (/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/
 Project/Report/./Lab/02. Lab 02/DatasetAnalysis.tex
-<Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png, id=35, 722.7
+<Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png, id=60, 722.7
 pt x 722.7pt>
 File: Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png Graphic 
 file (type png)
@@ -918,7 +919,7 @@ file (type png)
 Package pdftex.def Info: Lab/02. Lab 02/Images/01. Graphics Features 1_2 Withou
 t Mean.png  used on input line 24.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png, id=37, 722.7pt 
+<Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png, id=62, 722.7pt 
 x 722.7pt>
 File: Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png Graphic fil
 e (type png)
@@ -934,7 +935,7 @@ ean.png  used on input line 29.
 g> </home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laborato
 ry/Project/Report/Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png
 >]
-<Lab/02. Lab 02/Images/03. Graphics Features 3_4 Without Mean.png, id=56, 722.7
+<Lab/02. Lab 02/Images/03. Graphics Features 3_4 Without Mean.png, id=81, 722.7
 pt x 722.7pt>
 File: Lab/02. Lab 02/Images/03. Graphics Features 3_4 Without Mean.png Graphic 
 file (type png)
@@ -942,7 +943,7 @@ file (type png)
 Package pdftex.def Info: Lab/02. Lab 02/Images/03. Graphics Features 3_4 Withou
 t Mean.png  used on input line 55.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png, id=57, 722.7pt 
+<Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png, id=82, 722.7pt 
 x 722.7pt>
 File: Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png Graphic fil
 e (type png)
@@ -950,7 +951,7 @@ e (type png)
 Package pdftex.def Info: Lab/02. Lab 02/Images/04. Graphics Features 3_4 With M
 ean.png  used on input line 60.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png, id=61, 722.7
+<Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png, id=86, 722.7
 pt x 722.7pt>
 File: Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png Graphic 
 file (type png)
@@ -958,7 +959,7 @@ file (type png)
 Package pdftex.def Info: Lab/02. Lab 02/Images/05. Graphics Features 5_6 Withou
 t Mean.png  used on input line 86.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png, id=62, 722.7pt 
+<Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png, id=87, 722.7pt 
 x 722.7pt>
 File: Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png Graphic fil
 e (type png)
@@ -995,21 +996,14 @@ Project/Report/./MainPage/cover.aux))
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-Package rerunfilecheck Warning: File `report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `report.out':
-(rerunfilecheck)             Before: 7DA33E85EA2663C5FAF5BDDBBE8C0D00;292
-(rerunfilecheck)             After:  A542407B94AB650CC0EA12145D4C82AA;1311.
+Package rerunfilecheck Info: File `report.out' has not changed.
+(rerunfilecheck)             Checksum: A542407B94AB650CC0EA12145D4C82AA;1311.
  ) 
 Here is how much of TeX's memory you used:
- 25072 strings out of 476076
- 471571 string characters out of 5793775
+ 25080 strings out of 476076
+ 471701 string characters out of 5793775
  1935187 words of memory out of 5000000
- 46676 multiletter control sequences out of 15000+600000
+ 46684 multiletter control sequences out of 15000+600000
  567174 words of font info for 71 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,9n,87p,543b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1022,10 +1016,10 @@ r12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sh
 are/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb>
 Output written on "/home/antonio/data/POLITO/Machine Learning And Pattern Recog
-nition/Laboratory/Project/Report/report.pdf" (5 pages, 1573085 bytes).
+nition/Laboratory/Project/Report/report.pdf" (5 pages, 1575726 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
+ 149 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
  21 named destinations out of 1000 (max. 500000)
- 59 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 99 words of extra memory for PDF output out of 10000 (max. 10000000)
 
