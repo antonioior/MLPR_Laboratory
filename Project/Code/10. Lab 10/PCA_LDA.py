@@ -1,13 +1,13 @@
 # ALL LAB 3 SOLUTIONS
+import numpy as np
+
 import graph
 import utils as ut
-import numpy as np
-from PCA import PCA
 from LDA import LDA
+from PCA import PCA
 
 
 def PCA_LDA(D, L, createGraph=False, printResults=False):
-
     # Calculate PCA
     dataProjectedPCA, _, ratio = PCA(D, 6, printResults=printResults)
     if createGraph:
@@ -33,7 +33,7 @@ def PCA_LDA(D, L, createGraph=False, printResults=False):
 
     # Startiting apply PCA
     # Convolution on training data
-    DTR_pca, P, _ = PCA(DTR, 1, printResults=printResults)
+    DTR_pca, P, _ = PCA(DTR, 6, printResults=printResults)
     DVAL_pca = np.dot(P.T, DVAL)
 
     # Calculate LDA on DTR of PCA

@@ -43,17 +43,17 @@ def calculateError(DTR_lda, LTR, DVAL_lda, LVAL, printResults=False):
     # PVAL[DVAL_lda[0] < threshold] = 0
     # difference = np.abs(LVAL - PVAL)
     # numOfErr = sum(x != 0 for x in difference)
-    # errorRate = float(numOfErr) / float(LVAL.shape[0]) * 100
-
+    # errorRate = float(numOfErr) / float(LVAL.shape[0])
+    #
     # if printResults:
-    #    print("Error - RESULTS")
-    #    print(f"    Threshold: {threshold}")
-    #    print(f"    Number of samples:\n\t{PVAL.shape[0]}")
-    #    print(f"    Real values:\n\t{LVAL}")
-    #    print(f"    Predicted values:\n\t{PVAL}")
-    #    print(f"    Difference:\n\t{difference}")
-    #    print(f"    Number of errors: {numOfErr}")
-    #    print(f"    Error rate: {errorRate:.5f}%")
+    #     print("Error - RESULTS")
+    #     print(f"    Threshold: {threshold}")
+    #     print(f"    Number of samples:\n\t{PVAL.shape[0]}")
+    #     print(f"    Real values:\n\t{LVAL}")
+    #     print(f"    Predicted values:\n\t{PVAL}")
+    #     print(f"    Difference:\n\t{difference}")
+    #     print(f"    Number of errors: {numOfErr}")
+    #     print(f"    Error rate: {100 * errorRate:.5f}%")
 
     # Compute of the best threshold
     best_threshold = None
@@ -82,7 +82,7 @@ def calculateError(DTR_lda, LTR, DVAL_lda, LVAL, printResults=False):
         print(f"    Real values:\n\t{LVAL}")
         print(f"    Predicted values:\n\t{PVAL}")
         print(f"    Number of errors: {diff}")
-        print(f"    Error rate: {error_rate:.5f}%")
+        print(f"    Error rate: {100 * error_rate:.5f}%")
 
 
 # LAB 04
