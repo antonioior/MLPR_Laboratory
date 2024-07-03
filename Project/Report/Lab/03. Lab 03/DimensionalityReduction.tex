@@ -67,17 +67,25 @@ where:
 % OUR PROJECT
 
 \subsection{Our project}
-
 \label{subsec:ourProject}
-\begin{figure}[h!]
+PCA and LDA are applied to the dataset, in particular, m = 6 is used, and in \autoref{fig:pcaLda} we can observe
+what are the outcomes for the indicated directions.
+
+\begin{figure}[h]
+    \centering
     \includegraphics[width=0.5\linewidth]{Lab/03. Lab 03/Images/02. PVA_LDA}
     \caption{Comparing resulta between PCA and LDA}
     \label{fig:pcaLda}
 \end{figure}
 
-\begin{table}[!t]
+At a later stage, they were used to carry out a classification.
+The available dataset was divided into two sub-portions one for training and the other for validation.
+In \autoref{tab:LDAPCAForClassification} we can see the error of the classification,
+errors made in the classification when varying m (only for some values) and the threshold were reported
+
+\begin{table}
     \centering
-    \begin{tabular}{>{\centering\arraybackslash}p{2cm}>{\centering\arraybackslash}p{2cm}>{\centering\arraybackslash}p{2cm}>{\centering\arraybackslash}p{2cm}}
+    \begin{tabular}{c c c c}
         \toprule
         Method                             & Num Samples & Error & Error Rate \\
         \midrule
@@ -91,8 +99,8 @@ where:
         \bottomrule
     \end{tabular}
     \captionsetup{justification=justified,singlelinecheck=false,format=hang}
-    \caption{Table showing the results of the LDA and PCA + LDA method.}
-    \label{tab:transformation}
+    \caption{Table showing the results of the LDA and PCA + LDA method for classification.}
+    \label{tab:LDAPCAForClassification}
 \end{table}
 
 
