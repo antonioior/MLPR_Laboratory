@@ -5,8 +5,4 @@
 \contentsline {subsection}{\numberline {2.1}PCA}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}LDA}{5}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Our project}{6}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Classification Models Analysis}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Gaussian Models}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Logistic Regression Classifier}{7}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Support Vector Machine Classifier}{7}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Gaussian Mixture Models Classifier}{7}{subsection.3.4}%
+\contentsline {section}{\numberline {3}Multivariate Gaussian Density}{7}{section.3}%

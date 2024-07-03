@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.5.28)  3 JUL 2024 16:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.5.28)  3 JUL 2024 21:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -911,7 +911,7 @@ Project/Report/report.toc)
  [2])
 (/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/
 Project/Report/./Lab/02. Lab 02/DatasetAnalysis.tex
-<Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png, id=75, 722.7
+<Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png, id=55, 722.7
 pt x 722.7pt>
 File: Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png Graphic 
 file (type png)
@@ -919,7 +919,7 @@ file (type png)
 Package pdftex.def Info: Lab/02. Lab 02/Images/01. Graphics Features 1_2 Withou
 t Mean.png  used on input line 24.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png, id=77, 722.7pt 
+<Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png, id=57, 722.7pt 
 x 722.7pt>
 File: Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png Graphic fil
 e (type png)
@@ -935,7 +935,7 @@ ean.png  used on input line 29.
 g> </home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laborato
 ry/Project/Report/Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png
 >]
-<Lab/02. Lab 02/Images/03. Graphics Features 3_4 Without Mean.png, id=96, 722.7
+<Lab/02. Lab 02/Images/03. Graphics Features 3_4 Without Mean.png, id=76, 722.7
 pt x 722.7pt>
 File: Lab/02. Lab 02/Images/03. Graphics Features 3_4 Without Mean.png Graphic 
 file (type png)
@@ -943,7 +943,7 @@ file (type png)
 Package pdftex.def Info: Lab/02. Lab 02/Images/03. Graphics Features 3_4 Withou
 t Mean.png  used on input line 55.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png, id=97, 722.7pt 
+<Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png, id=77, 722.7pt 
 x 722.7pt>
 File: Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png Graphic fil
 e (type png)
@@ -951,16 +951,16 @@ e (type png)
 Package pdftex.def Info: Lab/02. Lab 02/Images/04. Graphics Features 3_4 With M
 ean.png  used on input line 60.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png, id=101, 722.
-7pt x 722.7pt>
+<Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png, id=81, 722.7
+pt x 722.7pt>
 File: Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png Graphic 
 file (type png)
 <use Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png>
 Package pdftex.def Info: Lab/02. Lab 02/Images/05. Graphics Features 5_6 Withou
 t Mean.png  used on input line 86.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png, id=102, 722.7pt
- x 722.7pt>
+<Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png, id=82, 722.7pt 
+x 722.7pt>
 File: Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png Graphic fil
 e (type png)
 <use Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png>
@@ -974,8 +974,8 @@ ata/POLITO/Machine Learning And Pattern Recognition/Laboratory/Project/Report/L
 ab/02. Lab 02/Images/03. Graphics Features 3_4 Without Mean.png> </home/antonio
 /data/POLITO/Machine Learning And Pattern Recognition/Laboratory/Project/Report
 /Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png>]
-<Lab/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png, id=113, 6
-42.4pt x 481.8pt>
+<Lab/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png, id=93, 64
+2.4pt x 481.8pt>
 File: Lab/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png Graph
 ic file (type png)
 <use Lab/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png>
@@ -991,7 +991,7 @@ ry/Project/Report/Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.
 png> </home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Labora
 tory/Project/Report/Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.p
 ng>]
-<Lab/03. Lab 03/Images/02. PVA_LDA.png, id=129, 2007.5pt x 2007.5pt>
+<Lab/03. Lab 03/Images/02. PVA_LDA.png, id=109, 2007.5pt x 2007.5pt>
 File: Lab/03. Lab 03/Images/02. PVA_LDA.png Graphic file (type png)
 <use Lab/03. Lab 03/Images/02. PVA_LDA.png>
 Package pdftex.def Info: Lab/03. Lab 03/Images/02. PVA_LDA.png  used on input l
@@ -999,19 +999,19 @@ ine 76.
 (pdftex.def)             Requested size: 198.7425pt x 198.74005pt.
 )
 (/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/
-Project/Report/./Lab/04. Lab 04/GaussianModels.tex)
-(/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/
-Project/Report/./Lab/05. Lab 05/ClassificationModels.tex)
-(/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/
-Project/Report/./Lab/08. Lab 08/LogisticRegressionClassifier.tex)
-(/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/
-Project/Report/./Lab/09. Lab 09/SupportVectorMachines.tex)
-(/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/
-Project/Report/./Lab/10. Lab 10/GaussianMixtureModels.tex) [6 </home/antonio/da
-ta/POLITO/Machine Learning And Pattern Recognition/Laboratory/Project/Report/La
-b/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png (PNG copy)> <
-/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/P
-roject/Report/Lab/03. Lab 03/Images/02. PVA_LDA.png (PNG copy)>] [7]
+Project/Report/./Lab/04. Lab 04/MultivariateGaussianDensity.tex [6 </home/anton
+io/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/Project/Repo
+rt/Lab/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png (PNG cop
+y)> </home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laborat
+ory/Project/Report/Lab/03. Lab 03/Images/02. PVA_LDA.png (PNG copy)>]
+<Lab/04. Lab 04/Images/01. GaussianDensity.png, id=121, 2007.5pt x 1003.75pt>
+File: Lab/04. Lab 04/Images/01. GaussianDensity.png Graphic file (type png)
+<use Lab/04. Lab 04/Images/01. GaussianDensity.png>
+Package pdftex.def Info: Lab/04. Lab 04/Images/01. GaussianDensity.png  used on
+ input line 23.
+(pdftex.def)             Requested size: 397.48499pt x 198.74005pt.
+) [7 </home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Labora
+tory/Project/Report/Lab/04. Lab 04/Images/01. GaussianDensity.png (PNG copy)>]
 (/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/
 Project/Report/report.aux
 (/home/antonio/data/POLITO/Machine Learning And Pattern Recognition/Laboratory/
@@ -1021,13 +1021,13 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: A9A6CA42127ED7DADC2B610A3C86213A;1566.
+(rerunfilecheck)             Checksum: 28A70507007CC99FEDFD5970FF4375A8;745.
  ) 
 Here is how much of TeX's memory you used:
- 25142 strings out of 476076
- 473744 string characters out of 5793775
+ 25107 strings out of 476076
+ 471507 string characters out of 5793775
  1936187 words of memory out of 5000000
- 46733 multiletter control sequences out of 15000+600000
+ 46719 multiletter control sequences out of 15000+600000
  567174 words of font info for 71 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,9n,87p,543b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1039,14 +1039,17 @@ s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public
 mmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
 share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+ublic/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
+s/symbols/msam10.pfb>
 Output written on "/home/antonio/data/POLITO/Machine Learning And Pattern Recog
-nition/Laboratory/Project/Report/report.pdf" (7 pages, 2324865 bytes).
+nition/Laboratory/Project/Report/report.pdf" (7 pages, 2502243 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 211 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
