@@ -51,7 +51,7 @@ The first classifier is given by the empirical mean and covariance of each class
 \subsubsection{Naive Bayes Gaussian Classifier}
 \label{subsubsec:naiveBayesGaussianClassifier}
 This model makes an important assumption that simplifies the number of parameters to be estimated,
-it assumes that the features are indepenent given their class.
+it assumes that the features are independent given their class.
 This causes the covariance matrix to be a diagonal matrix, consequently, matching MVG with the diagonal covariance matrix.
 However, the assumption of independence may be too restrictive and lead to inferior performance if the features are indeed correlated.
 
@@ -75,3 +75,34 @@ The assumption of the latter model consists of its own average for each class, b
 
 \subsubsection{Gaussian Models Comparison}
 \label{subsubsec:gaussianModelsComparison}
+A threshold of \(0\) was used to perform our results, which means that \(P(C=1)=P(C=0)=1/2\).
+
+\begin{table}
+    \centering
+    \begin{tabular}{c c c}
+        \toprule
+        \textbf{Features} & \textbf{Model}  & \textbf{Error Rate} (\%) \\
+        \midrule
+        \multicolumn{3}{c}{\textit{no PCA}} \\
+        \midrule
+        1 to 6            & MVG             & 7.00                     \\
+        1 to 6            & Naive Bayes     & 7.20                     \\
+        1 to 6            & Tied Covariance & 9.30                     \\
+        \midrule
+        1 to 4            & MVG             & 7.95                     \\
+        1 to 4            & Naive Bayes     & 7.65                     \\
+        1 to 4            & Tied Covariance & 9.50                     \\
+        \midrule
+        1 - 2             & MVG             & 36.50                    \\
+        1 - 2             & Naive Bayes     & 36.30                    \\
+        1 - 2             & Tied Covariance & 49.45                    \\
+        \midrule
+        3 - 4             & MVG             & 9.45                     \\
+        3 - 4             & Naive Bayes     & 9.45                     \\
+        3 - 4             & Tied Covariance & 9.40                     \\
+        \bottomrule
+    \end{tabular}
+    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+    \caption{Table showing the results of the LDA and PCA + LDA method for classification.}
+    \label{tab:resultGaussianClassificationModels}
+\end{table}
