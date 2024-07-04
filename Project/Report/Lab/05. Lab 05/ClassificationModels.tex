@@ -1,2 +1,77 @@
 %! Author = antonio
 %! Date = 7/2/24
+
+To perform the classification, the dataset must first be divided into two sub-portions, the training and validation sub-portions.
+
+\subsection{Gaussian models}
+\label{subsec:gaussianModels}
+Since, it is dealing with a binary classification task, it will assign a probabilistic score to each sample in terms
+of the class-posterior log-ratio:
+\begin{equation}
+    \log r(x_t) = \log \frac{P(C=h_1\mid x_t)}{P(C=h_0\mid x_t)}
+    \label{eq:llr}
+\end{equation}
+
+Analysing \autoref{eq:llr} in more detail, it becomes:
+\begin{equation}
+    \log r(x_t) = \log \frac{f_{X\mid C}(x_t \mid h_1)}{f_{X\mid C}(x_t \mid h_0)} + \log \frac{P(C=h_1)}{P(C=h_0)}
+    \label{eq:llrExpanded}
+\end{equation}
+
+The first addend of the equation is called the \textit{llr} or \textit{log-likelihood ratio} and an optimal decision is
+given by \autoref{eq:llrDecision}.
+
+\begin{equation}
+    \log r(x_t) \gtrless 0
+    \label{eq:llrDecision}
+\end{equation}
+
+Considering \(P(C=h_1) = \pi \) and \(P(C=h_0) = 1 - \pi\), from \autoref{eq:llrExpanded} and \autoref{eq:llrDecision},
+it is possible to write that the class assignment is based on \autoref{eq:llrExpanded} and \autoref{eq:llrDecision},
+to obtain \autoref{eq:assignmentClasses}.
+
+\begin{equation}
+    llr(x_t)=\log \frac{f_{X\mid C}(x_t \mid h_1)}{f_{X\mid C}(x_t \mid h_0)} \gtrless -\log \frac{\pi}{1 - \pi}
+    \label{eq:assignmentClasses}
+\end{equation}
+
+%   Multivariate Gaussian Classifier
+
+\subsubsection{Multivariate Gaussian Classifier}
+\label{subsubsec:multivariateGaussianClassifier}
+The first classifier is given by the empirical mean and covariance of each class,
+\begin{equation}
+    \mu_c^* = \frac{1}{N_c} \sum_{i\mid c_i=c} x_i\text{ ,}\quad
+    \Sigma_c^* = \frac{1}{N_c} \sum_{i\mid c_i=c} (x_i - \mu_c^*)(x_i - \mu_c^*)^T
+    \label{eq:meanAndVarianceMVG}
+\end{equation}
+
+%   Naive Bayes Gaussian Classifier
+
+\subsubsection{Naive Bayes Gaussian Classifier}
+\label{subsubsec:naiveBayesGaussianClassifier}
+This model makes an important assumption that simplifies the number of parameters to be estimated,
+it assumes that the features are indepenent given their class.
+This causes the covariance matrix to be a diagonal matrix, consequently, matching MVG with the diagonal covariance matrix.
+However, the assumption of independence may be too restrictive and lead to inferior performance if the features are indeed correlated.
+
+\begin{equation}
+    \mu_{c,[j]}^* = \frac{1}{N_c} \sum_{i\mid c_i = c} x_{i,[j]}\text{ ,}\quad
+    \sigma_{c,[j]}^2 = \frac{1}{N_c} \sum_{i\mid c_i = c} (x_{i,[j]} - \mu_{c,[j]}^*)^2
+    \label{eq:meanAndVarianceNBG}
+\end{equation}
+
+%   Tied Covariance Gaussian Classifier
+
+\subsubsection{Tied Covariance Gaussian Classifier}
+\label{subsubsec:tiedCovarianceGaussianClassifier}
+The assumption of the latter model consists of its own average for each class, but an equal covariance matrix for all classes.
+
+\begin{equation}
+    \mu_c^* = \frac{1}{N_c} \sum_{i\mid c_i=c} x_i\text{ ,}\quad
+    \Sigma^* = \frac{1}{N} \sum_{c} \sum_{i\mid c_i = c} (x_{i} - \mu_c)(x_{i} - \mu_c)^T
+    \label{eq:tiedCovariance}
+\end{equation}
+
+\subsubsection{Gaussian Models Comparison}
+\label{subsubsec:gaussianModelsComparison}
