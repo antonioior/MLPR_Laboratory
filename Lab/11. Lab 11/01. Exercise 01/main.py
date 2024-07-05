@@ -25,7 +25,7 @@ if __name__ == "__main__":
         xRange = [-3, 3]
 
         # EVALUATION
-        print("EVALUATION")
+        print("RAW SCORES")
         yRange = [0, 1.3]
         system1.printEvaluation(xRange, yRange, "b", "b")
         system2.printEvaluation(xRange, yRange, "orange", "orange")

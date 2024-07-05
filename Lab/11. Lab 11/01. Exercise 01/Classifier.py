@@ -1,9 +1,9 @@
 import numpy as np
+import scipy.optimize as sp
 
 from DCF import minDCF, actDCF, bayesError
 from graph import createBayesErrorPlots
-from logRegClass import binaryLogisticRegression
-from utils import vrow
+from utils import vcol, vrow
 
 
 class Classifier:
@@ -14,6 +14,9 @@ class Classifier:
         self.priorT = priorT
         self.minDCF = minDCF(self.score, self.labels, self.priorT, 1, 1)
         self.actDCF = actDCF(self.score, self.labels, self.priorT, 1, 1)
+        self.SCAL, self.SVAL, self.LCAL, self.LVAL = 0, 0, 0, 0
+        self.minDCFCalValRaw, self.actDCFCalValRaw = 0, 0
+        self.minDCFCalValCal, self.actDCFCalValCal = 0, 0
 
     def computeBayesError(self, xRange, fold=None):
         if fold is None:
@@ -57,10 +60,35 @@ class Classifier:
         self.actDCFCalValRaw = actDCF(self.SVAL, self.LVAL, self.priorT, 1, 1)
 
     def calibration(self):
-        self.minDCFCalibrated, self.actDCFCalibrated = binaryLogisticRegression(vrow(self.SCAL), self.LCAL,
-                                                                                vrow(self.SVAL), self.LVAL, self.priorT,
-                                                                                0,
-                                                                                pEmp=False)
+        l = 0
+        ZTR = self.LCAL * 2.0 - 1.0  # We do it outside the objective function, since we only need to do it once
+
+        wTar = self.priorT / (ZTR > 0).sum()  # Compute the weights for the two classes
+        wNon = (1 - self.priorT) / (ZTR < 0).sum()
+
+        def logreg_obj_with_grad(v):  # We compute both the objective and its gradient to speed up the optimization
+            w = v[:-1]
+            b = v[-1]
+
+            s = np.dot(vcol(w).T, vrow(self.SCAL)).ravel() + b
+
+            loss = np.logaddexp(0, -ZTR * s)
+            loss[ZTR > 0] *= wTar  # Apply the weights to the loss computations
+            loss[ZTR < 0] *= wNon
+
+            G = -ZTR / (1.0 + np.exp(ZTR * s))
+            G[ZTR > 0] *= wTar  # Apply the weights to the gradient computations
+            G[ZTR < 0] *= wNon
+
+            GW = (vrow(G) * vrow(self.SCAL)).sum(1) + l * w.ravel()
+            Gb = G.sum()
+            return loss.sum() + l / 2 * np.linalg.norm(w) ** 2, np.hstack([GW, np.array(Gb)])
+
+        vf = sp.fmin_l_bfgs_b(logreg_obj_with_grad, x0=np.zeros(vrow(self.SCAL).shape[0] + 1))[0]
+        w, b = vf[:-1], vf[-1]
+        calibrated_SVAL = (w.T @ vrow(self.SVAL) + b - np.log(self.priorT / (1 - self.priorT))).ravel()
+        self.minDCFCalValCal = minDCF(calibrated_SVAL, self.LVAL, self.priorT, 1, 1)
+        self.actDCFCalibrated = actDCF(calibrated_SVAL, self.LVAL, self.priorT, 1, 1)
 
     def printEvaluation(self, xRange, yRange, colorActDCF="b", colorMinDCF="b"):
         print(f"\t{self.system.upper()}")
@@ -81,8 +109,8 @@ class Classifier:
         print(f"\t\t\t\tactDCF: {self.actDCFCalValRaw:.3f}")
 
         print(f"\t\t\tCalibrated scores")
-        print(f"\t\t\t\tminDCF: {self.minDCFCalibrated:.3f}")
-        print(f"\t\t\t\tactDCF: {self.actDCFCalibrated:.3f}")
+        print(f"\t\t\t\tminDCF: {self.minDCFCalValCal:.3f}")
+        print(f"\t\t\t\tactDCF: {self.actDCFCalValCal:.3f}")
         self.BayesError(xRange=xRange, yRange=yRange, colorActDCF=colorActDCF, colorMinDCF=colorMinDCF,
                         title=self.system.upper(),
                         show=True,
