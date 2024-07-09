@@ -3,7 +3,7 @@ import scipy.optimize as sp
 
 from DCF import minDCF, actDCF, bayesError
 from graph import createBayesErrorPlots
-from printValue import printEvaluationResult, printCalibrationResult, printKFoldResult
+from printValue import printEvaluationResult, printCalibrationResult, printKFoldResult, printScoreFusionResult
 from utils import vcol, vrow
 
 
@@ -29,8 +29,9 @@ class Classifier:
         self.minDCFKFoldCalValCal, self.actDCFKFoldCalValCal = 0, 0
 
         self.calibratedKEval = 0
-
         self.minDCFKFoldEvalCal, self.actDCFKFoldEvalCal = 0, 0
+        self.fusedSVAL, self.minDCFFusionSingleFold, self.actDCFFusionSingleFold = 0, 0, 0
+        self.minDCFFusionSingleFoldEval, self.actDCFFusionSingleFoldEval = 0, 0
 
     def BayesError(self, llr, LTE, xRange, yRange, colorActDCF, colorMinDCF, title, show, labelActDCF, labelMinDCF,
                    linestyleActDCF, linestyleMinDCF, llrOther=None, lteOther=None, labelActDCFOther="",
@@ -82,7 +83,7 @@ class Classifier:
 
     def calibration(self):
         l = 0
-        w, b = training(self.SCAL, self.LCAL, l, self.priorT)
+        w, b = training(vrow(self.SCAL), self.LCAL, l, self.priorT)
         self.calibrated_SVAL = (w.T @ vrow(self.SVAL) + b - np.log(self.priorT / (1 - self.priorT))).ravel()
         self.minDCFCalValCal = minDCF(self.calibrated_SVAL, self.LVAL, self.priorT, 1, 1)
         self.actDCFCalValCal = actDCF(self.calibrated_SVAL, self.LVAL, self.priorT, 1, 1)
@@ -95,7 +96,7 @@ class Classifier:
         for i in range(K):
             SCAL, SVAL = np.hstack([self.scoreCalDat[jdx::K] for jdx in range(K) if jdx != i]), self.scoreCalDat[i::K]
             LCAL, LVAL = np.hstack([self.labelsCalDat[jdx::K] for jdx in range(K) if jdx != i]), self.labelsCalDat[i::K]
-            w, b = training(SCAL, LCAL, 0, self.priorT)
+            w, b = training(vrow(SCAL), LCAL, 0, self.priorT)
             calibrated_SVAL = (w.T @ vrow(SVAL) + b - np.log(self.priorT / (1 - self.priorT))).ravel()
             self.calibratedSVALK.append(calibrated_SVAL)
             self.labelK.append(LVAL)
@@ -105,10 +106,24 @@ class Classifier:
         self.minDCFKFoldCalValCal = minDCF(self.calibratedSVALK, self.labelK, self.priorT, 1, 1)
         self.actDCFKFoldCalValCal = actDCF(self.calibratedSVALK, self.labelK, self.priorT, 1, 1)
 
-        w, b = training(self.scoreCalDat, self.labelsCalDat, 0, self.priorT)
+        w, b = training(vrow(self.scoreCalDat), self.labelsCalDat, 0, self.priorT)
         self.calibratedKEval = (w.T @ vrow(self.scoreEvalDat) + b - np.log(self.priorT / (1 - self.priorT))).ravel()
         self.minDCFKFoldEvalCal = minDCF(self.calibratedKEval, self.labelsEvalDat, self.priorT, 1, 1)
         self.actDCFKFoldEvalCal = actDCF(self.calibratedKEval, self.labelsEvalDat, self.priorT, 1, 1)
+
+    def scoreFusion(self, other):
+
+        # Single fold
+        w, b = training(np.vstack([self.SCAL, other.SCAL]), self.LCAL, 0, self.priorT)
+        self.fusedSVAL = (
+                w.T @ np.vstack([self.SVAL, other.SVAL]) + b - np.log(self.priorT / (1 - self.priorT))).ravel()
+        self.minDCFFusionSingleFold = minDCF(self.fusedSVAL, self.LVAL, self.priorT, 1, 1)
+        self.actDCFFusionSingleFold = actDCF(self.fusedSVAL, self.LVAL, self.priorT, 1, 1)
+
+        self.fusedSVALEval = (w.T @ np.vstack([self.scoreEvalDat, other.scoreEvalDat]) + b - np.log(
+            self.priorT / (1 - self.priorT))).ravel()
+        self.minDCFFusionSingleFoldEval = minDCF(self.fusedSVALEval, self.labelsEvalDat, self.priorT, 1, 1)
+        self.actDCFFusionSingleFoldEval = actDCF(self.fusedSVALEval, self.labelsEvalDat, self.priorT, 1, 1)
 
     def printEvaluation(self, xRange, yRange, colorActDCF="b", colorMinDCF="b"):
         printEvaluationResult(self, xRange, yRange, colorActDCF, colorMinDCF)
@@ -123,6 +138,12 @@ class Classifier:
         printKFoldResult(self, xRange, yRange, colorActDCF, colorMinDCF, colorACTDCFOther, numRow,
                          numCol, startIndex)
 
+    def printScoreFusion(self, other, xRange, yRange, fusion, colorActDCF="b", colorMinDCF="b", colorACTDCFOther="b",
+                         numRow=1,
+                         numCol=1, startIndex=1):
+        printScoreFusionResult(self, other, xRange, yRange, colorActDCF, colorMinDCF, colorACTDCFOther, numRow,
+                               numCol, startIndex)
+
 
 def training(SCAL, LCAL, l, priorT):
     ZTR = LCAL * 2.0 - 1.0  # We do it outside the objective function, since we only need to do it once
@@ -134,7 +155,7 @@ def training(SCAL, LCAL, l, priorT):
         w = v[:-1]
         b = v[-1]
 
-        s = np.dot(vcol(w).T, vrow(SCAL)).ravel() + b
+        s = np.dot(vcol(w).T, SCAL).ravel() + b
 
         loss = np.logaddexp(0, -ZTR * s)
         loss[ZTR > 0] *= wTar  # Apply the weights to the loss computations
@@ -144,9 +165,9 @@ def training(SCAL, LCAL, l, priorT):
         G[ZTR > 0] *= wTar  # Apply the weights to the gradient computations
         G[ZTR < 0] *= wNon
 
-        GW = (vrow(G) * vrow(SCAL)).sum(1) + l * w.ravel()
+        GW = (vrow(G) * SCAL).sum(1) + l * w.ravel()
         Gb = G.sum()
         return loss.sum() + l / 2 * np.linalg.norm(w) ** 2, np.hstack([GW, np.array(Gb)])
 
-    vf = sp.fmin_l_bfgs_b(logreg_obj_with_grad, x0=np.zeros(vrow(SCAL).shape[0] + 1))[0]
+    vf = sp.fmin_l_bfgs_b(logreg_obj_with_grad, x0=np.zeros(SCAL.shape[0] + 1))[0]
     return vf[:-1], vf[-1]

@@ -88,6 +88,73 @@ def printKFoldResult(classifier, xRange, yRange, colorActDCF, colorMinDCF, color
                           linestyleActDCFOther=":")
 
 
+def printScoreFusionResult(classifier, other, xRange, yRange, colorActDCF, colorMinDCF, colorACTDCFOther, numRow,
+                           numCol, startIndex):
+    print(f"\tCalibration validation dataset")
+    print(f"\t\tSINGLE-FOLD")
+    printMinAndActDCF("SYSTEM 1 (CAL.)", classifier.minDCFCalValCal, classifier.actDCFCalValCal)
+    printMinAndActDCF("SYSTEM 2 (CAL.)", other.minDCFCalValCal, other.actDCFCalValCal)
+    printMinAndActDCF("FUSION", classifier.minDCFFusionSingleFold, classifier.actDCFFusionSingleFold)
+    plt.subplot(numRow, numCol, startIndex)
+    classifier.BayesError(llr=classifier.calibrated_SVAL, LTE=classifier.LVAL, xRange=xRange, yRange=yRange,
+                          colorActDCF="b",
+                          colorMinDCF="b",
+                          title="Calibration validation, single fold",
+                          show=False,
+                          labelActDCF=f"S1 - actDCF", labelMinDCF=f"S1 - minDCF",
+                          linestyleActDCF="-", linestyleMinDCF="--")
+    classifier.BayesError(llr=other.calibrated_SVAL, LTE=other.LVAL, xRange=xRange, yRange=yRange,
+                          colorActDCF="orange",
+                          colorMinDCF="orange",
+                          title="Calibration validation, single fold",
+                          show=False,
+                          labelActDCF=f"S2 - actDCF", labelMinDCF=f"S2 - minDCF",
+                          linestyleActDCF="-", linestyleMinDCF="--")
+    classifier.BayesError(llr=classifier.fusedSVAL, LTE=classifier.LVAL, xRange=xRange, yRange=yRange,
+                          colorActDCF="green",
+                          colorMinDCF="green",
+                          title="Calibration validation, single fold",
+                          show=False,
+                          labelActDCF=f"Fusion - actDCF", labelMinDCF=f"Fusion - minDCF",
+                          linestyleActDCF="-", linestyleMinDCF="--")
+
+    print(f"\t\tK-FOLD CALIBRATION")
+    printMinAndActDCF("SYSTEM 1 (CAL.)", classifier.minDCFKFoldCalValCal, classifier.actDCFKFoldCalValCal)
+    printMinAndActDCF("SYSTEM 2 (CAL.)", other.minDCFKFoldCalValCal, other.actDCFKFoldCalValCal)
+
+    print(f"\tEvaluation dataset")
+    print(f"\t\tSINGLE FOLD")
+    printMinAndActDCF("SYSTEM 1 (CAL.)", classifier.minDCFEvalCalScore, classifier.actDCFEvalCalScore)
+    printMinAndActDCF("SYSTEM 2 (CAL.)", other.minDCFEvalCalScore, other.actDCFEvalCalScore)
+    printMinAndActDCF("FSUSION", classifier.minDCFFusionSingleFoldEval, classifier.actDCFFusionSingleFoldEval)
+    plt.subplot(numRow, numCol, startIndex + 1)
+    classifier.BayesError(llr=classifier.calibrated_SVALEval, LTE=classifier.labelsEvalDat, xRange=xRange,
+                          yRange=yRange,
+                          colorActDCF="b",
+                          colorMinDCF="b",
+                          title="Evaluation, single fold",
+                          show=False,
+                          labelActDCF=f"S1 - actDCF", labelMinDCF=f"S1 - minDCF",
+                          linestyleActDCF="-", linestyleMinDCF="--")
+    classifier.BayesError(llr=other.calibrated_SVALEval, LTE=other.labelsEvalDat, xRange=xRange, yRange=yRange,
+                          colorActDCF="orange",
+                          colorMinDCF="orange",
+                          title="Evaluation, single fold",
+                          show=False,
+                          labelActDCF=f"S2 - actDCF", labelMinDCF=f"S2 - minDCF",
+                          linestyleActDCF="-", linestyleMinDCF="--")
+    classifier.BayesError(llr=classifier.fusedSVALEval, LTE=classifier.labelsEvalDat, xRange=xRange, yRange=yRange,
+                          colorActDCF="green",
+                          colorMinDCF="green",
+                          title="Evaluation, single fold",
+                          show=False,
+                          labelActDCF=f"Fusion - actDCF", labelMinDCF=f"Fusion - minDCF",
+                          linestyleActDCF="-", linestyleMinDCF="--")
+    print(f"\t\tK-FOLD CALIBRATION")
+    printMinAndActDCF("SYSTEM 1 (CAL.)", classifier.minDCFKFoldEvalCal, classifier.actDCFKFoldEvalCal)
+    printMinAndActDCF("SYSTEM 2 (CAL.)", other.minDCFKFoldEvalCal, other.actDCFKFoldEvalCal)
+
+
 def printMinAndActDCF(subtitle, minDCF, actDCF):
     print(f"\t\t\t{subtitle}")
     print(f"\t\t\t\tminDCF: {minDCF:.3f}")

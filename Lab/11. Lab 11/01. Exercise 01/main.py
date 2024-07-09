@@ -30,6 +30,9 @@ if __name__ == "__main__":
     system1.KFold(K)
     system2.KFold(K)
 
+    # Score-level fusion
+    system1.scoreFusion(system2)
+
     if printResult:
         xRange = [-3, 3]
 
@@ -66,6 +69,18 @@ if __name__ == "__main__":
         system1.printKFold(xRange, yRange, "b", "b", "b", numRow, numCol, startIndex)
         startIndex = 3
         system2.printKFold(xRange, yRange, "orange", "orange", "orange", numRow, numCol, startIndex)
+        plt.subplots_adjust(hspace=0.5, wspace=0.5)
+        plt.tight_layout()
+        plt.show()
+
+        # Score-level fusion
+        print("SCORE-LEVEL FUSION")
+        plt.figure("SCORE-LEVEL FUSION", figsize=(15, 10), dpi=300)
+        plt.suptitle("SCORE-LEVEL FUSION")
+        numRow = 2
+        numCol = 2
+        startIndex = 1
+        system1.printScoreFusion(system2, xRange, yRange, True, "b", "b", "b", numRow, numCol, startIndex)
         plt.subplots_adjust(hspace=0.5, wspace=0.5)
         plt.tight_layout()
         plt.show()
