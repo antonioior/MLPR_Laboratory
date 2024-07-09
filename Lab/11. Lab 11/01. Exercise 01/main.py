@@ -18,12 +18,17 @@ if __name__ == "__main__":
     system1 = Classifier("System 1", scoreSys1CalDat, labelCalDat, scoreSys1EvalDat, labelEvalDat, priorT)
     system2 = Classifier("System 2", scoreSys2CalDat, labelCalDat, scoreSys2EvalDat, labelEvalDat, priorT)
 
-    # CALIBRATION
+    # CALIBRATION - SINGLE FOLD
     system1.splitScores()
     system2.splitScores()
 
     system1.calibration()
     system2.calibration()
+
+    # K - FOLD
+    K = 5
+    system1.KFold(K)
+    system2.KFold(K)
 
     if printResult:
         xRange = [-3, 3]
@@ -39,8 +44,8 @@ if __name__ == "__main__":
         print("CALIBRATION")
         yRange = [0, 0.8]
 
-        plt.figure("", figsize=(15, 8), dpi=300)
-
+        plt.figure("SINGLE FOLD CALIBRATION", figsize=(15, 8), dpi=300)
+        plt.suptitle("SINGLE FOLD CALIBRATION")
         numRow = 2
         numCol = 3
         startIndex = 1
@@ -48,6 +53,19 @@ if __name__ == "__main__":
         startIndex = 4
         system2.printCalibration(xRange, yRange, "orange", "orange", "orange", numRow, numCol, startIndex)
         plt.subplots_adjust(hspace=0.5, wspace=0.5)
+        plt.tight_layout()
+        plt.show()
 
+        # K - FOLD
+        print("K-FOLD CALIBRATION")
+        plt.figure("K-FOLD CALIBRATION", figsize=(15, 10), dpi=300)
+        plt.suptitle("K-FOLD CALIBRATION")
+        numRow = 2
+        numCol = 2
+        startIndex = 1
+        system1.printKFold(xRange, yRange, "b", "b", "b", numRow, numCol, startIndex)
+        startIndex = 3
+        system2.printKFold(xRange, yRange, "orange", "orange", "orange", numRow, numCol, startIndex)
+        plt.subplots_adjust(hspace=0.5, wspace=0.5)
         plt.tight_layout()
         plt.show()
