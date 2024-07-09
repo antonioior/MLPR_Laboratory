@@ -30,9 +30,10 @@ def QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, titleGraph, printResult=Fa
         x = []
         yMinDCF = []
         yActDCF = []
-        print("RESULT FOR BINARY LOGISTIC REGRESSION")
+        print("RESULT FOR QUADRATIC LOGISTIC REGRESSION")
         for lamb in result.keys():
             print(f"\tLambda: {lamb}")
+            print(f"\t\tLambda: {result[lamb]['lambda']: .6e}")
             print(f"\t\tJ: {result[lamb]["J"]: .6e}")
             print(f"\t\tError: {result[lamb]["ErrorRate"] * 100:.1f} %")
             print(f"\t\tminDCF: {result[lamb]['minDCF']:.4f}")

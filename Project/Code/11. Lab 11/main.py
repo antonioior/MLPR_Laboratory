@@ -15,7 +15,7 @@ from utils import split_db_2to1
 
 if __name__ == "__main__":
     trainSVM = False
-    trainGMM = True
+    trainGMM = False
     # VARIABLES TO PRINT
     createGraph = False
 
