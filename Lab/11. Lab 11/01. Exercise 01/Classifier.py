@@ -32,6 +32,10 @@ class Classifier:
         self.minDCFKFoldEvalCal, self.actDCFKFoldEvalCal = 0, 0
         self.fusedSVAL, self.minDCFFusionSingleFold, self.actDCFFusionSingleFold = 0, 0, 0
         self.minDCFFusionSingleFoldEval, self.actDCFFusionSingleFoldEval = 0, 0
+        self.minDCFFusionKFold, self.actDCFFusionKFold = 0, 0
+        self.fusedScoresKFold, self.fusedLabels = [], []
+
+        self.fusedScoresKFoldEval, self.minDCFFusionKFoldEval, self.actDCFFusionKFoldEval = 0, 0, 0
 
     def BayesError(self, llr, LTE, xRange, yRange, colorActDCF, colorMinDCF, title, show, labelActDCF, labelMinDCF,
                    linestyleActDCF, linestyleMinDCF, llrOther=None, lteOther=None, labelActDCFOther="",
@@ -111,7 +115,7 @@ class Classifier:
         self.minDCFKFoldEvalCal = minDCF(self.calibratedKEval, self.labelsEvalDat, self.priorT, 1, 1)
         self.actDCFKFoldEvalCal = actDCF(self.calibratedKEval, self.labelsEvalDat, self.priorT, 1, 1)
 
-    def scoreFusion(self, other):
+    def scoreFusion(self, other, K):
 
         # Single fold
         w, b = training(np.vstack([self.SCAL, other.SCAL]), self.LCAL, 0, self.priorT)
@@ -124,6 +128,30 @@ class Classifier:
             self.priorT / (1 - self.priorT))).ravel()
         self.minDCFFusionSingleFoldEval = minDCF(self.fusedSVALEval, self.labelsEvalDat, self.priorT, 1, 1)
         self.actDCFFusionSingleFoldEval = actDCF(self.fusedSVALEval, self.labelsEvalDat, self.priorT, 1, 1)
+
+        # K-Fold
+        for i in range(K):
+            SCAL1, SVAL1 = np.hstack([self.scoreCalDat[jdx::K] for jdx in range(K) if jdx != i]), self.scoreCalDat[i::K]
+            SCAL2, SVAL2 = np.hstack([other.scoreCalDat[jdx::K] for jdx in range(K) if jdx != i]), other.scoreCalDat[
+                                                                                                   i::K]
+            LCAL, LVAL = np.hstack([self.labelsCalDat[jdx::K] for jdx in range(K) if jdx != i]), self.labelsCalDat[i::K]
+            SCAL = np.vstack([SCAL1, SCAL2])
+            w, b = training(SCAL, LCAL, 0, self.priorT)
+            SVAL = np.vstack([SVAL1, SVAL2])
+            calibrated_SVAL = (w.T @ SVAL + b - np.log(self.priorT / (1 - self.priorT))).ravel()
+            self.fusedScoresKFold.append(calibrated_SVAL)
+            self.fusedLabels.append(LVAL)
+
+        self.fusedScoresKFold = np.hstack(self.fusedScoresKFold)
+        self.fusedLabels = np.hstack(self.fusedLabels)
+        self.minDCFFusionKFold = minDCF(self.fusedScoresKFold, self.fusedLabels, self.priorT, 1, 1)
+        self.actDCFFusionKFold = actDCF(self.fusedScoresKFold, self.fusedLabels, self.priorT, 1, 1)
+
+        w, b = training(np.vstack([self.scoreCalDat, other.scoreCalDat]), self.labelsCalDat, 0, self.priorT)
+        self.fusedScoresKFoldEval = (w.T @ np.vstack([self.scoreEvalDat, other.scoreEvalDat]) + b - np.log(
+            self.priorT / (1 - self.priorT))).ravel()
+        self.minDCFFusionKFoldEval = minDCF(self.fusedScoresKFoldEval, self.labelsEvalDat, self.priorT, 1, 1)
+        self.actDCFFusionKFoldEval = actDCF(self.fusedScoresKFoldEval, self.labelsEvalDat, self.priorT, 1, 1)
 
     def printEvaluation(self, xRange, yRange, colorActDCF="b", colorMinDCF="b"):
         printEvaluationResult(self, xRange, yRange, colorActDCF, colorMinDCF)

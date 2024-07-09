@@ -31,7 +31,7 @@ if __name__ == "__main__":
     system2.KFold(K)
 
     # Score-level fusion
-    system1.scoreFusion(system2)
+    system1.scoreFusion(system2, K)
 
     if printResult:
         xRange = [-3, 3]
