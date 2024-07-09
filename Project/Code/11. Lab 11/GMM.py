@@ -19,19 +19,21 @@ def GMM(DTR, LTR, DVAL, LVAL, printResults=False):
             "covType": covType,
             "values": []
         })
-        for component in components:
-            gmm0 = LBGAlgorithm(DTR[:, LTR == 0], alpha, component, psi=psi, covType=covType)
-            gmm1 = LBGAlgorithm(DTR[:, LTR == 1], alpha, component, psi=psi, covType=covType)
+        for componentGmm0 in components:
+            for componentGmm1 in components:
+                gmm0 = LBGAlgorithm(DTR[:, LTR == 0], alpha, componentGmm0, psi=psi, covType=covType)
+                gmm1 = LBGAlgorithm(DTR[:, LTR == 1], alpha, componentGmm1, psi=psi, covType=covType)
 
-            SLLR = logpdf_GMM(DVAL, gmm1)[1] - logpdf_GMM(DVAL, gmm0)[1]
-            minDCFValue = minDCF(SLLR, LVAL, priorT, 1.0, 1.0)
-            actDCFValue = actDCF(SLLR, LVAL, priorT, 1.0, 1.0)
-            resultGMM[count]["values"].append({
-                "component": component,
-                "minDCF": minDCFValue,
-                "actDCF": actDCFValue,
-                "llr": SLLR
-            })
+                SLLR = logpdf_GMM(DVAL, gmm1)[1] - logpdf_GMM(DVAL, gmm0)[1]
+                minDCFValue = minDCF(SLLR, LVAL, priorT, 1.0, 1.0)
+                actDCFValue = actDCF(SLLR, LVAL, priorT, 1.0, 1.0)
+                resultGMM[count]["values"].append({
+                    "componentGmm0": componentGmm0,
+                    "componentGmm1": componentGmm1,
+                    "minDCF": minDCFValue,
+                    "actDCF": actDCFValue,
+                    "llr": SLLR
+                })
         count += 1
 
     if printResults:
@@ -41,12 +43,12 @@ def GMM(DTR, LTR, DVAL, LVAL, printResults=False):
         print("GMM RESULTS")
         for result in resultGMM:
             print(f"\t{result['covType'].upper()}")
-            plt.figure(f"{result['covType'].upper()}", figsize=(15, 8), dpi=300)
+            plt.figure(f"{result['covType'].upper()}", figsize=(30, 16), dpi=300)
             plt.suptitle(f"covType {result['covType'].upper()}")
             index = 1
             for value in result["values"]:
                 print(
-                    f"\t\tcomponent = {value['component']}, minDCF = {value['minDCF']:.4f}, actDCF = {value['actDCF']:.4f}")
+                    f"\t\tcomponentGmm0 = {value['componentGmm0']}, componentGmm1 = {value['componentGmm1']}, minDCF = {value['minDCF']:.4f}, actDCF = {value['actDCF']:.4f}")
                 effPriorLogOdds, dcfBayesError, minDCFBayesError = bayesError(
                     llr=value["llr"],
                     LTE=LVAL,
@@ -54,9 +56,9 @@ def GMM(DTR, LTR, DVAL, LVAL, printResults=False):
                     lineRight=lineRight
                 )
 
-                plt.subplot(2, 3, index)
+                plt.subplot(6, 6, index)
                 createBayesErrorPlots(effPriorLogOdds, dcfBayesError, minDCFBayesError, [-4, 4], [0, 0.9], "r", "b",
-                                      f"numComponent = {value["component"]}",
+                                      f"componentGmm0 = {value["componentGmm0"]}, componentGmm1 = {value["componentGmm1"]}",
                                       show=False)
                 index += 1
                 plt.gca().set_xlim([lineLeft, lineRight])
