@@ -5,6 +5,7 @@ from Classifier import Classifier
 
 if __name__ == "__main__":
     printResult = True
+
     scoreSys1CalDat = np.load("../Data/scores_1.npy")
     scoreSys2CalDat = np.load("../Data/scores_2.npy")
     labelCalDat = np.load("../Data/labels.npy")
