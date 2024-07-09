@@ -1,6 +1,7 @@
 import graph
 import printValue
 import utils as ut
+from Calibration import calibration
 from Configuration import MainConfiguration
 from GMM import GMM
 from LinearSVM import linearSVM
@@ -16,6 +17,7 @@ from utils import split_db_2to1
 if __name__ == "__main__":
     trainSVM = False
     trainGMM = False
+    trainLogisticRegression = False
     # VARIABLES TO PRINT
     createGraph = False
 
@@ -74,7 +76,8 @@ if __name__ == "__main__":
 
     # LAB 08  - COMPLETED
     (DTR, LTR), (DVAL, LVAL) = split_db_2to1(D, L)
-    logisticRegression(DTR, LTR, DVAL, LVAL)
+    if trainLogisticRegression:
+        logisticRegression(DTR, LTR, DVAL, LVAL)
 
     # LAB 09 - COMPLETED
     if trainSVM:
@@ -87,3 +90,4 @@ if __name__ == "__main__":
         GMM(DTR, LTR, DVAL, LVAL, printResults=True)
 
     # LAB 11
+    calibration(DTR, LTR, DVAL, LVAL)
