@@ -90,6 +90,19 @@ class quadraticLogClass:
         grad = np.hstack([gradW, np.array(gradB)])
         return J, grad
 
+    #  LAB 11
+    def trainReturnMinAndActDCF(self, DVAL, LVAL, priorT):
+        from DCF import minDCF, actDCF
+
+        vf = sp.fmin_l_bfgs_b(func=self.logreg_obj, x0=np.zeros(self.DTR.shape[0] + 1))[0]
+        DVAL_expanded = expandeFeature(DVAL)
+        _, score = errorRate(DVAL_expanded, LVAL, vf)
+        pEmp = (self.LTR == 1).sum() / self.LTR.size
+        sllr = score - np.log(pEmp / (1 - pEmp))
+        minDCF = minDCF(sllr, LVAL, priorT, 1, 1)
+        actDCF = actDCF(sllr, LVAL, priorT, 1, 1)
+        return sllr, minDCF, actDCF, score
+
 
 def expandeFeature(D):
     D_exp = np.zeros(shape=(D.shape[0] * D.shape[0] + D.shape[0], D.shape[1]))

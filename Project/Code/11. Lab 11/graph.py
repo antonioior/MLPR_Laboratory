@@ -91,9 +91,10 @@ def createGraphicDensityEstimation(D0, D1, property, feature, x, yFalse, yTrue):
 
 
 # LAB 07
-def createBayesErrorPlots(x, yDCF, yMinDCF, xlim, ylim, colorDCF, colorMinDCF, title, show=True):
-    plt.plot(x, yDCF, label=fr"DCF", color=colorDCF)
-    plt.plot(x, yMinDCF, label=fr"min DCF", color=colorMinDCF)
+def createBayesErrorPlots(x, yActDCF, yMinDCF, xlim, ylim, colorActDCF, colorMinDCF, title, show=True,
+                          labelActDCF="DCF", labelMinDCF="min DCF", linestyleActDCF="-", linestyleMinDCF="-"):
+    plt.plot(x, yActDCF, label=fr"{labelActDCF}", color=colorActDCF, linestyle=linestyleActDCF)
+    plt.plot(x, yMinDCF, label=fr"{labelMinDCF}", color=colorMinDCF, linestyle=linestyleMinDCF)
     plt.ylim(ylim)
     plt.xlim(xlim)
     plt.legend()

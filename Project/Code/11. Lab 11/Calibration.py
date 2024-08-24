@@ -1,10 +1,11 @@
 import numpy as np
 import scipy.optimize as sp
 
-from DCF import minDCF, actDCF
 from PriorWeightedBinLogReg import priorWeightedLogClass
-from QuadraticLogisticRegression import quadraticLogClass, expandeFeature
-from utils import errorRate, vrow
+from QuadraticLogisticRegression import quadraticLogClass
+from DCF import bayesError, minDCF, actDCF
+from graph import createBayesErrorPlots
+from utils import vrow
 
 
 def calibration(DTR, LTR, DVAL, LVAL, printResult=False):
@@ -14,40 +15,55 @@ def calibration(DTR, LTR, DVAL, LVAL, printResult=False):
 
 
 def calibrationLogisticRegression(DTR, LTR, DVAL, LVAL, K, priorT, printResult):
-    l = 3.162278e-4
+    l = 3.162278e-2
     calibratedSVALK = []
     labelK = []
 
     logRegQDT = quadraticLogClass(DTR, LTR, l)
-    vf = sp.fmin_l_bfgs_b(func=logRegQDT.logreg_obj, x0=np.zeros(logRegQDT.DTR.shape[0] + 1))[0]
-    DVAL_expanded = expandeFeature(DVAL)
-    _, score = errorRate(DVAL_expanded, LVAL, vf)
-    pEmp = (LTR == 1).sum() / LTR.size
-    sllr = score - np.log(pEmp / (1 - pEmp))
-    minDCFWithoutCal = minDCF(sllr, LVAL, priorT, 1, 1)
-    actDCFWithoutCal = actDCF(sllr, LVAL, priorT, 1, 1)
+    sllrWithoutCal, minDCFWithoutCal, actDCFWithoutCal, score = logRegQDT.trainReturnMinAndActDCF(DVAL, LVAL, priorT)
 
     for i in range(K):
-        SCAL, SVAL = np.hstack([score[jdx::K] for jdx in range(K) if jdx != i]), score[i::K]
+        SCAL, SVAL = np.hstack([score[jdx::K] for jdx in range(K) if jdx != i]), sllrWithoutCal[i::K]
         labelCal, labelVal = np.hstack([LVAL[jdx::K] for jdx in range(K) if jdx != i]), LVAL[i::K]
-        w, b = training(vrow(SCAL), labelCal, 0, priorT)
+        logRegWeight = priorWeightedLogClass(vrow(SCAL), labelCal, 0, priorT)
+        vf = \
+            sp.fmin_l_bfgs_b(func=logRegWeight.logreg_obj, x0=np.zeros(logRegWeight.DTR.shape[0] + 1))[0]
+        w, b = vf[:-1], vf[-1]
         calibrated_SVAL = (w.T @ vrow(SVAL) + b - np.log(priorT / (1 - priorT))).ravel()
         calibratedSVALK.append(calibrated_SVAL)
-        labelK.append(LVAL)
+        labelK.append(labelVal)
 
-    calibratedSVALK = np.hstack(calibratedSVALK)
+    llrK = np.hstack(calibratedSVALK)
     labelK = np.hstack(labelK)
-    minDCFKFold = minDCF(calibratedSVALK, labelK, priorT, 1, 1)
-    actDCFKFold = actDCF(calibratedSVALK, labelK, priorT, 1, 1)
+    minDCFKFold = minDCF(llrK, labelK, priorT, 1, 1)
+    actDCFKFold = actDCF(llrK, labelK, priorT, 1, 1)
 
     if printResult:
         print("RESULT FOR CALIBRATION LOGISTIC REGRESSION")
         print(f"\tLambda: {l}")
         print(f"\t\tminDCF: {minDCFWithoutCal:.4f}")
         print(f"\t\tactDCF: {actDCFWithoutCal:.4f}")
-        print(f"\t\tminDCF: {minDCFKFold:.4f}")
-        print(f"\t\tactDCF: {actDCFKFold:.4f}")
 
+        print(f"\t\tminDCF - cal: {minDCFKFold:.4f}")
+        print(f"\t\tactDCF - cal: {actDCFKFold:.4f}")
+        effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError = bayesError(
+            llr=sllrWithoutCal,
+            LTE=LVAL,
+            lineLeft=-4,
+            lineRight=4)
+        createBayesErrorPlots(effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError, [-4, 4],
+                              [0, 1], "b", "b", "QLR - calibration validation",
+                              False, "actDCF", "min DCF", "-.",
+                              ":")
+        effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError = bayesError(
+            llr=llrK,
+            LTE=labelK,
+            lineLeft=-4,
+            lineRight=4)
+        createBayesErrorPlots(effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError, [-4, 4],
+                              [0, 1], "b", "b", "QLR - calibration validation",
+                              True, "actDCF - cal", "min DCF - cal", "-",
+                              "--")
 
 # def calibrationSVM(DTR, LTR, DVAL, LVAL, K, priorT, printResult=False):
 #     C = 100
@@ -77,9 +93,3 @@ def calibrationLogisticRegression(DTR, LTR, DVAL, LVAL, K, priorT, printResult):
 #                           bounds=[(0, C) for i in LTR],
 #                           )[0]
 #     w, b = vf[:-1], vf[-1]
-
-
-def training(SCAL, LCAL, l, priorT):
-    logRegWeight = priorWeightedLogClass(SCAL, LCAL, l, priorT)
-    vf = sp.fmin_l_bfgs_b(func=logRegWeight.logreg_obj, x0=np.zeros(logRegWeight.DTR.shape[0] + 1))[0]
-    return vf[:-1], vf[-1]
