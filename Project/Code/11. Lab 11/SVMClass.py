@@ -1,6 +1,9 @@
 import numpy as np
 
 from utils import vrow, vcol
+import scipy.optimize as sp
+from PriorWeightedBinLogReg import priorWeightedLogClass
+from DCF import minDCF, actDCF
 
 
 # SVM class
@@ -10,6 +13,7 @@ class SVM:
         self.SVMType = SVMType
         self.DTR = DTR
         self.K = K
+        self.LTR = LTR
         self.ZTR = LTR * 2. - 1.
         self.C = C
         self.kernel = None
@@ -54,6 +58,45 @@ class SVM:
 
     def computeScore(self, alphaStar, D2):
         return (vcol(alphaStar) * vcol(self.ZTR) * self.kernel.k(self.DTR, D2)).sum(0)
+
+    # LAB 11
+    def tainRadialReturnMinAndActDCF(self, DVAL, LVAL, priorT):
+        from DCF import minDCF, actDCF
+
+        alphaStar, _, _ = sp.fmin_l_bfgs_b(func=self.fOpt,
+                                           x0=np.zeros(self.getDTRExtend().shape[1]),
+                                           approx_grad=False,
+                                           maxfun=15000,
+                                           factr=1.0,
+                                           bounds=[(0, self.C) for i in self.LTR],
+                                           )
+        sllr = self.computeScore(
+            alphaStar=alphaStar,
+            D2=DVAL)
+        minDCF = minDCF(sllr, LVAL, priorT, 1, 1)
+        actDCF = actDCF(sllr, LVAL, priorT, 1, 1)
+        return sllr, minDCF, actDCF, self.computeScore(alphaStar, DVAL)
+
+    def trainCalibrationReturnMinAndActDCF(self, K, priorCal, priorT, score, sllrWithoutCal, LVAL):
+        calibratedSVALK = []
+        labelK = []
+
+        for i in range(K):
+            SCAL, SVAL = np.hstack([score[jdx::K] for jdx in range(K) if jdx != i]), sllrWithoutCal[i::K]
+            labelCal, labelVal = np.hstack([LVAL[jdx::K] for jdx in range(K) if jdx != i]), LVAL[i::K]
+            logRegWeight = priorWeightedLogClass(vrow(SCAL), labelCal, 0, priorCal)
+            vf = \
+                sp.fmin_l_bfgs_b(func=logRegWeight.logreg_obj, x0=np.zeros(logRegWeight.DTR.shape[0] + 1))[0]
+            w, b = vf[:-1], vf[-1]
+            calibrated_SVAL = (w.T @ vrow(SVAL) + b - np.log(priorCal / (1 - priorCal))).ravel()
+            calibratedSVALK.append(calibrated_SVAL)
+            labelK.append(labelVal)
+
+        llrK = np.hstack(calibratedSVALK)
+        labelK = np.hstack(labelK)
+        minDCFKFold = minDCF(llrK, labelK, priorT, 1, 1)
+        actDCFKFold = actDCF(llrK, labelK, priorT, 1, 1)
+        return minDCFKFold, actDCFKFold, llrK, labelK
 
 
 # Kernel classes

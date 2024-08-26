@@ -4,6 +4,7 @@ import scipy.optimize as sp
 from DCF import minDCF, actDCF
 from graph import createMinDCFActDCFPlot
 from utils import vcol, vrow, errorRate
+from PriorWeightedBinLogReg import priorWeightedLogClass
 
 
 def QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, titleGraph, printResult=False):
@@ -102,6 +103,27 @@ class quadraticLogClass:
         minDCF = minDCF(sllr, LVAL, priorT, 1, 1)
         actDCF = actDCF(sllr, LVAL, priorT, 1, 1)
         return sllr, minDCF, actDCF, score
+
+    def trainCalibrationReturnMinAndActDCF(self, K, priorCal, priorT, score, sllrWithoutCal, LVAL):
+        calibratedSVALK = []
+        labelK = []
+
+        for i in range(K):
+            SCAL, SVAL = np.hstack([score[jdx::K] for jdx in range(K) if jdx != i]), sllrWithoutCal[i::K]
+            labelCal, labelVal = np.hstack([LVAL[jdx::K] for jdx in range(K) if jdx != i]), LVAL[i::K]
+            logRegWeight = priorWeightedLogClass(vrow(SCAL), labelCal, 0, priorCal)
+            vf = \
+                sp.fmin_l_bfgs_b(func=logRegWeight.logreg_obj, x0=np.zeros(logRegWeight.DTR.shape[0] + 1))[0]
+            w, b = vf[:-1], vf[-1]
+            calibrated_SVAL = (w.T @ vrow(SVAL) + b - np.log(priorCal / (1 - priorCal))).ravel()
+            calibratedSVALK.append(calibrated_SVAL)
+            labelK.append(labelVal)
+
+        llrK = np.hstack(calibratedSVALK)
+        labelK = np.hstack(labelK)
+        minDCFKFold = minDCF(llrK, labelK, priorT, 1, 1)
+        actDCFKFold = actDCF(llrK, labelK, priorT, 1, 1)
+        return minDCFKFold, actDCFKFold, llrK, labelK
 
 
 def expandeFeature(D):
