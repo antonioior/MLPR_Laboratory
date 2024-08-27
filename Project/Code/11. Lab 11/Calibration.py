@@ -30,28 +30,8 @@ def calibrationLogisticRegression(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, pri
         print(f"priorCal {priorCal}")
         print("\tCALIBRATION QUADRATIC LOGISTIC REGRESSION")
         print(f"\tLambda: {l}")
-        print(f"\t\tminDCF: {minDCFWithoutCal:.4f}")
-        print(f"\t\tactDCF: {actDCFWithoutCal:.4f}")
-        print(f"\t\tminDCF - cal: {minDCFKFold:.4f}")
-        print(f"\t\tactDCF - cal: {actDCFKFold:.4f}")
-        effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError = bayesError(
-            llr=sllrWithoutCal,
-            LTE=LVAL,
-            lineLeft=-4,
-            lineRight=4)
-        createBayesErrorPlots(effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError, [-4, 4],
-                              [0, 1], "b", "b", f"QLR - calibration validation priorCal = {priorCal}",
-                              False, "actDCF", "min DCF", "-.",
-                              ":")
-        effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError = bayesError(
-            llr=llrK,
-            LTE=labelK,
-            lineLeft=-4,
-            lineRight=4)
-        createBayesErrorPlots(effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError, [-4, 4],
-                              [0, 1], "b", "b", f"QLR - calibration validation priorCal = {priorCal}",
-                              True, "actDCF - cal", "min DCF - cal", "-",
-                              "--")
+        printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, sllrWithoutCal, LVAL, llrK, labelK,
+                  f"QLR - calibration validation priorCal = {priorCal}", "b")
 
 
 # CALIBRATION SVM
@@ -68,29 +48,8 @@ def calibrationSVM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult=False)
     if printResult:
         print("\tRESULT FOR CALIBRATION SVM")
         print(f"\tC: {C}, \u03B3: {gamma}, KRadial: {KRadial}")
-        print(f"\t\tminDCF: {minDCFWithoutCal:.4f}")
-        print(f"\t\tactDCF: {actDCFWithoutCal:.4f}")
-        print(f"\t\tminDCF - cal: {minDCFKFold:.4f}")
-        print(f"\t\tactDCF - cal: {actDCFKFold:.4f}")
-
-        effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError = bayesError(
-            llr=sllrWithoutCal,
-            LTE=LVAL,
-            lineLeft=-4,
-            lineRight=4)
-        createBayesErrorPlots(effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError, [-4, 4],
-                              [0, 1], "orange", "orange", f"SVM - calibration validation priorCal = {priorCal}",
-                              False, "actDCF", "min DCF", "-.",
-                              ":")
-        effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError = bayesError(
-            llr=llrK,
-            LTE=labelK,
-            lineLeft=-4,
-            lineRight=4)
-        createBayesErrorPlots(effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError, [-4, 4],
-                              [0, 1], "orange", "orange", f"SVM - calibration validation priorCal = {priorCal}",
-                              True, "actDCF - cal", "min DCF - cal", "-",
-                              "--")
+        printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, sllrWithoutCal, LVAL, llrK, labelK,
+                  f"SVM - calibration validation priorCal = {priorCal}", "orange")
 
 
 # CALIBRATION GMM
@@ -109,29 +68,35 @@ def calibrationGMM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult=False)
                                                                                    sllrWithoutCal, LVAL)
 
     if printResult:
-        print("\tRESULT FOR CALIBRATION GMM")
+        print(f"\tRESULT FOR CALIBRATION GMM")
         print(
             f"\tcovType: {covType}, component0 = {componentGMM0}, component1 = {componentGMM1}, psi: {psi}, alpha: {alpha}")
-        print(f"\t\tminDCF: {minDCFWithoutCal:.4f}")
-        print(f"\t\tactDCF: {actDCFWithoutCal:.4f}")
-        print(f"\t\tminDCF - cal: {minDCFKFold:.4f}")
-        print(f"\t\tactDCF - cal: {actDCFKFold:.4f}")
+        printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, sllrWithoutCal, LVAL, llrK, labelK,
+                  f"GMM - calibration validation priorCal = {priorCal}", "green")
 
-        effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError = bayesError(
-            llr=sllrWithoutCal,
-            LTE=LVAL,
-            lineLeft=-4,
-            lineRight=4)
-        createBayesErrorPlots(effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError, [-4, 4],
-                              [0, 1], "green", "green", f"GMM - calibration validation priorCal = {priorCal}",
-                              False, "actDCF", "min DCF", "-.",
-                              ":")
-        effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError = bayesError(
-            llr=llrK,
-            LTE=labelK,
-            lineLeft=-4,
-            lineRight=4)
-        createBayesErrorPlots(effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError, [-4, 4],
-                              [0, 1], "green", "green", f"GMM - calibration validation priorCal = {priorCal}",
-                              True, "actDCF - cal", "min DCF - cal", "-",
-                              "--")
+
+# PRINT MAIN INFORMATION AND PLOT GRAPH
+def printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, sllrWithoutCal, LVAL, llrK, labelK,
+              titleGraph, colorGraph):
+    print(f"\t\tminDCF: {minDCFWithoutCal:.4f}")
+    print(f"\t\tactDCF: {actDCFWithoutCal:.4f}")
+    print(f"\t\tminDCF - cal: {minDCFKFold:.4f}")
+    print(f"\t\tactDCF - cal: {actDCFKFold:.4f}")
+    effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError = bayesError(
+        llr=sllrWithoutCal,
+        LTE=LVAL,
+        lineLeft=-4,
+        lineRight=4)
+    createBayesErrorPlots(effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError, [-4, 4],
+                          [0, 1], colorGraph, colorGraph, titleGraph,
+                          False, "actDCF", "min DCF", "-.",
+                          ":")
+    effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError = bayesError(
+        llr=llrK,
+        LTE=labelK,
+        lineLeft=-4,
+        lineRight=4)
+    createBayesErrorPlots(effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError, [-4, 4],
+                          [0, 1], colorGraph, colorGraph, titleGraph,
+                          True, "actDCF - cal", "min DCF - cal", "-",
+                          "--")
