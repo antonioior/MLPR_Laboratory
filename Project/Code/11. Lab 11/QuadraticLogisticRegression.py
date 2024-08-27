@@ -102,14 +102,14 @@ class quadraticLogClass:
         sllr = score - np.log(pEmp / (1 - pEmp))
         minDCF = minDCF(sllr, LVAL, priorT, 1, 1)
         actDCF = actDCF(sllr, LVAL, priorT, 1, 1)
-        return sllr, minDCF, actDCF, score
+        return score, minDCF, actDCF
 
-    def trainCalibrationReturnMinAndActDCF(self, K, priorCal, priorT, score, sllrWithoutCal, LVAL):
+    def trainCalibrationReturnMinAndActDCF(self, K, priorCal, priorT, score, LVAL):
         calibratedSVALK = []
         labelK = []
 
         for i in range(K):
-            SCAL, SVAL = np.hstack([score[jdx::K] for jdx in range(K) if jdx != i]), sllrWithoutCal[i::K]
+            SCAL, SVAL = np.hstack([score[jdx::K] for jdx in range(K) if jdx != i]), score[i::K]
             labelCal, labelVal = np.hstack([LVAL[jdx::K] for jdx in range(K) if jdx != i]), LVAL[i::K]
             logRegWeight = priorWeightedLogClass(vrow(SCAL), labelCal, 0, priorCal)
             vf = \
