@@ -75,7 +75,8 @@ The assumption of the latter model consists of its own average for each class, b
 
 \subsubsection{Gaussian Models Comparison}
 \label{subsubsec:gaussianModelsComparison}
-A threshold of \(0\) was used to perform our results, which means that \(P(C=1)=P(C=0)=1/2\).
+A threshold of \(0\) was used to perform our results, which means that \(P(C=1)=P(C=0)=1/2\). This model was applied and
+the outcomes can be seen in the \autoref{tab:resultGaussianClassificationModels}.
 
 \begin{table}
     \centering
@@ -118,3 +119,19 @@ A threshold of \(0\) was used to perform our results, which means that \(P(C=1)=
     \caption{Table showing the results of the Error Rate for different Models and Features.}
     \label{tab:resultGaussianClassificationModels}
 \end{table}
+
+If we go into the details of how the error rate changes as a function of the observed features,
+we can see that:
+\begin{itemize}
+    \item \textbf{1 to 6}: in the case we consider all 6 features, the error rate is quite low and its range
+    goes from 7.00\% to 9.30\%. This means that they all provide useful information.
+    \item \textbf{1 to 4}: if we consider features from 1 to 4, we can see that the error rate increases slightly.
+    This allow us to say that features 5 and 6 have useful but not fundamental information to change the outcome.
+    \item \textbf{1 - 2}: features 1 and 2 have a rather high error rate, meaning that they don't contain
+    relevant information.
+    \item \textbf{3 - 4}: on the other hand, the latter two features considered have a rather low error rate, a value
+    close to the case where all features are considered. This means that the information contained in these two
+    features is relevant for making the classification.
+\end{itemize}
+
+
