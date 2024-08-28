@@ -1,0 +1,86 @@
+%! Author = anton
+%! Date = 28/08/2024
+
+Starting with the previous performance, it may be interesting to analyse how performance changes as three main
+parameters vary:
+\begin{itemize}
+    \item \(\tilde{\pi}\)
+    \item \(C_{fn}\)
+    \item \(C_{fp}\)
+\end{itemize}
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{>{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm}}
+        \toprule
+        & \textbf{MVG} & \textbf{Naive Bayes} & \textbf{Tied Covariance} \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.5, 1, 1)\)}} \\
+        \midrule
+        \textbf{actDCF} & 0.1399       & 0.1439               & 0.1860                   \\
+        \textbf{minDCF} & 0.1302       & 0.1311               & 0.1812                   \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.9, 1, 1)\)}} \\
+        \midrule
+        \textbf{actDCF} & 0.4000       & 0.3893               & 0.4626                   \\
+        \textbf{minDCF} & 0.3423       & 0.3509               & 0.4421                   \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.1, 1, 1)\)}} \\
+        \midrule
+        \textbf{actDCF} & 0.3051       & 0.3022               & 0.4061                   \\
+        \textbf{minDCF} & 0.2629       & 0.2569               & 0.3628                   \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.5, 1, 9)\)}} \\
+        \midrule
+        \textbf{actDCF} & 0.3051       & 0.3022               & 0.4061                   \\
+        \textbf{minDCF} & 0.2629       & 0.2569               & 0.3628                   \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.5, 9, 1)\)}} \\
+        \midrule
+        \textbf{actDCF} & 0.4001       & 0.3893               & 0.4626                   \\
+        \textbf{minDCF} & 0.3423       & 0.3509               & 0.4421                   \\
+        \bottomrule
+    \end{tabular}
+    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+    \caption{Table showing the results of the Error Rate for different Models and Features.}
+    \label{tab:resultPerformanceClassifierWithoutPCA}
+\end{table}
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{>{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm}}
+        \toprule
+        & \textbf{MVG} & \textbf{Naive Bayes} & \textbf{Tied Covariance} \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.5, 1, 1)\)}} \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{no PCA}} \\
+        \midrule
+        \textbf{actDCF} & 0.1399       & 0.1439               & 0.1860                   \\
+        \textbf{minDCF} & 0.1302       & 0.1311               & 0.1812                   \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{PCA}} \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{\(m = 5\)}} \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.9, 1, 1)\)}} \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{no PCA}} \\
+        \midrule
+        \textbf{actDCF} & 0.4000       & 0.3893               & 0.4626                   \\
+        \textbf{minDCF} & 0.3423       & 0.3509               & 0.4421                   \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.1, 1, 1)\)}} \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{no PCA}} \\
+        \midrule
+        \textbf{actDCF} & 0.3051       & 0.3022               & 0.4061                   \\
+        \textbf{minDCF} & 0.2629       & 0.2569               & 0.3628                   \\
+        \bottomrule
+    \end{tabular}
+    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+    \caption{Table showing the results of the Error Rate for different Models and Features.}
+    \label{tab:resultPerformanceClassifierWithPCA}
+\end{table}

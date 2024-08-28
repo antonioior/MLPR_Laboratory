@@ -15,10 +15,12 @@ def calibration(DTR, LTR, DVAL, LVAL, printResult=False):
     priorT = 0.1
     priorCals = [0.1, 0.5, 0.9]
     for priorCal in priorCals:
-        scoreQLR = calibrationLogisticRegression(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult)
-        scoreSVM = calibrationSVM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult)
-        scoreGMM = calibrationGMM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult)
-        calibrationFusion(scoreQLR, scoreSVM, scoreGMM, LVAL, K, priorT, priorCal, printResult)
+        scoreQLR, scoreQLRCal, labelQLRCal = calibrationLogisticRegression(DTR, LTR, DVAL, LVAL, K, priorT, priorCal,
+                                                                           printResult)
+        scoreSVM, scoreSVMCal, labelSVMCal = calibrationSVM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult)
+        scoreGMM, scoreGMMCal, labelGMMCal = calibrationGMM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult)
+        calibrationFusion(scoreQLR, scoreQLRCal, labelQLRCal, scoreSVM, scoreSVMCal, labelSVMCal, scoreGMM, scoreGMMCal,
+                          labelGMMCal, LVAL, K, priorT, priorCal, printResult)
 
 
 # CALIBRATION LOGISTIC REGRESSION
@@ -35,7 +37,7 @@ def calibrationLogisticRegression(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, pri
         printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, score, LVAL, llrK, labelK,
                   f"QLR - calibration validation priorCal = {priorCal}", "b")
 
-    return score
+    return score, llrK, labelK
 
 
 # CALIBRATION SVM
@@ -54,7 +56,7 @@ def calibrationSVM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult=False)
         print(f"\tC: {C}, \u03B3: {gamma}, KRadial: {KRadial}")
         printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, score, LVAL, llrK, labelK,
                   f"SVM - calibration validation priorCal = {priorCal}", "orange")
-    return score
+    return score, llrK, labelK
 
 
 # CALIBRATION GMM
@@ -78,11 +80,12 @@ def calibrationGMM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult=False)
             f"\tcovType: {covType}, component0 = {componentGMM0}, component1 = {componentGMM1}, psi: {psi}, alpha: {alpha}")
         printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, score, LVAL, llrK, labelK,
                   f"GMM - calibration validation priorCal = {priorCal}", "green")
-    return score
+    return score, llrK, labelK
 
 
 # CALIBRATION FUSION
-def calibrationFusion(scoreQLR, scoreSVM, scoreGMM, LVAL, K, priorT, priorCal, printResult=False):
+def calibrationFusion(scoreQLR, scoreQLRCal, labelQLRCal, scoreSVM, scoreSVMCal, labelSVMCal, scoreGMM, scoreGMMCal,
+                      labelGMMCal, LVAL, K, priorT, priorCal, printResult=False):
     calibratedSVALK = []
     labelK = []
 
@@ -110,14 +113,16 @@ def calibrationFusion(scoreQLR, scoreSVM, scoreGMM, LVAL, K, priorT, priorCal, p
 
     if printResult:
         print(f"\tRESULT FOR CALIBRATION FUSION")
-        print(f"\tminDCF - cal: {minDCFKFold:.4f}")
-        print(f"\tactDCF - cal: {actDCFKFold:.4f}")
-        plotGraph(scoreQLR, LVAL, "b", f"Fusion - calibration priorCal = {priorCal}", False, " QLR - actDCF",
+        print(f"\t\tminDCF - cal: {minDCFKFold:.4f}")
+        print(f"\t\tactDCF - cal: {actDCFKFold:.4f}")
+        plotGraph(scoreQLRCal, labelQLRCal, "b", f"Fusion - calibration priorCal = {priorCal}", False, " QLR - actDCF",
                   "QLR - minDCF", "-",
                   "--")
-        plotGraph(scoreSVM, LVAL, "orange", f"Fusion - calibration priorCal = {priorCal}", False, "SVM - actDCF",
+        plotGraph(scoreSVMCal, labelSVMCal, "orange", f"Fusion - calibration priorCal = {priorCal}", False,
+                  "SVM - actDCF",
                   "SVM - minDCF", "-", "--")
-        plotGraph(scoreGMM, LVAL, "green", f"Fusion - calibration priorCal = {priorCal}", False, "GMM - actDCF",
+        plotGraph(scoreGMMCal, labelGMMCal, "green", f"Fusion - calibration priorCal = {priorCal}", False,
+                  "GMM - actDCF",
                   "GMM - minDCF", "-", "--")
         plotGraph(llrK, labelK, "red", f"Fusion - calibration priorCal = {priorCal}", True, "Fusion - actDCF",
                   "Fusion - minDCF", "-", "--")
