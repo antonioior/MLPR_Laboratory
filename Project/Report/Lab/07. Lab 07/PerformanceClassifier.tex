@@ -53,7 +53,8 @@ parameters vary:
     \begin{tabular}{>{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm}}
         \toprule
         & \textbf{MVG} & \textbf{Naive Bayes} & \textbf{Tied Covariance} \\
-        \midrule
+        \toprule
+        \toprule
         \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.5, 1, 1)\)}} \\
         \midrule
         \multicolumn{4}{c}{\textbf{no PCA}} \\
@@ -65,6 +66,15 @@ parameters vary:
         \midrule
         \multicolumn{4}{c}{\textbf{\(m = 5\)}} \\
         \midrule
+        \textbf{actDCF} &              &                      &                          \\
+        \textbf{minDCF} &              &                      &                          \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{\(m = 6\)}} \\
+        \midrule
+        \textbf{actDCF} &              &                      &                          \\
+        \textbf{minDCF} &              &                      &                          \\
+        \toprule
+        \toprule
         \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.9, 1, 1)\)}} \\
         \midrule
         \multicolumn{4}{c}{\textbf{no PCA}} \\
@@ -72,12 +82,35 @@ parameters vary:
         \textbf{actDCF} & 0.4000       & 0.3893               & 0.4626                   \\
         \textbf{minDCF} & 0.3423       & 0.3509               & 0.4421                   \\
         \midrule
+        \multicolumn{4}{c}{\textbf{PCA}} \\
+        \multicolumn{4}{c}{\textbf{\(m = 5\)}} \\
+        \midrule
+        \textbf{actDCF} &              &                      &                          \\
+        \textbf{minDCF} &              &                      &                          \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{\(m = 6\)}} \\
+        \midrule
+        \textbf{actDCF} &              &                      &                          \\
+        \textbf{minDCF} &              &                      &                          \\
+        \toprule
+        \toprule
         \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.1, 1, 1)\)}} \\
         \midrule
         \multicolumn{4}{c}{\textbf{no PCA}} \\
         \midrule
         \textbf{actDCF} & 0.3051       & 0.3022               & 0.4061                   \\
         \textbf{minDCF} & 0.2629       & 0.2569               & 0.3628                   \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{PCA}} \\
+        \multicolumn{4}{c}{\textbf{\(m = 5\)}} \\
+        \midrule
+        \textbf{actDCF} &              &                      &                          \\
+        \textbf{minDCF} &              &                      &                          \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{\(m = 6\)}} \\
+        \midrule
+        \textbf{actDCF} &              &                      &                          \\
+        \textbf{minDCF} &              &                      &                          \\
         \bottomrule
     \end{tabular}
     \captionsetup{justification=justified,singlelinecheck=false,format=hang}
