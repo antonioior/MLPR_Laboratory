@@ -112,6 +112,15 @@ def calibrationFusion(scoreQLR, scoreSVM, scoreGMM, LVAL, K, priorT, priorCal, p
         print(f"\tRESULT FOR CALIBRATION FUSION")
         print(f"\tminDCF - cal: {minDCFKFold:.4f}")
         print(f"\tactDCF - cal: {actDCFKFold:.4f}")
+        plotGraph(scoreQLR, LVAL, "b", f"Fusion - calibration priorCal = {priorCal}", False, " QLR - actDCF",
+                  "QLR - minDCF", "-",
+                  "--")
+        plotGraph(scoreSVM, LVAL, "orange", f"Fusion - calibration priorCal = {priorCal}", False, "SVM - actDCF",
+                  "SVM - minDCF", "-", "--")
+        plotGraph(scoreGMM, LVAL, "green", f"Fusion - calibration priorCal = {priorCal}", False, "GMM - actDCF",
+                  "GMM - minDCF", "-", "--")
+        plotGraph(llrK, labelK, "red", f"Fusion - calibration priorCal = {priorCal}", True, "Fusion - actDCF",
+                  "Fusion - minDCF", "-", "--")
 
 
 # PRINT MAIN INFORMATION AND PLOT GRAPH NOT FOR FUSION
@@ -121,21 +130,17 @@ def printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, scor
     print(f"\t\tactDCF: {actDCFWithoutCal:.4f}")
     print(f"\t\tminDCF - cal: {minDCFKFold:.4f}")
     print(f"\t\tactDCF - cal: {actDCFKFold:.4f}")
-    effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError = bayesError(
+    plotGraph(score, LVAL, colorGraph, titleGraph, False, "actDCF", "minDCF", "-.", ":")
+    plotGraph(llrK, labelK, colorGraph, titleGraph, True, "actDCF - cal", "minDCF - cal", "-", "--")
+
+
+def plotGraph(score, LVAL, colorGraph, titleGraph, show, labelActDCF, labelMinDCF, lineActDCF, lineMinDCF):
+    logOdds, actDCF, minDCF = bayesError(
         llr=score,
         LTE=LVAL,
         lineLeft=-4,
         lineRight=4)
-    createBayesErrorPlots(effPriorLogOdds, actDCFWithoutCalBayesError, minDCFWithoutCalBayesError, [-4, 4],
+    createBayesErrorPlots(logOdds, actDCF, minDCF, [-4, 4],
                           [0, 1], colorGraph, colorGraph, titleGraph,
-                          False, "actDCF", "min DCF", "-.",
-                          ":")
-    effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError = bayesError(
-        llr=llrK,
-        LTE=labelK,
-        lineLeft=-4,
-        lineRight=4)
-    createBayesErrorPlots(effPriorLogOdds, actDCFKFoldBayesError, minDCFKFoldBayesError, [-4, 4],
-                          [0, 1], colorGraph, colorGraph, titleGraph,
-                          True, "actDCF - cal", "min DCF - cal", "-",
-                          "--")
+                          show, labelActDCF, labelMinDCF, lineActDCF,
+                          lineMinDCF)
