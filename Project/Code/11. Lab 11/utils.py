@@ -119,8 +119,6 @@ def compute_mu_C(D):
 
 
 # LAB 05
-
-
 def logpdf_GAU_ND_prof(x, mu, C):
     P = np.linalg.inv(C)
     return -0.5 * x.shape[0] * np.log(np.pi * 2) - 0.5 * np.linalg.slogdet(C)[1] - 0.5 * (
@@ -190,11 +188,16 @@ def z_normalizeOther(DT, D):
 
 # LAB 10
 def logpdf_GMM(X, gmm):
-    M = len(gmm)
-    N = X.shape[1]
-    S = np.zeros((M, N))
-    for g in range(M):
+    S = np.zeros((len(gmm), X.shape[1]))
+    for g in range(len(gmm)):
         w, mu, C = gmm[g]
-        S[g, :] = logpdf_GAU_ND(X, mu, C) + np.log(w)
+        S[g, :] = logpdf_GAU_ND_GMM(X, mu, C) + np.log(w)
     logdens = sp.special.logsumexp(S, axis=0)
     return S, logdens
+
+
+def logpdf_GAU_ND_GMM(X, mu, C):
+    invC = np.linalg.inv(C)
+    _, log_abs_detC = np.linalg.slogdet(C)
+    M = X.shape[0]
+    return - M / 2 * np.log(2 * np.pi) - 0.5 * log_abs_detC - 0.5 * ((X - mu) * np.dot(invC, X - mu)).sum(0)

@@ -1,39 +1,33 @@
 import numpy as np
 import scipy.optimize as sp
 
-from EMGMM import EMGmm, smoothCovariance
-from utils import compute_mu_C, logpdf_GMM
+from EMGMM import EMGmm
+from utils import logpdf_GMM
 from DCF import minDCF, actDCF
 from PriorWeightedBinLogReg import priorWeightedLogClass
 from utils import vrow
 
 
 def LBGAlgorithm(X, alpha, numComponent, psi=None, covType="full"):
-    mu, C = compute_mu_C(X)
+    mean = X.mean(axis=1).reshape(-1, 1)
+    cov = 1 / X.shape[1] * np.dot(X - mean, (X - mean).T)
+    gmm = [(1.0, mean, cov)]
 
-    if covType == "diagonal":
-        C = C * np.eye(X.shape[0])
+    while len(gmm) <= numComponent:
+        gmm, _ = EMGmm(X, gmm, psi=psi, covType=covType)
+        if len(gmm) == numComponent:
+            break
 
-    if psi is not None:
-        gmm = [(1.0, mu, smoothCovariance(C, psi))]
-    else:
-        gmm = [(1.0, mu, C)]
+        newGmm = []
+        for i in range(len(gmm)):
+            (w, mu, sigma) = gmm[i]
+            U, s, Vh = np.linalg.svd(sigma)
+            d = U[:, 0:1] * s[0] ** 0.5 * alpha
 
-    while len(gmm) < numComponent:
-        gmm = split_GMM(gmm, alpha)
-        _, gmm = EMGmm(X, gmm, psi=psi, covType=covType)
+            newGmm.append((w / 2, mu - d, sigma))
+            newGmm.append((w / 2, mu + d, sigma))
+        gmm = newGmm
     return gmm
-
-
-def split_GMM(gmm, alpha):
-    gmmOut = []
-    for gIndex in range(len(gmm)):
-        w, mu, C = gmm[gIndex]
-        U, s, Vh = np.linalg.svd(C)
-        d = U[:, 0:1] * s[0] ** 0.5 * alpha
-        gmmOut.append((w * 0.5, mu - d, C))
-        gmmOut.append((w * 0.5, mu + d, C))
-    return gmmOut
 
 
 # LAB 11

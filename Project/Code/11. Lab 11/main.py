@@ -15,9 +15,10 @@ from load import load
 from utils import split_db_2to1
 
 if __name__ == "__main__":
+    trainLogisticRegression = False
     trainSVM = False
     trainGMM = False
-    trainLogisticRegression = False
+    calibrationRun = True
     # VARIABLES TO PRINT
     createGraph = False
 
@@ -90,4 +91,5 @@ if __name__ == "__main__":
         GMM(DTR, LTR, DVAL, LVAL, printResults=True)
 
     # LAB 11
-    calibration(DTR, LTR, DVAL, LVAL, printResult=True)
+    if calibrationRun:
+        calibration(DTR, LTR, DVAL, LVAL, printResult=True)

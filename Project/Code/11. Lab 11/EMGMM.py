@@ -1,59 +1,79 @@
 import numpy as np
 
-from utils import logpdf_GMM, vcol, vrow
+from utils import logpdf_GMM
 
 
-def EMGmm(X, gmm, threshold=1e-6, maxIter=1000000, psi=None, covType="full"):
-    log_likelihood = []
-    iteration = 0
-    newGMM = []
-    for _ in range(maxIter):
-        responsability, logLikelihoodReturned = E_Step(X, gmm)
-        gmm = M_Step(X, responsability, gmm, psi, covType)
-        log_likelihood.append(logLikelihoodReturned)
-        iteration += 1
-        if len(log_likelihood) > 1 and abs(log_likelihood[-1] - log_likelihood[-2]) < threshold:
-            newGMM = gmm
-            break
-    return log_likelihood, newGMM
+def EMGmm(X, gmm, psi=None, covType="full"):
+    thNew = None
+    thOld = None
+    N = X.shape[1]
+    D = X.shape[0]
 
+    while thOld == None or thNew - thOld > 1e-6:  # finchè non diverge
+        thOld = thNew
+        logSj, logSjMarg = logpdf_GMM(X, gmm)
+        thNew = np.sum(logSjMarg) / N
 
-def E_Step(X, gmm):
-    S, logdens = logpdf_GMM(X, gmm)
-    logResponsability = S - logdens
-    responsability = np.exp(logResponsability)
-    logLikelihood = logdens.mean()
-    return responsability, logLikelihood
+        P = np.exp(logSj - logSjMarg)  # Responsabilità che è uguale alla probabilita a posteriori
 
+        if covType == 'diagonal':
+            newGmm = []
+            for i in range(len(gmm)):
+                gamma = P[i, :]
+                Z = gamma.sum()
+                F = (gamma.reshape(1, -1) * X).sum(1)
+                S = np.dot(X, (gamma.reshape(1, -1) * X).T)
+                w = Z / N
+                mu = (F / Z).reshape(-1, 1)
+                sigma = S / Z - np.dot(mu, mu.T)
+                sigma *= np.eye(sigma.shape[0])
+                U, s, _ = np.linalg.svd(sigma)
+                s[s < psi] = psi
+                sigma = np.dot(U, s.reshape(-1, 1) * U.T)
+                newGmm.append((w, mu, sigma))
+            gmm = newGmm
 
-def M_Step(X, responsability, gmm, psi=None, covType="full"):
-    newGMM = []
-    for gIndex in range(len(gmm)):
-        gamma = responsability[gIndex]
-        Z = gamma.sum()
-        F = vcol((vrow(gamma) * X).sum(1))
-        S = (vrow(gamma) * X) @ X.T
-        mu = F / Z
-        C = S / Z - mu @ mu.T
-        w = Z / X.shape[1]
-        if covType == "diagonal":
-            C = C * np.eye(X.shape[0])
-        newGMM.append((w, mu, C))
+        elif covType == 'tied':
+            newGmm = []
+            sigmaTied = np.zeros((D, D))
+            for i in range(len(gmm)):
+                gamma = P[i, :]
+                Z = gamma.sum()
+                F = (gamma.reshape(1, -1) * X).sum(1)
+                S = np.dot(X, (gamma.reshape(1, -1) * X).T)
+                w = Z / N
+                mu = (F / Z).reshape(-1, 1)
+                sigma = S / Z - np.dot(mu, mu.T)
+                sigmaTied += Z * sigma
+                newGmm.append((w, mu))
+            gmm = newGmm
+            sigmaTied /= N
+            U, s, _ = np.linalg.svd(sigmaTied)
+            s[s < psi] = psi
+            sigmaTied = np.dot(U, s.reshape(-1, 1) * U.T)
 
-    if covType == "tied":
-        CTied = 0
-        for gIndex in range(len(gmm)):
-            wg, mug, Cg = newGMM[gIndex]
-            CTied += wg * Cg
-        newGMM = [(w, mu, CTied) for w, mu, C in newGMM]
+            newGmm = []
+            for i in range(len(gmm)):
+                (w, mu) = gmm[i]
+                newGmm.append((w, mu, sigmaTied))
 
-    if psi is not None:
-        newGMM = [(w, mu, smoothCovariance(C, psi)) for w, mu, C in newGMM]
+            gmm = newGmm
 
-    return newGMM
+        else:
+            newGmm = []
+            for i in range(len(gmm)):
+                gamma = P[i, :]
+                Z = gamma.sum()
+                F = (gamma.reshape(1, -1) * X).sum(1)
+                S = np.dot(X, (gamma.reshape(1, -1) * X).T)
 
+                w = Z / N
+                mu = (F / Z).reshape(-1, 1)
+                sigma = S / Z - np.dot(mu, mu.T)
+                U, s, _ = np.linalg.svd(sigma)
+                s[s < psi] = psi
+                sigma = np.dot(U, s.reshape(-1, 1) * U.T)
+                newGmm.append((w, mu, sigma))
+            gmm = newGmm
 
-def smoothCovariance(cov, psi):
-    U, s, _ = np.linalg.svd(cov)
-    s[s < psi] = psi
-    return U @ (vcol(s) * U.T)
+    return gmm, thNew
