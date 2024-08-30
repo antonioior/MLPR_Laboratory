@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1725035852.79258 "report.tex" "report.pdf" "report" 1725035854.56102 2
+["pdflatex"] 1725036077.8042 "report.tex" "report.pdf" "report" 1725036079.56208 2
   "C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
   "C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -207,10 +207,10 @@
   "C:/Users/anton/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1724068369 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/anton/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1724236486 11548 48b56aff971b5b51da842b7295cc04da ""
   "C:/Users/anton/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1724078617 24269588 eef8a44fe1a8c3953b44ad9e8bfb1ce2 ""
-  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/./MainPage/cover.aux" 1725035853 895 be8693aec3c05667efc22d4e921b5fad "pdflatex"
-  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.aux" 1725035854 9276 d090cf354a929e9ef42b8be16c51f210 "pdflatex"
-  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.out" 1725035854 2228 af1da821ad736576bdf411692ca4ddae "pdflatex"
-  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.toc" 1725035854 1226 b717d2b65ff14aeda81948aa0ef691c8 "pdflatex"
+  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/./MainPage/cover.aux" 1725036078 895 be8693aec3c05667efc22d4e921b5fad "pdflatex"
+  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.aux" 1725036079 9276 d090cf354a929e9ef42b8be16c51f210 "pdflatex"
+  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.out" 1725036079 2228 af1da821ad736576bdf411692ca4ddae "pdflatex"
+  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.toc" 1725036079 1226 b717d2b65ff14aeda81948aa0ef691c8 "pdflatex"
   "Lab/02. Lab 02/DatasetAnalysis.tex" 1720162388 5034 cf48c6d7d7ef822e4f8463afd763b33e ""
   "Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png" 1720162388 220516 a5bf89ba910f8861b72b8b7d4d8c0e15 ""
   "Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png" 1720162388 220482 34e91a29bba2d52f019aff6589c7f098 ""
@@ -218,7 +218,7 @@
   "Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png" 1720162388 255809 8cb66ecd3aeec2df41aa1dad6a0e83b7 ""
   "Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png" 1720162388 385874 a34889a6031ffcd7bcaa98ac7bd393fc ""
   "Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png" 1720162388 385763 d4a7b0df31705104fb1d456a49d65062 ""
-  "Lab/03. Lab 03/DimensionalityReduction.tex" 1720162388 4343 a650d12989e787feed48035dadcb0532 ""
+  "Lab/03. Lab 03/DimensionalityReduction.tex" 1725036073 4567 bf64efa83eac08f9b8730953c9a152cf ""
   "Lab/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png" 1720162388 22880 88d8959dce09a3a0fa1b75f6f5c9c5b7 ""
   "Lab/03. Lab 03/Images/02. PVA_LDA.png" 1720162388 678317 524fa09765f3b7830751557cf9862faf ""
   "Lab/04. Lab 04/Images/01. GaussianDensity.png" 1720162388 149505 d9b5867d89a02cf8249d032e53b75a0b ""
