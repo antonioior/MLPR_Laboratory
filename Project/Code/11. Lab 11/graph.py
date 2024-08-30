@@ -99,6 +99,8 @@ def createBayesErrorPlots(x, yActDCF, yMinDCF, xlim, ylim, colorActDCF, colorMin
     plt.ylim(ylim)
     plt.xlim(xlim)
     plt.legend()
+    plt.xlabel("prior log-odds")
+    plt.ylabel("DCF")
     plt.title(title)
     if show:
         plt.show()

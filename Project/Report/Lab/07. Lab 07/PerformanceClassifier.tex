@@ -4,11 +4,10 @@
 Starting with the previous performance, it may be interesting to analyse how performance changes as three main
 parameters vary:
 \begin{itemize}
-    \item \(\tilde{\pi}\)
-    \item \(C_{fn}\)
-    \item \(C_{fp}\)
+    \item \(\tilde{\pi}\): represents prior probability of the positive class
+    \item \(C_{fn}\): misclassification cost of a sample predicted as negative but it is positive
+    \item \(C_{fp}\): misclassification cost of a sample predicted as positive but it is negative
 \end{itemize}
-
 
 \begin{table}[h]
     \centering
@@ -43,10 +42,11 @@ parameters vary:
         \bottomrule
     \end{tabular}
     \captionsetup{justification=justified,singlelinecheck=false,format=hang}
-    \caption{Table showing minDCF and actDCF for different models and application.}
+    \caption{Table showing minDCF and actDCF for different models and applications.}
     \label{tab:resultPerformanceClassifierWithoutPCA}
 \end{table}
 
+Analysing the results of the \autoref{tab:resultPerformanceClassifierWithoutPCA}, it is possible to observe:
 
 \begin{table}[h]
     \centering
@@ -116,3 +116,24 @@ parameters vary:
     \caption{Show minDCF and actDCF for different models and applications before and after applying PCA.}
     \label{tab:resultPerformanceClassifierWithPCA}
 \end{table}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{Lab/07. Lab 07/Images/01. MVG}
+        \caption{Without mean}
+        \label{fig:dcfMVG}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{Lab/07. Lab 07/Images/02. Naive Bayes}
+        \caption{With mean}
+        \label{fig:dcfNB}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{Lab/07. Lab 07/Images/03. Tied}
+        \caption{With mean}
+        \label{fig:dcfTC}
+    \end{subfigure}
+    \caption{}
+    \label{fig:dcfMVGNBTC}
+\end{figure}
