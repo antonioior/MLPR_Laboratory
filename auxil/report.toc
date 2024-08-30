@@ -11,5 +11,5 @@
 \contentsline {subsection}{\numberline {5.1}Gaussian models}{9}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Multivariate Gaussian Classifier}{9}{subsubsection.5.1.1}%
 \contentsline {subsubsection}{\numberline {5.1.2}Naive Bayes Gaussian Classifier}{9}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}Tied Covariance Gaussian Classifier}{9}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.3}Tied Covariance Gaussian Classifier}{10}{subsubsection.5.1.3}%
 \contentsline {subsubsection}{\numberline {5.1.4}Gaussian Models Comparison}{10}{subsubsection.5.1.4}%

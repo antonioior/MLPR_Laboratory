@@ -35,11 +35,17 @@ to obtain \autoref{eq:assignmentClasses}.
     \label{eq:assignmentClasses}
 \end{equation}
 
+The optimal class decision is based on a comparison between the \(\llr\) and a threshold \(\th\),
+if the llr is greater than th the sample is assigned to class \(h_1\), otherwise to class \(h_0\).
+It is necessary to find the parameters \(\theta\), \(\mu_c\), \(\Sigma_c\); this can be done by maximising the log-likelihood.
+Parameter estimation is part of the training phase and this therefore performed on the training part of the dataset,
+then an estimation of the error rate can be performed on the validation part.
+
 %   Multivariate Gaussian Classifier
 
 \subsubsection{Multivariate Gaussian Classifier}
 \label{subsubsec:multivariateGaussianClassifier}
-The first classifier is given by the empirical mean and covariance of each class,
+The first classifier is MVG and it is given by the empirical mean and covariance matrix for each class,
 \begin{equation}
     \mu_c^* = \frac{1}{N_c} \sum_{i\mid c_i=c} x_i\text{ ,}\quad
     \Sigma_c^* = \frac{1}{N_c} \sum_{i\mid c_i=c} (x_i - \mu_c^*)(x_i - \mu_c^*)^T
@@ -52,7 +58,7 @@ The first classifier is given by the empirical mean and covariance of each class
 \label{subsubsec:naiveBayesGaussianClassifier}
 This model makes an important assumption that simplifies the number of parameters to be estimated,
 it assumes that the features are independent given their class.
-This causes the covariance matrix to be a diagonal matrix, consequently, matching MVG with the diagonal covariance matrix.
+This causes the covariance matrix to be a diagonal matrix, consequently, matching MVG with a diagonal covariance matrix.
 However, the assumption of independence may be too restrictive and lead to inferior performance if the features are indeed correlated.
 
 \begin{equation}
@@ -73,12 +79,14 @@ The assumption of the latter model consists of its own average for each class, b
     \label{eq:tiedCovariance}
 \end{equation}
 
+The characteristic of this model is that it is strongly correlated to LDA.
+
 \subsubsection{Gaussian Models Comparison}
 \label{subsubsec:gaussianModelsComparison}
 A threshold of \(0\) was used to perform our results, which means that \(P(C=1)=P(C=0)=1/2\). This model was applied and
 the outcomes can be seen in the \autoref{tab:resultGaussianClassificationModels}.
 
-\begin{table}
+\begin{table}[h]
     \centering
     \begin{tabular}{c c c}
         \toprule
@@ -120,6 +128,9 @@ the outcomes can be seen in the \autoref{tab:resultGaussianClassificationModels}
     \label{tab:resultGaussianClassificationModels}
 \end{table}
 
+Comparing the results with the \autoref{tab:LDAPCAForClassification}, we can see that for some configurations
+there were improvements in terms of error rate.
+This means that Gaussian models are better able to classify the data.
 If we go into the details of how the error rate changes as a function of the observed features,
 we can see that:
 \begin{itemize}

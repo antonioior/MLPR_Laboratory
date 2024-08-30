@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  30 AUG 2024 18:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  30 AUG 2024 18:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1309,10 +1309,37 @@ or  <return>  to continue without it.
 ) (Lab/05. Lab 05/ClassificationModels.tex
 
 [8]
+Lab/05. Lab 05/ClassificationModels.tex:38: Undefined control sequence.
+l.38 ...s based on a comparison between the \(\llr
+                                                  \) and a threshold \(\th\),
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-[9]) (Lab/07. Lab 07/PerformanceClassifier.tex
 
-[10]
+LaTeX Warning: Command \th invalid in math mode on input line 38.
+
+
+Lab/05. Lab 05/ClassificationModels.tex:38: LaTeX Error: Command \th unavailabl
+e in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 ...between the \(\llr\) and a threshold \(\th
+                                                  \),
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+[9]
+
+[10]) (Lab/07. Lab 07/PerformanceClassifier.tex
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1327,18 +1354,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: AF1DA821AD736576BDF411692CA4DDAE;2228.
  ) 
 Here is how much of TeX's memory you used:
- 27854 strings out of 473899
- 548110 string characters out of 5722245
- 1951960 words of memory out of 5000000
- 50148 multiletter control sequences out of 15000+600000
+ 27856 strings out of 473899
+ 548120 string characters out of 5722245
+ 1953960 words of memory out of 5000000
+ 50150 multiletter control sequences out of 15000+600000
  567520 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,11n,101p,545b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1364,9 +1387,9 @@ ogram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/Mi
 KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "E:/POLITO\Machine Learning And Pattern Recognition\Laborator
-y\auxil\report.pdf" (12 pages, 2569031 bytes).
+y\auxil\report.pdf" (12 pages, 2570728 bytes).
 PDF statistics:
- 303 PDF objects out of 1000 (max. 8388607)
+ 304 PDF objects out of 1000 (max. 8388607)
  62 named destinations out of 1000 (max. 500000)
  162 words of extra memory for PDF output out of 10000 (max. 10000000)
 
