@@ -1,0 +1,62 @@
+%! Author = anton
+%! Date = 30/08/2024
+
+To assess whether one model classifies correctly or it is better than another, it is important to introduce what
+may be a unit of measurement.
+In particular, the evaluation of a model is done using the \textbf{DCF (Detection Cost Function)}
+or also called \textbf{empirical Bayes Risk}.
+But before delving into this method of valuation, we must consider what is called the working point
+of a binary classification application.
+This point is characterised by a triplet of values:
+
+\begin{equation}
+    \((\pi_T, C_{fn}, C_{fp})\)
+    \label{eq:priorCfnCfp}
+\end{equation}
+
+where \(\pi_T\) is the prior probability of the target class, \(C_{fn}\) is the cost of a false negative and \(C_{fp}\) is the cost of a false positive.
+
+But from \(\pi_T\), one can have attention on a particular triplet that is defined by:
+
+\begin{equation}
+    \((\tilde{\pi}, C_{fn}, C_{fp})\) = \((\tilde{\pi}, 1, 1)\)
+    \label{eq:effecrivePriorCfnCfp}
+\end{equation}
+
+where \(\tilde{\pi}\) in \autoref{eq:effecrivePriorCfnCfp} is called \textbf{effective prior} probability of the target class, defined as:
+
+\begin{equation}
+    \tilde{\pi} = \frac{\pi_T C_{fn}}{\pi_T C_{fn} + (1 - \pi_T)C_{fp}}
+    \label{eq:effectivePrior}
+\end{equation}
+
+So we can define \(DCF_u\) as:
+
+\begin{equation}
+    B_{emp} = DCF_u = \sum_{c=1}^{K} \frac{\pi_c}{N_c} \sum_{i\mid c_i = c} C(a(x_i, R)\mid c)
+    \label{eq:empiricalBayesRisk}
+\end{equation}
+
+From \autoref{eq:empiricalBayesRisk}, we can obtain:
+
+\begin{equation}
+    DCF_u(\pi_T, C_{fn}, C_{fp}) = \pi_{T}C_{fn}P_{fn} + (1 - \pi_{T})C_{fp}P_{fp}
+    \label{eq:DCFUnormalized}
+\end{equation}
+
+where:
+
+\begin{equation}
+    P_{fn} = \frac{FN}{FN + TP}\text{ ,}\quad
+    P_{fp} = \frac{FP}{FP + TN}
+    \label{eq:PfnPfp}
+\end{equation}
+
+From the \autoref{eq:empiricalBayesRisk}, it is possible to find \textbf{minDCF} and \textbf{actDCF}.
+When calculating minDCF, the threshold used is the one that minimize DCF, and there are various methods for finding it.
+Whereas for actDCF, the threshold used is:
+
+\begin{equation}
+    t' = - \log \frac{\tilde{\pi}}{1 - \tilde{\pi}}
+    \label{eq:actDCFThreshold}
+\end{equation}
