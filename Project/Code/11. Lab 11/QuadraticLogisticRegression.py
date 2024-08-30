@@ -95,9 +95,9 @@ class quadraticLogClass:
     def trainReturnMinAndActDCF(self, DVAL, LVAL, priorT):
         from DCF import minDCF, actDCF
 
-        vf = sp.fmin_l_bfgs_b(func=self.logreg_obj, x0=np.zeros(self.DTR.shape[0] + 1))[0]
+        self.vf = sp.fmin_l_bfgs_b(func=self.logreg_obj, x0=np.zeros(self.DTR.shape[0] + 1))[0]
         DVAL_expanded = expandeFeature(DVAL)
-        _, score = errorRate(DVAL_expanded, LVAL, vf)
+        _, score = errorRate(DVAL_expanded, LVAL, self.vf)
         pEmp = (self.LTR == 1).sum() / self.LTR.size
         sllr = score - np.log(pEmp / (1 - pEmp))
         minDCF = minDCF(sllr, LVAL, priorT, 1, 1)
@@ -124,6 +124,18 @@ class quadraticLogClass:
         minDCFKFold = minDCF(llrK, labelK, priorT, 1, 1)
         actDCFKFold = actDCF(llrK, labelK, priorT, 1, 1)
         return minDCFKFold, actDCFKFold, llrK, labelK
+
+    def computeS(self, DVAL):
+        w = self.vf[:-1]
+        b = self.vf[-1]
+        sval = np.dot(w.T, expandeFeature(DVAL)) + b
+        return sval
+
+    def predictThreshold(self, Dtest, threshold):
+        w = self.vf[:-1]
+        b = self.vf[-1]
+        sval = np.dot(w.T, expandeFeature(Dtest)) + b
+        return np.int32(sval > threshold)
 
 
 def expandeFeature(D):

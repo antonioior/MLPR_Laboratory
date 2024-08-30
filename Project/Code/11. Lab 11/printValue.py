@@ -1,4 +1,5 @@
 import utils as ut
+from graph import plotGraph
 
 
 # Function to print the value of a matrix,
@@ -65,3 +66,15 @@ def printDataMain(muColumn, varColumn, C, var, std, D, printData=False):
         printMatrix(ut.mcol(var, D.shape[0]))
         print("    Std is:")
         printMatrix(ut.mcol(std, D.shape[0]))
+
+
+# LAB 11
+# PRINT MAIN INFORMATION AND PLOT GRAPH NOT FOR FUSION
+def printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, score, LVAL, llrK, labelK,
+              titleGraph, colorGraph):
+    print(f"\t\tminDCF: {minDCFWithoutCal:.4f}")
+    print(f"\t\tactDCF: {actDCFWithoutCal:.4f}")
+    print(f"\t\tminDCF - cal: {minDCFKFold:.4f}")
+    print(f"\t\tactDCF - cal: {actDCFKFold:.4f}")
+    plotGraph(score, LVAL, colorGraph, titleGraph, False, "actDCF", "minDCF", "-.", ":")
+    plotGraph(llrK, labelK, colorGraph, titleGraph, True, "actDCF - cal", "minDCF - cal", "-", "--")

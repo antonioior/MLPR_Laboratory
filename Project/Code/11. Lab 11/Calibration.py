@@ -3,24 +3,27 @@ import scipy.optimize as sp
 
 from QuadraticLogisticRegression import quadraticLogClass
 from DCF import bayesError, minDCF, actDCF
-from graph import createBayesErrorPlots
-from utils import vrow, logpdf_GMM
 from SVMClass import SVM
 from LBG import trainGMMReturnMinAndActDCF, trainGMMCalibrationReturnMinAndActDCF
 from PriorWeightedBinLogReg import priorWeightedLogClass
+from printValue import printData
+from graph import plotGraph
 
 
 def calibration(DTR, LTR, DVAL, LVAL, printResult=False):
     K = 5
     priorT = 0.1
-    priorCals = [0.1, 0.5, 0.9]
+    priorCals = [0.9, 0.5, 0.1]
     for priorCal in priorCals:
-        scoreQLR, scoreQLRCal, labelQLRCal = calibrationLogisticRegression(DTR, LTR, DVAL, LVAL, K, priorT, priorCal,
-                                                                           printResult)
+        scoreQLR, scoreQLRCal, labelQLRCal, qlr = calibrationLogisticRegression(DTR, LTR, DVAL, LVAL, K, priorT,
+                                                                                priorCal,
+                                                                                printResult)
         scoreSVM, scoreSVMCal, labelSVMCal = calibrationSVM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult)
         scoreGMM, scoreGMMCal, labelGMMCal = calibrationGMM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult)
         calibrationFusion(scoreQLR, scoreQLRCal, labelQLRCal, scoreSVM, scoreSVMCal, labelSVMCal, scoreGMM, scoreGMMCal,
                           labelGMMCal, LVAL, K, priorT, priorCal, printResult)
+
+    return qlr
 
 
 # CALIBRATION LOGISTIC REGRESSION
@@ -37,7 +40,7 @@ def calibrationLogisticRegression(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, pri
         printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, score, LVAL, llrK, labelK,
                   f"QLR - calibration validation priorCal = {priorCal}", "b")
 
-    return score, llrK, labelK
+    return score, llrK, labelK, logRegQDT
 
 
 # CALIBRATION SVM
@@ -126,26 +129,3 @@ def calibrationFusion(scoreQLR, scoreQLRCal, labelQLRCal, scoreSVM, scoreSVMCal,
                   "GMM - minDCF", "-", "--")
         plotGraph(llrK, labelK, "red", f"Fusion - calibration priorCal = {priorCal}", True, "Fusion - actDCF",
                   "Fusion - minDCF", "-", "--")
-
-
-# PRINT MAIN INFORMATION AND PLOT GRAPH NOT FOR FUSION
-def printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, score, LVAL, llrK, labelK,
-              titleGraph, colorGraph):
-    print(f"\t\tminDCF: {minDCFWithoutCal:.4f}")
-    print(f"\t\tactDCF: {actDCFWithoutCal:.4f}")
-    print(f"\t\tminDCF - cal: {minDCFKFold:.4f}")
-    print(f"\t\tactDCF - cal: {actDCFKFold:.4f}")
-    plotGraph(score, LVAL, colorGraph, titleGraph, False, "actDCF", "minDCF", "-.", ":")
-    plotGraph(llrK, labelK, colorGraph, titleGraph, True, "actDCF - cal", "minDCF - cal", "-", "--")
-
-
-def plotGraph(score, LVAL, colorGraph, titleGraph, show, labelActDCF, labelMinDCF, lineActDCF, lineMinDCF):
-    logOdds, actDCF, minDCF = bayesError(
-        llr=score,
-        LTE=LVAL,
-        lineLeft=-4,
-        lineRight=4)
-    createBayesErrorPlots(logOdds, actDCF, minDCF, [-4, 4],
-                          [0, 1], colorGraph, colorGraph, titleGraph,
-                          show, labelActDCF, labelMinDCF, lineActDCF,
-                          lineMinDCF)

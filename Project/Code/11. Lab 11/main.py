@@ -13,6 +13,7 @@ from densityEstimation import densityEstimation
 from generativeModels import generativeModels
 from load import load
 from utils import split_db_2to1
+from Evaluation import evaluation
 
 if __name__ == "__main__":
     trainLogisticRegression = False
@@ -23,7 +24,7 @@ if __name__ == "__main__":
     createGraph = False
 
     # LAB 02 - COMPLETED
-    D, L = load('trainData.txt')
+    D, L = load('Data/trainData.txt')
     properties = ["Features 1", "Features 2", "Features 3", "Features 4", "Features 5", "Features 6"]
 
     mu = D.mean(axis=1)
@@ -92,4 +93,8 @@ if __name__ == "__main__":
 
     # LAB 11
     if calibrationRun:
-        calibration(DTR, LTR, DVAL, LVAL, printResult=True)
+        qlr = calibration(DTR, LTR, DVAL, LVAL, printResult=True)
+        evalData, evalLabels = load('Data/evalData.txt')
+        pT = 0.1
+        prior_Cal = 0.1
+        evaluation(DVAL, LVAL, qlr, evalData, evalLabels, pT, prior_Cal, printResult=True)

@@ -1,6 +1,7 @@
 # LAB 02
 # Functoin to create the graphics
 import matplotlib.pyplot as plt
+from DCF import bayesError
 
 
 def createGraphic(data, labels, properties, initialProperty, finalProperty, comment):
@@ -126,3 +127,16 @@ def plotDCF(x, y, xLabel, yLabel, label, color, title, logScale, show=False):
         plt.xscale('log', base=10)
     if show:
         plt.show()
+
+
+# LAB 11
+def plotGraph(score, LVAL, colorGraph, titleGraph, show, labelActDCF, labelMinDCF, lineActDCF, lineMinDCF):
+    logOdds, actDCF, minDCF = bayesError(
+        llr=score,
+        LTE=LVAL,
+        lineLeft=-4,
+        lineRight=4)
+    createBayesErrorPlots(logOdds, actDCF, minDCF, [-4, 4],
+                          [0, 1], colorGraph, colorGraph, titleGraph,
+                          show, labelActDCF, labelMinDCF, lineActDCF,
+                          lineMinDCF)
