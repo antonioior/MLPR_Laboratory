@@ -23,7 +23,7 @@ parameters vary:
         \midrule
         \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.9, 1, 1)\)}} \\
         \midrule
-        \textbf{actDCF} & 0.4000       & 0.3893               & 0.4626                   \\
+        \textbf{actDCF} & 0.4001       & 0.3893               & 0.4626                   \\
         \textbf{minDCF} & 0.3423       & 0.3509               & 0.4421                   \\
         \midrule
         \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.1, 1, 1)\)}} \\
@@ -43,7 +43,7 @@ parameters vary:
         \bottomrule
     \end{tabular}
     \captionsetup{justification=justified,singlelinecheck=false,format=hang}
-    \caption{Table showing the results of the Error Rate for different Models and Features.}
+    \caption{Table showing minDCF and actDCF for different models and application.}
     \label{tab:resultPerformanceClassifierWithoutPCA}
 \end{table}
 
@@ -63,35 +63,34 @@ parameters vary:
         \textbf{minDCF} & 0.1302       & 0.1311               & 0.1812                   \\
         \midrule
         \multicolumn{4}{c}{\textbf{PCA}} \\
-        \midrule
         \multicolumn{4}{c}{\textbf{\(m = 5\)}} \\
         \midrule
-        \textbf{actDCF} &              &                      &                          \\
-        \textbf{minDCF} &              &                      &                          \\
+        \textbf{actDCF} & 0.1419       & 0.1749               & 0.1860                   \\
+        \textbf{minDCF} & 0.1331       & 0.1737               & 0.1812                   \\
         \midrule
         \multicolumn{4}{c}{\textbf{\(m = 6\)}} \\
         \midrule
-        \textbf{actDCF} &              &                      &                          \\
-        \textbf{minDCF} &              &                      &                          \\
+        \textbf{actDCF} & 0.1399       & 0.1780               & 0.1860                   \\
+        \textbf{minDCF} & 0.1302       & 0.1727               & 0.1812                   \\
         \toprule
         \toprule
         \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.9, 1, 1)\)}} \\
         \midrule
         \multicolumn{4}{c}{\textbf{no PCA}} \\
         \midrule
-        \textbf{actDCF} & 0.4000       & 0.3893               & 0.4626                   \\
+        \textbf{actDCF} & 0.4001       & 0.3893               & 0.4626                   \\
         \textbf{minDCF} & 0.3423       & 0.3509               & 0.4421                   \\
         \midrule
         \multicolumn{4}{c}{\textbf{PCA}} \\
         \multicolumn{4}{c}{\textbf{\(m = 5\)}} \\
         \midrule
-        \textbf{actDCF} &              &                      &                          \\
-        \textbf{minDCF} &              &                      &                          \\
+        \textbf{actDCF} & 0.3980       & 0.4660               & 0.4626                   \\
+        \textbf{minDCF} & 0.3512       & 0.4340               & 0.4451                   \\
         \midrule
         \multicolumn{4}{c}{\textbf{\(m = 6\)}} \\
         \midrule
-        \textbf{actDCF} &              &                      &                          \\
-        \textbf{minDCF} &              &                      &                          \\
+        \textbf{actDCF} & 0.4001       & 0.4512               & 0.4626                   \\
+        \textbf{minDCF} & 0.3423       & 0.4359               & 0.4421                   \\
         \toprule
         \toprule
         \multicolumn{4}{c}{\textbf{Application \((\tilde{\pi},C_{fn}, C_{fp}) = (0.1, 1, 1)\)}} \\
@@ -104,16 +103,16 @@ parameters vary:
         \multicolumn{4}{c}{\textbf{PCA}} \\
         \multicolumn{4}{c}{\textbf{\(m = 5\)}} \\
         \midrule
-        \textbf{actDCF} &              &                      &                          \\
-        \textbf{minDCF} &              &                      &                          \\
+        \textbf{actDCF} & 0.3042       & 0.3930               & 0.4051                   \\
+        \textbf{minDCF} & 0.2738       & 0.3545               & 0.3648                   \\
         \midrule
         \multicolumn{4}{c}{\textbf{\(m = 6\)}} \\
         \midrule
-        \textbf{actDCF} &              &                      &                          \\
-        \textbf{minDCF} &              &                      &                          \\
+        \textbf{actDCF} & 0.3051       & 0.3920               & 0.4061                   \\
+        \textbf{minDCF} & 0.2629       & 0.3535               & 0.3628                   \\
         \bottomrule
     \end{tabular}
     \captionsetup{justification=justified,singlelinecheck=false,format=hang}
-    \caption{Table showing the results of the Error Rate for different Models and Features.}
+    \caption{Show minDCF and actDCF for different models and applications before and after applying PCA.}
     \label{tab:resultPerformanceClassifierWithPCA}
 \end{table}
