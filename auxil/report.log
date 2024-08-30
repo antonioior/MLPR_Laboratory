@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  30 AUG 2024 19:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  30 AUG 2024 19:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1343,25 +1343,53 @@ or  <return>  to continue without it.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<Lab/07. Lab 07/Images/01. MVG.png, id=209, 642.4pt x 481.8pt>
+File: Lab/07. Lab 07/Images/01. MVG.png Graphic file (type png)
+<use Lab/07. Lab 07/Images/01. MVG.png>
+Package pdftex.def Info: Lab/07. Lab 07/Images/01. MVG.png  used on input line 
+123.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/07. Lab 07/Images/02. Naive Bayes.png, id=210, 642.4pt x 481.8pt>
+File: Lab/07. Lab 07/Images/02. Naive Bayes.png Graphic file (type png)
+<use Lab/07. Lab 07/Images/02. Naive Bayes.png>
+Package pdftex.def Info: Lab/07. Lab 07/Images/02. Naive Bayes.png  used on inp
+ut line 128.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/07. Lab 07/Images/03. Tied.png, id=211, 642.4pt x 481.8pt>
+File: Lab/07. Lab 07/Images/03. Tied.png Graphic file (type png)
+<use Lab/07. Lab 07/Images/03. Tied.png>
+Package pdftex.def Info: Lab/07. Lab 07/Images/03. Tied.png  used on input line
+ 133.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 )
 
 [11]
 
-[12]
+[12 <./Lab/07. Lab 07/Images/01. MVG.png> <./Lab/07. Lab 07/Images/02. Naive Ba
+yes.png> <./Lab/07. Lab 07/Images/03. Tied.png>]
+
+[13]
 (E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil\report.aux
 (MainPage/cover.aux))
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: AF1DA821AD736576BDF411692CA4DDAE;2228.
  ) 
 Here is how much of TeX's memory you used:
- 27856 strings out of 473899
- 548120 string characters out of 5722245
- 1954960 words of memory out of 5000000
- 50150 multiletter control sequences out of 15000+600000
+ 27898 strings out of 473899
+ 549620 string characters out of 5722245
+ 1955960 words of memory out of 5000000
+ 50190 multiletter control sequences out of 15000+600000
  567520 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,11n,101p,545b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1387,9 +1415,9 @@ ogram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/Mi
 KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "E:/POLITO\Machine Learning And Pattern Recognition\Laborator
-y\auxil\report.pdf" (12 pages, 2571598 bytes).
+y\auxil\report.pdf" (13 pages, 2632732 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 62 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 317 PDF objects out of 1000 (max. 8388607)
+ 64 named destinations out of 1000 (max. 500000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
