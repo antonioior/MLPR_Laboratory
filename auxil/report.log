@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  31 AUG 2024 17:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  31 AUG 2024 17:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1125,7 +1125,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 [2]) (Lab/02. Lab 02/DatasetAnalysis.tex
-<Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png, id=89, 722.7
+<Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png, id=94, 722.7
 pt x 722.7pt>
 File: Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png Graphic 
 file (type png)
@@ -1133,7 +1133,7 @@ file (type png)
 Package pdftex.def Info: Lab/02. Lab 02/Images/01. Graphics Features 1_2 Withou
 t Mean.png  used on input line 24.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png, id=91, 722.7pt 
+<Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png, id=96, 722.7pt 
 x 722.7pt>
 File: Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png Graphic fil
 e (type png)
@@ -1148,7 +1148,7 @@ ean.png  used on input line 29.
 
  <./Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png> <./Lab/02
 . Lab 02/Images/02. Graphics Features 1_2 With Mean.png>]
-<Lab/02. Lab 02/Images/03. Graphics Features 3_4 Without Mean.png, id=110, 722.
+<Lab/02. Lab 02/Images/03. Graphics Features 3_4 Without Mean.png, id=115, 722.
 7pt x 722.7pt>
 File: Lab/02. Lab 02/Images/03. Graphics Features 3_4 Without Mean.png Graphic 
 file (type png)
@@ -1156,7 +1156,7 @@ file (type png)
 Package pdftex.def Info: Lab/02. Lab 02/Images/03. Graphics Features 3_4 Withou
 t Mean.png  used on input line 55.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png, id=111, 722.7pt
+<Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png, id=116, 722.7pt
  x 722.7pt>
 File: Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png Graphic fil
 e (type png)
@@ -1164,7 +1164,7 @@ e (type png)
 Package pdftex.def Info: Lab/02. Lab 02/Images/04. Graphics Features 3_4 With M
 ean.png  used on input line 60.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png, id=115, 722.
+<Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png, id=120, 722.
 7pt x 722.7pt>
 File: Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png Graphic 
 file (type png)
@@ -1172,7 +1172,7 @@ file (type png)
 Package pdftex.def Info: Lab/02. Lab 02/Images/05. Graphics Features 5_6 Withou
 t Mean.png  used on input line 86.
 (pdftex.def)             Requested size: 158.99156pt x 158.98346pt.
-<Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png, id=116, 722.7pt
+<Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png, id=121, 722.7pt
  x 722.7pt>
 File: Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png Graphic fil
 e (type png)
@@ -1185,7 +1185,7 @@ ean.png  used on input line 91.
 
 [4 <./Lab/02. Lab 02/Images/03. Graphics Features 3_4 Without Mean.png> <./Lab/
 02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png>]
-<Lab/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png, id=127, 6
+<Lab/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png, id=132, 6
 42.4pt x 481.8pt>
 File: Lab/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png Graph
 ic file (type png)
@@ -1201,7 +1201,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [5 <./Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png> <./Lab/
 02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png>]
-<Lab/03. Lab 03/Images/02. PVA_LDA.png, id=143, 2007.5pt x 2007.5pt>
+<Lab/03. Lab 03/Images/02. PVA_LDA.png, id=148, 2007.5pt x 2007.5pt>
 File: Lab/03. Lab 03/Images/02. PVA_LDA.png Graphic file (type png)
 <use Lab/03. Lab 03/Images/02. PVA_LDA.png>
 Package pdftex.def Info: Lab/03. Lab 03/Images/02. PVA_LDA.png  used on input l
@@ -1212,7 +1212,7 @@ ine 76.
 
 [6 <./Lab/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png (PNG 
 copy)> <./Lab/03. Lab 03/Images/02. PVA_LDA.png (PNG copy)>]
-<Lab/04. Lab 04/Images/01. GaussianDensity.png, id=155, 2007.5pt x 1003.75pt>
+<Lab/04. Lab 04/Images/01. GaussianDensity.png, id=160, 2007.5pt x 1003.75pt>
 File: Lab/04. Lab 04/Images/01. GaussianDensity.png Graphic file (type png)
 <use Lab/04. Lab 04/Images/01. GaussianDensity.png>
 Package pdftex.def Info: Lab/04. Lab 04/Images/01. GaussianDensity.png  used on
@@ -1344,25 +1344,25 @@ or  <return>  to continue without it.
 [11]
 
 [12]
-<Lab/07. Lab 07/Images/01. MVG.png, id=223, 642.4pt x 481.8pt>
+<Lab/07. Lab 07/Images/01. MVG.png, id=228, 642.4pt x 481.8pt>
 File: Lab/07. Lab 07/Images/01. MVG.png Graphic file (type png)
 <use Lab/07. Lab 07/Images/01. MVG.png>
 Package pdftex.def Info: Lab/07. Lab 07/Images/01. MVG.png  used on input line 
 146.
 (pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
-<Lab/07. Lab 07/Images/02. Naive Bayes.png, id=224, 642.4pt x 481.8pt>
+<Lab/07. Lab 07/Images/02. Naive Bayes.png, id=229, 642.4pt x 481.8pt>
 File: Lab/07. Lab 07/Images/02. Naive Bayes.png Graphic file (type png)
 <use Lab/07. Lab 07/Images/02. Naive Bayes.png>
 Package pdftex.def Info: Lab/07. Lab 07/Images/02. Naive Bayes.png  used on inp
 ut line 151.
 (pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
-<Lab/07. Lab 07/Images/03. Tied.png, id=225, 642.4pt x 481.8pt>
+<Lab/07. Lab 07/Images/03. Tied.png, id=230, 642.4pt x 481.8pt>
 File: Lab/07. Lab 07/Images/03. Tied.png Graphic file (type png)
 <use Lab/07. Lab 07/Images/03. Tied.png>
 Package pdftex.def Info: Lab/07. Lab 07/Images/03. Tied.png  used on input line
  156.
 (pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
-)
+) (Lab/08. Lab 08/LogisticRegressionClassifier.tex)
 
 [13 <./Lab/07. Lab 07/Images/01. MVG.png> <./Lab/07. Lab 07/Images/02. Naive Ba
 yes.png> <./Lab/07. Lab 07/Images/03. Tied.png>]
@@ -1372,14 +1372,18 @@ yes.png> <./Lab/07. Lab 07/Images/03. Tied.png>]
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: AF1DA821AD736576BDF411692CA4DDAE;2228.
+(rerunfilecheck)             Checksum: 3E847D3274095B6206C1289ECAAB53AD;2442.
  ) 
 Here is how much of TeX's memory you used:
- 27898 strings out of 473899
- 549620 string characters out of 5722245
+ 27911 strings out of 473899
+ 550286 string characters out of 5722245
  1956960 words of memory out of 5000000
- 50190 multiletter control sequences out of 15000+600000
+ 50197 multiletter control sequences out of 15000+600000
  567520 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,11n,101p,545b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1405,9 +1409,9 @@ ogram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/Mi
 KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "E:/POLITO\Machine Learning And Pattern Recognition\Laborator
-y\auxil\report.pdf" (13 pages, 2635218 bytes).
+y\auxil\report.pdf" (13 pages, 2636017 bytes).
 PDF statistics:
- 321 PDF objects out of 1000 (max. 8388607)
- 64 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 326 PDF objects out of 1000 (max. 8388607)
+ 65 named destinations out of 1000 (max. 500000)
+ 185 words of extra memory for PDF output out of 10000 (max. 10000000)
 
