@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  31 AUG 2024 22:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  31 AUG 2024 23:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1407,24 +1407,34 @@ File: Lab/08. Lab 08/Images/03. BLR - min And actDCF.png Graphic file (type png
 Package pdftex.def Info: Lab/08. Lab 08/Images/03. BLR - min And actDCF.png  us
 ed on input line 67.
 (pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
-) (Lab/11. Lab 11/Calibration.tex)
+) (Lab/11. Lab 11/Calibration.tex
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
 
 [14 <./Lab/08. Lab 08/Images/01. BLR - minDCF.png> <./Lab/08. Lab 08/Images/02.
  BLR - actDCF.png> <./Lab/08. Lab 08/Images/03. BLR - min And actDCF.png>]
+
+[15]
 (E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil\report.aux
 (MainPage/cover.aux))
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: BAD4890C15B088F9ACF6F0D88118B8FD;2646.
  ) 
 Here is how much of TeX's memory you used:
- 27978 strings out of 473899
- 552872 string characters out of 5722245
+ 27988 strings out of 473899
+ 553090 string characters out of 5722245
  1956960 words of memory out of 5000000
- 50250 multiletter control sequences out of 15000+600000
+ 50258 multiletter control sequences out of 15000+600000
  567520 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,13n,101p,545b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1450,9 +1460,9 @@ ogram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/Mi
 KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "E:/POLITO\Machine Learning And Pattern Recognition\Laborator
-y\auxil\report.pdf" (14 pages, 2706603 bytes).
+y\auxil\report.pdf" (15 pages, 2707773 bytes).
 PDF statistics:
- 353 PDF objects out of 1000 (max. 8388607)
- 74 named destinations out of 1000 (max. 500000)
+ 358 PDF objects out of 1000 (max. 8388607)
+ 76 named destinations out of 1000 (max. 500000)
  208 words of extra memory for PDF output out of 10000 (max. 10000000)
 
