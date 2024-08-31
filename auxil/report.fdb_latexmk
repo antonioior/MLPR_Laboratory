@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1725125373.79016 "report.tex" "report.pdf" "report" 1725125375.59913 2
+["pdflatex"] 1725137643.48036 "report.tex" "report.pdf" "report" 1725137645.41141 2
   "C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
   "C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -207,10 +207,10 @@
   "C:/Users/anton/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1724068369 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/anton/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1724236486 11548 48b56aff971b5b51da842b7295cc04da ""
   "C:/Users/anton/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1724078617 24269588 eef8a44fe1a8c3953b44ad9e8bfb1ce2 ""
-  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/./MainPage/cover.aux" 1725125374 895 be8693aec3c05667efc22d4e921b5fad "pdflatex"
-  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.aux" 1725125375 10644 32a7aee222bf93f89e3856eee5980732 "pdflatex"
-  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.out" 1725125375 2646 bad4890c15b088f9acf6f0d88118b8fd "pdflatex"
-  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.toc" 1725125375 1426 ef6b7c6add2a9cd3a38fee2f00667658 "pdflatex"
+  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/./MainPage/cover.aux" 1725137644 895 be8693aec3c05667efc22d4e921b5fad "pdflatex"
+  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.aux" 1725137645 11632 acf29f71b36c466e9789dd5954a8f64e "pdflatex"
+  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.out" 1725137645 2646 bad4890c15b088f9acf6f0d88118b8fd "pdflatex"
+  "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.toc" 1725137645 1426 ef6b7c6add2a9cd3a38fee2f00667658 "pdflatex"
   "Lab/02. Lab 02/DatasetAnalysis.tex" 1720162388 5034 cf48c6d7d7ef822e4f8463afd763b33e ""
   "Lab/02. Lab 02/Images/01. Graphics Features 1_2 Without Mean.png" 1720162388 220516 a5bf89ba910f8861b72b8b7d4d8c0e15 ""
   "Lab/02. Lab 02/Images/02. Graphics Features 1_2 With Mean.png" 1720162388 220482 34e91a29bba2d52f019aff6589c7f098 ""
@@ -229,10 +229,14 @@
   "Lab/07. Lab 07/Images/02. Naive Bayes.png" 1725038316 22891 9e7b10eb3b2b1d91c53c3cd7588ce96c ""
   "Lab/07. Lab 07/Images/03. Tied.png" 1725038316 22902 64023df40d6d5fa69d5310703395a306 ""
   "Lab/07. Lab 07/PerformanceClassifier.tex" 1725116567 8902 fb3794296b8e0915c3b709666165f644 ""
-  "Lab/08. Lab 08/LogisticRegressionClassifier.tex" 1725125371 1987 57365d741096df7cf85d4d4c769b7ddd ""
+  "Lab/08. Lab 08/Images/01. BLR - minDCF.png" 1725125864 30039 ae17fb978a7242e28db5ac74693eb8dc ""
+  "Lab/08. Lab 08/Images/02. BLR - actDCF.png" 1725125864 20543 099edb1c8d6897c37501d8f7a48aefde ""
+  "Lab/08. Lab 08/Images/03. BLR - min And actDCF.png" 1725125864 20894 9fb17aac5338394531a79c9a08ff8a25 ""
+  "Lab/08. Lab 08/LogisticRegressionClassifier.tex" 1725126345 2882 1e6a33fac313f7336e821b36de3a244a ""
+  "Lab/11. Lab 11/Calibration.tex" 1725137641 1478 c7a1da83d5956b050dfb34349d4f994e ""
   "MainPage/cover.aux" 1724236521 895 be8693aec3c05667efc22d4e921b5fad ""
   "MainPage/cover.tex" 1720162388 340 a477c04896ee19ef30cb8fc7217cf139 ""
-  "report.tex" 1725116787 3305 4d9cd91c99b6d66e48f94dca7acb23db ""
+  "report.tex" 1725136310 3368 d13fcfab690d7247d0b087acfc5b38ec ""
   (generated)
   "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/./MainPage/cover.aux"
   "E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil/report.aux"

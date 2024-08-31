@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  31 AUG 2024 19:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  31 AUG 2024 22:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1377,9 +1377,40 @@ and I'll forget about whatever was undefined.
 
 
 [13 <./Lab/07. Lab 07/Images/01. MVG.png> <./Lab/07. Lab 07/Images/02. Naive Ba
-yes.png> <./Lab/07. Lab 07/Images/03. Tied.png>])
+yes.png> <./Lab/07. Lab 07/Images/03. Tied.png>]
+Lab/08. Lab 08/LogisticRegressionClassifier.tex:51: Undefined control sequence.
+l.51 where \lampda
+                   of \autoref{eq:minimiseFunctionLR} is the regularization ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-[14]
+<Lab/08. Lab 08/Images/01. BLR - minDCF.png, id=251, 642.4pt x 481.8pt>
+File: Lab/08. Lab 08/Images/01. BLR - minDCF.png Graphic file (type png)
+<use Lab/08. Lab 08/Images/01. BLR - minDCF.png>
+Package pdftex.def Info: Lab/08. Lab 08/Images/01. BLR - minDCF.png  used on in
+put line 57.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/08. Lab 08/Images/02. BLR - actDCF.png, id=252, 642.4pt x 481.8pt>
+File: Lab/08. Lab 08/Images/02. BLR - actDCF.png Graphic file (type png)
+<use Lab/08. Lab 08/Images/02. BLR - actDCF.png>
+Package pdftex.def Info: Lab/08. Lab 08/Images/02. BLR - actDCF.png  used on in
+put line 62.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/08. Lab 08/Images/03. BLR - min And actDCF.png, id=253, 642.4pt x 481.8pt>
+
+File: Lab/08. Lab 08/Images/03. BLR - min And actDCF.png Graphic file (type png
+)
+<use Lab/08. Lab 08/Images/03. BLR - min And actDCF.png>
+Package pdftex.def Info: Lab/08. Lab 08/Images/03. BLR - min And actDCF.png  us
+ed on input line 67.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+) (Lab/11. Lab 11/Calibration.tex)
+
+[14 <./Lab/08. Lab 08/Images/01. BLR - minDCF.png> <./Lab/08. Lab 08/Images/02.
+ BLR - actDCF.png> <./Lab/08. Lab 08/Images/03. BLR - min And actDCF.png>]
 (E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil\report.aux
 (MainPage/cover.aux))
  ***********
@@ -1390,13 +1421,13 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: BAD4890C15B088F9ACF6F0D88118B8FD;2646.
  ) 
 Here is how much of TeX's memory you used:
- 27925 strings out of 473899
- 550550 string characters out of 5722245
+ 27978 strings out of 473899
+ 552872 string characters out of 5722245
  1956960 words of memory out of 5000000
- 50204 multiletter control sequences out of 15000+600000
+ 50250 multiletter control sequences out of 15000+600000
  567520 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,11n,101p,545b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,13n,101p,545b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\anton\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTe
@@ -1419,9 +1450,9 @@ ogram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/Mi
 KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "E:/POLITO\Machine Learning And Pattern Recognition\Laborator
-y\auxil\report.pdf" (14 pages, 2643581 bytes).
+y\auxil\report.pdf" (14 pages, 2706603 bytes).
 PDF statistics:
- 342 PDF objects out of 1000 (max. 8388607)
- 72 named destinations out of 1000 (max. 500000)
- 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 353 PDF objects out of 1000 (max. 8388607)
+ 74 named destinations out of 1000 (max. 500000)
+ 208 words of extra memory for PDF output out of 10000 (max. 10000000)
 
