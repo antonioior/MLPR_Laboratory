@@ -47,8 +47,19 @@ parameters vary:
 \end{table}
 
 Analysing the results of the \autoref{tab:resultPerformanceClassifierWithoutPCA}, it is possible to observe:
+\begin{itemize}
+    \item Observing how the \(\tilde{\pi}\) varies, it can be seen that the best outcome is obtained when it takes the value 0.5.
+    On the other hand, when it takes value 0.1 and 0.9, the outcome gets worse because it penalises false negatives and false positives respectively
+    \item Observing how the values of \(C_{fn}\) and \(C_{fp}\) change when they assume value 9.
+    The outcomes worsen, in particular there is a greater impact on the model when the cost of false negatives increases.
+\end{itemize}
 
-\begin{table}[h]
+Starting from the result obtained in \autoref{tab:resultPerformanceClassifierWithoutPCA}, it is possible to consider the application
+of PCA as pre-processing technique focusing on the cases of \(\tilde{\pi}\) equal to 0.1, 0.5 and 0.9 and \(C_{fn}=C_{fp}=1\),
+obtaining the outcomes shown in \autoref{tab:resultPerformanceClassifierWithPCA}
+
+
+\begin{table}[h!]
     \centering
     \begin{tabular}{>{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm}}
         \toprule
@@ -117,7 +128,19 @@ Analysing the results of the \autoref{tab:resultPerformanceClassifierWithoutPCA}
     \label{tab:resultPerformanceClassifierWithPCA}
 \end{table}
 
-\begin{figure}[h!]
+From the results obtained in the \autoref{tab:resultPerformanceClassifierWithPCA}, it can be seen that the application of
+PCA was not very helpful because in no case did the outcomes improve, instead they remained the same or even worsened.
+Analysing overall, it can be said that the model that tends to perform worse is the Tied Covariance, whereas MVG and Naive
+Bayes are rather similar.
+In particular for MVG and Naive Bayes, the best result is obtained for the \(0.5, 1, 1\) configuration whether applying
+PCA or not.
+In addition, it can be said that there is a good calibration for this configuration because applying or not applying PCA,
+minDCF and actDCF doesn't change what is not the case for the other configurations.
+
+In \autoref{fig:dcfMVGNBTC} the Bayes error was calculated for a prior log odds in the range \((-4, +4)\), for the
+three models with a configuration having a \(\tilde{\pi} = 0.1\) and applying the PCA as pre-processing.
+
+\begin{figure}
     \centering
     \begin{subfigure}[b]{0.3\linewidth}
         \includegraphics[width=\linewidth]{Lab/07. Lab 07/Images/01. MVG}
