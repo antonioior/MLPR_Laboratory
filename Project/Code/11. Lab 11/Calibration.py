@@ -4,10 +4,11 @@ import scipy.optimize as sp
 from QuadraticLogisticRegression import quadraticLogClass
 from DCF import bayesError, minDCF, actDCF
 from SVMClass import SVM
-from LBG import trainGMMReturnMinAndActDCF, trainGMMCalibrationReturnMinAndActDCF
+from LBG import trainGMMCalibrationReturnMinAndActDCF
 from PriorWeightedBinLogReg import priorWeightedLogClass
 from printValue import printData
 from graph import plotGraph
+from GMM import GMMObject
 
 
 def calibration(DTR, LTR, DVAL, LVAL, printResult=False):
@@ -18,12 +19,12 @@ def calibration(DTR, LTR, DVAL, LVAL, printResult=False):
         scoreQLR, scoreQLRCal, labelQLRCal, qlr = calibrationLogisticRegression(DTR, LTR, DVAL, LVAL, K, priorT,
                                                                                 priorCal,
                                                                                 printResult)
-        scoreSVM, scoreSVMCal, labelSVMCal = calibrationSVM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult)
-        scoreGMM, scoreGMMCal, labelGMMCal = calibrationGMM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult)
+        scoreSVM, scoreSVMCal, labelSVMCal, svm = calibrationSVM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult)
+        scoreGMM, scoreGMMCal, labelGMMCal, gmm = calibrationGMM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult)
         calibrationFusion(scoreQLR, scoreQLRCal, labelQLRCal, scoreSVM, scoreSVMCal, labelSVMCal, scoreGMM, scoreGMMCal,
                           labelGMMCal, LVAL, K, priorT, priorCal, printResult)
 
-    return qlr
+    return qlr, svm, gmm
 
 
 # CALIBRATION LOGISTIC REGRESSION
@@ -59,7 +60,7 @@ def calibrationSVM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult=False)
         print(f"\tC: {C}, \u03B3: {gamma}, KRadial: {KRadial}")
         printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, score, LVAL, llrK, labelK,
                   f"SVM - calibration validation priorCal = {priorCal}", "orange")
-    return score, llrK, labelK
+    return score, llrK, labelK, radialSVM
 
 
 # CALIBRATION GMM
@@ -69,11 +70,9 @@ def calibrationGMM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult=False)
     componentGMM1 = 32
     psi = 0.01
     alpha = 0.1
-    score, minDCFWithoutCal, actDCFWithoutCal = trainGMMReturnMinAndActDCF(DTR, LTR, DVAL, LVAL,
-                                                                           priorT, alpha,
-                                                                           componentGMM0,
-                                                                           componentGMM1, psi,
-                                                                           covType)
+    gmm = GMMObject(DTR, LTR, componentGMM0, componentGMM1, alpha, psi, covType)
+    score, minDCFWithoutCal, actDCFWithoutCal = gmm.trainGMMReturnMinAndActDCF(DVAL, LVAL,
+                                                                               priorT)
     minDCFKFold, actDCFKFold, llrK, labelK = trainGMMCalibrationReturnMinAndActDCF(K, priorCal, priorT,
                                                                                    score, LVAL)
 
@@ -83,7 +82,7 @@ def calibrationGMM(DTR, LTR, DVAL, LVAL, K, priorT, priorCal, printResult=False)
             f"\tcovType: {covType}, component0 = {componentGMM0}, component1 = {componentGMM1}, psi: {psi}, alpha: {alpha}")
         printData(minDCFWithoutCal, actDCFWithoutCal, minDCFKFold, actDCFKFold, score, LVAL, llrK, labelK,
                   f"GMM - calibration validation priorCal = {priorCal}", "green")
-    return score, llrK, labelK
+    return score, llrK, labelK, gmm
 
 
 # CALIBRATION FUSION

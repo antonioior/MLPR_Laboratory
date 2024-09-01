@@ -93,8 +93,8 @@ if __name__ == "__main__":
 
     # LAB 11
     if calibrationRun:
-        qlr = calibration(DTR, LTR, DVAL, LVAL, printResult=True)
+        qlr, svm, gmm = calibration(DTR, LTR, DVAL, LVAL, printResult=True)
         evalData, evalLabels = load('Data/evalData.txt')
         pT = 0.1
         prior_Cal = 0.1
-        evaluation(DVAL, LVAL, qlr, evalData, evalLabels, pT, prior_Cal, printResult=True)
+        evaluation(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, prior_Cal, printResult=True)

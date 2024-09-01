@@ -31,15 +31,6 @@ def LBGAlgorithm(X, alpha, numComponent, psi=None, covType="full"):
 
 
 # LAB 11
-def trainGMMReturnMinAndActDCF(DTR, LTR, DVAL, LVAL, priorT, alpha, componentGMM0, componentGMM1, psi, covType):
-    gmm0 = LBGAlgorithm(DTR[:, LTR == 0], alpha, componentGMM0, psi=psi, covType=covType)
-    gmm1 = LBGAlgorithm(DTR[:, LTR == 1], alpha, componentGMM1, psi=psi, covType=covType)
-    sllr = logpdf_GMM(DVAL, gmm1)[1] - logpdf_GMM(DVAL, gmm0)[1]
-    minDCFWithoutCal = minDCF(sllr, LVAL, priorT, 1.0, 1.0)
-    actDCFWithoutCal = actDCF(sllr, LVAL, priorT, 1.0, 1.0)
-    return sllr, minDCFWithoutCal, actDCFWithoutCal
-
-
 def trainGMMCalibrationReturnMinAndActDCF(K, priorCal, priorT, sllrWithoutCal, LVAL):
     calibratedSVALK = []
     labelK = []
