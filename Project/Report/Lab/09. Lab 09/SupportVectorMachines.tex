@@ -1,3 +1,39 @@
 %! Author = antonio
 %! Date = 7/2/24
 
+\subsubsection{Linear Support Vector Machines}
+Support Vector Machines are linear classifiers that look for maximum margin separation hyperplanes. The primal formulation of the soft-margin SVM problem consists in minimizing the function:
+\begin{equation}
+    \mathbf{J}(w,b)= \frac{1}{2}||w||^2 + C\sum_{i=1}^{N}max(0,1-z_i(w^Tx_i+b))
+\end{equation}
+where N is the number of training samples, C is the regularization parameter, and \(z_i\) is the margin of the i-th sample.\\
+The dual formulation of the problem is:
+\begin{equation}
+    \mathbf{J}(\alpha)= - \frac{1}{2} \alpha^T \;\textbf{H} \;\alpha + \alpha^T \textbf{1} \;\;\;\;\;\;1\leq \alpha_i\leq C,\;\; \forall i \in \{1,...,N\},\;\; \sum_{i=1}^{n}\alpha_i z_i=0
+\end{equation}
+where H is \(H_{ij}=z_iz_jx_i^Tx_j\) and the dual solution is the maximizer of \(J^D(\alpha)\).\\
+Primal and dual solutions are releted through:
+\begin{equation}
+    w^*=\sum_{i=1}^{N}\alpha_i^* z_i x_i
+\end{equation}
+In addition it's possible to rewrite dual problem as minimization of:
+\begin{equation}
+   \hat{\mathbf{L}}(\alpha)=-\mathbf{J}(\alpha)= \frac{1}{2} \alpha^T \;\textbf{H} \;\alpha - \alpha^T \textbf{1}
+\end{equation}
+and it can be minimize by L-BFGS-B algorithm.
+After that we have calculated the optimal \(\alpha\) we can compute \(w^*\).
+
+\subsubsection{Kernel Support Vector Machines}
+It's possible in Support Vector Machines to use kernels to allow nonlinear classification.
+In this case there is no explicit expansion of the feature space; 
+we only can calculate the scalar product between the expanded features:\( k(x_1,x_2)=\phi(x_1)_T\phi(x_2)\) where k is the kernel function.
+To do this we need to go and replace H as we saw in the previous section with \(\hat{H}= z_iz_jk(x_1,x_2)\). 
+During our project we see two different types of kernels:
+\begin{itemize}
+    \item \textbf{Polynomial kernel of degree d}: \(k(x_1,x_2)=(x_1^Tx_2+c)^d\)
+    \item \textbf{Radial Basis Function kernel(RBF)}: \(k(x_1,x_2)=e^{-\gamma||x1-x_2||^2}\)
+\end{itemize}
+We can now apply the polynomial kernel to the SVM with \(d=2,\;\; c=1, \;\;\xi=0\) and see how minDCF and actDCF vary as C changes.
+
+
+tabelle e conclusioni
