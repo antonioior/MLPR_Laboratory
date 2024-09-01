@@ -8,6 +8,10 @@ from utils import z_normalizeOther, z_normalizeTraining
 
 
 def logisticRegression(DTR, LTR, DVAL, LVAL):
+    DVALZNormalized = z_normalizeOther(DTR, DVAL)
+    DTRZNormalized = z_normalizeTraining(DTR)
+
+    # Binary Logistic Regression
     BinaryLogisticRegression(
         DTR=DTR,
         LTR=LTR,
@@ -16,12 +20,31 @@ def logisticRegression(DTR, LTR, DVAL, LVAL):
         titleGraph="Binary Logistic Regression",
         printResult=False)
     BinaryLogisticRegression(
+        DTR=DTRZNormalized,
+        LTR=LTR,
+        DVAL=DVALZNormalized,
+        LVAL=LVAL,
+        titleGraph="Binary Logistic Regression - Z Normalized",
+        printResult=False
+    )
+
+    # Binary Logistic Regression with 50 sample
+    BinaryLogisticRegression(
         DTR=DTR[:, ::50],
         LTR=LTR[::50],
         DVAL=DVAL,
         LVAL=LVAL,
         titleGraph="Binary Logistic Regression with 50 sample",
         printResult=False)
+    BinaryLogisticRegression(
+        DTR=DTRZNormalized[:, ::50],
+        LTR=LTR[::50],
+        DVAL=DVALZNormalized,
+        LVAL=LVAL,
+        titleGraph="Binary Logistic Regression with 50 sample - Z Normalized",
+        printResult=False)
+
+    # Prior Weighted Binary Logistic Regression
     PriorWeightedBinLogReg(
         DTR=DTR,
         LTR=LTR,

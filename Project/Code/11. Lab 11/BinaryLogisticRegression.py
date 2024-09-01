@@ -24,7 +24,7 @@ def BinaryLogisticRegression(DTR, LTR, DVAL, LVAL, titleGraph, printResult=False
         sllr = sVal - np.log(pEmp / (1 - pEmp))
         result["lamb" + str(i)]["minDCF"] = minDCF(sllr, LVAL, 0.1, 1, 1)
         result["lamb" + str(i)]["actDCF"] = actDCF(sllr, LVAL, 0.1, 1, 1)
-
+        result["lamb" + str(i)]["lambda"] = lamb[i]
     if printResult:
         x = []
         yMinDCF = []
@@ -33,6 +33,7 @@ def BinaryLogisticRegression(DTR, LTR, DVAL, LVAL, titleGraph, printResult=False
         for lamb in result.keys():
             print(f"\tLambda: {lamb}")
             print(f"\t\tJ: {result[lamb]["J"]: .6e}")
+            print(f"\t\tlamb: {result[lamb]["lambda"]}")
             print(f"\t\tError: {result[lamb]["ErrorRate"] * 100:.1f} %")
             print(f"\t\tminDCF: {result[lamb]['minDCF']:.4f}")
             print(f"\t\tactDCF: {result[lamb]['actDCF']:.4f}")

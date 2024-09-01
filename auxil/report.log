@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  31 AUG 2024 23:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  1 SEP 2024 09:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1363,18 +1363,6 @@ Package pdftex.def Info: Lab/07. Lab 07/Images/03. Tied.png  used on input line
  156.
 (pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
 ) (Lab/08. Lab 08/LogisticRegressionClassifier.tex
-Lab/08. Lab 08/LogisticRegressionClassifier.tex:38: Undefined control sequence.
-<recently read> \n 
-                   
-l.38 ... Logistic Regression Not Prior-Weighted}\n
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
 
 [13 <./Lab/07. Lab 07/Images/01. MVG.png> <./Lab/07. Lab 07/Images/02. Naive Ba
 yes.png> <./Lab/07. Lab 07/Images/03. Tied.png>]
@@ -1407,37 +1395,80 @@ File: Lab/08. Lab 08/Images/03. BLR - min And actDCF.png Graphic file (type png
 Package pdftex.def Info: Lab/08. Lab 08/Images/03. BLR - min And actDCF.png  us
 ed on input line 67.
 (pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
-) (Lab/11. Lab 11/Calibration.tex
+<Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized.png, id=254, 642.4
+pt x 481.8pt>
+File: Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized.png Graphic f
+ile (type png)
+<use Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized.png>
+Package pdftex.def Info: Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNorma
+lized.png  used on input line 72.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png, id=255, 642.4pt x 481.8
+pt>
+File: Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png Graphic file (type 
+png)
+<use Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png>
+Package pdftex.def Info: Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png 
+ used on input line 83.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png, id=256, 642.4pt x 481.8
+pt>
+File: Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png Graphic file (type 
+png)
+<use Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png>
+Package pdftex.def Info: Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png 
+ used on input line 88.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Samples.png, id=257, 642.4pt x
+ 481.8pt>
+File: Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Samples.png Graphic file 
+(type png)
+<use Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Samples.png>
+Package pdftex.def Info: Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Sample
+s.png  used on input line 93.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized.png, id=
+258, 642.4pt x 481.8pt>
+File: Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized.png
+ Graphic file (type png)
+<use Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized.png>
+
+Package pdftex.def Info: Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Sample
+s - ZNormalized.png  used on input line 98.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )
 
 [14 <./Lab/08. Lab 08/Images/01. BLR - minDCF.png> <./Lab/08. Lab 08/Images/02.
- BLR - actDCF.png> <./Lab/08. Lab 08/Images/03. BLR - min And actDCF.png>]
+ BLR - actDCF.png> <./Lab/08. Lab 08/Images/03. BLR - min And actDCF.png> <./La
+b/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized.png>]
 
-[15]
+[15 <./Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png> <./Lab/08. Lab 08
+/Images/06. BLR - actDCF 50 Samples.png> <./Lab/08. Lab 08/Images/07. BLR - min
+AndactDCF 50 Samples.png> <./Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Sa
+mples - ZNormalized.png>]
 (E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil\report.aux
 (MainPage/cover.aux))
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: BAD4890C15B088F9ACF6F0D88118B8FD;2646.
  ) 
 Here is how much of TeX's memory you used:
- 27988 strings out of 473899
- 553090 string characters out of 5722245
+ 28036 strings out of 473899
+ 556307 string characters out of 5722245
  1956960 words of memory out of 5000000
- 50258 multiletter control sequences out of 15000+600000
+ 50311 multiletter control sequences out of 15000+600000
  567520 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,13n,101p,545b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,12n,101p,545b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\anton\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTe
@@ -1460,9 +1491,9 @@ ogram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/Mi
 KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "E:/POLITO\Machine Learning And Pattern Recognition\Laborator
-y\auxil\report.pdf" (15 pages, 2707773 bytes).
+y\auxil\report.pdf" (15 pages, 2813223 bytes).
 PDF statistics:
- 358 PDF objects out of 1000 (max. 8388607)
+ 368 PDF objects out of 1000 (max. 8388607)
  76 named destinations out of 1000 (max. 500000)
- 208 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

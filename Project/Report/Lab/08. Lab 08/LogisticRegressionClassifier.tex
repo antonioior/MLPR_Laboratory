@@ -35,12 +35,12 @@ where \(\sigma\) is sigmoid function defined as:
 This approach assumes that the decision rules will be hyperplanes orthogonal to vector w.
 
 \subsubsection{Binary Logistic Regression}
-\textbf{Binary Logistic Regression Not Prior-Weighted}\n
+\textbf{Binary Logistic Regression Not Prior-Weighted}\par
 The objective is to minimise the loss function \(J(\omega,b)\), but to this is introduced what is a penalty term,
 so the new function becomes:
 
 \begin{equation}
-    R(\omega,b) = \frac{\lambda}{2}\left\|w \right\|^2 + \frac{1}{n} \sum_{i=1}^{n} \log (1+e^{-z_i(\omega^T x_i + b)}), \quad
+    J(\omega,b) = \frac{\lambda}{2}\left\|w \right\|^2 + \frac{1}{n} \sum_{i=1}^{n} \log (1+e^{-z_i(\omega^T x_i + b)}), \quad
     z_i = \begin{cases}
               1 & \text{if } c_i = 1 \\
               -1 & \text{if } c_i = 0
@@ -53,21 +53,87 @@ solvable in case of linearly separable classes.
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.3\linewidth}
+    \begin{subfigure}[b]{0.30\linewidth}
         \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/01. BLR - minDCF}
         \caption{minDCF}
         \label{fig:BLRminDCF}
     \end{subfigure}
-    \begin{subfigure}[b]{0.3\linewidth}
+    \begin{subfigure}[b]{0.30\linewidth}
         \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/02. BLR - actDCF}
         \caption{actDCF}
         \label{fig:BLRactDCF}
     \end{subfigure}
-    \begin{subfigure}[b]{0.3\linewidth}
+    \begin{subfigure}[b]{0.30\linewidth}
         \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/03. BLR - min And actDCF}
         \caption{minDCF vs actDCF}
-        \label{fig:minAndactDCF}
+        \label{fig:BLRminAndactDCF}
     \end{subfigure}
-    \caption{Binary Logistic Regression}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized}
+        \caption{minDCF vs actDCF with Z-Normalization}
+        \label{fig:BLRminAndactDCFZNorm}
+    \end{subfigure}
+    \caption{Binary Logistic Regression not Prior-Weighted}
     \label{fig:BLR}
 \end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples}
+        \caption{minDCF}
+        \label{fig:BLR50SminDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples}
+        \caption{actDCF}
+        \label{fig:BLR50SactDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Samples}
+        \caption{minDCF vs actDCF}
+        \label{fig:BLR50SminAndactDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized}
+        \caption{minDCF vs actDCF with Z-Normalization}
+        \label{fig:minAndactDCFZNorm}
+    \end{subfigure}
+    \caption{Binary Logistic Regression not Prior-Weighted with 50 Samples}
+    \label{fig:BLR50Samples}
+\end{figure}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm}>{\centering\arraybackslash}p{2cm}}
+        \toprule
+        \multicolumn{5}{c}{\textbf{Binary Logistic Regression Not Prior-Weighted}} \\
+        \midrule
+        \multirow{2}{*}{\centering \textbf{\(\lambda\)}} & \multicolumn{2}{c}{\textbf{minDCF}} & \multicolumn{2}{c}{\textbf{actDCF}} \\
+        \cmidrule(lr){2-5}
+        & \textbf{no z-norm} & \textbf{z-norm} & \textbf{no z-norm} & \textbf{z-norm} \\
+        \midrule
+        \(10^{-4}\) & 0.3640             & 0.3640          & 0.4021             & 0.4021          \\
+        \(10^{-3}\) & 0.3650             & 0.3650          & 0.4130             & 0.4130          \\
+        \(10^{-2}\) & 0.3611             & 0.3611          & 0.4568             & 0.4568          \\
+        \(10^{-1}\) & 0.3641             & 0.3641          & 0.8522             & 0.8522          \\
+        \midrule
+        \midrule
+        \multicolumn{5}{c}{\textbf{Binary Logistic Regression Not Prior-Weighted (50 Samples)}} \\
+        \midrule
+        \multirow{2}{*}{\centering \textbf{\(\lambda\)}} & \multicolumn{2}{c}{\textbf{minDCF}} & \multicolumn{2}{c}{\textbf{actDCF}} \\
+        \cmidrule(lr){2-5}
+        & \textbf{no z-norm} & \textbf{z-norm} & \textbf{no z-norm} & \textbf{z-norm} \\
+        \midrule
+        \(10^{-4}\) & 0.4466             & 0.4466          & 0.9780             & 0.9780          \\
+        \(10^{-3}\) & 0.4487             & 0.4487          & 0.7466             & 0.7466          \\
+        \(10^{-2}\) & 0.4407             & 0.4407          & 0.4652             & 0.4652          \\
+        \(10^{-1}\) & 0.3988             & 0.3988          & 0.7164             & 0.7164          \\
+        \bottomrule
+    \end{tabular}
+    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+    \caption{Show minDCF and actDCF for Binary Logistic Regression Not Prior-Weighted model}
+    \label{tab:minDCFactDCFBLRNPW}
+\end{table}
+
+\textbf{Binary Logistic Regression Prior-Weighted}\par
