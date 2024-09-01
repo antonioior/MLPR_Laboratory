@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  2 SEP 2024 00:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  2 SEP 2024 00:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1489,10 +1489,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-)
+
 
 [16 <./Lab/08. Lab 08/Images/09. PW - minDCF.png> <./Lab/08. Lab 08/Images/10. 
-PW - actDCF.png> <./Lab/08. Lab 08/Images/11. PW - minAndActDCF.png>]
+PW - actDCF.png> <./Lab/08. Lab 08/Images/11. PW - minAndActDCF.png>])
 
 [17 <./Lab/08. Lab 08/Images/12. BLR - PCA m=5 Z-norm.png> <./Lab/08. Lab 08/Im
 ages/13. BLR - PCA m=6 Z-norm.png>]
@@ -1504,17 +1504,20 @@ L3 programming layer <2024-07-20>
  ***********
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Package rerunfilecheck Warning: File `report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
-Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: BAD4890C15B088F9ACF6F0D88118B8FD;2646.
+Package rerunfilecheck Info: Checksums for `report.out':
+(rerunfilecheck)             Before: BAD4890C15B088F9ACF6F0D88118B8FD;2646
+(rerunfilecheck)             After:  0C73F1943C206BE92A231931AC53670C;2865.
  ) 
 Here is how much of TeX's memory you used:
- 28113 strings out of 473899
- 559519 string characters out of 5722245
+ 28123 strings out of 473899
+ 559673 string characters out of 5722245
  1956960 words of memory out of 5000000
- 50381 multiletter control sequences out of 15000+600000
- 567520 words of font info for 72 fonts, out of 8000000 for 9000
+ 50385 multiletter control sequences out of 15000+600000
+ 568139 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,545b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\anton\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
@@ -1539,9 +1542,9 @@ ogram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/Mi
 KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "E:/POLITO\Machine Learning And Pattern Recognition\Laborator
-y\auxil\report.pdf" (17 pages, 2918746 bytes).
+y\auxil\report.pdf" (17 pages, 2923041 bytes).
 PDF statistics:
- 398 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
+ 403 PDF objects out of 1000 (max. 8388607)
+ 87 named destinations out of 1000 (max. 500000)
  258 words of extra memory for PDF output out of 10000 (max. 10000000)
 
