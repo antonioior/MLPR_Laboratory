@@ -48,29 +48,25 @@ so the new function becomes:
     \label{eq:minimiseFunctionLR}
 \end{equation}
 
-where \lampda of \autoref{eq:minimiseFunctionLR} is the regularization term, this term has been introduced to make problem
+where \(\lambda\) of \autoref{eq:minimiseFunctionLR} is the regularization term, this term has been introduced to make problem
 solvable in case of linearly separable classes.
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.30\linewidth}
+    \begin{subfigure}[b]{0.40\linewidth}
         \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/01. BLR - minDCF}
-        \caption{minDCF}
         \label{fig:BLRminDCF}
     \end{subfigure}
-    \begin{subfigure}[b]{0.30\linewidth}
+    \begin{subfigure}[b]{0.40\linewidth}
         \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/02. BLR - actDCF}
-        \caption{actDCF}
         \label{fig:BLRactDCF}
     \end{subfigure}
-    \begin{subfigure}[b]{0.30\linewidth}
+    \begin{subfigure}[b]{0.40\linewidth}
         \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/03. BLR - min And actDCF}
-        \caption{minDCF vs actDCF}
         \label{fig:BLRminAndactDCF}
     \end{subfigure}
-    \begin{subfigure}[b]{0.30\linewidth}
+    \begin{subfigure}[b]{0.40\linewidth}
         \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized}
-        \caption{minDCF vs actDCF with Z-Normalization}
         \label{fig:BLRminAndactDCFZNorm}
     \end{subfigure}
     \caption{Binary Logistic Regression not Prior-Weighted}
@@ -79,29 +75,34 @@ solvable in case of linearly separable classes.
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.30\linewidth}
+    \begin{subfigure}[b]{0.40\linewidth}
         \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples}
-        \caption{minDCF}
         \label{fig:BLR50SminDCF}
     \end{subfigure}
-    \begin{subfigure}[b]{0.30\linewidth}
+    \begin{subfigure}[b]{0.40\linewidth}
         \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples}
-        \caption{actDCF}
         \label{fig:BLR50SactDCF}
     \end{subfigure}
-    \begin{subfigure}[b]{0.30\linewidth}
+    \begin{subfigure}[b]{0.40\linewidth}
         \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Samples}
-        \caption{minDCF vs actDCF}
         \label{fig:BLR50SminAndactDCF}
     \end{subfigure}
-    \begin{subfigure}[b]{0.30\linewidth}
+    \begin{subfigure}[b]{0.40\linewidth}
         \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized}
-        \caption{minDCF vs actDCF with Z-Normalization}
         \label{fig:minAndactDCFZNorm}
     \end{subfigure}
     \caption{Binary Logistic Regression not Prior-Weighted with 50 Samples}
     \label{fig:BLR50Samples}
 \end{figure}
+
+In this model \(\pi_T = 0.1\) is used.
+In \autoref{tab:minDCFactDCFBLRNPW}, it can be seen how the values of minDCF and actDCF vary when \(\lambda\) changes,
+Z-normalization is applied or not and if the whole training set or a portion was used.
+It can be deduced from the values obtained that the application of z-normalisation brings no advantage.
+On the other hand, by using only 50 samples, it can see that using a limited number of samples can significantly
+influence the model and could lead to misleading results that are not representative of the entire sample.
+Consequently, as many samples as possible should be used for training to obtain a more accurate model.
+\autoref{fig:BLR} and \autoref{fig:BLR50Samples} give a graphic representation of how minDCF and actDCF vary with \(\lambda\)
 
 \begin{table}[h!]
     \centering
@@ -137,3 +138,5 @@ solvable in case of linearly separable classes.
 \end{table}
 
 \textbf{Binary Logistic Regression Prior-Weighted}\par
+Another possible Logistic Regression approach is that Prior-Weighted; it allows to simulate different priors for class 1.
+Therefore, the objective function becomes:

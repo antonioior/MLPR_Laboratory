@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  1 SEP 2024 09:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  1 SEP 2024 10:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1366,67 +1366,58 @@ Package pdftex.def Info: Lab/07. Lab 07/Images/03. Tied.png  used on input line
 
 [13 <./Lab/07. Lab 07/Images/01. MVG.png> <./Lab/07. Lab 07/Images/02. Naive Ba
 yes.png> <./Lab/07. Lab 07/Images/03. Tied.png>]
-Lab/08. Lab 08/LogisticRegressionClassifier.tex:51: Undefined control sequence.
-l.51 where \lampda
-                   of \autoref{eq:minimiseFunctionLR} is the regularization ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 <Lab/08. Lab 08/Images/01. BLR - minDCF.png, id=251, 642.4pt x 481.8pt>
 File: Lab/08. Lab 08/Images/01. BLR - minDCF.png Graphic file (type png)
 <use Lab/08. Lab 08/Images/01. BLR - minDCF.png>
 Package pdftex.def Info: Lab/08. Lab 08/Images/01. BLR - minDCF.png  used on in
 put line 57.
-(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+(pdftex.def)             Requested size: 158.99156pt x 119.24402pt.
 <Lab/08. Lab 08/Images/02. BLR - actDCF.png, id=252, 642.4pt x 481.8pt>
 File: Lab/08. Lab 08/Images/02. BLR - actDCF.png Graphic file (type png)
 <use Lab/08. Lab 08/Images/02. BLR - actDCF.png>
 Package pdftex.def Info: Lab/08. Lab 08/Images/02. BLR - actDCF.png  used on in
-put line 62.
-(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+put line 61.
+(pdftex.def)             Requested size: 158.99156pt x 119.24402pt.
 <Lab/08. Lab 08/Images/03. BLR - min And actDCF.png, id=253, 642.4pt x 481.8pt>
 
 File: Lab/08. Lab 08/Images/03. BLR - min And actDCF.png Graphic file (type png
 )
 <use Lab/08. Lab 08/Images/03. BLR - min And actDCF.png>
 Package pdftex.def Info: Lab/08. Lab 08/Images/03. BLR - min And actDCF.png  us
-ed on input line 67.
-(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+ed on input line 65.
+(pdftex.def)             Requested size: 158.99156pt x 119.24402pt.
 <Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized.png, id=254, 642.4
 pt x 481.8pt>
 File: Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized.png Graphic f
 ile (type png)
 <use Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized.png>
 Package pdftex.def Info: Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNorma
-lized.png  used on input line 72.
-(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+lized.png  used on input line 69.
+(pdftex.def)             Requested size: 158.99156pt x 119.24402pt.
 <Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png, id=255, 642.4pt x 481.8
 pt>
 File: Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png Graphic file (type 
 png)
 <use Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png>
 Package pdftex.def Info: Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png 
- used on input line 83.
-(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+ used on input line 79.
+(pdftex.def)             Requested size: 158.99156pt x 119.24402pt.
 <Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png, id=256, 642.4pt x 481.8
 pt>
 File: Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png Graphic file (type 
 png)
 <use Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png>
 Package pdftex.def Info: Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png 
- used on input line 88.
-(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+ used on input line 83.
+(pdftex.def)             Requested size: 158.99156pt x 119.24402pt.
 <Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Samples.png, id=257, 642.4pt x
  481.8pt>
 File: Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Samples.png Graphic file 
 (type png)
 <use Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Samples.png>
 Package pdftex.def Info: Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Sample
-s.png  used on input line 93.
-(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+s.png  used on input line 87.
+(pdftex.def)             Requested size: 158.99156pt x 119.24402pt.
 <Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized.png, id=
 258, 642.4pt x 481.8pt>
 File: Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized.png
@@ -1434,8 +1425,9 @@ File: Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized.png
 <use Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized.png>
 
 Package pdftex.def Info: Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Sample
-s - ZNormalized.png  used on input line 98.
-(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+s - ZNormalized.png  used on input line 91.
+(pdftex.def)             Requested size: 158.99156pt x 119.24402pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1491,9 +1483,9 @@ ogram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/Mi
 KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "E:/POLITO\Machine Learning And Pattern Recognition\Laborator
-y\auxil\report.pdf" (15 pages, 2813223 bytes).
+y\auxil\report.pdf" (15 pages, 2813451 bytes).
 PDF statistics:
- 368 PDF objects out of 1000 (max. 8388607)
+ 371 PDF objects out of 1000 (max. 8388607)
  76 named destinations out of 1000 (max. 500000)
  233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
