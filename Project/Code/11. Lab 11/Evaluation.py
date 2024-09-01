@@ -5,13 +5,15 @@ from utils import vrow
 import numpy as np
 import scipy.optimize as sp
 from printValue import printData
+from graph import plotGraph
 
 
 def evaluation(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, prior_Cal, printResult=False):
-    evaluationQLR(DVAL, LVAL, qlr, evalData, evalLabels, pT, prior_Cal, printResult)
-    evaluationSVM(DVAL, LVAL, svm, evalData, evalLabels, pT, prior_Cal, printResult)
-    evaluationGMM(DVAL, LVAL, gmm, evalData, evalLabels, pT, prior_Cal, printResult)
-    evaluationFusion(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, prior_Cal, printResult)
+    scoreQLRCal, labelQLRCal = evaluationQLR(DVAL, LVAL, qlr, evalData, evalLabels, pT, prior_Cal, printResult)
+    scoreSVMCal, labelSVMCal = evaluationSVM(DVAL, LVAL, svm, evalData, evalLabels, pT, prior_Cal, printResult)
+    scoreGMMCal, labelGMMCal = evaluationGMM(DVAL, LVAL, gmm, evalData, evalLabels, pT, prior_Cal, printResult)
+    evaluationFusion(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, prior_Cal, scoreQLRCal, labelQLRCal,
+                     scoreSVMCal, labelSVMCal, scoreGMMCal, labelGMMCal, printResult)
 
 
 def evaluationQLR(DVAL, LVAL, qlr, evalData, evalLabels, pT, priorCal, printResult=False):
@@ -30,6 +32,8 @@ def evaluationQLR(DVAL, LVAL, qlr, evalData, evalLabels, pT, priorCal, printResu
         print(f"\tQUADRATIC LOGISTIC REGRESSION")
         printData(minDCFEval, actDCFEval, minDCFEvalCal, actDCFEvalCal, scoreQLR_eval, evalLabels,
                   calibratedScoreQLR_eval, evalLabels, "QLR - calibration evaluation", "b")
+
+    return calibratedScoreQLR_eval, evalLabels
 
 
 def evaluationSVM(DVAL, LVAL, svm, evalData, evalLabels, pT, priorCal, printResult):
@@ -50,6 +54,8 @@ def evaluationSVM(DVAL, LVAL, svm, evalData, evalLabels, pT, priorCal, printResu
                   calibratedScoreSVM_eval, evalLabels, "SVM - calibration evaluation",
                   "orange")
 
+    return calibratedScoreSVM_eval, evalLabels
+
 
 def evaluationGMM(DVAL, LVAL, gmm, evalData, evalLabels, pT, priorCal, printResult):
     scoreGMM_eval = gmm.computeScore(evalData)
@@ -69,8 +75,11 @@ def evaluationGMM(DVAL, LVAL, gmm, evalData, evalLabels, pT, priorCal, printResu
                   calibratedScoreGMM_eval, evalLabels, "GMM - calibration evaluation",
                   "green")
 
+    return calibratedScoreGMM_eval, evalLabels
 
-def evaluationFusion(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, priorCal, printResult):
+
+def evaluationFusion(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, priorCal, scoreQLRCal, labelQLRCal,
+                     scoreSVMCal, labelSVMCal, scoreGMMCal, labelGMMCal, printResult):
     scoreQLR = qlr.computeS(DVAL)
     screSVM = svm.computeScore(svm.alphaStar, DVAL)
     scoreGMM = gmm.computeScore(DVAL)
@@ -93,5 +102,19 @@ def evaluationFusion(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, priorC
 
     if printResult:
         print("\tFUSION")
-        printData(minDCFEval, actDCFEval, minDCFEvalCal, actDCFEvalCal, fusedScore, evalLabels,
-                  calibratedFusion_eval, evalLabels, "Fusion - calibration evaluation", "red")
+        print(f"\t\tminDCF: {minDCFEval:.4f}")
+        print(f"\t\tactDCF: {actDCFEval:.4f}")
+        print(f"\t\tminDCF - cal: {minDCFEvalCal:.4f}")
+        print(f"\t\tactDCF - cal: {actDCFEvalCal:.4f}")
+        plotGraph(scoreQLRCal, labelQLRCal, "b", f"Fusion - calibration priorCal = {priorCal}", False, " QLR - actDCF",
+                  "QLR - minDCF", "-",
+                  "--")
+        plotGraph(scoreSVMCal, labelSVMCal, "orange", f"Fusion - calibration priorCal = {priorCal}", False,
+                  "SVM - actDCF",
+                  "SVM - minDCF", "-", "--")
+        plotGraph(scoreGMMCal, labelGMMCal, "green", f"Fusion - calibration priorCal = {priorCal}", False,
+                  "GMM - actDCF",
+                  "GMM - minDCF", "-", "--")
+        plotGraph(calibratedFusion_eval, evalLabels, "red", f"Fusion - calibration priorCal = {priorCal}", True,
+                  "Fusion - actDCF",
+                  "Fusion - minDCF", "-", "--")
