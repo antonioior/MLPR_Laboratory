@@ -191,32 +191,90 @@ Now it is possible analyze the results obtained from the Prior-Weighted model wi
     \caption{Show minDCF and actDCF for Binary Logistic Regression Prior-Weighted}
     \label{tab:minDCFactDCFPW}
 \end{table}
-\textbf{Binary Logistic Regression with Pre-processing(PCA)}\par
-\subsubsection{Quadratic Logistic Regression}
-In this step we can analyze training on a Quadratic Logistic Regression model by performing features expansion, so it's possible write log-likelihood ratio as:
-\begin{equation}
-    \log{\frac{P(C=h_1|x)}{P(C=h_0|x)}}=x^TAx+b^Tx+c=s(\textbf{x},\textbf{A},\textbf{b},\textbf{c})
-\end{equation}
-This expression is quadratic in x but it's linear in A and b. We could rewrite it to obtain a decision function that is linear for the expanded features space but quadratic in original features space.\\
-We can write features expansion as:
-\begin{equation}
-    \Phi(x)= 
-    \begin{bmatrix}
-        vec(xx^T) \\
-        x
-    \end{bmatrix},
-    \;\;
-    w=
-    \begin{bmatrix}
-        vec(A) \\
-        b
-    \end{bmatrix}
-\end{equation}
-where vec(X) is the operator that stacks the columns of X into a single column vector. In this way we can write the posterio log-likelihood as:
-\begin{equation}
-    s(x,w,c)=s^T\phi(x)+c
-\end{equation}
 
-Tabella
+The role of the prior is to weight the samples during model training.
+In particular, samples in the higher priority class receive a higher weight than those in the lower priority class.
+This can be useful if the dataset is unbalanced, the choice of the prior must be made at the beginning and this choice
+can affect the model a lot, in fact we may even have a worsening of the model. \\
+Comparing the results obtained in \autoref{tab:minDCFactDCFBLRNPW} and \autoref{tab:minDCFactDCFPW},
+there isn't noticeable change in the outcomes on minDCF and actDCF this means that our dataset is not unbalanced.
+The interesting value to observe is the value of actDCF when \(\lambda= 10^-1\).\\
 
-In conclusion, the results obtained from the Quadratic Logistic Regression model show that 
+\textbf{Binary Logistic Regression with Pre-processing (PCA)}\par
+In this case, PCA can be applied as pre-processing, and by looking at the values in \autoref{tab:minDCFactDCFBLPCA},
+it can be seen that it does not result much improvement of the system.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/12. BLR - PCA m=5 Z-norm}
+        \label{fig:BLRPCAm5ZNorm}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/13. BLR - PCA m=6 Z-norm}
+        \label{fig:BLRPCAm6ZNorm}
+    \end{subfigure}
+    \caption{Binary Logistic Regression applying PCA and z-normalization}
+    \label{fig:BLRPCA}
+\end{figure}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm}>{\centering\arraybackslash}p{2cm}>{\centering\arraybackslash}p{2cm}}
+        \toprule
+        \multicolumn{5}{c}{\textbf{Binary Logistic Regression with PCA }} \\
+        \midrule
+        \multirow{2}{*}{\centering \textbf{\(\lambda\)}} & \multicolumn{2}{c}{\textbf{minDCF}} & \multicolumn{2}{c}{\textbf{actDCF}} \\
+        \cmidrule(lr){2-5}
+        & \textbf{no z-norm} & \textbf{z-norm} & \textbf{no z-norm} & \textbf{z-norm} \\
+        \midrule
+        \multicolumn{5}{c}{\textbf{\(m=5\)}} \\
+        \midrule
+        \(10^{-4}\) & 0.3661             & 0.3661          & 0.4011             & 0.4011          \\
+        \(10^{-3}\) & 0.3661             & 0.3661          & 0.4100             & 0.4100          \\
+        \(10^{-2}\) & 0.3618             & 0.3628          & 0.4578             & 0.4588          \\
+        \(10^{-1}\) & 0.3660             & 0.3660          & 0.8502             & 0.8522          \\
+        \midrule
+        \multicolumn{5}{c}{\textbf{\(m=6\)}} \\
+        \midrule
+        \(10^{-4}\) & 0.3640             & 0.3640          & 0.4021             & 0.4021          \\
+        \(10^{-3}\) & 0.3650             & 0.3650          & 0.4130             & 0.4130          \\
+        \(10^{-2}\) & 0.3611             & 0.3611          & 0.4568             & 0.4568          \\
+        \(10^{-1}\) & 0.3641             & 0.3641          & 0.8522             & 0.8522          \\
+        \bottomrule
+    \end{tabular}
+    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+    \caption{Show minDCF and actDCF for Binary Logistic Regression applying PCA and with adn withoud z-normalization}
+    \label{tab:minDCFactDCFBLPCA}
+\end{table}
+
+
+%\subsubsection{Quadratic Logistic Regression}
+%In this step we can analyze training on a Quadratic Logistic Regression model by performing features expansion, so it's possible write log-likelihood ratio as:
+%\begin{equation}
+%    \log{\frac{P(C=h_1|x)}{P(C=h_0|x)}}=x^TAx+b^Tx+c=s(\textbf{x},\textbf{A},\textbf{b},\textbf{c})
+%\end{equation}
+%This expression is quadratic in x but it's linear in A and b.
+%We could rewrite it to obtain a decision function that is linear for the expanded features space but quadratic in original features space.\\
+%We can write features expansion as:
+%\begin{equation}
+%    \Phi(x)=
+%    \begin{bmatrix}
+%        vec(xx^T) \\
+%        x
+%    \end{bmatrix},
+%    \;\;
+%    w=
+%    \begin{bmatrix}
+%        vec(A) \\
+%        b
+%    \end{bmatrix}
+%\end{equation}
+%where vec(X) is the operator that stacks the columns of X into a single column vector. In this way we can write the posterio log-likelihood as:
+%\begin{equation}
+%    s(x,w,c)=s^T\phi(x)+c
+%\end{equation}
+%
+%Tabella
+%
+%In conclusion, the results obtained from the Quadratic Logistic Regression model show that

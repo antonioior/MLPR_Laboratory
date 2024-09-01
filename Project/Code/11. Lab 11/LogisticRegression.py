@@ -70,6 +70,7 @@ def logisticRegression(DTR, LTR, DVAL, LVAL):
             DTR = z_normalizeTraining(DTR)
         DTR_pca, P, _ = PCA(DTR, i, printResults=False)
         DVAL_pca = np.dot(P.T, DVAL)
+        print(f"PCA with m = {i}")
         BinaryLogisticRegression(
             DTR=DTR_pca,
             LTR=LTR,
