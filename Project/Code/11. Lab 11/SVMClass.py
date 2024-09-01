@@ -63,15 +63,15 @@ class SVM:
     def tainRadialReturnMinAndActDCF(self, DVAL, LVAL, priorT):
         from DCF import minDCF, actDCF
 
-        alphaStar, _, _ = sp.fmin_l_bfgs_b(func=self.fOpt,
-                                           x0=np.zeros(self.getDTRExtend().shape[1]),
-                                           approx_grad=False,
-                                           maxfun=15000,
-                                           factr=1.0,
-                                           bounds=[(0, self.C) for i in self.LTR],
-                                           )
+        self.alphaStar, _, _ = sp.fmin_l_bfgs_b(func=self.fOpt,
+                                                x0=np.zeros(self.getDTRExtend().shape[1]),
+                                                approx_grad=False,
+                                                maxfun=15000,
+                                                factr=1.0,
+                                                bounds=[(0, self.C) for i in self.LTR],
+                                                )
         sllr = self.computeScore(
-            alphaStar=alphaStar,
+            alphaStar=self.alphaStar,
             D2=DVAL)
         minDCF = minDCF(sllr, LVAL, priorT, 1, 1)
         actDCF = actDCF(sllr, LVAL, priorT, 1, 1)

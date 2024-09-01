@@ -65,3 +65,28 @@ def GMM(DTR, LTR, DVAL, LVAL, printResults=False):
             plt.subplots_adjust(hspace=0.5, wspace=0.5)
             plt.tight_layout()
             plt.show()
+
+
+# LAB 11
+class GMMObject:
+    def __init__(self, DTR, LTR, componentGMM0, componentGMM1, alpha, psi, covType):
+        self.DTR = DTR
+        self.LTR = LTR
+        self.componentGMM0 = componentGMM0
+        self.componentGMM1 = componentGMM1
+        self.alpha = alpha
+        self.psi = psi
+        self.covType = covType
+
+    def trainGMMReturnMinAndActDCF(self, DVAL, LVAL, priorT):
+        self.gmm0 = LBGAlgorithm(self.DTR[:, self.LTR == 0], self.alpha, self.componentGMM0, psi=self.psi,
+                                 covType=self.covType)
+        self.gmm1 = LBGAlgorithm(self.DTR[:, self.LTR == 1], self.alpha, self.componentGMM1, psi=self.psi,
+                                 covType=self.covType)
+        sllr = logpdf_GMM(DVAL, self.gmm1)[1] - logpdf_GMM(DVAL, self.gmm0)[1]
+        minDCFWithoutCal = minDCF(sllr, LVAL, priorT, 1.0, 1.0)
+        actDCFWithoutCal = actDCF(sllr, LVAL, priorT, 1.0, 1.0)
+        return sllr, minDCFWithoutCal, actDCFWithoutCal
+
+    def computeScore(self, Dtest):
+        return logpdf_GMM(Dtest, self.gmm1)[1] - logpdf_GMM(Dtest, self.gmm0)[1]
