@@ -137,6 +137,57 @@ Consequently, as many samples as possible should be used for training to obtain 
     \label{tab:minDCFactDCFBLRNPW}
 \end{table}
 
+\newpage
 \textbf{Binary Logistic Regression Prior-Weighted}\par
 Another possible Logistic Regression approach is that Prior-Weighted; it allows to simulate different priors for class 1.
 Therefore, the objective function becomes:
+
+\begin{equation}
+    J(\omega,b) = \frac{\lambda}{2}\left\|w \right\|^2 + \sum_{i=1}^{n} \xi_i\log (1+e^{-z_i(\omega^T x_i + b)}),\quad
+    \xi_i = \begin{cases}
+                \frac{\pi_t}{n_T} & \text{if } z_i = +1 (c_i = 1) \\
+                \frac{1 - \pi_T}{n_F} & \text{if } z_i = -1 (c_i = 0) \\
+    \end{cases}
+    \label{eq:minimiseFunctionLRPW}
+\end{equation}
+
+Now it is possible analyze the results obtained from the Prior-Weighted model with \(\pi_T = 0.1\).
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/09. PW - minDCF}
+        \label{fig:PWminDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/10. PW - actDCF}
+        \label{fig:PWactDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/11. PW - minAndActDCF}
+        \label{fig:PWminAndactDCF}
+    \end{subfigure}
+    \caption{Binary Logistic Regression Prior-Weighted}
+    \label{fig:PW}
+\end{figure}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm}}
+        \toprule
+        \multicolumn{3}{c}{\textbf{Binary Logistic Regression Prior-Weighted }} \\
+        \midrule
+        \multicolumn{3}{c}{\(\pi_T = 0.1 \)} \\
+        \midrule
+        \textbf{\(\lambda\)} & \textbf{minDCF} & \textbf{actDCF} \\
+        \midrule
+        \(10^{-4}\)          & 0.3721          & 0.4071          \\
+        \(10^{-3}\)          & 0.3699          & 0.4129          \\
+        \(10^{-2}\)          & 0.3630          & 0.4487          \\
+        \(10^{-1}\)          & 0.3648          & 0.9147          \\
+        \bottomrule
+    \end{tabular}
+    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+    \caption{Show minDCF and actDCF for Binary Logistic Regression Prior-Weighted}
+    \label{tab:minDCFactDCFPW}
+\end{table}

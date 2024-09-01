@@ -52,6 +52,8 @@ def logisticRegression(DTR, LTR, DVAL, LVAL):
         LVAL=LVAL,
         titleGraph="Binary Logistic Regression with prior weighted",
         printResult=False)
+
+    # Quadratic Logistic Regression
     QuadraticLogisticRegression(
         DTR=DTR,
         LTR=LTR,

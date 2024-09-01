@@ -23,6 +23,7 @@ def PriorWeightedBinLogReg(DTR, LTR, DVAL, LVAL, titleGraph, printResult=False):
         sllr = sVal - np.log(pT / (1 - pT))
         result["lamb" + str(i)]["minDCF"] = minDCF(sllr, LVAL, pT, 1, 1)
         result["lamb" + str(i)]["actDCF"] = actDCF(sllr, LVAL, pT, 1, 1)
+        result["lamb" + str(i)]["lambda"] = lamb[i]
 
     if printResult:
         x = []
@@ -32,6 +33,7 @@ def PriorWeightedBinLogReg(DTR, LTR, DVAL, LVAL, titleGraph, printResult=False):
         for lamb in result.keys():
             print(f"\tLambda: {lamb}")
             print(f"\t\tJ: {result[lamb]["J"]: .6e}")
+            print(f"\t\tLambda: {result[lamb]['lambda']:.4f}")
             print(f"\t\tminDCF: {result[lamb]['minDCF']:.4f}")
             print(f"\t\tactDCF: {result[lamb]['actDCF']:.4f}")
             print()
