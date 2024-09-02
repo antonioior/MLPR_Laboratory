@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  2 SEP 2024 18:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  2 SEP 2024 23:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1556,23 +1556,129 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 [19 <./Lab/09. Lab 09/Images/01. L - minDCF.png> <./Lab/09. Lab 09/Images/02. L
- - actDCF.png> <./Lab/09. Lab 09/Images/03. L - min And actDCF.png>])
+ - actDCF.png> <./Lab/09. Lab 09/Images/03. L - min And actDCF.png>]
+<Lab/09. Lab 09/Images/04. Poly - minDCF.png, id=372, 642.4pt x 481.8pt>
+File: Lab/09. Lab 09/Images/04. Poly - minDCF.png Graphic file (type png)
+<use Lab/09. Lab 09/Images/04. Poly - minDCF.png>
+Package pdftex.def Info: Lab/09. Lab 09/Images/04. Poly - minDCF.png  used on i
+nput line 94.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/09. Lab 09/Images/05. Poly - actDCF.png, id=373, 642.4pt x 481.8pt>
+File: Lab/09. Lab 09/Images/05. Poly - actDCF.png Graphic file (type png)
+<use Lab/09. Lab 09/Images/05. Poly - actDCF.png>
+Package pdftex.def Info: Lab/09. Lab 09/Images/05. Poly - actDCF.png  used on i
+nput line 98.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/09. Lab 09/Images/06. Poly - min And actDCF.png, id=374, 642.4pt x 481.8pt
+>
+File: Lab/09. Lab 09/Images/06. Poly - min And actDCF.png Graphic file (type pn
+g)
+<use Lab/09. Lab 09/Images/06. Poly - min And actDCF.png>
+Package pdftex.def Info: Lab/09. Lab 09/Images/06. Poly - min And actDCF.png  u
+sed on input line 102.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
 
-[20]
+Lab/09. Lab 09/SupportVectorMachines.tex:116: Undefined control sequence.
+<recently read> \texbf 
+                       
+l.116         \texbf
+                    {C}   & \textbf{minDCF} & \textbf{actDCF} \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+<Lab/09. Lab 09/Images/07. Radial - minDCF.png, id=376, 642.4pt x 481.8pt>
+File: Lab/09. Lab 09/Images/07. Radial - minDCF.png Graphic file (type png)
+<use Lab/09. Lab 09/Images/07. Radial - minDCF.png>
+Package pdftex.def Info: Lab/09. Lab 09/Images/07. Radial - minDCF.png  used on
+ input line 137.
+(pdftex.def)             Requested size: 158.99156pt x 119.24402pt.
+<Lab/09. Lab 09/Images/08. Radial - actDCF.png, id=377, 642.4pt x 481.8pt>
+File: Lab/09. Lab 09/Images/08. Radial - actDCF.png Graphic file (type png)
+<use Lab/09. Lab 09/Images/08. Radial - actDCF.png>
+Package pdftex.def Info: Lab/09. Lab 09/Images/08. Radial - actDCF.png  used on
+ input line 141.
+(pdftex.def)             Requested size: 158.99156pt x 119.24402pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package caption Warning: \label without proper reference on input line 158.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:RadialBestactDCF' on page 20 undefined on input l
+ine 149.
+
+
+
+[20 <./Lab/09. Lab 09/Images/04. Poly - minDCF.png> <./Lab/09. Lab 09/Images/05
+. Poly - actDCF.png> <./Lab/09. Lab 09/Images/06. Poly - min And actDCF.png>]
+<Lab/09. Lab 09/Images/09. Radial Best - minDCF.png, id=391, 642.4pt x 481.8pt>
+
+File: Lab/09. Lab 09/Images/09. Radial Best - minDCF.png Graphic file (type png
+)
+<use Lab/09. Lab 09/Images/09. Radial Best - minDCF.png>
+Package pdftex.def Info: Lab/09. Lab 09/Images/09. Radial Best - minDCF.png  us
+ed on input line 154.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/09. Lab 09/Images/10. Radial Best - actDCF.png, id=392, 642.4pt x 481.8pt>
+
+File: Lab/09. Lab 09/Images/10. Radial Best - actDCF.png Graphic file (type png
+)
+<use Lab/09. Lab 09/Images/10. Radial Best - actDCF.png>
+Package pdftex.def Info: Lab/09. Lab 09/Images/10. Radial Best - actDCF.png  us
+ed on input line 158.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+<Lab/09. Lab 09/Images/11. Radial Best - min And actDCF.png, id=393, 642.4pt x 
+481.8pt>
+File: Lab/09. Lab 09/Images/11. Radial Best - min And actDCF.png Graphic file (
+type png)
+<use Lab/09. Lab 09/Images/11. Radial Best - min And actDCF.png>
+Package pdftex.def Info: Lab/09. Lab 09/Images/11. Radial Best - min And actDCF
+.png  used on input line 162.
+(pdftex.def)             Requested size: 119.2467pt x 89.43301pt.
+
+Lab/09. Lab 09/SupportVectorMachines.tex:176: Undefined control sequence.
+<recently read> \texbf 
+                       
+l.176         \texbf
+                    {C}   & \textbf{minDCF} & \textbf{actDCF} \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+)
+
+[21 <./Lab/09. Lab 09/Images/07. Radial - minDCF.png> <./Lab/09. Lab 09/Images/
+08. Radial - actDCF.png> <./Lab/09. Lab 09/Images/09. Radial Best - minDCF.png>
+ <./Lab/09. Lab 09/Images/10. Radial Best - actDCF.png> <./Lab/09. Lab 09/Image
+s/11. Radial Best - min And actDCF.png>]
 (E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil\report.aux
 (MainPage/cover.aux))
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: F17195C9BCE0021D3B706E109F8ECA5F;3551.
  ) 
 Here is how much of TeX's memory you used:
- 28240 strings out of 473899
- 564196 string characters out of 5722245
+ 28355 strings out of 473899
+ 569468 string characters out of 5722245
  1956960 words of memory out of 5000000
- 50483 multiletter control sequences out of 15000+600000
+ 50592 multiletter control sequences out of 15000+600000
  568139 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,545b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1598,9 +1704,9 @@ ogram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/Mi
 KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "E:/POLITO\Machine Learning And Pattern Recognition\Laborator
-y\auxil\report.pdf" (20 pages, 3044324 bytes).
+y\auxil\report.pdf" (21 pages, 3207565 bytes).
 PDF statistics:
- 468 PDF objects out of 1000 (max. 8388607)
- 101 named destinations out of 1000 (max. 500000)
- 320 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 499 PDF objects out of 1000 (max. 8388607)
+ 107 named destinations out of 1000 (max. 500000)
+ 360 words of extra memory for PDF output out of 10000 (max. 10000000)
 

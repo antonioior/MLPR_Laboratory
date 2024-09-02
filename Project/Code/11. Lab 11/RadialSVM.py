@@ -5,6 +5,7 @@ import scipy.optimize as sp
 from DCF import minDCF, actDCF
 from SVMClass import SVM
 from graph import plotDCF
+from graph import createMinDCFActDCFPlot
 
 
 def radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph=""):
@@ -93,3 +94,27 @@ def radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph=""):
                 show=False
             )
         plt.show()
+
+        createMinDCFActDCFPlot(
+            x=x,
+            yMinDCF=yMinDCF[3],  # index 3 is the last gamma value gamma = 0.1
+            yActDCF=yActDCF[3],
+            xLabel="C",
+            colorMinDCF="blue",
+            colorActDCF="red",
+            title=titleGraph,
+            togheter=True,
+            logScale=True
+        )
+
+        createMinDCFActDCFPlot(
+            x=x,
+            yMinDCF=yMinDCF[3],
+            yActDCF=yActDCF[3],
+            xLabel="C",
+            colorMinDCF="blue",
+            colorActDCF="red",
+            title=titleGraph,
+            togheter=False,
+            logScale=True
+        )

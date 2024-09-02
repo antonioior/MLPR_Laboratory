@@ -85,7 +85,106 @@ During our project we see two different types of kernels:
     \item \textbf{Polynomial kernel of degree d}: \(k(x_1,x_2)=(x_1^Tx_2+c)^d\)
     \item \textbf{Radial Basis Function kernel(RBF)}: \(k(x_1,x_2)=e^{-\gamma||x1-x_2||^2}\)
 \end{itemize}
-We can now apply the polynomial kernel to the SVM with \(d=2,\;\; c=1, \;\;\xi=0\) and see how minDCF and actDCF vary as C changes.
+We can now apply the polynomial kernel to the SVM with \(d=2,\;\; c=1, \;\;\xi=0\) and see how minDCF and actDCF vary as C changes
+in \autoref{fig:PolySVM} and \autoref{tab:SVMPoly}.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/09. Lab 09/Images/04. Poly - minDCF}
+        \label{fig:PolyminDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/09. Lab 09/Images/05. Poly - actDCF}
+        \label{fig:PolyactDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/09. Lab 09/Images/06. Poly - min And actDCF}
+        \label{fig:PolyminAndActDCF}
+    \end{subfigure}
+    \caption{Shows minDCF and actDCF with polynomial kernel}
+    \label{fig:PolySVM}
+\end{figure}
 
 
-%tabelle e conclusioni
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\centering\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{2.5cm}}
+        \toprule
+        \multicolumn{3}{c}{\textbf{Polynomial Kernel \(d=2, c=1, \xi = 0\)}} \\
+        \midrule
+        \texbf{C}   & \textbf{minDCF} & \textbf{actDCF} \\
+        \midrule
+        \(10^{-4}\) & 0.2513          & 1.0000          \\
+        \(10^{-3}\) & 0.2565          & 0.9196          \\
+        \(10^{-2}\) & 0.2528          & 0.5884          \\
+        \(10^{-1}\) & 0.2480          & 0.4109          \\
+        \(10^{0}\)  & 0.2582          & 0.3861          \\
+        \bottomrule
+    \end{tabular}
+    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+    \caption{Show minDCF and actDCF for SVM with polynomial kernel}
+    \label{tab:SVMPoly}
+\end{table}
+
+In this case apply a RBF kernel to the SVM with \(\xi=1\), the first thing we consider is which value of \(\gamma\) can
+give us a better outcome in terms of minDCF and actDCF.
+Looking at \autoref{fig:RadialSVM}, we sse that the best solution is given to us by \(\gamma=0.1\).
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.40\linewidth}
+        \includegraphics[width=\linewidth]{Lab/09. Lab 09/Images/07. Radial - minDCF}
+        \label{fig:RadialminDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \includegraphics[width=\linewidth]{Lab/09. Lab 09/Images/08. Radial - actDCF}
+        \label{fig:RadialactDCF}
+    \end{subfigure}
+    \caption{Shows minDCF and actDCF with polynomial kernel}
+    \label{fig:RadialSVM}
+\end{figure}
+
+Now that this consideration has been made, we can specifically represent the values of minDCF and actDCF for values of \(\gamma=0.1\).
+We can observe this result in \autoref{fig:RadialBestactDCF} and \autoref{tab:SVMRadialBest}.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/09. Lab 09/Images/09. Radial Best - minDCF}
+        \label{fig:RadialBestminDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/09. Lab 09/Images/10. Radial Best - actDCF}
+        \label{fig:RadialBestactDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/09. Lab 09/Images/11. Radial Best - min And actDCF}
+        \label{fig:RadialBestminAndActDCF}
+    \end{subfigure}
+    \caption{Shows minDCF and actDCF with best RBF kernel}
+    \label{fig:RadialBestSVM}
+\end{figure}
+
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\centering\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{2.5cm}}
+        \toprule
+        \multicolumn{3}{c}{\textbf{Radial Kernel \(\xi = 1 \gamma = 0.1\)}} \\
+        \midrule
+        \texbf{C}   & \textbf{minDCF} & \textbf{actDCF} \\
+        \midrule
+        \(10^{-3}\) & 0.3288          & 1.0000          \\
+        \(10^{-2}\) & 0.3036          & 1.0000          \\
+        \(10^{-1}\) & 0.2663          & 0.9038          \\
+        \(10^{0}\)  & 0.2419          & 0.6033          \\
+        \(10^{1}\)  & 0.2388          & 0.4970          \\
+        \(10^{2}\)  & 0.1845          & 0.3581          \\
+        \bottomrule
+    \end{tabular}
+    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+    \caption{Show minDCF and actDCF for SVM with best RBF kernel}
+    \label{tab:SVMRadialBest}
+\end{table}
+
