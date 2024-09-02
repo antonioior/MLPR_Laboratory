@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  2 SEP 2024 23:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  3 SEP 2024 00:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1605,7 +1605,7 @@ Package pdftex.def Info: Lab/09. Lab 09/Images/08. Radial - actDCF.png  used on
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Package caption Warning: \label without proper reference on input line 158.
+Package caption Warning: \label without proper reference on input line 159.
 See the caption package documentation for explanation.
 
 
@@ -1652,12 +1652,14 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-)
+
 
 [21 <./Lab/09. Lab 09/Images/07. Radial - minDCF.png> <./Lab/09. Lab 09/Images/
 08. Radial - actDCF.png> <./Lab/09. Lab 09/Images/09. Radial Best - minDCF.png>
  <./Lab/09. Lab 09/Images/10. Radial Best - actDCF.png> <./Lab/09. Lab 09/Image
-s/11. Radial Best - min And actDCF.png>]
+s/11. Radial Best - min And actDCF.png>])
+
+[22]
 (E:/POLITO/Machine Learning And Pattern Recognition/Laboratory/auxil\report.aux
 (MainPage/cover.aux))
  ***********
@@ -1668,15 +1670,12 @@ L3 programming layer <2024-07-20>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: F17195C9BCE0021D3B706E109F8ECA5F;3551.
  ) 
 Here is how much of TeX's memory you used:
- 28355 strings out of 473899
- 569468 string characters out of 5722245
+ 28356 strings out of 473899
+ 569475 string characters out of 5722245
  1956960 words of memory out of 5000000
  50592 multiletter control sequences out of 15000+600000
  568139 words of font info for 74 fonts, out of 8000000 for 9000
@@ -1704,9 +1703,9 @@ ogram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/Mi
 KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "E:/POLITO\Machine Learning And Pattern Recognition\Laborator
-y\auxil\report.pdf" (21 pages, 3207565 bytes).
+y\auxil\report.pdf" (22 pages, 3208976 bytes).
 PDF statistics:
- 499 PDF objects out of 1000 (max. 8388607)
- 107 named destinations out of 1000 (max. 500000)
+ 503 PDF objects out of 1000 (max. 8388607)
+ 108 named destinations out of 1000 (max. 500000)
  360 words of extra memory for PDF output out of 10000 (max. 10000000)
 

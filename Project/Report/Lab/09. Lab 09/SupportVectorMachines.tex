@@ -180,6 +180,9 @@ We can observe this result in \autoref{fig:RadialBestactDCF} and \autoref{tab:SV
         \(10^{-1}\) & 0.2663          & 0.9038          \\
         \(10^{0}\)  & 0.2419          & 0.6033          \\
         \(10^{1}\)  & 0.2388          & 0.4970          \\
+        \midrule
+        \multicolumn{3}{c}{\textbf{Best result}} \\
+        \midrule
         \(10^{2}\)  & 0.1845          & 0.3581          \\
         \bottomrule
     \end{tabular}
@@ -187,4 +190,16 @@ We can observe this result in \autoref{fig:RadialBestactDCF} and \autoref{tab:SV
     \caption{Show minDCF and actDCF for SVM with best RBF kernel}
     \label{tab:SVMRadialBest}
 \end{table}
+
+\bigskip
+\textbf{Summarize}\par
+Looking at the outcomes, one can see:
+\begin{itemize}
+    \item when parameter C increases, the outcomes become better and also better calibrated because the difference between minDCF and actDCF decreases.
+    \item we can see that outcomes improve when switching from a linear to a polynomial kernel, which confirms what we have identified with QLR,
+    namely modelling quadratic relationships between features to improve outcomes.
+    \item the case with RBF kernels also confirms that more benefits can be gained from non-linear mapping
+    \item As already mentioned, cases with higher C values improve outcomes and are better calibrated than cases with lower C values.
+    But in general, a calibration operation could improve classification even for high C values.
+\end{itemize}
 
