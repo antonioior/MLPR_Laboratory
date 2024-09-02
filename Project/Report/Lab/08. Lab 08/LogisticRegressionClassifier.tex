@@ -250,13 +250,16 @@ it can be seen that it does not result much improvement of the system.
 
 \subsubsection{Quadratic Logistic Regression}
 In this step we can analyze training on a Quadratic Logistic Regression model by performing features expansion, so it's possible write log-likelihood ratio as:
+
 \begin{equation}
     \log{\frac{P(C=h_1|x)}{P(C=h_0|x)}}=x^TAx+b^Tx+c=s(\textbf{x},\textbf{A},\textbf{b},\textbf{c})
-    \label{eq:logisticRegressionQuadratic}
+    \label{eq:QLRllr}
 \end{equation}
-This expression is quadratic in x but it's linear in A and b.
-We could rewrite it to obtain a decision function that is linear for the expanded features space but quadratic in original features space.\\
-We can write features expansion as:
+
+The \autoref{eq:QLRllr} is quadratic in x but it's linear in A and b.
+It can be rewritten to obtain a decision function that is linear for the expanded features space but quadratic in original features space.\\
+So we can write features expansion as:
+
 \begin{equation}
     \Phi(x)=
     \begin{bmatrix}
@@ -269,8 +272,11 @@ We can write features expansion as:
         vec(A) \\
         b
     \end{bmatrix}
+    \label{eq:featuresExpansion}
 \end{equation}
-where vec(X) is the operator that stacks the columns of X into a single column vector. In this way we can write the posterio log-likelihood as:
+
+where \(vec(X)\) in \autoref{eq:featuresExpansion} is the operator that stacks the columns of \(X\) into a single column vector.
+In this way we can write the posterior log-likelihood as:
 \begin{equation}
     s(x,w,c)=s^T\phi(x)+c
 \end{equation}
