@@ -252,6 +252,7 @@ it can be seen that it does not result much improvement of the system.
 In this step we can analyze training on a Quadratic Logistic Regression model by performing features expansion, so it's possible write log-likelihood ratio as:
 \begin{equation}
     \log{\frac{P(C=h_1|x)}{P(C=h_0|x)}}=x^TAx+b^Tx+c=s(\textbf{x},\textbf{A},\textbf{b},\textbf{c})
+    \label{eq:logisticRegressionQuadratic}
 \end{equation}
 This expression is quadratic in x but it's linear in A and b.
 We could rewrite it to obtain a decision function that is linear for the expanded features space but quadratic in original features space.\\
@@ -305,16 +306,34 @@ where vec(X) is the operator that stacks the columns of X into a single column v
         \(10^{-2}\)          & 0.2487          & 0.3464          \\
         \(10^{-1}\)          & 0.2466          & 0.7520          \\
         \midrule
-        \multicolumn{3}{c}{\textbf{Best Result }} \\
+        \multicolumn{3}{c}{\textbf{Best Result}} \\
         \midrule
         \(3.162^{-2}\)       & 0.2436          & 0.4972          \\
         \bottomrule
     \end{tabular}
     \captionsetup{justification=justified,singlelinecheck=false,format=hang}
-    \caption{Show minDCF and actDCF for Binary Logistic Regression applying PCA and with adn withoud z-normalization}
+    \caption{Show minDCF and actDCF for Quadratic Logistic Regression and best result in logistic regression}
     \label{tab:minDCFactDCFQLR}
 \end{table}
 
 Looking the value in \autoref{tab:minDCFactDCFQLR}, we can see that this method gives better results than the methods
 seen before.
 This is possible because the quadratic method allows us to extract characteristics that are not possible by a linear method.
+
+\bigskip
+\textbf{Summarize}\par
+From the results obtained, one can observe:
+\begin{itemize}
+    \item The application of z-normalization does not bring any improvements, which means that being a linear transformation
+    didn' t change the ability of logistic regression to separate classes, if labels and characteristics are linearly separable.
+    \item Looking at the graphs depicted in \autoref{fig:BLR}, \autoref{fig:BLR50Samples}, \autoref{fig:PW}, \autoref{fig:BLRPCA} and \autoref{fig:QLR},
+    it can be seen that \(\lambda\) significantly affects the performance of the model in term of minDCF and actDCF.
+    In particular, it can be observed that for values above \(10^{-1}\) there is significant degradation, which is why
+    the tables have shown values up to this \(\lambda\) value.
+    This is because, remember that a larger value of \(\lambda\) can lead to overgeneralise resulting, so underfitting.
+    Whereas too small \(\lambda\) can lead to low generalisation and thus to overfitting.
+    \item It can be seen that there is a difference between minDCF and actDCF, which means that the models don't have a good calibration.
+    In our case, Quadratic Logistic Regression seems to give the best results, so we can deduce that the model must be able
+    to capture non-linear relationships between the variables and thus find non-linear separation rules in the feature space.
+
+\end{itemize}
