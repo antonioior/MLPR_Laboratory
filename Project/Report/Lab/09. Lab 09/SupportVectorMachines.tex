@@ -73,17 +73,19 @@ After that we have calculated the optimal \(\alpha\) we can compute \(w^*\).
     \label{tab:SVMLin}
 \end{table}
 
-%\subsubsection{Kernel Support Vector Machines}
-%It's possible in Support Vector Machines to use kernels to allow nonlinear classification.
-%In this case there is no explicit expansion of the feature space;
-%we only can calculate the scalar product between the expanded features:\( k(x_1,x_2)=\phi(x_1)_T\phi(x_2)\) where k is the kernel function.
-%To do this we need to go and replace H as we saw in the previous section with \(\hat{H}= z_iz_jk(x_1,x_2)\).
-%During our project we see two different types of kernels:
-%\begin{itemize}
-%    \item \textbf{Polynomial kernel of degree d}: \(k(x_1,x_2)=(x_1^Tx_2+c)^d\)
-%    \item \textbf{Radial Basis Function kernel(RBF)}: \(k(x_1,x_2)=e^{-\gamma||x1-x_2||^2}\)
-%\end{itemize}
-%We can now apply the polynomial kernel to the SVM with \(d=2,\;\; c=1, \;\;\xi=0\) and see how minDCF and actDCF vary as C changes.
-%
-%
+\newpage
+
+\subsubsection{Kernel Support Vector Machines}
+It's possible in Support Vector Machines to use kernels to allow nonlinear classification.
+In this case there is no explicit expansion of the feature space;
+we only can calculate the scalar product between the expanded features:\( k(x_1,x_2)=\phi(x_1)_T\phi(x_2)\) where k is the kernel function.
+To do this we need to go and replace H as we saw in the previous section with \(\hat{H}= z_iz_jk(x_1,x_2)\).
+During our project we see two different types of kernels:
+\begin{itemize}
+    \item \textbf{Polynomial kernel of degree d}: \(k(x_1,x_2)=(x_1^Tx_2+c)^d\)
+    \item \textbf{Radial Basis Function kernel(RBF)}: \(k(x_1,x_2)=e^{-\gamma||x1-x_2||^2}\)
+\end{itemize}
+We can now apply the polynomial kernel to the SVM with \(d=2,\;\; c=1, \;\;\xi=0\) and see how minDCF and actDCF vary as C changes.
+
+
 %tabelle e conclusioni
