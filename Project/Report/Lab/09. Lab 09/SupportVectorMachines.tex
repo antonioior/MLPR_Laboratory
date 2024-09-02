@@ -31,8 +31,47 @@ In addition it's possible to rewrite dual problem as minimization of:
     \hat{\mathbf{L}}(\alpha)=-\mathbf{J}(\alpha)= \frac{1}{2} \alpha^T \;\textbf{H} \;\alpha - \alpha^T \textbf{1}
 \end{equation}
 
-and it can be minimize by L-BFGS-B algorithm.
+and it can be minimized by L-BFGS-B algorithm.
 After that we have calculated the optimal \(\alpha\) we can compute \(w^*\).
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/09. Lab 09/Images/01. L - minDCF}
+        \label{fig:LminDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/09. Lab 09/Images/02. L - actDCF}
+        \label{fig:LactDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/09. Lab 09/Images/03. L - min And actDCF}
+        \label{fig:LminAndActDCF}
+    \end{subfigure}
+    \caption{Shows minDCF and actDCF for Linear SVM}
+    \label{fig:LSVM}
+\end{figure}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\centering\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{2.5cm}}
+        \toprule
+        \multicolumn{3}{c}{\textbf{Linear SVM \(K=1.0\)}} \\
+        \midrule
+        \texbf{C}   & \textbf{minDCF} & \textbf{actDCF} \\
+        \midrule
+        \(10^{-5}\) & 1.0000          & 1.0000          \\
+        \(10^{-4}\) & 0.3640          & 1.0000          \\
+        \(10^{-3}\) & 0.3620          & 0.9593          \\
+        \(10^{-2}\) & 0.3620          & 0.6718          \\
+        \(10^{-1}\) & 0.3582          & 0.5162          \\
+        \(10^{0}\)  & 0.3582          & 0.4894          \\
+        \bottomrule
+    \end{tabular}
+    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+    \caption{Show minDCF and actDCF for Linear SVM}
+    \label{tab:SVMLin}
+\end{table}
 
 %\subsubsection{Kernel Support Vector Machines}
 %It's possible in Support Vector Machines to use kernels to allow nonlinear classification.

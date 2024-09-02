@@ -84,7 +84,7 @@ if __name__ == "__main__":
     # LAB 09 - COMPLETED
     if trainSVM:
         linearSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Linear SVM")
-        polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Polinomial SVM")
+        polinomialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Polynomial SVM")
         radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph="Radial SVM")
 
     # LAB 10 - COMPLETED
