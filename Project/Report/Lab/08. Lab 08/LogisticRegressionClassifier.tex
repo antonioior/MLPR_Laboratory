@@ -274,6 +274,47 @@ where vec(X) is the operator that stacks the columns of X into a single column v
     s(x,w,c)=s^T\phi(x)+c
 \end{equation}
 
-%Tabella
-%
-%In conclusion, the results obtained from the Quadratic Logistic Regression model show that
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/14. QLR - minDCF}
+        \label{fig:QLRminDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/15. QLR - actDCF }
+        \label{fig:QLRactDCF}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\linewidth}
+        \includegraphics[width=\linewidth]{Lab/08. Lab 08/Images/16. QLR - min And ActDCF}
+        \label{fig:QLRminAndactDCF}
+    \end{subfigure}
+    \caption{Quadratic Logistic Regression minDCF and actDCF}
+    \label{fig:QLR}
+\end{figure}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm}}
+        \toprule
+        \multicolumn{3}{c}{\textbf{Quadratic Logistic Regression}} \\
+        \midrule
+        \textbf{\(\lambda\)} & \textbf{minDCF} & \textbf{actDCF} \\
+        \midrule
+        \(10^{-4}\)          & 0.2602          & 0.2768          \\
+        \(10^{-3}\)          & 0.2587          & 0.2765          \\
+        \(10^{-2}\)          & 0.2487          & 0.3464          \\
+        \(10^{-1}\)          & 0.2466          & 0.7520          \\
+        \midrule
+        \multicolumn{3}{c}{\textbf{Best Result }} \\
+        \midrule
+        \(3.162^{-2}\)       & 0.2436          & 0.4972          \\
+        \bottomrule
+    \end{tabular}
+    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+    \caption{Show minDCF and actDCF for Binary Logistic Regression applying PCA and with adn withoud z-normalization}
+    \label{tab:minDCFactDCFQLR}
+\end{table}
+
+Looking the value in \autoref{tab:minDCFactDCFQLR}, we can see that this method gives better results than the methods
+seen before.
+This is possible because the quadratic method allows us to extract characteristics that are not possible by a linear method.
