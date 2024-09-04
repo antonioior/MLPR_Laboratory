@@ -2,8 +2,16 @@
 %! Date = 31/08/2024
 
 \subsection{Calibration Consideration On Selected Models}
-\textbf{BestModels}
+\label{subsec:bestModels}
+\textbf{Best Models}
 
+Taking the best configurations of each method we have:
+\begin{itemize}
+    \item \textbf{Logistic Regression}: \(\lambda=3.162*10^{-2}\), minDCF is 0.2436 and actDCF is 0.4972
+    \item \textbf{Support Vector Machine}: with RBF Kernel with \(\gamma=0.01\) and \(C=100\), minDCF is 0.1845 and actDCF is 0.3581
+    \item \textbf{Gaussian Mixture Model}: with Diagonal convolution and \((nc0=8, nc1=32)\) where \(nc0\) is the number of
+    component for class 0 and \(nc1\) is number of component for class 1, minDCF is 0.1312 and actDCF is 0.1517
+\end{itemize}
 %\begin{table}[h!]
 %    \centering
 %    \begin{tabular}{>{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm}}

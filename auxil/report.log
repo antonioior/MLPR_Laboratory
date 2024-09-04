@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  4 SEP 2024 18:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.19)  4 SEP 2024 22:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1701,25 +1701,25 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 [22]
-<Lab/10. Lab 10/Images/03. 1-16 Full.png, id=442, 642.4pt x 481.8pt>
+<Lab/10. Lab 10/Images/03. 1-16 Full.png, id=439, 642.4pt x 481.8pt>
 File: Lab/10. Lab 10/Images/03. 1-16 Full.png Graphic file (type png)
 <use Lab/10. Lab 10/Images/03. 1-16 Full.png>
 Package pdftex.def Info: Lab/10. Lab 10/Images/03. 1-16 Full.png  used on input
  line 93.
 (pdftex.def)             Requested size: 111.2482pt x 83.43405pt.
-<Lab/10. Lab 10/Images/04. 2 - 16 Full.png, id=443, 642.4pt x 481.8pt>
+<Lab/10. Lab 10/Images/04. 2 - 16 Full.png, id=440, 642.4pt x 481.8pt>
 File: Lab/10. Lab 10/Images/04. 2 - 16 Full.png Graphic file (type png)
 <use Lab/10. Lab 10/Images/04. 2 - 16 Full.png>
 Package pdftex.def Info: Lab/10. Lab 10/Images/04. 2 - 16 Full.png  used on inp
 ut line 97.
 (pdftex.def)             Requested size: 111.2482pt x 83.43405pt.
-<Lab/10. Lab 10/Images/05. 8-16 Full.png, id=444, 642.4pt x 481.8pt>
+<Lab/10. Lab 10/Images/05. 8-16 Full.png, id=441, 642.4pt x 481.8pt>
 File: Lab/10. Lab 10/Images/05. 8-16 Full.png Graphic file (type png)
 <use Lab/10. Lab 10/Images/05. 8-16 Full.png>
 Package pdftex.def Info: Lab/10. Lab 10/Images/05. 8-16 Full.png  used on input
  line 101.
 (pdftex.def)             Requested size: 111.2482pt x 83.43405pt.
-<Lab/10. Lab 10/Images/06. 8 - 32.png, id=445, 642.4pt x 481.8pt>
+<Lab/10. Lab 10/Images/06. 8 - 32.png, id=442, 642.4pt x 481.8pt>
 File: Lab/10. Lab 10/Images/06. 8 - 32.png Graphic file (type png)
 <use Lab/10. Lab 10/Images/06. 8 - 32.png>
 Package pdftex.def Info: Lab/10. Lab 10/Images/06. 8 - 32.png  used on input li
@@ -1729,25 +1729,25 @@ ne 105.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Lab/10. Lab 10/Images/07. 1-16 Diag.png, id=446, 642.4pt x 481.8pt>
+<Lab/10. Lab 10/Images/07. 1-16 Diag.png, id=443, 642.4pt x 481.8pt>
 File: Lab/10. Lab 10/Images/07. 1-16 Diag.png Graphic file (type png)
 <use Lab/10. Lab 10/Images/07. 1-16 Diag.png>
 Package pdftex.def Info: Lab/10. Lab 10/Images/07. 1-16 Diag.png  used on input
  line 115.
 (pdftex.def)             Requested size: 111.2482pt x 83.43405pt.
-<Lab/10. Lab 10/Images/08. 2-16 Diag.png, id=447, 642.4pt x 481.8pt>
+<Lab/10. Lab 10/Images/08. 2-16 Diag.png, id=444, 642.4pt x 481.8pt>
 File: Lab/10. Lab 10/Images/08. 2-16 Diag.png Graphic file (type png)
 <use Lab/10. Lab 10/Images/08. 2-16 Diag.png>
 Package pdftex.def Info: Lab/10. Lab 10/Images/08. 2-16 Diag.png  used on input
  line 119.
 (pdftex.def)             Requested size: 111.2482pt x 83.43405pt.
-<Lab/10. Lab 10/Images/09. 8-16 Diag.png, id=448, 642.4pt x 481.8pt>
+<Lab/10. Lab 10/Images/09. 8-16 Diag.png, id=445, 642.4pt x 481.8pt>
 File: Lab/10. Lab 10/Images/09. 8-16 Diag.png Graphic file (type png)
 <use Lab/10. Lab 10/Images/09. 8-16 Diag.png>
 Package pdftex.def Info: Lab/10. Lab 10/Images/09. 8-16 Diag.png  used on input
  line 123.
 (pdftex.def)             Requested size: 111.2482pt x 83.43405pt.
-<Lab/10. Lab 10/Images/10. 8-32 Diag.png, id=449, 642.4pt x 481.8pt>
+<Lab/10. Lab 10/Images/10. 8-32 Diag.png, id=446, 642.4pt x 481.8pt>
 File: Lab/10. Lab 10/Images/10. 8-32 Diag.png Graphic file (type png)
 <use Lab/10. Lab 10/Images/10. 8-32 Diag.png>
 Package pdftex.def Info: Lab/10. Lab 10/Images/10. 8-32 Diag.png  used on input
@@ -1777,69 +1777,43 @@ b/10. Lab 10/Images/10. 8-32 Diag.png>]) (Lab/11. Lab 11/Calibration.tex)
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `report.out':
-(rerunfilecheck)             Before: 0292E067054E52E7D1F3DDB46C4BB00A;4163
-(rerunfilecheck)             After:  DCEEA64FF00EC20CD74A0BE4B7FC52B5;4177.
+Package rerunfilecheck Info: File `report.out' has not changed.
+(rerunfilecheck)             Checksum: DCEEA64FF00EC20CD74A0BE4B7FC52B5;4177.
  ) 
 Here is how much of TeX's memory you used:
- 28534 strings out of 473899
- 576569 string characters out of 5722245
+ 28530 strings out of 473899
+ 576517 string characters out of 5722245
  1957960 words of memory out of 5000000
  50742 multiletter control sequences out of 15000+600000
  568139 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,545b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{equation.6.36} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{equation.6.35} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.7.1} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.7} has been referenced but does not exist, 
-replaced by a fixed one
-
- <C:\Users\anton\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm10
-00.pk><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/Programmazion
-e/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (
-x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmmi5.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x86)/Programmazione/Compile
-r/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/Progr
-ammazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program 
-Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.
-pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr7.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/font
-s/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/Programmazione/Comp
-iler/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/P
-rogrammazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Prog
-ram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm/c
-msy7.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKT
-eX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/Progr
-ammazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+ <C:\Users\anton\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1000.pk><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/Programmazi
+one/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files
+ (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmmi5.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x86)/Programmazione/Compi
+ler/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/Pro
+grammazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Progra
+m Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
+5.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/Programmazione/Co
+mpiler/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)
+/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Pr
+ogram Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmsy7.pfb><C:/Program Files (x86)/Programmazione/Compiler/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Programmazione/Compiler/Mi
+KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/Pro
+grammazione/Compiler/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on "E:/POLITO\Machine Learning And Pattern Recognition\Laborator
-y\auxil\report.pdf" (25 pages, 4047721 bytes).
+y\auxil\report.pdf" (25 pages, 4048363 bytes).
 PDF statistics:
- 577 PDF objects out of 1000 (max. 8388607)
- 126 named destinations out of 1000 (max. 500000)
+ 573 PDF objects out of 1000 (max. 8388607)
+ 122 named destinations out of 1000 (max. 500000)
  434 words of extra memory for PDF output out of 10000 (max. 10000000)
 

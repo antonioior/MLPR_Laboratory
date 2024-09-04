@@ -1,8 +1,8 @@
 import numpy as np
 import scipy.optimize as sp
 
-from DCF import minDCF, actDCF
-from graph import createMinDCFActDCFPlot
+from DCF import minDCF, actDCF, bayesError
+from graph import createMinDCFActDCFPlot, createBayesErrorPlots
 from utils import vcol, vrow, errorRate
 from PriorWeightedBinLogReg import priorWeightedLogClass
 
@@ -24,6 +24,7 @@ def QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, titleGraph, printResult=Fa
 
         pEmp = (LTR == 1).sum() / LTR.size
         sllr = sVal - np.log(pEmp / (1 - pEmp))
+        result["lamb" + str(i)]["sllr"] = sllr
         result["lamb" + str(i)]["minDCF"] = minDCF(sllr, LVAL, 0.1, 1, 1)
         result["lamb" + str(i)]["actDCF"] = actDCF(sllr, LVAL, 0.1, 1, 1)
 
@@ -43,6 +44,17 @@ def QuadraticLogisticRegression(DTR, LTR, DVAL, LVAL, titleGraph, printResult=Fa
             x.append(result[lamb]["lambda"])
             yMinDCF.append(result[lamb]["minDCF"])
             yActDCF.append(result[lamb]["actDCF"])
+
+            if result[lamb]["lambda"] <= 0.0317 and result[lamb]["lambda"] >= 0.0316:
+                effPriorLogOdds, dcfBayesError, minDCFBayesError = bayesError(
+                    llr=result[lamb]["sllr"],
+                    LTE=LVAL,
+                    lineLeft=-4,
+                    lineRight=4
+                )
+                createBayesErrorPlots(effPriorLogOdds, dcfBayesError, minDCFBayesError, [-4, 4], [0, 0.9], "r", "b",
+                                      f"QLR with lambda = {result[lamb]['lambda']}",
+                                      show=True)
 
         createMinDCFActDCFPlot(
             x=x,
