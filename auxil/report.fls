@@ -7,6 +7,17 @@ INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\base\artic
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\base\size10.clo
+INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\geometry\geometry.sty
+INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\geometry\geometry.sty
+INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\graphics\keyval.sty
+INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\graphics\keyval.sty
+INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\generic\iftex\ifvtex.sty
+INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\generic\iftex\ifvtex.sty
+INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\generic\iftex\iftex.sty
+INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\generic\iftex\iftex.sty
+INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\geometry\geometry.cfg
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\amsmath\amsopn.sty
@@ -31,8 +42,6 @@ INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\thmtools\p
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\thmtools\parseargs.sty
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\thmtools\thm-kv.sty
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\thmtools\thm-kv.sty
-INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\graphics\keyval.sty
-INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\graphics\keyval.sty
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\kvsetkeys\kvsetkeys.sty
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\kvsetkeys\kvsetkeys.sty
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\thmtools\thm-autoref.sty
@@ -65,15 +74,6 @@ INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\caption\su
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\caption\subcaption.sty
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\setspace\setspace.sty
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\setspace\setspace.sty
-INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\geometry\geometry.sty
-INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\geometry\geometry.sty
-INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\generic\iftex\ifvtex.sty
-INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\generic\iftex\ifvtex.sty
-INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\generic\iftex\iftex.sty
-INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\generic\iftex\iftex.sty
-INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\geometry\geometry.cfg
-INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\geometry\geometry.cfg
-INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\geometry\geometry.cfg
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Program Files (x86)\Programmazione\Compiler\MiKTeX\tex\latex\hyperref\hyperref.sty
@@ -656,6 +656,66 @@ INPUT .\Lab\10. Lab 10\GaussianMixtureModels.tex
 INPUT .\Lab\10. Lab 10\GaussianMixtureModels.tex
 INPUT .\Lab\10. Lab 10\GaussianMixtureModels.tex
 INPUT Lab\10. Lab 10\GaussianMixtureModels.tex
+INPUT .\Lab\10. Lab 10\Images\01. covTypeFullSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\01. covTypeFullSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\01. covTypeFullSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\01. covTypeFullSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\01. covTypeFullSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\01. covTypeFullSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\02. covTypeDiagonalSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\02. covTypeDiagonalSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\02. covTypeDiagonalSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\02. covTypeDiagonalSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\02. covTypeDiagonalSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\02. covTypeDiagonalSameComponent.png
+INPUT .\Lab\10. Lab 10\Images\03. 1-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\03. 1-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\03. 1-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\03. 1-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\03. 1-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\03. 1-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\04. 2 - 16 Full.png
+INPUT .\Lab\10. Lab 10\Images\04. 2 - 16 Full.png
+INPUT .\Lab\10. Lab 10\Images\04. 2 - 16 Full.png
+INPUT .\Lab\10. Lab 10\Images\04. 2 - 16 Full.png
+INPUT .\Lab\10. Lab 10\Images\04. 2 - 16 Full.png
+INPUT .\Lab\10. Lab 10\Images\04. 2 - 16 Full.png
+INPUT .\Lab\10. Lab 10\Images\05. 8-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\05. 8-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\05. 8-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\05. 8-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\05. 8-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\05. 8-16 Full.png
+INPUT .\Lab\10. Lab 10\Images\06. 8 - 32.png
+INPUT .\Lab\10. Lab 10\Images\06. 8 - 32.png
+INPUT .\Lab\10. Lab 10\Images\06. 8 - 32.png
+INPUT .\Lab\10. Lab 10\Images\06. 8 - 32.png
+INPUT .\Lab\10. Lab 10\Images\06. 8 - 32.png
+INPUT .\Lab\10. Lab 10\Images\06. 8 - 32.png
+INPUT .\Lab\10. Lab 10\Images\07. 1-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\07. 1-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\07. 1-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\07. 1-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\07. 1-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\07. 1-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\08. 2-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\08. 2-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\08. 2-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\08. 2-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\08. 2-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\08. 2-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\09. 8-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\09. 8-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\09. 8-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\09. 8-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\09. 8-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\09. 8-16 Diag.png
+INPUT .\Lab\10. Lab 10\Images\10. 8-32 Diag.png
+INPUT .\Lab\10. Lab 10\Images\10. 8-32 Diag.png
+INPUT .\Lab\10. Lab 10\Images\10. 8-32 Diag.png
+INPUT .\Lab\10. Lab 10\Images\10. 8-32 Diag.png
+INPUT .\Lab\10. Lab 10\Images\10. 8-32 Diag.png
+INPUT .\Lab\10. Lab 10\Images\10. 8-32 Diag.png
 INPUT E:\POLITO\Machine Learning And Pattern Recognition\Laboratory\auxil\report.aux
 INPUT E:\POLITO\Machine Learning And Pattern Recognition\Laboratory\auxil\.\MainPage\cover.aux
 INPUT E:\POLITO\Machine Learning And Pattern Recognition\Laboratory\auxil\.\MainPage\cover.aux

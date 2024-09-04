@@ -41,6 +41,22 @@ GMM can have differents versions as:
 As an initial point in our project, we considered having a maximum component number of 32 and using the two methods mentioned above.
 So at first we evaluated the model where the number of components for class 0 and class 1 were equal, obtaining the results shown in
 \autoref{tab:GMMSameComponents}.
+Instead, a graphical view of these results can be seen for the Full Covariance method in \autoref{fig:GMMFullSameComponentF} and
+in \autoref{fig:GMMFDiagSameComponentF} for the Diagonal Covariance method.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{Lab/10. Lab 10/Images/01. covTypeFullSameComponent}
+    \caption{Shows minDCF and actDCF for GMM with Full Covariance and same number of components}
+    \label{fig:GMMFullSameComponentF}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{Lab/10. Lab 10/Images/02. covTypeDiagonalSameComponent}
+    \caption{Shows minDCF and actDCF for GMM with Diagonal Covariance and same number of components}
+    \label{fig:GMMFDiagSameComponentF}
+\end{figure}
 
 \begin{table}[h!]
     \centering
@@ -69,6 +85,51 @@ Subsequently, all possible combinations within the maximum value indicated above
 \autoref{tab:GMMBestComponents} shows what may be the most significant values.
 I chose these combinations because (1,16) and (2,16) are the two best combinations for the Full Covariance method,
 whereas (8,32) and (8,16) are the best for Diagonal Covariance method.
+Their representation is shown in \autoref{fig:GMMFullBest} and \autoref{fig:GMMDiagBest}.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.23\linewidth}
+        \includegraphics[width=\linewidth]{Lab/10. Lab 10/Images/03. 1-16 Full}
+        \label{fig:GMM116Full}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.23\linewidth}
+        \includegraphics[width=\linewidth]{Lab/10. Lab 10/Images/04. 2 - 16 Full}
+        \label{fig:GMM216Full}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.23\linewidth}
+        \includegraphics[width=\linewidth]{Lab/10. Lab 10/Images/05. 8-16 Full}
+        \label{fig:GMM816Full}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.23\linewidth}
+        \includegraphics[width=\linewidth]{Lab/10. Lab 10/Images/06. 8 - 32}
+        \label{fig:GMM832Full}
+    \end{subfigure}
+    \caption{Shows minDCF and actDCF for Full Covariance method}
+    \label{fig:GMMFullBest}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.23\linewidth}
+        \includegraphics[width=\linewidth]{Lab/10. Lab 10/Images/07. 1-16 Diag}
+        \label{fig:GMM116Diag}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.23\linewidth}
+        \includegraphics[width=\linewidth]{Lab/10. Lab 10/Images/08. 2-16 Diag}
+        \label{fig:GMM216Diag}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.23\linewidth}
+        \includegraphics[width=\linewidth]{Lab/10. Lab 10/Images/09. 8-16 Diag}
+        \label{fig:GMM816Diag}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.23\linewidth}
+        \includegraphics[width=\linewidth]{Lab/10. Lab 10/Images/10. 8-32 Diag}
+        \label{fig:GMM832Diag}
+    \end{subfigure}
+    \caption{Shows minDCF and actDCF for Diagonal Covariance method}
+    \label{fig:GMMDiagBest}
+\end{figure}
 
 \begin{table}[h!]
     \centering
@@ -82,12 +143,25 @@ whereas (8,32) and (8,16) are the best for Diagonal Covariance method.
         \midrule
         (1, 16) & 0.1495          & 0.2055          & 0.1433          & 0.1807          \\
         (2, 16) & 0.1701          & 0.1980          & 0.1536          & 0.1731          \\
-        (8, 32) & 0.1745          & 0.1903          & 0.1312          & 0.1517          \\
         (8, 16) & 0.1526          & 0.1725          & 0.1324          & 0.1487          \\
-
+        (8, 32) & 0.1745          & 0.1903          & 0.1312          & 0.1517          \\
         \bottomrule
     \end{tabular}
     \captionsetup{justification=justified,singlelinecheck=false,format=hang}
     \caption{Show minDCF and actDCF for same number of components in GMM}
     \label{tab:GMMBestComponents}
 \end{table}
+
+\textbf{Summarize}\par
+It can be observed from the results obtained that:
+\begin{itemize}
+    \item Too high or to low number of components leads to a worsening of the metrics considered.
+    \item The best outcomes show that class 0 requires fewer components, meaning it requires a simpler model.
+    In contrast, for class 1 it is observed that the number of components is greater this requires a more complex model to avoid underfitting.
+    \item Comparing the outcomes with previously applied methods shows that the performance is better but also better calibrated since the gap between minDCF and actDCF is low.
+    \item GMM seems to prove to be the best performing model on our data set for several reasons.
+    Because the combination of multiple Gaussian distributions allows for better modeling of more complex distributions.
+    Also by estimating Gaussian parameters we can effectively model the distributions of the data we have, even if they are complex.
+    Finally, through cross-validation we can choose the number of components we think is most correct for each class.
+    For all these reasons we can say that in our case this seems to be the model that best fits.
+\end{itemize}

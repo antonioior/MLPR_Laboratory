@@ -66,6 +66,25 @@ def GMM(DTR, LTR, DVAL, LVAL, printResults=False):
             plt.tight_layout()
             plt.show()
 
+            for value in result["values"]:
+                print(
+                    f"\t\tcomponentGmm0 = {value['componentGmm0']}, componentGmm1 = {value['componentGmm1']}, minDCF = {value['minDCF']:.4f}, actDCF = {value['actDCF']:.4f}")
+                if (value['componentGmm0'] == 1 and value['componentGmm1'] == 16) or (
+                        value['componentGmm0'] == 2 and value['componentGmm1'] == 16) or (
+                        value['componentGmm0'] == 8 and value['componentGmm1'] == 32) or (
+                        value['componentGmm0'] == 8 and value['componentGmm1'] == 16):
+                    effPriorLogOdds, dcfBayesError, minDCFBayesError = bayesError(
+                        llr=value["llr"],
+                        LTE=LVAL,
+                        lineLeft=lineLeft,
+                        lineRight=lineRight
+                    )
+
+                    createBayesErrorPlots(effPriorLogOdds, dcfBayesError, minDCFBayesError, [-4, 4], [0, 0.9], "r", "b",
+                                          f"componentGmm0 = {value["componentGmm0"]}, componentGmm1 = {value["componentGmm1"]}, {result['covType'].upper()}",
+                                          show=True)
+                    index += 1
+
 
 # LAB 11
 class GMMObject:
