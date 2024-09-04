@@ -4,7 +4,7 @@ import scipy.optimize as sp
 
 from DCF import minDCF, actDCF
 from SVMClass import SVM
-from graph import plotDCF
+from graph import plotDCF, bayesError, createBayesErrorPlots
 from graph import createMinDCFActDCFPlot
 
 
@@ -43,7 +43,7 @@ def radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph=""):
             resultRadial[gamma][1]["config" + str(count)]["errorRate"] = (Pval != LVAL).sum() / float(LVAL.size)
             resultRadial[gamma][1]["config" + str(count)]["minDCF"] = minDCF(sllr, LVAL, priorT, 1, 1)
             resultRadial[gamma][1]["config" + str(count)]["actDCF"] = actDCF(sllr, LVAL, priorT, 1, 1)
-
+            resultRadial[gamma][1]["config" + str(count)]["sllr"] = sllr
             count += 1
 
     if printResult:
@@ -118,3 +118,15 @@ def radialSVM(DTR, LTR, DVAL, LVAL, printResult=True, titleGraph=""):
             togheter=False,
             logScale=True
         )
+
+        for key in resultRadial[3][1]:
+            if resultRadial[3][1][key]['C'] == 100 and resultRadial[3][1][key]['gamma'] == gammaValues[3]:
+                effPriorLogOdds, dcfBayesError, minDCFBayesError = bayesError(
+                    llr=resultRadial[3][1][key]['sllr'],
+                    LTE=LVAL,
+                    lineLeft=-4,
+                    lineRight=4
+                )
+                createBayesErrorPlots(effPriorLogOdds, dcfBayesError, minDCFBayesError, [-4, 4], [0, 0.9], "r", "b",
+                                      f"SVM with RBF kernel, C = {resultRadial[3][1][key]['C']}, \u03B3 = {resultRadial[3][1][key]['gamma']}",
+                                      show=True)
