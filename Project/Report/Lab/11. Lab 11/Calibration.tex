@@ -1,57 +1,60 @@
 %! Author = anton
 %! Date = 31/08/2024
 
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{>{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm}}
-        \toprule
-        & \multicolumn{3}{c}{\textbf{Uncalibrated Models [minDCF - actDCF]}} \\
-        \midrule
-        \textbf{QLR} & \multicolumn{3}{c}{0.2436 - 0.4972} \\
-        \textbf{SVM} & \multicolumn{3}{c}{0.1845 - 0.3581} \\
-        \textbf{GMM} & \multicolumn{3}{c}{0.1312 - 0.1517} \\
-        \midrule
-        \midrule
-        & \multicolumn{3}{c}{\textbf{Calibrated Models [minDCF - actDCF]}} \\
-        \midrule
-        & \(\tilde{\pi} = 0.1\) & \(\tilde{\pi} = 0.5\) & \(\tilde{\pi} = 0.9\) \\
-        \midrule
-        \textbf{QLR}    & 0.2486 - 0.2721       & 0.2496 - 0.2609       & 0.2480 - 0.2657       \\
-        \textbf{SVM}    & 0.1794 - 0.1894       & 0.1814 - 0.2032       & 0.1881 - 0.2020       \\
-        \textbf{GMM}    & 0.1324 - 0.1518       & 0.1314 - 0.1518       & 0.1283 - 0.1559       \\
-        \midrule
-        \textbf{Fusion} & 0.1304 - 0.1568       & 0.1373 - 0.1639       & 0.1382 - 0.1731       \\
-        \bottomrule
-    \end{tabular}
-    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
-    \caption{Show minDCF and actDCF for different models before and after calibration}
-    \label{tab:resultUnCalibratedAndCalibratedModels}
-\end{table}
+\subsection{Calibration Consideration On Selected Models}
+\textbf{BestModels}
 
-
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{>{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm}}
-        \toprule
-        & \multicolumn{3}{c}{\textbf{Uncalibrated Models [minDCF - actDCF]}} \\
-        \midrule
-        \textbf{QLR} & \multicolumn{3}{c}{} \\
-        \textbf{SVM} & \multicolumn{3}{c}{} \\
-        \textbf{GMM} & \multicolumn{3}{c}{} \\
-        \midrule
-        \midrule
-        & \multicolumn{3}{c}{\textbf{Calibrated Models [minDCF - actDCF]}} \\
-        \midrule
-        & \(\tilde{\pi} = 0.1\) & \(\tilde{\pi} = 0.5\) & \(\tilde{\pi} = 0.9\) \\
-        \midrule
-        \textbf{QLR}    &                       &                       &                       \\
-        \textbf{SVM}    &                       &                       &                       \\
-        \textbf{GMM}    &                       &                       &                       \\
-        \midrule
-        \textbf{Fusion} &                       &                       &                       \\
-        \bottomrule
-    \end{tabular}
-    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
-    \caption{Show minDCF and actDCF for different models before and after calibration on eval dataset}
-    \label{tab:resultUnCalibratedAndCalibratedModelsOnEval}
-\end{table}
+%\begin{table}[h!]
+%    \centering
+%    \begin{tabular}{>{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm}}
+%        \toprule
+%        & \multicolumn{3}{c}{\textbf{Uncalibrated Models [minDCF - actDCF]}} \\
+%        \midrule
+%        \textbf{QLR} & \multicolumn{3}{c}{0.2436 - 0.4972} \\
+%        \textbf{SVM} & \multicolumn{3}{c}{0.1845 - 0.3581} \\
+%        \textbf{GMM} & \multicolumn{3}{c}{0.1312 - 0.1517} \\
+%        \midrule
+%        \midrule
+%        & \multicolumn{3}{c}{\textbf{Calibrated Models [minDCF - actDCF]}} \\
+%        \midrule
+%        & \(\tilde{\pi} = 0.1\) & \(\tilde{\pi} = 0.5\) & \(\tilde{\pi} = 0.9\) \\
+%        \midrule
+%        \textbf{QLR}    & 0.2486 - 0.2721       & 0.2496 - 0.2609       & 0.2480 - 0.2657       \\
+%        \textbf{SVM}    & 0.1794 - 0.1894       & 0.1814 - 0.2032       & 0.1881 - 0.2020       \\
+%        \textbf{GMM}    & 0.1324 - 0.1518       & 0.1314 - 0.1518       & 0.1283 - 0.1559       \\
+%        \midrule
+%        \textbf{Fusion} & 0.1304 - 0.1568       & 0.1373 - 0.1639       & 0.1382 - 0.1731       \\
+%        \bottomrule
+%    \end{tabular}
+%    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+%    \caption{Show minDCF and actDCF for different models before and after calibration}
+%    \label{tab:resultUnCalibratedAndCalibratedModels}
+%\end{table}
+%
+%
+%\begin{table}[h!]
+%    \centering
+%    \begin{tabular}{>{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm}}
+%        \toprule
+%        & \multicolumn{3}{c}{\textbf{Uncalibrated Models [minDCF - actDCF]}} \\
+%        \midrule
+%        \textbf{QLR} & \multicolumn{3}{c}{} \\
+%        \textbf{SVM} & \multicolumn{3}{c}{} \\
+%        \textbf{GMM} & \multicolumn{3}{c}{} \\
+%        \midrule
+%        \midrule
+%        & \multicolumn{3}{c}{\textbf{Calibrated Models [minDCF - actDCF]}} \\
+%        \midrule
+%        & \(\tilde{\pi} = 0.1\) & \(\tilde{\pi} = 0.5\) & \(\tilde{\pi} = 0.9\) \\
+%        \midrule
+%        \textbf{QLR}    &                       &                       &                       \\
+%        \textbf{SVM}    &                       &                       &                       \\
+%        \textbf{GMM}    &                       &                       &                       \\
+%        \midrule
+%        \textbf{Fusion} &                       &                       &                       \\
+%        \bottomrule
+%    \end{tabular}
+%    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+%    \caption{Show minDCF and actDCF for different models before and after calibration on eval dataset}
+%    \label{tab:resultUnCalibratedAndCalibratedModelsOnEval}
+%\end{table}
