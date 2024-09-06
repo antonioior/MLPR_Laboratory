@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.5.28)  6 SEP 2024 10:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.5.28)  6 SEP 2024 10:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1564,14 +1564,18 @@ png  used on input line 104.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26]) [27 <./Lab/11. Lab 11/Images/CalibrationAndFusion/01. QLR.png> <./Lab/11.
- Lab 11/Images/CalibrationAndFusion/02. SVM.png> <./Lab/11. Lab 11/Images/Calib
-rationAndFusion/03. GMM.png> <./Lab/11. Lab 11/Images/CalibrationAndFusion/04. 
-Fusion.png>] (./report.aux (./MainPage/cover.aux))
+[26]) (./Lab/11. Lab 11/ExperimentalResults.tex) [27 <./Lab/11. Lab 11/Images/C
+alibrationAndFusion/01. QLR.png> <./Lab/11. Lab 11/Images/CalibrationAndFusion/
+02. SVM.png> <./Lab/11. Lab 11/Images/CalibrationAndFusion/03. GMM.png> <./Lab/
+11. Lab 11/Images/CalibrationAndFusion/04. Fusion.png>] (./report.aux
+(./MainPage/cover.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
 Package rerunfilecheck Warning: File `report.out' has changed.
@@ -1580,39 +1584,35 @@ Package rerunfilecheck Warning: File `report.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `report.out':
 (rerunfilecheck)             Before: 82772C0B26955D0B6ECBA1A0D5DBF395;4715
-(rerunfilecheck)             After:  5E96ECE3513A62E91B58C625681C071B;4568.
+(rerunfilecheck)             After:  41D264ECFA6D48A86CFEA548A065C53D;4823.
  ) 
 Here is how much of TeX's memory you used:
- 25982 strings out of 476076
- 503967 string characters out of 5793775
+ 25992 strings out of 476076
+ 504341 string characters out of 5793775
  1957187 words of memory out of 5000000
- 47466 multiletter control sequences out of 15000+600000
+ 47472 multiletter control sequences out of 15000+600000
  568139 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,13n,87p,543b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{section.7} has been referenced but does not exist, 
-replaced by a fixed one
-
- </home/antonio/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk><
-/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report.pdf (27 pages, 4196334 bytes).
+ </home/antonio/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk
+></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam
+10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on report.pdf (27 pages, 4196553 bytes).
 PDF statistics:
- 633 PDF objects out of 1000 (max. 8388607)
- 457 compressed objects within 5 object streams
- 136 named destinations out of 1000 (max. 500000)
+ 634 PDF objects out of 1000 (max. 8388607)
+ 458 compressed objects within 5 object streams
+ 137 named destinations out of 1000 (max. 500000)
  493 words of extra memory for PDF output out of 10000 (max. 10000000)
 

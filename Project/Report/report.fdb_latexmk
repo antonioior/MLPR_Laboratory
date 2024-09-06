@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1725611732.31026 "report.tex" "report.pdf" "report" 1725611734.55404 2
+["pdflatex"] 1725611852.847 "report.tex" "report.pdf" "report" 1725611855.11457 2
   "/home/antonio/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1703087554.42514 11524 1ece08c0d6c17c995b6e85a5799be38b ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1716849630 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1716849630 1004 54797486969f23fa377b128694d548df ""
@@ -259,6 +259,7 @@
   "Lab/10. Lab 10/Images/09. 8-16 Diag.png" 1725463556.71972 25235 de6848bae5c3981a20c7c932a46b102c ""
   "Lab/10. Lab 10/Images/10. 8-32 Diag.png" 1725463556.72072 25511 e36051afa57f87c5002a37bb623098e4 ""
   "Lab/11. Lab 11/Calibration.tex" 1725611728.25674 6758 311e24ca1bf466a0a66b38f204c149ea ""
+  "Lab/11. Lab 11/ExperimentalResults.tex" 1725611851.0893 1503 ca0fd7ae1d8c8b732472c0c583d09ccb ""
   "Lab/11. Lab 11/Images/BestConfiguration/01. QLR.png" 1725482451.91538 30792 5e987e3c86996b3fff2aeda053cd50bd ""
   "Lab/11. Lab 11/Images/BestConfiguration/02. SVM.png" 1725483797.22958 28450 dfefd656a467dd66c75d7b89ed72121c ""
   "Lab/11. Lab 11/Images/BestConfiguration/03. GMM.png" 1725463556.72072 25511 e36051afa57f87c5002a37bb623098e4 ""
@@ -266,12 +267,12 @@
   "Lab/11. Lab 11/Images/CalibrationAndFusion/02. SVM.png" 1725225546.83243 32430 d6a00e67330eb2f4717bee02b63ed991 ""
   "Lab/11. Lab 11/Images/CalibrationAndFusion/03. GMM.png" 1725225578.9528 27105 dd2104ad3d6cbd005674641e32dd94c4 ""
   "Lab/11. Lab 11/Images/CalibrationAndFusion/04. Fusion.png" 1725225622.14392 49826 8d9945cc75602103cba303d6d40e07ce ""
-  "MainPage/cover.aux" 1725611732.71841 895 be8693aec3c05667efc22d4e921b5fad "pdflatex"
+  "MainPage/cover.aux" 1725611853.2566 895 be8693aec3c05667efc22d4e921b5fad "pdflatex"
   "MainPage/cover.tex" 1720162388.96707 340 a477c04896ee19ef30cb8fc7217cf139 ""
-  "report.aux" 1725611734.43253 30882 374a3f6c6d48e50961837c227a892a08 "pdflatex"
-  "report.out" 1725611734.43509 4568 5e96ece3513a62e91b58c625681c071b "pdflatex"
-  "report.tex" 1725611711.81891 3999 ea9ede9ab526f6cef1b885426642d969 ""
-  "report.toc" 1725611734.4354 2312 601cb1e96830f269c29ae87e4a0ed087 "pdflatex"
+  "report.aux" 1725611854.98828 31267 3030f2c47a0c621f6fe7d238cc67de43 "pdflatex"
+  "report.out" 1725611854.99098 4823 41d264ecfa6d48a86cfea548a065c53d "pdflatex"
+  "report.tex" 1725611821.04343 3996 cfe66edb9a9bb667396758ed7bb9a42b ""
+  "report.toc" 1725611854.99132 2466 771b26f2ccaa1f7d1b21849e232e835f "pdflatex"
   (generated)
   "MainPage/cover.aux"
   "report.aux"
