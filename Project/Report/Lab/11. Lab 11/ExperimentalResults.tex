@@ -61,4 +61,27 @@ and a \(\tilde{\pi} = 0.1\).
 The \autoref{tab:resultUnCalibratedAndCalibratedModelsOnEval} shows the minDCF and actDCF for different models before and
 after calibration on the evaluation dataset.
 From the values obtained, it is confirmed that GMM is again the method that gives the best performance, but Fusion also
-gives good results that do not deviate much from those of GMM.
+gives good results that do not deviate much from those of GMM.\\
+As seen above GMM is the best method for our case study, it might be interesting to see what happens by changing the convolution
+type and the number of components on the evaluation dataset, leading to a better outcome.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{>{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm} >{\centering\arraybackslash}p{2.9cm}}
+        \toprule
+        \multicolumn{3}{c}{\textbf{GMM chosen (Diag, nc0 = 8, nc1 = 32)}} \\
+        \midrule
+        & \textbf{Uncalibrated} & \textbf{Calibrated} \\
+        \midrule
+        minDCF - actDCF &                       &                     \\
+        \midrule
+        \multicolumn{3}{c}{\textbf{GMM other (Diag, nc0 = , nc1 = )}} \\
+        \midrule
+        minDCF - actDCF &                       &                     \\
+        \bottomrule
+    \end{tabular}
+    \captionsetup{justification=justified,singlelinecheck=false,format=hang}
+    \caption{Show minDCF and actDCF for GMM chosen and another}
+    \label{tab:GMMVSAnother}
+\end{table}
+

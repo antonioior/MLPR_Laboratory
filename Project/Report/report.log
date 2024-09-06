@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.5.28)  6 SEP 2024 12:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.5.28)  6 SEP 2024 15:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1596,6 +1596,9 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 ) [27 <./Lab/11. Lab 11/Images/CalibrationAndFusion/01. QLR.png> <./Lab/11. Lab
  11/Images/CalibrationAndFusion/02. SVM.png> <./Lab/11. Lab 11/Images/Calibrati
 onAndFusion/03. GMM.png> <./Lab/11. Lab 11/Images/CalibrationAndFusion/04. Fusi
@@ -1611,10 +1614,10 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 41D264ECFA6D48A86CFEA548A065C53D;4823.
  ) 
 Here is how much of TeX's memory you used:
- 26050 strings out of 476076
- 506889 string characters out of 5793775
+ 26052 strings out of 476076
+ 506923 string characters out of 5793775
  1957187 words of memory out of 5000000
- 47527 multiletter control sequences out of 15000+600000
+ 47528 multiletter control sequences out of 15000+600000
  568139 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,13n,87p,543b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1633,10 +1636,10 @@ ist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam
 10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report.pdf (28 pages, 4314877 bytes).
+Output written on report.pdf (28 pages, 4315620 bytes).
 PDF statistics:
- 655 PDF objects out of 1000 (max. 8388607)
- 470 compressed objects within 5 object streams
- 140 named destinations out of 1000 (max. 500000)
+ 656 PDF objects out of 1000 (max. 8388607)
+ 471 compressed objects within 5 object streams
+ 141 named destinations out of 1000 (max. 500000)
  521 words of extra memory for PDF output out of 10000 (max. 10000000)
 

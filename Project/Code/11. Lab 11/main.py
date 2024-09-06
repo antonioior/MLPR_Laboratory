@@ -14,6 +14,7 @@ from generativeModels import generativeModels
 from load import load
 from utils import split_db_2to1
 from Evaluation import evaluation
+from GMMOtherMethods import GMMOtherMethods
 
 if __name__ == "__main__":
     trainLogisticRegression = False
@@ -93,9 +94,10 @@ if __name__ == "__main__":
 
     # LAB 11
     if calibrationRun:
-        qlr, svm, gmm = calibration(DTR, LTR, DVAL, LVAL, printResult=True)
+        qlr, svm, gmm = calibration(DTR, LTR, DVAL, LVAL, printResult=False)
         evalData, evalLabels = load('Data/evalData.txt')
         pT = 0.1
         prior_Cals = [0.1, 0.5, 0.9]
         for prior_Cal in prior_Cals:
-            evaluation(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, prior_Cal, printResult=True)
+            evaluation(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, prior_Cal, printResult=False)
+        GMMOtherMethods(DTR, LTR, DVAL, LVAL, evalData, evalLabels, printResults=True)
