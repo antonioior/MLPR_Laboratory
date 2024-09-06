@@ -96,5 +96,6 @@ if __name__ == "__main__":
         qlr, svm, gmm = calibration(DTR, LTR, DVAL, LVAL, printResult=True)
         evalData, evalLabels = load('Data/evalData.txt')
         pT = 0.1
-        prior_Cal = 0.1
-        evaluation(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, prior_Cal, printResult=True)
+        prior_Cals = [0.1, 0.5, 0.9]
+        for prior_Cal in prior_Cals:
+            evaluation(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, prior_Cal, printResult=True)

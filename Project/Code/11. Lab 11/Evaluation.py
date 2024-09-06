@@ -28,7 +28,7 @@ def evaluationQLR(DVAL, LVAL, qlr, evalData, evalLabels, pT, priorCal, printResu
     actDCFEvalCal = actDCF(calibratedScoreQLR_eval, evalLabels, pT, 1, 1)
 
     if printResult:
-        print("EVALUATION")
+        print(f"EVALUATION - priorCal {priorCal}")
         print(f"\tQUADRATIC LOGISTIC REGRESSION")
         printData(minDCFEval, actDCFEval, minDCFEvalCal, actDCFEvalCal, scoreQLR_eval, evalLabels,
                   calibratedScoreQLR_eval, evalLabels, "QLR - calibration evaluation", "b")
