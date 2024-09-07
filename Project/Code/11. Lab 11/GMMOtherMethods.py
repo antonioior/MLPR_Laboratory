@@ -1,7 +1,9 @@
 from GMM import GMMObject
-from LBG import trainGMMCalibrationReturnMinAndActDCF
-from Evaluation import evaluationGMM
 from DCF import minDCF, actDCF
+from utils import vrow
+from PriorWeightedBinLogReg import priorWeightedLogClass
+import scipy.optimize as sp
+import numpy as np
 
 
 def GMMOtherMethods(DTR, LTR, DVAL, LVAL, evalData, evalLabels, printResults=False):
@@ -11,24 +13,26 @@ def GMMOtherMethods(DTR, LTR, DVAL, LVAL, evalData, evalLabels, printResults=Fal
     priorCal = 0.1
     psi = 0.01
     alpha = 0.1
-    K = 5
     for covType in covTypes:
         for componentGMM0 in components:
             for componentGMM1 in components:
                 gmm = GMMObject(DTR, LTR, componentGMM0, componentGMM1, alpha, psi, covType)
-                score, minDCFWithoutCal, actDCFWithoutCal = gmm.trainGMMReturnMinAndActDCF(DVAL, LVAL,
-                                                                                           priorT)
-                # minDCFKFold, actDCFKFold, llrK, labelK = trainGMMCalibrationReturnMinAndActDCF(K, priorCal, priorT,
-                #                                                                                score, LVAL)
-                calibratedScoreGMM_eval, evalLabels = evaluationGMM(DVAL, LVAL, gmm, evalData, evalLabels, priorT,
-                                                                    priorCal, False)
+                _, _, _ = gmm.trainGMMReturnMinAndActDCF(DVAL, LVAL,
+                                                         priorT)
+                scoreGMM_eval = gmm.computeScore(evalData)
+                minDCFEval = minDCF(scoreGMM_eval, evalLabels, priorT, 1, 1)
+                actDCFEval = actDCF(scoreGMM_eval, evalLabels, priorT, 1, 1)
+
+                logRegWeight = priorWeightedLogClass(vrow(gmm.computeScore(DVAL)), LVAL, 0, priorCal)
+                vf = sp.fmin_l_bfgs_b(func=logRegWeight.logreg_obj, x0=np.zeros(logRegWeight.DTR.shape[0] + 1))[0]
+                w, b = vf[:-1], vf[-1]
+                calibratedScoreGMM_eval = (w.T @ vrow(scoreGMM_eval) + b - np.log(priorCal / (1 - priorCal))).ravel()
                 minDCFEvalCal = minDCF(calibratedScoreGMM_eval, evalLabels, priorT, 1, 1)
                 actDCFEvalCal = actDCF(calibratedScoreGMM_eval, evalLabels, priorT, 1, 1)
 
                 if printResults:
-                    print(f"RESULT FOR CALIBRATION GMM")
                     print(f"\tcovType: {covType} - componentGMM0: {componentGMM0} - componentGMM1: {componentGMM1}")
-                    print(f"\t\tminDCFWithoutCal: {minDCFWithoutCal}")
-                    print(f"\t\tactDCFWithoutCal: {actDCFWithoutCal}")
-                    print(f"\t\tminDCFEval: {minDCFEvalCal}")
-                    print(f"\t\tactDCFEval: {actDCFEvalCal}")
+                    print(f"\t\tminDCFWithoutCal: {minDCFEval:.4f}")
+                    print(f"\t\tactDCFWithoutCal: {actDCFEval:.4f}")
+                    print(f"\t\tminDCFEval: {minDCFEvalCal:.4f}")
+                    print(f"\t\tactDCFEval: {actDCFEvalCal:.4f}")
