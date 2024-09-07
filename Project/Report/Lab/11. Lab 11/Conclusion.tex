@@ -4,4 +4,12 @@
 Concluding our experiment, it can be observed that quadratic models perform better.
 Furthermore, among these models, it can be seen that those that make assumptions about the independence of the features don't lose performance,
 which means that the features are indeed not particularly correlated, and this is also confirmed by the GMM model, the best performing,
-that the features can be considered independent of each other.
+that the features can be considered independent of each other.\\
+Following on from what has been said about features independence, it can be seen that PCA did not lead to any real improvement,
+these might be possible because the original features are already independent and contribute uniformly to the variance of the data,
+hence PCA might not improve performance.
+This is because PCA may be useful when there are relationships between features that could be exploited to reduce dimensionality,
+but when this relationship does not exist, each component carries with it a small part of the total variance,
+thus making the application of PCA of little use.
+In conclusion, it can be said that the considerations made on our model, based on the training dataset, also proved useful on the evaluation dataset.
+In fact, the model chosen was the one that performed best on the latter dataset as well.

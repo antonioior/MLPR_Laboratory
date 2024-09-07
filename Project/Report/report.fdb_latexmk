@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1725631282.0726 "report.tex" "report.pdf" "report" 1725631284.47763 2
+["pdflatex"] 1725729331.1841 "report.tex" "report.pdf" "report" 1725729333.62022 2
   "/home/antonio/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1703087554.42514 11524 1ece08c0d6c17c995b6e85a5799be38b ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1716849630 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1716849630 1004 54797486969f23fa377b128694d548df ""
@@ -259,7 +259,7 @@
   "Lab/10. Lab 10/Images/09. 8-16 Diag.png" 1725463556.71972 25235 de6848bae5c3981a20c7c932a46b102c ""
   "Lab/10. Lab 10/Images/10. 8-32 Diag.png" 1725463556.72072 25511 e36051afa57f87c5002a37bb623098e4 ""
   "Lab/11. Lab 11/Calibration.tex" 1725611728.25674 6758 311e24ca1bf466a0a66b38f204c149ea ""
-  "Lab/11. Lab 11/Conclusion.tex" 1725631280.38632 464 bcbedda1e0dbaa576eb5025ff60a3f1a ""
+  "Lab/11. Lab 11/Conclusion.tex" 1725729329.89416 1297 99cc1b2606090abac480c8ae606c1626 ""
   "Lab/11. Lab 11/ExperimentalResults.tex" 1725630280.99592 4148 4fd6d4756f73a6e654dc714b64a3d16b ""
   "Lab/11. Lab 11/Images/BestConfiguration/01. QLR.png" 1725482451.91538 30792 5e987e3c86996b3fff2aeda053cd50bd ""
   "Lab/11. Lab 11/Images/BestConfiguration/02. SVM.png" 1725483797.22958 28450 dfefd656a467dd66c75d7b89ed72121c ""
@@ -272,12 +272,12 @@
   "Lab/11. Lab 11/Images/Evaluation/02. SVM.png" 1725225660.20307 30656 79bb47e1b0bf6260a2241a13c875206e ""
   "Lab/11. Lab 11/Images/Evaluation/03. GMM.png" 1725225678.6901 24995 aedf8b91e63d6f37dcb89f169c1073c5 ""
   "Lab/11. Lab 11/Images/Evaluation/04. Fusion.png" 1725227129.26342 48931 6bd949828fd927e490f012427c2ca09b ""
-  "MainPage/cover.aux" 1725631282.47664 895 be8693aec3c05667efc22d4e921b5fad "pdflatex"
+  "MainPage/cover.aux" 1725729331.58881 895 be8693aec3c05667efc22d4e921b5fad "pdflatex"
   "MainPage/cover.tex" 1720162388.96707 340 a477c04896ee19ef30cb8fc7217cf139 ""
-  "report.aux" 1725631284.32672 33268 8a0011ee42deb9358a1d756cf1756ac6 "pdflatex"
-  "report.out" 1725631284.32935 4917 f66fdc86b115d11c757fd81574f54d26 "pdflatex"
+  "report.aux" 1725729333.4852 33268 8a0011ee42deb9358a1d756cf1756ac6 "pdflatex"
+  "report.out" 1725729333.4879 4917 f66fdc86b115d11c757fd81574f54d26 "pdflatex"
   "report.tex" 1725630456.83184 4095 38d35b96d44bfd60d9811a0e3b587d44 ""
-  "report.toc" 1725631284.34009 2533 f84904abc2e4dc81673c2de981515a9b "pdflatex"
+  "report.toc" 1725729333.48833 2533 f84904abc2e4dc81673c2de981515a9b "pdflatex"
   (generated)
   "MainPage/cover.aux"
   "report.aux"
