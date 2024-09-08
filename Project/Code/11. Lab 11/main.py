@@ -100,4 +100,4 @@ if __name__ == "__main__":
         prior_Cals = [0.1, 0.5, 0.9]
         for prior_Cal in prior_Cals:
             evaluation(DVAL, LVAL, qlr, svm, gmm, evalData, evalLabels, pT, prior_Cal, printResult=False)
-        GMMOtherMethods(DTR, LTR, DVAL, LVAL, evalData, evalLabels, printResults=True)
+        GMMOtherMethods(DTR, LTR, DVAL, LVAL, evalData, evalLabels, printResults=False)
