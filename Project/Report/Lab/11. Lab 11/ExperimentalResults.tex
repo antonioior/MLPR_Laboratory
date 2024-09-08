@@ -62,8 +62,12 @@ The \autoref{tab:resultUnCalibratedAndCalibratedModelsOnEval} shows the minDCF a
 after calibration on the evaluation dataset.
 From the values obtained, it is confirmed that GMM is again the method that gives the best performance, but Fusion also
 gives good results that do not deviate much from those of GMM.\\
-As seen above GMM is the best method for our case study, it might be interesting to see what happens by changing the convolution
-type and the number of components on the evaluation dataset, leading to a better outcome.
+As seen above GMM is the best method for our case study, it might be interesting to see what happens when changing the type
+of convolution and the number of components on the evaluation dataset, leading to a better result.
+Testing other strategies, we observe that the one with the best result is the one that applies a diagonal convolution, however,
+we observe that the number of components that improve the result change, becoming nc0=4 and nc1=16.
+This could be because the distribution of the data in the evaluation dataset is slightly different from the training dataset
+resulting in a better outcome on a different number of components to be used, the results are shown in the \autoref{tab:GMMVSAnother}.
 
 \begin{table}[h!]
     \centering
@@ -84,4 +88,5 @@ type and the number of components on the evaluation dataset, leading to a better
     \caption{Show minDCF and actDCF for GMM chosen and another}
     \label{tab:GMMVSAnother}
 \end{table}
+\newpage
 
