@@ -61,8 +61,11 @@ where:
     \label{eq:withinClass}
 \end{equation}
 
-\(\mu\) is dataset mean
-\(\mu_{c}\) is class mean
+\(\mu\) is dataset mean, \(\mu_{c}\) is class mean, \(n_c\) is the number of samples in class \(c\), and \(N\) is the total number of samples.\\
+The directions of LDA can be calculated by solving the generalised eigenvalue problem, as one wants to find the associated eigenvectors \(S_w^{-1}S_b\).
+This method allows us to find at most C-1 discriminant directions, where C is the number of classes, since the objective of
+LDA is to maximize the separation between classes.
+In our case there are 2 classes so there is only one direction
 
 % OUR PROJECT
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.5.28)  8 SEP 2024 16:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.5.28)  8 SEP 2024 17:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -979,7 +979,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: Lab/03. Lab 03/Images/02. PVA_LDA.png Graphic file (type png)
 <use Lab/03. Lab 03/Images/02. PVA_LDA.png>
 Package pdftex.def Info: Lab/03. Lab 03/Images/02. PVA_LDA.png  used on input l
-ine 76.
+ine 79.
 (pdftex.def)             Requested size: 241.84843pt x 241.83919pt.
 
 
@@ -987,7 +987,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (./Lab/04. Lab 04/MultivariateGaussianDensity.tex [6 <./Lab/03. Lab 03/Images
 /01. PercentageVariance_NumberOfComponents.png (PNG copy)>]
-<Lab/04. Lab 04/Images/01. GaussianDensity.png, id=227, 2007.5pt x 1003.75pt>
+<Lab/04. Lab 04/Images/01. GaussianDensity.png, id=228, 2007.5pt x 1003.75pt>
 File: Lab/04. Lab 04/Images/01. GaussianDensity.png Graphic file (type png)
 <use Lab/04. Lab 04/Images/01. GaussianDensity.png>
 Package pdftex.def Info: Lab/04. Lab 04/Images/01. GaussianDensity.png  used on
@@ -1083,8 +1083,8 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Lab/05. Lab 05/ClassificationModels.tex [8 <./Lab/04. Lab 04/Images/01. Ga
-ussianDensity.png (PNG copy)>]
+[8 <./Lab/04. Lab 04/Images/01. GaussianDensity.png (PNG copy)>])
+(./Lab/05. Lab 05/ClassificationModels.tex
 ./Lab/05. Lab 05/ClassificationModels.tex:38: Undefined control sequence.
 l.38 ...s based on a comparison between the \(\llr
                                                   \) and a threshold \(\th\),
@@ -1111,45 +1111,42 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[9] [10]) (./Lab/07. Lab 07/PerformanceClassifier.tex
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[11]
-<Lab/07. Lab 07/Images/01. MVG.png, id=291, 642.4pt x 481.8pt>
+[9] [10]) (./Lab/07. Lab 07/PerformanceClassifier.tex [11] [12]
+<Lab/07. Lab 07/Images/01. MVG.png, id=296, 642.4pt x 481.8pt>
 File: Lab/07. Lab 07/Images/01. MVG.png Graphic file (type png)
 <use Lab/07. Lab 07/Images/01. MVG.png>
 Package pdftex.def Info: Lab/07. Lab 07/Images/01. MVG.png  used on input line 
 146.
 (pdftex.def)             Requested size: 145.11053pt x 108.83406pt.
-<Lab/07. Lab 07/Images/02. Naive Bayes.png, id=292, 642.4pt x 481.8pt>
+<Lab/07. Lab 07/Images/02. Naive Bayes.png, id=297, 642.4pt x 481.8pt>
 File: Lab/07. Lab 07/Images/02. Naive Bayes.png Graphic file (type png)
 <use Lab/07. Lab 07/Images/02. Naive Bayes.png>
 Package pdftex.def Info: Lab/07. Lab 07/Images/02. Naive Bayes.png  used on inp
 ut line 151.
 (pdftex.def)             Requested size: 145.11053pt x 108.83406pt.
-<Lab/07. Lab 07/Images/03. Tied.png, id=293, 642.4pt x 481.8pt>
+<Lab/07. Lab 07/Images/03. Tied.png, id=298, 642.4pt x 481.8pt>
 File: Lab/07. Lab 07/Images/03. Tied.png Graphic file (type png)
 <use Lab/07. Lab 07/Images/03. Tied.png>
 Package pdftex.def Info: Lab/07. Lab 07/Images/03. Tied.png  used on input line
  156.
 (pdftex.def)             Requested size: 145.11053pt x 108.83406pt.
- [12]) (./Lab/08. Lab 08/LogisticRegressionClassifier.tex [13 <./Lab/07. Lab 07
-/Images/01. MVG.png> <./Lab/07. Lab 07/Images/02. Naive Bayes.png> <./Lab/07. L
-ab 07/Images/03. Tied.png>]
-<Lab/08. Lab 08/Images/01. BLR - minDCF.png, id=315, 642.4pt x 481.8pt>
+)
+(./Lab/08. Lab 08/LogisticRegressionClassifier.tex [13 <./Lab/07. Lab 07/Images
+/01. MVG.png> <./Lab/07. Lab 07/Images/02. Naive Bayes.png> <./Lab/07. Lab 07/I
+mages/03. Tied.png>]
+<Lab/08. Lab 08/Images/01. BLR - minDCF.png, id=314, 642.4pt x 481.8pt>
 File: Lab/08. Lab 08/Images/01. BLR - minDCF.png Graphic file (type png)
 <use Lab/08. Lab 08/Images/01. BLR - minDCF.png>
 Package pdftex.def Info: Lab/08. Lab 08/Images/01. BLR - minDCF.png  used on in
 put line 57.
 (pdftex.def)             Requested size: 193.47578pt x 145.10718pt.
-<Lab/08. Lab 08/Images/02. BLR - actDCF.png, id=316, 642.4pt x 481.8pt>
+<Lab/08. Lab 08/Images/02. BLR - actDCF.png, id=315, 642.4pt x 481.8pt>
 File: Lab/08. Lab 08/Images/02. BLR - actDCF.png Graphic file (type png)
 <use Lab/08. Lab 08/Images/02. BLR - actDCF.png>
 Package pdftex.def Info: Lab/08. Lab 08/Images/02. BLR - actDCF.png  used on in
 put line 61.
 (pdftex.def)             Requested size: 193.47578pt x 145.10718pt.
-<Lab/08. Lab 08/Images/03. BLR - min And actDCF.png, id=317, 642.4pt x 481.8pt>
+<Lab/08. Lab 08/Images/03. BLR - min And actDCF.png, id=316, 642.4pt x 481.8pt>
 
 File: Lab/08. Lab 08/Images/03. BLR - min And actDCF.png Graphic file (type png
 )
@@ -1157,7 +1154,7 @@ File: Lab/08. Lab 08/Images/03. BLR - min And actDCF.png Graphic file (type png
 Package pdftex.def Info: Lab/08. Lab 08/Images/03. BLR - min And actDCF.png  us
 ed on input line 65.
 (pdftex.def)             Requested size: 193.47578pt x 145.10718pt.
-<Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized.png, id=318, 642.4
+<Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized.png, id=317, 642.4
 pt x 481.8pt>
 File: Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNormalized.png Graphic f
 ile (type png)
@@ -1165,7 +1162,7 @@ ile (type png)
 Package pdftex.def Info: Lab/08. Lab 08/Images/04. BLR - minAnd actDCF - ZNorma
 lized.png  used on input line 69.
 (pdftex.def)             Requested size: 193.47578pt x 145.10718pt.
-<Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png, id=319, 642.4pt x 481.8
+<Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png, id=318, 642.4pt x 481.8
 pt>
 File: Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png Graphic file (type 
 png)
@@ -1173,7 +1170,7 @@ png)
 Package pdftex.def Info: Lab/08. Lab 08/Images/05. BLR - minDCF 50 Samples.png 
  used on input line 79.
 (pdftex.def)             Requested size: 193.47578pt x 145.10718pt.
-<Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png, id=320, 642.4pt x 481.8
+<Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png, id=319, 642.4pt x 481.8
 pt>
 File: Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png Graphic file (type 
 png)
@@ -1181,7 +1178,7 @@ png)
 Package pdftex.def Info: Lab/08. Lab 08/Images/06. BLR - actDCF 50 Samples.png 
  used on input line 83.
 (pdftex.def)             Requested size: 193.47578pt x 145.10718pt.
-<Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Samples.png, id=321, 642.4pt x
+<Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Samples.png, id=320, 642.4pt x
  481.8pt>
 File: Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Samples.png Graphic file 
 (type png)
@@ -1190,7 +1187,7 @@ Package pdftex.def Info: Lab/08. Lab 08/Images/07. BLR - minAndactDCF 50 Sample
 s.png  used on input line 87.
 (pdftex.def)             Requested size: 193.47578pt x 145.10718pt.
 <Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized.png, id=
-322, 642.4pt x 481.8pt>
+321, 642.4pt x 481.8pt>
 File: Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized.png
  Graphic file (type png)
 <use Lab/08. Lab 08/Images/08. BLR - minAndactDCF 50 Samples - ZNormalized.png>
@@ -1637,7 +1634,7 @@ ist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam
 10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report.pdf (29 pages, 4319615 bytes).
+Output written on report.pdf (29 pages, 4320062 bytes).
 PDF statistics:
  666 PDF objects out of 1000 (max. 8388607)
  480 compressed objects within 5 object streams

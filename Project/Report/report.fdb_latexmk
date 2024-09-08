@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1725806754.14017 "report.tex" "report.pdf" "report" 1725806756.50879 2
+["pdflatex"] 1725807797.5631 "report.tex" "report.pdf" "report" 1725807799.94777 2
   "/home/antonio/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1703087554.42514 11524 1ece08c0d6c17c995b6e85a5799be38b ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1716849630 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1716849630 1004 54797486969f23fa377b128694d548df ""
@@ -207,7 +207,7 @@
   "Lab/02. Lab 02/Images/04. Graphics Features 3_4 With Mean.png" 1720162388.94819 255809 1d05e32a739a8f3a93a10fc831256ba1 ""
   "Lab/02. Lab 02/Images/05. Graphics Features 5_6 Without Mean.png" 1720162388.95073 385874 8950d505dbf6913a1b1feaa4ae87449d ""
   "Lab/02. Lab 02/Images/06. Graphics Features 5_6 With Mean.png" 1720162388.95327 385763 940bb0fa60f06aa726461fe3ed3df873 ""
-  "Lab/03. Lab 03/DimensionalityReduction.tex" 1725036073.57009 4567 bf64efa83eac08f9b8730953c9a152cf ""
+  "Lab/03. Lab 03/DimensionalityReduction.tex" 1725807795.44436 5053 36940362114139398305575ae9d3824b ""
   "Lab/03. Lab 03/Images/01. PercentageVariance_NumberOfComponents.png" 1720162388.9541 22880 6280be6954793f150102f91dec8533c5 ""
   "Lab/03. Lab 03/Images/02. PVA_LDA.png" 1720162388.95929 678317 3076e5c4645074f5590a3a2f8225d5e0 ""
   "Lab/04. Lab 04/Images/01. GaussianDensity.png" 1720162388.96056 149505 95cd2d0adf8f5dc1683fb63135c470a6 ""
@@ -272,12 +272,12 @@
   "Lab/11. Lab 11/Images/Evaluation/02. SVM.png" 1725225660.20307 30656 79bb47e1b0bf6260a2241a13c875206e ""
   "Lab/11. Lab 11/Images/Evaluation/03. GMM.png" 1725225678.6901 24995 aedf8b91e63d6f37dcb89f169c1073c5 ""
   "Lab/11. Lab 11/Images/Evaluation/04. Fusion.png" 1725227129.26342 48931 6bd949828fd927e490f012427c2ca09b ""
-  "MainPage/cover.aux" 1725806754.54884 895 be8693aec3c05667efc22d4e921b5fad "pdflatex"
+  "MainPage/cover.aux" 1725807797.98061 895 be8693aec3c05667efc22d4e921b5fad "pdflatex"
   "MainPage/cover.tex" 1725805460.30563 360 315e7b994598a11ba7d79d61ee883fb7 ""
-  "report.aux" 1725806756.37726 33268 c8f9952b991991c952ad6c934262b324 "pdflatex"
-  "report.out" 1725806756.37972 4917 f66fdc86b115d11c757fd81574f54d26 "pdflatex"
+  "report.aux" 1725807799.82568 33269 79f73a037821f6d113105b5247d2747c "pdflatex"
+  "report.out" 1725807799.82826 4917 f66fdc86b115d11c757fd81574f54d26 "pdflatex"
   "report.tex" 1725805257.83107 4095 38d35b96d44bfd60d9811a0e3b587d44 ""
-  "report.toc" 1725806756.38002 2533 d64de55dada4f2f4f43a4ff245c393a6 "pdflatex"
+  "report.toc" 1725807799.82857 2533 f1c00631a346c31bac0b33241dd617d3 "pdflatex"
   (generated)
   "MainPage/cover.aux"
   "report.aux"

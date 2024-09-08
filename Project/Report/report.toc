@@ -5,7 +5,7 @@
 \contentsline {subsection}{\numberline {2.1}PCA}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}LDA}{5}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Our project}{6}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Multivariate Gaussian Density}{6}{section.3}%
+\contentsline {section}{\numberline {3}Multivariate Gaussian Density}{7}{section.3}%
 \contentsline {section}{\numberline {4}Model evaluation for classification}{7}{section.4}%
 \contentsline {section}{\numberline {5}Classification Models Analysis}{9}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Gaussian models}{9}{subsection.5.1}%
