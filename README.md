@@ -1,4 +1,4 @@
 **MACHINE LEARNING AND PATTERN RECOGNITION**
 
-This repository contains the labs and the project related to the
-subject of machine learning and pattern recognition.
+This repository contains the labs and the project with the related
+report for the subject machine learning and patter recognition.
